@@ -44,7 +44,7 @@ export default function Header() {
 
       <Navegation />
 
-      <button aria-label="Theme Button" id="switch-theme" class="switch-theme" onClick={SwitchTheme}></button>
+      <button aria-label="Theme Button" id="switch-theme" class="header__switch-theme" onClick={SwitchTheme}></button>
     </header>
   )
 }

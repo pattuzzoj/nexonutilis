@@ -1,0 +1,39 @@
+.header {}
+.header__logo {}
+.header__switch-theme {}
+.header__switch-theme:hover {}
+
+@media screen and (min-width:540px) {
+  .header {}
+  .header__logo {}
+  .header__switch-theme {}
+  .header__switch-theme:hover {}
+}
+
+@media screen and (min-width:768px) {
+  .header {}
+  .header__logo {}
+  .header__switch-theme {}
+  .header__switch-theme:hover {}
+}
+
+@media screen and (min-width:1024px) {
+  .header {}
+  .header__logo {}
+  .header__switch-theme {}
+  .header__switch-theme:hover {}
+}
+
+@media screen and (min-width:1366px) {
+  .header {}
+  .header__logo {}
+  .header__switch-theme {}
+  .header__switch-theme:hover {}
+}
+
+@media screen and (min-width:1920px) {
+  .header {}
+  .header__logo {}
+  .header__switch-theme {}
+  .header__switch-theme:hover {}
+}

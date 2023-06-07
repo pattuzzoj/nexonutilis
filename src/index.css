@@ -1,13 +1,376 @@
-body {
+/*
+Name: 
+Description: 
+Version: 1.0.0
+Last modified: 00/00/2023
+Author: Júlio Pattuzzo
+*/
+
+/*** COMPATIBILITY
+
+Opera: -o-
+Firefox: -moz-
+Internet Explorer: -ms-
+Based on Chromium: -webkit-
+
+*** COMPATIBILITY ***/
+
+/*** RESET ***/
+
+body, h1, h2, h3, h4, h5, h6, p, pre, blockquote,
+dl, dd, fieldset, figure, form, menu, ol, ul {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+table, thead, tbody, tfoot,
+tr, input, button {
+  border: none;
+}
+
+hr {
+  margin: 0;
+  border: none;
+}
+
+menu, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+u {
+  text-decoration: none;
+}
+
+legend {
+  border: none;
+  padding: 0;
+}
+
+fieldset {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*** RESET ***/
+
+
+
+/*** VARIABLES ***/
+
+:root {
+  --xx-small: 320px;
+  --x-small: 540px;
+  --small: 768px;
+  --medium: 1024px;
+  --large: 1366px;
+  --x-large: 1920px;
+
+  --font-title: Arial, Helvetica, sans-serif;
+  --font-sub-title: Arial, Helvetica, sans-serif;
+  --font-paragraph: 'Open Sans', sans-serif;
+  --font-interactive: 'Open Sans', sans-serif;
+
+  --icon-theme: ;
+  --icon-logo: ;
+  --primary-color: ;
+  --page-color: ;
+
+  --light-gray-closest-to-white: rgb(247, 247, 247);
+  --light-gray: rgb(242, 242, 242);
+  --lighter-gray: rgb(204, 204, 204);
+  --medium-gray: rgb(153, 153, 153);
+  --dark-gray: rgb(102, 102, 102);
+  --medium-gray-closest-to-black: rgb(68, 68, 68);
+  --dark-gray-closest-to-black: rgb(51, 51, 51);
+  --darker-gray: rgb(34, 34, 34);
+  --black-slightly-lighter: rgb(17, 17, 17);
+  --black-slightly-darker: rgb(5, 5, 5);
+  
+  
+  --white: rgb(255, 255, 255);
+  --gray: rgb(127, 127, 127);
+  --gray-64: rgb(64, 64, 64);
+  --gray-32: rgb(32, 32, 32); 
+  --black: rgb(0, 0, 0);
+
+
+  --purple-light: rgb(191, 95, 255);
+  --purple: rgb(160, 32, 240);
+  --purple-dark: rgb(114, 47, 173);
+  --blue-light: rgb(92, 92, 255);
+  --blue: rgb(0, 0, 255);
+  --blue-dark: rgb(0, 0, 139);
+  --green-light: rgb(127, 255, 127);
+  --green: rgb(0, 255, 0);
+  --green-dark: rgb(0, 128, 0);
+  --gray: rgb(128, 128, 128);
+  --yellow-light: rgb(255, 255, 0);
+  --yellow: rgb(255, 215, 0);
+  --yellow-dark: rgb(189, 183, 107);
+  --orange-light: rgb(255, 160, 122);
+  --orange: rgb(255, 69, 0);
+  --orange-dark: rgb(255, 140, 0);
+  --red-light: rgb(255, 105, 105);
+  --red: rgb(255, 0, 0);
+  --red-dark: rgb(139, 0, 0);
+  --black-light: rgb(105, 105, 105);
+  --black: rgb(0, 0, 0);
+  --pink-light: rgb(255, 87, 160);
+  --pink: rgb(255, 30, 107);
+  --pink-dark: rgb(192, 23, 84);
+  --cyan-light: rgb(87, 255, 255);
+  --cyan: rgb(30, 255, 238);
+  --cyan-dark: rgb(23, 192, 167);
+  --violet-light: rgb(139, 87, 255);
+  --violet: rgb(90, 30, 255);
+  --violet-dark: rgb(71, 23, 192);
+  --magenta-light: rgb(255, 87, 224);
+  --magenta: rgb(255, 30, 171);
+  --magenta-dark: rgb(192, 23, 138);
+  --teal-light: rgb(87, 255, 178);
+  --teal: rgb(30, 255, 130);
+  --teal-dark: rgb(23, 192, 104);
+  --lime-light: rgb(200, 255, 87);
+  --lime: rgb(163, 255, 30);
+  --lime-dark: rgb(134, 192, 23);
+  --brown-light: rgb(181, 122, 87);
+  --brown: rgb(145, 84, 30);
+  --brown-dark: rgb(114, 60, 23);
+  --silver-light: rgb(192, 192, 192);
+  --silver: rgb(175, 175, 175);
+  --silver-dark: rgb(127, 127, 127);
+  --gold-light: rgb(255, 215, 0);
+  --gold: rgb(255, 182, 0);
+  --gold-dark: rgb(205, 168, 0);
+  --maroon-light: rgb(255, 182, 193);
+  --maroon: rgb(128, 0, 0);
+  --maroon-dark: rgb(102, 0, 0);
+  --coral-light: rgb(255, 127, 80);
+  --coral: rgb(255, 64, 64);
+  --coral-dark: rgb(139, 37, 0);
+  --lavender-light: rgb(230, 230, 250);
+  --lavender: rgb(107, 70, 193);
+  --lavender-dark: rgb(76, 42, 133);
+  --khaki-light: rgb(240, 230, 140);
+  --khaki: rgb(195, 176, 145);
+  --khaki-dark: rgb(189, 183, 107);
+  --salmon-light: rgb(255, 160, 122);
+  --salmon: rgb(250, 128, 114);
+  --salmon-dark: rgb(205, 92, 92);
+  --steel-light: rgb(176, 196, 222);
+  --steel: rgb(70, 130, 180);
+  --steel-dark: rgb(28, 28, 28);
+  --navy-light: rgb(51, 51, 153);
+  --navy: rgb(0, 0, 128);
+  --navy-dark: rgb(0, 0, 102);
+  --turquoise-light: rgb(64, 224, 208);
+  --turquoise: rgb(0, 206, 209);
+  --turquoise-dark: rgb(0, 139, 139);
+  --olive-light: rgb(204, 255, 153);
+  --olive: rgb(128, 128, 0);
+  --olive-dark: rgb(85, 107, 47);
+  --beige-light: rgb(245, 245, 220);
+  --beige: rgb(245, 222, 179);
+  --beige-dark: rgb(210, 180, 140);
+  --indigo-light: rgb(138, 43, 226);
+  --indigo: rgb(75, 0, 130);
+  --indigo-dark: rgb(58, 0, 112);
+  --sky-light: rgb(135, 206, 235);
+  --sky: rgb(0, 191, 255);
+  --sky-dark: rgb(30, 144, 255);
+  --tan-light: rgb(210, 180, 140);
+  --tan: rgb(160, 82, 45);
+  --tan-dark: rgb(139, 69, 19);
+  --orchid-light: rgb(218, 112, 214);
+  --orchid: rgb(153, 50, 204);
+  --orchid-dark: rgb(139, 0, 139);
+  --peach-light: rgb(255, 229, 180);
+  --peach: rgb(255, 203, 164);
+  --peach-dark: rgb(192, 123, 91);
+}
+
+/*** VARIABLES ***/
+
+/*** TYPOGRAPHY ***/
+
+/* @font-face {
+	font-family: 'Open Sans';
+	src: url(../font/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
+} */
+
+@font-face {
+  font-family: "Aquire";
+  src: url("assets/fonts/Aquire-Bold.otf");
+}
+
+
+html {
+  font-size: 12px;
+  font-size: clamp(12px, 2vw, 18px);
+}
+
+h1, h2, h3, h4, h5, h6, p, pre, blockquote,
+dl, dd, li, a, button, label {
+  font-family: var(--font-paragraph);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 1.5rem;
+  word-spacing: 0.03rem;
+  letter-spacing: 0.02rem;
+  color: var(--color-principal);
+}
+
+li, a, button, label {
+  font-size: 0.9rem;
+}
+
+a {
+  font-family: var(--font-interactive);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.9rem;
+  line-height: 3.1rem;
+  word-spacing: 0.07rem;
+  letter-spacing: 0.13rem;
+}
+
+h2 {
+  font-size: 2.3rem;
+  line-height: 2.9rem;
+  word-spacing: 0.07rem;
+  letter-spacing: 0.11rem;
+}
+
+h3 {
+  font-size: 1.9rem;
+  line-height: 2.3rem;
+  word-spacing: 0.05rem;
+  letter-spacing: 0.07rem;
+
+}
+
+h4,
+h5,
+h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.7rem;
+  line-height: 1.7rem;
+  word-spacing: 0.05rem;
+  letter-spacing: 0.05rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  word-spacing: 0.03rem;
+  letter-spacing: 0.03rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  word-spacing: 0.03rem;
+  letter-spacing: 0.02rem;
+}
+
+small {
+  font-size: 0.7rem;
+  color: var(--color-principal);
+}
+
+html[data-theme="light"] {
+  --menu-bg-color: var(--black-slightly-lighter);
+  --menu-link-color: var(--white);
+  --menu-link-bg-color: var(--black-slightly-lighter);
+  --menu-link-color-hover: var(--black);
+  --menu-link-color-after: var(--white);
+  --page-color:;
+  --page-bg-color: linear-gradient(to right, #2b6580, #2b8065);
+  --header-color:;
+  --header-bg-color: var(--black-slightly-lighter);
+  --footer-color:;
+  --footer-bg-color: var(--black-slightly-lighter);
+
+  --gradient: linear-gradient(to right, #2b6580, #2b8065);
+  --border-gradient: linear-gradient(to right, #2b6580, #2b8065) 1;
+
+  --icon-logo: url("assets/imgs/hexa-light.png");
+  --icon-theme: url("assets/imgs/light-mode.svg");
+}
+html[data-theme="dark"] {
+  --menu-bg-color: var(--black-slightly-lighter);
+  --menu-link-color: var(--white);
+  --menu-link-bg-color: var(--black-slightly-lighter);
+  --menu-link-color-hover: var(--black);
+  --menu-link-color-after: var(--white);
+  --page-color:;
+  --page-bg-color: linear-gradient(to right, rgb(6, 15, 8), rgb(22, 8, 23));
+  --header-color:;
+  --header-bg-color: var(--black-slightly-lighter);
+  --footer-color:;
+  --footer-bg-color: var(--black-slightly-lighter);
+
+  --gradient: linear-gradient(to right, #00d9ff, #c001fa);
+  --border-gradient: linear-gradient(to right, #00d9ff, #c001fa) 1;
+
+  --icon-logo: url("assets/imgs/hexa-dark.png");
+  --icon-theme: url("assets/imgs/dark-mode.svg");
+}
+
+/*** TYPOGRAPHY ***/
+
+.page {
+  background-image: var(--page-bg-color);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh
+}
+
+@import url(components/header/header.css);
+@import url(components/main/main.css);
+@import url(components/footer/footer.css);
+
+
+
+@media screen and (min-width:320px) {
+}
+
+@media screen and (min-width:540px) {
+}
+
+@media screen and (min-width:768px) {
+}
+
+@media screen and (min-width:1024px) {
+}
+
+@media screen and (min-width:1366px) {
+}
+
+@media screen and (min-width:1920px) {
 }
