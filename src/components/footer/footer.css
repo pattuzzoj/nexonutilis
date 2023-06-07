@@ -1,14 +1,58 @@
+.footer {}
+.footer__menu {}
+.footer__menu-list {}
+.footer__menu-item {}
+.footer__menu-link {}
+.footer__adress {}
+.footer__copyright {}
+
 @media screen and (min-width:540px) {
+  .footer {}
+  .footer__menu {}
+  .footer__menu-list {}
+  .footer__menu-item {}
+  .footer__menu-link {}
+  .footer__adress {}
+  .footer__copyright {}
 }
 
 @media screen and (min-width:768px) {
+  .footer {}
+  .footer__menu {}
+  .footer__menu-list {}
+  .footer__menu-item {}
+  .footer__menu-link {}
+  .footer__adress {}
+  .footer__copyright {}
 }
 
 @media screen and (min-width:1024px) {
+  .footer {}
+  .footer__menu {}
+  .footer__menu-list {}
+  .footer__menu-item {}
+  .footer__menu-link {}
+  .footer__adress {}
+  .footer__copyright {}
 }
 
+
 @media screen and (min-width:1366px) {
+  .footer {}
+  .footer__menu {}
+  .footer__menu-list {}
+  .footer__menu-item {}
+  .footer__menu-link {}
+  .footer__adress {}
+  .footer__copyright {}
 }
 
 @media screen and (min-width:1920px) {
+  .footer {}
+  .footer__menu {}
+  .footer__menu-list {}
+  .footer__menu-item {}
+  .footer__menu-link {}
+  .footer__adress {}
+  .footer__copyright {}
 }

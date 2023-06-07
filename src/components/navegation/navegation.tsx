@@ -1,12 +1,12 @@
 export default function Navegation() {
   return (
     <nav class="navegation">
-      <button aria-label="header Button" id="menu__toggle" class="menu__toggle"></button>
+      <button aria-label="header Button" id="navegation__menu-toggle" class="navegation__menu-toggle"></button>
 
-      <menu id="menu__list" class="menu__list">
-				<li class="menu__item"><a class="menu__link" href="/">Home</a></li>
-        <li class="menu__item"><a class="menu__link" href="/">Contact</a></li>
-        <li class="menu__item"><a class="menu__link" href="/">About</a></li>
+      <menu id="navegation__menu-list" class="navegation__menu-list">
+				<li class="navegation__menu-item"><a class="navegation__menu-link" href="/">Home</a></li>
+        <li class="navegation__menu-item"><a class="navegation__menu-link" href="/">Contact</a></li>
+        <li class="navegation__menu-item"><a class="navegation__menu-link" href="/">About</a></li>
       </menu>
     </nav>
   );

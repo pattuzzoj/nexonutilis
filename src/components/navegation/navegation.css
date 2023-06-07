@@ -1,14 +1,52 @@
+.navegation {}
+.navegation__menu-toggle {}
+.navegation__menu {}
+.navegation__menu-list {}
+.navegation__menu-item {}
+.navegation__menu-link {}
+
+
 @media screen and (min-width:540px) {
+  .navegation {}
+  .navegation__menu-toggle {}
+  .navegation__menu {}
+  .navegation__menu-list {}
+  .navegation__menu-item {}
+  .navegation__menu-link {}
 }
 
 @media screen and (min-width:768px) {
+  .navegation {}
+  .navegation__menu-toggle {}
+  .navegation__menu {}
+  .navegation__menu-list {}
+  .navegation__menu-item {}
+  .navegation__menu-link {}
 }
 
 @media screen and (min-width:1024px) {
+  .navegation {}
+  .navegation__menu-toggle {}
+  .navegation__menu {}
+  .navegation__menu-list {}
+  .navegation__menu-item {}
+  .navegation__menu-link {}
 }
 
 @media screen and (min-width:1366px) {
+  .navegation {}
+  .navegation__menu-toggle {}
+  .navegation__menu {}
+  .navegation__menu-list {}
+  .navegation__menu-item {}
+  .navegation__menu-link {}
 }
 
 @media screen and (min-width:1920px) {
+  .navegation {}
+  .navegation__menu-toggle {}
+  .navegation__menu {}
+  .navegation__menu-list {}
+  .navegation__menu-item {}
+  .navegation__menu-link {}
 }
