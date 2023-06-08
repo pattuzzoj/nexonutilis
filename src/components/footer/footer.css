@@ -1,4 +1,6 @@
 .footer {
+  display: flex;
+  justify-content: center;
   padding: 20px;
   background-color: rgb(0, 0, 0, 0.3);
 }
@@ -8,7 +10,7 @@
 .footer__menu-link {}
 .footer__adress {}
 .footer__copyright {
-  text-align: center;
+  color: white;
 }
 
 @media screen and (min-width:540px) {
