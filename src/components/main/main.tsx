@@ -18,7 +18,8 @@ const cardsData: { [key: string]: any } = {
   {title: "Foruns", description: "Comunidades online onde desenvolvedores podem discutir e obter suporte em tópicos específicos.", "url": "/menu/foruns", "hreflang": ""},
   {title: "Busca de Vagas", description: "Ferramentas para encontrar oportunidades de emprego e estágio na área de tecnologia.", "url": "/menu/busca-de-vagas", "hreflang": ""},
   {title: "Canais de Tecnologia", description: "Canais de vídeo e podcasts que abordam temas relacionados à tecnologia e programação.", "url": "/menu/canais-de-tecnologia", "hreflang": ""},
-  {title: "Blogs de Tecnologia", description: "Blogs informativos e atualizados que compartilham notícias e artigos sobre tecnologia.", "url": "/menu/blogs-de-tecnologia", "hreflang": ""}],
+  {title: "Blogs de Tecnologia", description: "Blogs informativos e atualizados que compartilham notícias e artigos sobre tecnologia.", "url": "/menu/blogs-de-tecnologia", "hreflang": ""},
+],
 
   "cursos": 
   [{"CardID":"1","category":"cursos","title":"Alura","description":"Sequências de cursos organizados em Formações · Programação. Arquitetura e Design de Projetos Java · Arquitetura PHP · Front-end. Acessibilidade Web etc.","url":"https://www.alura.com.br/","hreflang":"pt"},
@@ -52,14 +53,15 @@ const cardsData: { [key: string]: any } = {
   {"CardID":"7","category":"video tutoriais","title":"RocketSeat","description":"","url":"https://www.rocketseat.com.br/","hreflang":"pt"},],
 
   "frameworks": 
-  [{"CardID":"1","category":"frameworks","title":"React","description":"Uma biblioteca JavaScript para construir interfaces de usuário interativas e reutilizáveis.","url":"https://react.dev/","hreflang":"en"},
-  {"CardID":"2","category":"frameworks","title":"Express.js","description":"Um framework web rápido e minimalista para construir aplicativos web em Node.js.","url":"https://expressjs.com/pt-br/","hreflang":"en"},],
+  [{"CardID":"1","category":"frameworks","title":"React.js","description":"Uma biblioteca JavaScript para construir interfaces de usuário interativas e reutilizáveis.","url":"https://react.dev/","hreflang":"en"},
+  {"CardID":"2","category":"frameworks","title":"Solid.js","description":"Uma biblioteca JavaScript para construir interfaces de usuário interativas e reutilizáveis.","url":"https://react.dev/","hreflang":"en"},
+  {"CardID":"3","category":"frameworks","title":"Express.js","description":"Um framework web rápido e minimalista para construir aplicativos web em Node.js.","url":"https://expressjs.com/pt-br/","hreflang":"en"},
+],
 
   "editores de codigo": 
-  [{"CardID":"1","category":"Editores de Código","title":"Atom","description":"Atom é um editor de texto de código aberto disponível para as plataformas Linux, macOS e Microsoft Windows, desenvolvido pelo GitHub sob a licença MIT.","url":"https://atom.io/","hreflang":"en"},
-  {"CardID":"2","category":"Editores de Código","title":"Brackets","description":"Traduzido do inglês-Brackets é um editor de código fonte com foco principal em desenvolvimento web.","url":"https://brackets.io/","hreflang":"en"},
-  {"CardID":"3","category":"Editores de Código","title":"Sublime Text","description":"Sublime Text é um editor de código-fonte multi-plataforma e shareware com uma interface de programação de aplicativos para a linguagem Python.","url":"https://www.sublimetext.com/","hreflang":"en"},
-  {"CardID":"4","category":"Editores de Código","title":"Visual Studio Code","description":"O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, Linux e macOS.","url":"https://code.visualstudio.com/","hreflang":"en"},],
+  [{"CardID":"1","category":"Editores de Código","title":"Brackets","description":"Traduzido do inglês-Brackets é um editor de código fonte com foco principal em desenvolvimento web.","url":"https://brackets.io/","hreflang":"en"},
+  {"CardID":"2","category":"Editores de Código","title":"Sublime Text","description":"Sublime Text é um editor de código-fonte multi-plataforma e shareware com uma interface de programação de aplicativos para a linguagem Python.","url":"https://www.sublimetext.com/","hreflang":"en"},
+  {"CardID":"3","category":"Editores de Código","title":"Visual Studio Code","description":"O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, Linux e macOS.","url":"https://code.visualstudio.com/","hreflang":"en"},],
 
   "extensoes": 
   [{"CardID":"1","category":"Extensões","title":"Accessibility Insigh","description":"","url":"https://chrome.google.com/webstore/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni","hreflang":"en"},
@@ -96,24 +98,40 @@ const cardsData: { [key: string]: any } = {
   {"CardID":"3","category":"plataformas de edição","title":"Figma","description":"Figma é um editor gráfico de vetor e prototipagem de projetos de design baseado principalmente no navegador web, com ferramentas offline adicionais para aplicações desktop para GNU/Linux, macOS e Wind","url":"https://www.figma.com/","hreflang":"en"},
   {"CardID":"4","category":"plataformas de edição","title":"Sketch","description":"Sketch é um editor de gráficos vetoriais para macOS desenvolvido pela empresa holandesa Sketch B.V.","url":"https://www.sketch.com/","hreflang":"en"},],
 
+  "Plataformas de Treinamento": [
+    {"CardID":"1","category":"plataformas de treinamento","title":"beecrowd","description":"Plataforma de treinamento em programação competitiva com desafios e competições, ajudando a desenvolver habilidades em algoritmos e estruturas de dados.","url":"https://www.beecrowd.com.br/judge/pt/login","hreflang":"pt"},
+    {"CardID":"2","category":"plataformas de treinamento","title":"LeetCode","description":"Plataforma popular de treinamento em programação com uma extensa coleção de problemas de codificação, ideal para aprimorar habilidades técnicas e se preparar para entrevistas.","url":"https://leetcode.com/","hreflang":"en"},
+    {"CardID":"3","category":"plataformas de treinamento","title":"HackerRank","description":"Uma das principais plataformas de treinamento em programação, oferecendo desafios, competições e a oportunidade de aprender várias linguagens de programação.","url":"https://www.hackerrank.com/","hreflang":"en"},
+    {"CardID":"4","category":"Plataforma de treinamento","title":"CoderByte","description":"Plataforma de treinamento em programação que combina desafios práticos e tutoriais interativos, abrangendo desde conceitos básicos até tópicos avançados de desenvolvimento de software.","url":"https://coderbyte.com/","hreflang":"en"},
+  ],
+  
+  "jogos de programacao": 
+  [
+    { "CardID": "1", "category": "Jogos de Programação", "title": "Code Combat", "description": "Code Combat é um jogo de programação que ensina os fundamentos da codificação através de desafios interativos. Aprenda a linguagem de programação enquanto enfrenta batalhas épicas em um ambiente de fantasia.", "url": "https://br.codecombat.com/home", "hreflang": "en"},
+    { "CardID": "2", "category": "Jogos de Programação", "title": "Grid Garden", "description": "Grid Garden é um jogo que ensina CSS Grid de forma divertida. Cultive seu jardim de CSS e aprenda os conceitos básicos do CSS Grid.", "url": "https://cssgridgarden.com/", "hreflang": "en"},
+    { "CardID": "3", "category": "Jogos de Programação", "title": "Flexbox Froggy", "description": "Flexbox Froggy é um jogo que ensina Flexbox, uma técnica de layout em CSS. Ajude as rãs a encontrarem seus lugares no lago, aplicando os conceitos do Flexbox.", "url": "https://flexboxfroggy.com", "hreflang": "en"},
+    { "CardID": "4", "category": "Jogos de Programação", "title": "CSS Diner", "description": "CSS Diner é um jogo que ensina seletores CSS. Sirva pratos deliciosos aplicando os seletores corretos para atender aos pedidos dos clientes.", "url": "https://flukeout.github.io/", "hreflang": "en"},
+    {"CardID": "5","category": "Jogos de Programação","title": "Flexbox Zombies","description": "Flexbox Zombies é um jogo que ensina Flexbox através de um cenário pós-apocalíptico de zumbis. Sobreviva aos zumbis aplicando técnicas de layout com Flexbox.","url": "https://mastery.games/flexboxzombies/","hreflang": "en"},
+    {"CardID": "6","category": "Jogos de Programação","title": "CheckIO","description": "CheckIO é uma plataforma que combina jogos e desafios de programação. Melhore suas habilidades de codificação resolvendo problemas e desafios reais.","url": "https://checkio.org/","hreflang": "en"},
+    {"CardID": "7","category": "Jogos de Programação","title": "Codingame","description": "Codingame é uma plataforma que oferece uma variedade de desafios e jogos de programação em várias linguagens. Aperfeiçoe suas habilidades de codificação enquanto se diverte.","url": "https://www.codingame.com/","hreflang": "en"},
+  ],
+  
   "cms": 
   [{"CardID":"1","category":"CMS","title":"Ghost","description":"O Ghost é uma plataforma de blogs gratuita e de código aberto escrita em JavaScript e distribuída sob a licença MIT, projetada para simplificar o processo de publicação online para blogueiros individu","url":"https://ghost.org/","hreflang":"en"},
   {"CardID":"2","category":"CMS","title":"Joomla","description":"Joomla! é um sistema livre open source de gestão de conteúdo web desenvolvido em PHP e com base de dados MySQL, executado em um servidor interpretador.","url":"https://www.joomla.org/","hreflang":"en"},
   {"CardID":"3","category":"CMS","title":"Textpattern","description":"Traduzido do inglês-Textpattern é um sistema de gerenciamento de conteúdo gratuito e de código aberto para PHP e MySQL. Foi originalmente desenvolvido por Dean Allen e agora desenvolvido pela Team Tex","url":"https://textpattern.com/","hreflang":"en"},
   {"CardID":"4","category":"CMS","title":"Wordpress","description":"WordPress é um sistema livre e aberto de gestão de conteúdo para internet, baseado em PHP com banco de dados MySQL, executado em um servidor interpretador, voltado principalmente para a criação de pág","url":"https://br.wordpress.org/","hreflang":"pt"},],
 
-  "jogos de programacao": 
-  [{"CardID":"1","category":"Jogos de Programação","title":"Code Combat","description":"","url":"https://br.codecombat.com/home","hreflang":"en"},
-  {"CardID":"2","category":"Jogos de Programação","title":"Grid Garden","description":"","url":"https://cssgridgarden.com/","hreflang":"en"},
-  {"CardID":"3","category":"Jogos de Programação","title":"Flexbox Froggy","description":"","url":"https://flexboxfroggy.com","hreflang":"en"},
-  {"CardID":"4","category":"Jogos de Programação","title":"CSS Diner","description":"","url":"https://flukeout.github.io/","hreflang":"en"},
-  {"CardID":"5","category":"Jogos de Programação","title":"Flexbox Zombies","description":"","url":"https://mastery.games/flexboxzombies/","hreflang":"en"},],
-
   "servicos de hospedagem": 
   [{"CardID":"1","category":"Serviços de Hospedagem","title":"000webhost","description":"","url":"https://br.000webhost.com/","hreflang":"pt"},
   {"CardID":"2","category":"Serviços de Hospedagem","title":"Hostinger","description":"Hostinger International, Ltd é um provedor de Hospedagem Web de propriedade de funcionários e registrador de domínio na Internet, estabelecido em 2004. A Hostinger é a empresa-mãe da 000Webhost, Niaga","url":"https://www.hostinger.com.br/?utm_medium=affiliate&utm_source=aff28575&utm_campaign=296&session=1027","hreflang":"en"},
-  {"CardID":"3","category":"Serviços de Hospedagem","title":"Infinity Free","description":"","url":"https://infinityfree.net/","hreflang":"en"},],
-
+  {"CardID":"3","category":"Serviços de Hospedagem","title":"Infinity Free","description":"","url":"https://infinityfree.net/","hreflang":"en"},
+  {"CardID": "4", "category": "Serviços de Hospedagem", "title": "AwardSpace", "description": "Hospedagem gratuita com suporte para PHP, MySQL e construtor de sites.", "url": "https://www.awardspace.com/", "hreflang": "en"},
+  {"CardID": "5", "category": "Serviços de Hospedagem", "title": "Freehosting.com", "description": "Hospedagem gratuita com 10 GB de espaço em disco, suporte a PHP e MySQL, e construtor de sites.", "url": "https://www.freehosting.com/", "hreflang": "en"},
+  { "CardID": "6", "category": "Serviços de Hospedagem", "title": "x10hosting", "description": "Hospedagem gratuita com suporte a PHP, MySQL, cPanel e construtor de sites.", "url": "https://x10hosting.com/", "hreflang": "en"},
+  { "CardID": "7", "category": "Serviços de Hospedagem", "title": "Vercel", "description": "Plataforma de hospedagem para aplicativos estáticos e JAMstack. Oferece escalabilidade e integração com Git.", "url": "https://vercel.com/", "hreflang": "en"},
+  { "CardID": "8", "category": "Serviços de Hospedagem", "title": "W3 Space", "description": "Hospedagem gratuita com suporte a PHP, MySQL e construtor de sites. Oferece domínio gratuito.", "url": "https://w3space.net/", "hreflang": "en"},],
+  
   "foruns": 
   [{"CardID":"1","category":"Fóruns","title":"GitHub","description":"","url":"https://github.community/","hreflang":"en"},
   {"CardID":"2","category":"Fóruns","title":"iMasters","description":"","url":"https://forum.imasters.com.br/","hreflang":"pt"},
