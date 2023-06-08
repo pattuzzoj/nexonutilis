@@ -149,7 +149,7 @@ export default function Main(context: {category: string}) {
         {(card) => {
           return <Card title={card.title} description={card.description} url={card.url} hreflang={card.hreflang} />
         }}
-      </For>;
+      </For>
     </main>
   )
 }
