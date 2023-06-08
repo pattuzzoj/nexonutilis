@@ -12,8 +12,9 @@ const cardsData: { [key: string]: any } = {
   {title: "Bibliotecas de Icones", description: "Coleções de ícones prontos para uso em interfaces de usuário e projetos de design.", "url": "/menu/bibliotecas-de-icones", "hreflang": ""},
   {title: "Biblioteca de Fontes", description: "Repositórios de fontes tipográficas para escolher estilos de texto distintos.", "url": "/menu/bibliotecas-de-fontes", "hreflang": ""},
   {title: "Plataformas de Edicao", description: "Ambientes que permitem a criação e edição de designs gráficos, como imagens, ilustrações e layouts de página.", "url": "/menu/plataformas-de-edicao", "hreflang": ""},
-  {title: "CMS", description: "Sistemas de Gerenciamento de Conteúdo que facilitam a criação e a manutenção de websites.", "url": "/menu/cms", "hreflang": ""},
+  {title: "Plataformas de Treinamento", description: "Ambientes que permitem o treinamento e resolução de exercícios lógicos e de programação.", "url": "/menu/plataformas-de-treinamento", "hreflang": ""},
   {title: "Jogos de Programacao", description: "Jogos interativos que ensinam conceitos de programação de forma divertida e prática.", "url": "/menu/jogos-de-programacao", "hreflang": ""},
+  {title: "CMS", description: "Sistemas de Gerenciamento de Conteúdo que facilitam a criação e a manutenção de websites.", "url": "/menu/cms", "hreflang": ""},
   {title: "Servicos de Hospedagem", description: "Plataformas que permitem publicar e disponibilizar websites e aplicativos na Internet.", "url": "/menu/servicos-de-hospedagem", "hreflang": ""},
   {title: "Foruns", description: "Comunidades online onde desenvolvedores podem discutir e obter suporte em tópicos específicos.", "url": "/menu/foruns", "hreflang": ""},
   {title: "Busca de Vagas", description: "Ferramentas para encontrar oportunidades de emprego e estágio na área de tecnologia.", "url": "/menu/busca-de-vagas", "hreflang": ""},
@@ -98,7 +99,7 @@ const cardsData: { [key: string]: any } = {
   {"CardID":"3","category":"plataformas de edição","title":"Figma","description":"Figma é um editor gráfico de vetor e prototipagem de projetos de design baseado principalmente no navegador web, com ferramentas offline adicionais para aplicações desktop para GNU/Linux, macOS e Wind","url":"https://www.figma.com/","hreflang":"en"},
   {"CardID":"4","category":"plataformas de edição","title":"Sketch","description":"Sketch é um editor de gráficos vetoriais para macOS desenvolvido pela empresa holandesa Sketch B.V.","url":"https://www.sketch.com/","hreflang":"en"},],
 
-  "Plataformas de Treinamento": [
+  "plataformas de treinamento": [
     {"CardID":"1","category":"plataformas de treinamento","title":"beecrowd","description":"Plataforma de treinamento em programação competitiva com desafios e competições, ajudando a desenvolver habilidades em algoritmos e estruturas de dados.","url":"https://www.beecrowd.com.br/judge/pt/login","hreflang":"pt"},
     {"CardID":"2","category":"plataformas de treinamento","title":"LeetCode","description":"Plataforma popular de treinamento em programação com uma extensa coleção de problemas de codificação, ideal para aprimorar habilidades técnicas e se preparar para entrevistas.","url":"https://leetcode.com/","hreflang":"en"},
     {"CardID":"3","category":"plataformas de treinamento","title":"HackerRank","description":"Uma das principais plataformas de treinamento em programação, oferecendo desafios, competições e a oportunidade de aprender várias linguagens de programação.","url":"https://www.hackerrank.com/","hreflang":"en"},

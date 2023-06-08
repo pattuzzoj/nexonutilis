@@ -21,8 +21,9 @@ const App: Component = () => {
           <Route path="/menu/bibliotecas-de-icones" element={<Main category="bibliotecas de icones" />} />
           <Route path="/menu/bibliotecas-de-fontes" element={<Main category="biblioteca de fontes" />} />
           <Route path="/menu/plataformas-de-edicao" element={<Main category="plataformas de edicao" />} />
-          <Route path="/menu/cms" element={<Main category="cms" />} />
+          <Route path="/menu/plataformas-de-treinamento" element={<Main category="plataformas de treinamento" />} />
           <Route path="/menu/jogos-de-programacao" element={<Main category="jogos de programacao" />} />
+          <Route path="/menu/cms" element={<Main category="cms" />} />
           <Route path="/menu/servicos-de-hospedagem" element={<Main category="servicos de hospedagem" />} />
           <Route path="/menu/foruns" element={<Main category="foruns" />} />
           <Route path="/menu/busca-de-vagas" element={<Main category="busca de vagas" />} />
