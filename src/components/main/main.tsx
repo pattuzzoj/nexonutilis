@@ -54,7 +54,7 @@ const cardsData: { [key: string]: any } = {
 
   "frameworks": 
   [{"CardID":"1","category":"frameworks","title":"React.js","description":"Uma biblioteca JavaScript para construir interfaces de usuário interativas e reutilizáveis.","url":"https://react.dev/","hreflang":"en"},
-  {"CardID":"2","category":"frameworks","title":"Solid.js","description":"Uma biblioteca JavaScript para construir interfaces de usuário interativas e reutilizáveis.","url":"https://react.dev/","hreflang":"en"},
+  {"CardID":"2","category":"frameworks","title":"Solid.js","description":"Uma biblioteca JavaScript para construir interfaces de usuário interativas e reutilizáveis.","url":"https://www.solidjs.com/","hreflang":"en"},
   {"CardID":"3","category":"frameworks","title":"Express.js","description":"Um framework web rápido e minimalista para construir aplicativos web em Node.js.","url":"https://expressjs.com/pt-br/","hreflang":"en"},
 ],
 
