@@ -7,7 +7,9 @@
 .footer__menu-item {}
 .footer__menu-link {}
 .footer__adress {}
-.footer__copyright {}
+.footer__copyright {
+  text-align: center;
+}
 
 @media screen and (min-width:540px) {
   .footer {}
