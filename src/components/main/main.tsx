@@ -147,7 +147,7 @@ export default function Main(context: {category: string}) {
     <main class="main">
       <For each={cards}>
         {(card) => {
-          return <Card title={card.title} description={card.description} url={card.url} hreflang={card.hreflang} />;
+          return <Card title={card.title} description={card.description} url={card.url} hreflang={card.hreflang} />
         }}
       </For>;
     </main>
