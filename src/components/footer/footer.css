@@ -1,4 +1,7 @@
-.footer {}
+.footer {
+  padding: 20px;
+  background-color: rgb(0, 0, 0, 0.3);
+}
 .footer__menu {}
 .footer__menu-list {}
 .footer__menu-item {}

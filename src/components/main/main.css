@@ -1,21 +1,39 @@
-.main {}
+.main {
+  display: grid;
+  grid-template-columns: 85vw;
+  justify-content: center;
+  row-gap: 14px;
+  padding: 30px;
+}
+
+@media screen and (min-width:320px) {
+}
 
 @media screen and (min-width:540px) {
-  .main {}
 }
 
 @media screen and (min-width:768px) {
-  .main {}
+  .main {
+    display: grid;
+    column-gap: 2%;
+    row-gap: 20px;
+    grid-template-columns: 45vw 45vw;
+  }
 }
 
 @media screen and (min-width:1024px) {
-  .main {}
+  .main {
+    column-gap: 2%;
+    grid-template-columns: 30vw 30vw 30vw;
+  }
 }
 
 @media screen and (min-width:1366px) {
-  .main {}
+  .main {
+    column-gap: 2%;
+    grid-template-columns: 22.5vw 22.5vw 22.5vw 22.5vw;
+  }
 }
 
 @media screen and (min-width:1920px) {
-  .main {}
 }

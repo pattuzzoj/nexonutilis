@@ -1,4 +1,5 @@
-import Navegation from '../navegation/navegation';
+import { createEffect, createSignal } from 'solid-js';
+import { Router, Routes, Route, useLocation } from '@solidjs/router';
 
 export default function Header() {
   const dataTheme: Element | null = document.firstElementChild;
@@ -38,13 +39,17 @@ export default function Header() {
     }
   }
 
+  const [showBackButton, setShowBackButton] = createSignal(false);
+
+  createEffect(() => {
+    setShowBackButton(useLocation().pathname.includes('/menu/'));
+  });
+
   return (
     <header class="header">
-      <a aria-label="Empíreo" class="header__logo" href="/"></a>
-
-      <Navegation />
-
+      <a aria-label="Empíreo" class="header__logo" href="/">NEXON <u class="header__mark-logo">UTILIS</u></a>
+      {showBackButton() && <a class="header__back_menu" href="/">Back</a>}
       <button aria-label="Theme Button" id="switch-theme" class="header__switch-theme" onClick={SwitchTheme}></button>
     </header>
-  )
+  );
 }

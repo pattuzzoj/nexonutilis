@@ -1,39 +1,52 @@
-.header {}
-.header__logo {}
-.header__switch-theme {}
-.header__switch-theme:hover {}
-
-@media screen and (min-width:540px) {
-  .header {}
-  .header__logo {}
-  .header__switch-theme {}
-  .header__switch-theme:hover {}
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(0, 0, 0, 0.3);
 }
 
-@media screen and (min-width:768px) {
-  .header {}
-  .header__logo {}
-  .header__switch-theme {}
-  .header__switch-theme:hover {}
+.header__logo {
+  font-family: "Aquire";
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
 }
 
-@media screen and (min-width:1024px) {
-  .header {}
-  .header__logo {}
-  .header__switch-theme {}
-  .header__switch-theme:hover {}
+.header__mark-logo {
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 8px;
+  background-image: var(--gradient);
 }
 
-@media screen and (min-width:1366px) {
-  .header {}
-  .header__logo {}
-  .header__switch-theme {}
-  .header__switch-theme:hover {}
+.header__switch-theme {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  order: -1;
+  background-color: transparent;
+  background-image: var(--icon-theme);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
-@media screen and (min-width:1920px) {
-  .header {}
-  .header__logo {}
-  .header__switch-theme {}
-  .header__switch-theme:hover {}
+.header__switch-theme:hover {
+  background-color: rgb(255, 255, 255, 0.3);
+}
+
+.header__back_menu {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  order: -1;
+  border-radius: 12px;
+  padding: 8px;
+  text-decoration: none;
+  color: white;
+  background-image: var(--gradient);
 }

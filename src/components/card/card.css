@@ -1,0 +1,110 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid;
+  border-image: var(--border-gradient);
+  padding: 30px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  z-index: 1;
+}
+
+.card__container {
+  position: absolute;
+  width: 100%;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.card:hover .card__container {
+  transform: scale(1.05) translateY(-30px);
+  background-image: var(--gradient);
+  transition: 0.4s;
+}
+
+.card__title {
+  font-family: "Aquire";
+  font-size: 1rem;
+}
+
+.card__template {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover .card__template {
+  display: flex;
+}
+
+.card__description {
+  margin: 12px 0;
+}
+
+.card__link {
+  border-radius: 12px;
+  padding: 4px;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.459);
+}
+
+@media screen and (min-width:768px) {
+  .card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 2px solid;
+    border-image: var(--border-gradient);
+    padding: 30px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .card:hover {
+    z-index: 1;
+  }
+  
+  .card__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 16px;
+    padding: 12px;
+  }
+  
+  .card:hover .card__container {
+    transform: scale(1.05) translateY(-30px);
+    background-image: var(--gradient);
+    transition: 0.4s;
+  }
+  
+  .card__title {
+    font-family: "Aquire";
+    font-size: 1rem;
+  }
+  
+  .card__template {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card:hover .card__template {
+    display: flex;
+  }
+}
