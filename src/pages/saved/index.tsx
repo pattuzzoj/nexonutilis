@@ -1,6 +1,6 @@
 import { Title, Text } from "components/typography";
 import { For, Show } from "solid-js";
-import Icon from "components/ui/icon";
+import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
 import useSwitch from "hooks/useSwitch";
 

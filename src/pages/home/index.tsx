@@ -3,7 +3,7 @@ import { For, Match, Show, Switch, createEffect } from "solid-js";
 import { useLocation } from "@solidjs/router";
 import { useData } from "context";
 import { database } from "database";
-import Icon from "components/ui/icon";
+import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
 import useSwitch from "hooks/useSwitch";
 
@@ -76,21 +76,21 @@ export default function Home() {
     <div class="w-full flex flex-col">
       <Show when={path() != "/"}>
         <span class="flex items-center gap-2 mb-5 md:mb-5 lg:mb-8">
-          <a class="p-2 text-black hover:text-white bg-white hover:bg-purple rounded-md" href="/">Home</a>
+          <a class="p-2 text-white dark:text-black hover:text-white bg-dark dark:bg-white hover:bg-purple rounded-md" href="/">Home</a>
           <For each={data.currentItems}>
-            {(item) => <><span class="font-bold text-xl">/</span><a class="p-2 text-black hover:text-white bg-white hover:bg-purple rounded-md" href={item.url}>{item.title}</a></>}
+            {(item) => <><span class="font-bold text-xl">/</span><a class="p-2 text-white dark:text-black hover:text-white bg-dark dark:bg-white hover:bg-purple rounded-md" href={item.url}>{item.title}</a></>}
           </For>
         </span>
       </Show>
       <div class="flex flex-col lg:flex-row gap-8">
         <Show when={data.item?.icon}>
-          <div class="w-full lg:w-1/4 flex flex-col items-center gap-2 dark:bg-gray-700/20 rounded-xl h-fit p-5">
+          <div class="w-full lg:w-1/4 flex flex-col items-center gap-2 border-2 border-dark dark:bg-gray-700/20 rounded-xl h-fit p-5">
             <img class="size-20 rounded-xl" src={data.item.icon} alt="" />
             <Title as="4">{data.item.title}</Title>
             <Text class="text-wrap text-ellipsis p-2">{data.item.description}</Text>
             <span class="flex gap-6 w-full">
-              <Show when={data.item?.roadmap}><a class="w-full text-center flex justify-center items-center gap-2 rounded-xl p-2 text-black bg-white" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
-              <Show when={data.item?.site}><a class="w-full text-center flex justify-center items-center gap-2 rounded-xl p-2 text-black bg-white" href={data.item.doc}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
+              <Show when={data.item?.roadmap}><a class="w-full text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-white dark:text-black bg-dark dark:bg-white" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
+              <Show when={data.item?.site}><a class="w-full text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-white dark:text-black bg-dark dark:bg-white" href={data.item.doc}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
             </span>
           </div>
         </Show>
@@ -99,7 +99,7 @@ export default function Home() {
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-5 lg:gap-8">
               <For each={data.item.items}>
                 {(item) => (
-                  <a class="w-full flex flex-col justify-center items-start gap-1 border-2 hover:border-purple rounded-xl p-4 dark:bg-gray-700/20 hover:scale-105 group h-32" href={item.url}>
+                  <a class="w-full flex flex-col justify-center items-start gap-1 border-2 border-dark hover:border-purple rounded-xl p-4 dark:bg-gray-700/20 hover:scale-105 group h-32" href={item.url}>
                     <span class="flex justify-between w-full">
                       <Title as="6">
                         {item.title}
@@ -132,7 +132,7 @@ export default function Home() {
                     </span>
                     <Text class="h-full">{item.description}</Text>
                     <span class="flex flex-col md:flex-row gap-2 md:gap-4 w-full">
-                      <button onClick={() => copy(item.url)} class="md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-black bg-white">{(copyNotification() == item.url)? <>Copied Successfully <Icon name="BiSolidCopy" class="text-purple size-4"/></> : <>Copy<Icon name="OcCopy2" class="hover:text-purple size-4"/></>}</button>
+                      <button onClick={() => copy(item.url)} class="md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-white dark:text-black bg-dark dark:bg-white">{(copyNotification() == item.url)? <>Copied Successfully <Icon name="BiSolidCopy" class="text-purple size-4"/></> : <>Copy<Icon name="OcCopy2" class="hover:text-purple size-4"/></>}</button>
                       <a class="md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-purple" target="_blank" href={item.url}>Access <Icon name="OcLinkexternal2" class="hover:text-purple size-4"/></a>
                     </span>
                   </div>

@@ -5,7 +5,7 @@ import { HTML } from '../utils/constants'
 type Theme = "light" | "dark";
 
 export default function useTheme(): [Accessor<Theme>, Setter<Theme>] {
-  const [theme, setTheme] = useLocalStorage<Theme>("theme", "light");
+  const [theme, setTheme] = useLocalStorage<Theme>("theme", "dark");
   
   createEffect(() => {HTML.setAttribute("data-theme", theme());});
   

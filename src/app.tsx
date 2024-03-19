@@ -7,7 +7,7 @@ export default function App(props: any) {
   return (
   <div class="lg:h-screen">
     <Header/>
-    <div class="flex mx-10 gap-8">
+    <div class="flex md:gap-8 mx-8">
       <DataProvider>
         <SideBar/>
         {props.children}

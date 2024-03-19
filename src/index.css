@@ -17,7 +17,7 @@
     text-black dark:text-white
     bg-white dark:bg-dark
     selection:text-white selection:bg-purple
-    transition-colors duration-200 ease-out
+    transition-colors duration-100 ease-out
   }
 
   h1 {

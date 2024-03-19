@@ -1,7 +1,7 @@
 import useSwitch from "hooks/useSwitch";
 import { For, Show, createEffect, createMemo } from "solid-js";
 import { useLocation, useNavigate } from "@solidjs/router";
-import Icon from "components/ui/icon";
+import Icon from "components/icon";
 
 interface Props {
   data: any;
@@ -35,7 +35,7 @@ export default function Accordion(props: Props) {
           class={`${isActive() && "rotate-90"} size-3 transition-transform`}
         />
       </a>
-      <div class={`${isActive() ? "h-full" : "h-0"} ml-2 flex flex-col gap-1 overflow-hidden transition-all duration-300`}>
+      <div class={`${isActive() ? "h-full" : "h-0"} ml-2 flex flex-col gap-1 overflow-hidden transition-[height] duration-200`}>
         <For each={props.data.items}>
           {(item) => (
             <Show when={item.type == "resources"} fallback={<Accordion data={item} />}>
