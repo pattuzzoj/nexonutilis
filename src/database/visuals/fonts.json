@@ -1,0 +1,23 @@
+{
+  "type": "resources",
+  "title": "Fonts",
+  "description": "Dive into a world of typography with our curated selection of fonts. Whether you're looking for classic serifs, sleek sans-serifs, or unique display fonts, find the right typeface to match the tone and style of your project.",
+  "items": [
+    {
+      "title": "Google Fonts",
+      "description": "Making the web more beautiful, fast, and open through great typography.",
+      "url": "https://fonts.google.com/"
+    },
+    {
+      "title": "DaFont",
+      "description": "Font files available for free. Search alphabetically, by style, by author or by popularity.",
+      "url": "https://www.dafont.com/pt/"
+    },
+    {
+      "title": "FontSpace",
+      "description": "FontSpace is your home for designer-centered, legitimate, and clearly licensed free fonts. You can use our font generator to create fonts that are easy to copy.",
+      "url": "hhttps://www.fontspace.com/"
+    }
+  ],
+  "url": "/visuals/fonts"
+}

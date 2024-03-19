@@ -1,0 +1,23 @@
+{
+  "type": "resources",
+  "title": "Tutorials",
+  "description": "Unleash your coding potential with our curated tutorials.",
+  "items": [
+    {
+      "title": "MDN",
+      "description": "The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps.",
+      "url": "https://developer.mozilla.org/"
+    },
+    {
+      "title": "W3schools",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/"
+    },
+    {
+      "title": "Programiz",
+      "description": "Learn to code in Python, C/C++, Java, and other popular programming languages with our easy to follow tutorials, examples, online compiler and references.",
+      "url": "https://www.programiz.com/"
+    }
+  ],
+  "url": "/tech-hub/tutorials"
+}

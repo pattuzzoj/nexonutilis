@@ -1,0 +1,28 @@
+{
+  "type": "resources",
+  "title": "Courses",
+  "description": "Embark on a journey of continuous learning with our curated selection of courses.",
+  "items": [
+    {
+      "title": "Alura",
+      "description": "Learn Programming, Front-end, Back-end, Data Science, UX, DevOps, Innovation, and Management on Brazil's largest technology platform.",
+      "url": "https://www.alura.com.br/"
+    },
+    {
+      "title": "EBAC",
+      "description": "EBAC offers a fast way to learn design and contemporary professions on the internet. Featuring open classes, online intensives, and courses for swift learning.",
+      "url": "https://ebaconline.com.br/"
+    },
+    {
+      "title": "Rocketseat",
+      "description": "The complete platform for you to learn programming from scratch at your own pace, become Full Stack, and specialize in various technologies without leaving home.",
+      "url": "https://www.rocketseat.com.br/"
+    },
+    {
+      "title": "Origamid",
+      "description": "Learn how to create websites. Classes in Programming, UX/UI Design, WordPress, HTML, CSS, JavaScript, React, TypeScript and more.",
+      "url": "https://www.origamid.com/"
+    }
+  ],
+  "url": "/tech-hub/courses"
+}

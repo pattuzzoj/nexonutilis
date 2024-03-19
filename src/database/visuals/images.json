@@ -1,0 +1,13 @@
+{
+  "type": "resources",
+  "title": "Images",
+  "description": "Discover a rich library of images ranging from stock photos to illustrations. Elevate your projects with high-quality visuals, perfect for web design, marketing materials, or any creative endeavor needing that visual spark.",
+  "items": [
+    {
+      "title": "Unsplash",
+      "description": "Beautiful, free images and photos that you can download and use for any project. Better than any royalty free or stock photos.",
+      "url": "https://unsplash.com/"
+    }
+  ],
+  "url": "/visuals/images"
+}

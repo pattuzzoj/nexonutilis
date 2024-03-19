@@ -1,0 +1,28 @@
+{
+  "type": "resources",
+  "title": "Icons",
+  "description": "Access a wide array of icons to visually complement your digital creations. From minimalist to detailed styles, find the perfect icons for your web pages, apps, and user interfaces, enhancing usability and design.",
+  "items": [
+    {
+      "title": "Iconfinder",
+      "description": "Iconfinder is the world's largest marketplace for icons, illustrations and 3D illustrations in SVG, AI, and PNG format.",
+      "url": "https://www.iconfinder.com/"
+    },
+    {
+      "title": "Flaticon",
+      "description": "Download free Icons & Stickers for your projects. Resources made by and for designers in PNG, SVG, EPS, PSD, and CSS formats.",
+      "url": "https://www.flaticon.com/br/"
+    },
+    {
+      "title": "Icons8",
+      "description": "Download free design elements: icons, photos, vector illustrations, and music for your videos.",
+      "url": "https://icons8.com.br/"
+    },
+    {
+      "title": "Icon.js",
+      "description": "Search for all icons... Ctrl + Enter. General. Material Symbols. GoogleApache 2.012511 icons. 123. 360. 10k. 10k-outline. 10k-outline-rounded.",
+      "url": "https://icones.js.org/"
+    }
+  ],
+  "url": "/visuals/icons"
+}

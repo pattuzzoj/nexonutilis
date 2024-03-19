@@ -1,0 +1,37 @@
+{
+  "ui": {
+    "login": "Entrar",
+    "signup": "Inscreva-se",
+    "contact": "Contato",
+    "view": "Ver Todos",
+    "more": "Leia Mais"
+  },
+  "header": {
+    "menu": {
+      "blogs": "Blogs",
+      "careers": "Carreiras",
+      "pricing": "Preços",
+      "about": "Sobre",
+      "contact": "Contato"
+    }
+  },
+  "footer": {
+    "menu": {
+      "blogs": "Blogs",
+      "careers": "Carreiras",
+      "pricing": "Preços",
+      "about": "Sobre",
+      "contact": "Contato"
+    }
+  },
+  "aside": {
+    "title": "Faça coisas incríveis conosco.",
+    "text": "Mantenha-se atualizado com as novidades da nossa equipe e comunidade. Uma vez por mês.",
+    "email": {
+      "text": "Email",
+      "required": "Este campo é obrigatório",
+      "error": "Por favor, insira um endereço de email válido (example@example.com)",
+      "subscribe": "Inscrever-se para receber a newsletter"
+    }
+  }
+}
