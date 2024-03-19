@@ -2,8 +2,7 @@ import { Show } from "solid-js";
 import { A } from "@solidjs/router";
 import Icon from "components/ui/icon";
 import useTheme from 'theme';
-import {useTranslator, useLanguage} from "i18n";
-import Logo from "components/ui/logo";
+import {useLanguage} from "i18n";
 import portuguese from "assets/icons/flags/brazil.svg";
 import english from "assets/icons/flags/english.svg";
 import spanish from "assets/icons/flags/spain.svg";
@@ -13,7 +12,6 @@ export default function Header() {
   const [theme, setTheme] = useTheme();
   const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(false);
   const [menuLanguageisOpen, setMenuLanguageIsOpen] = useSwitch<boolean>(false);
-  const t = useTranslator("global.header");
   const [lang, setLang] = useLanguage();
   const flags = {"pt": portuguese, "en": english, "es": spanish};
 
@@ -33,7 +31,6 @@ export default function Header() {
         rounded-full
         text-white dark:bg-dark
         " href="/">
-          <Logo class="size-1.5 fill-white" />
           Nexon Utilis
         </a>
       </span>
@@ -44,13 +41,13 @@ export default function Header() {
       "
       >
         <A class="hover:text-purple" activeClass="text-purple" href="/saved" end>Saved</A>
-        <A class="hover:text-purple" activeClass="text-purple" href="/careers" end>{t("menu.careers")}</A>
-        <A class="hover:text-purple" activeClass="text-purple" href="/blogs" end>{t("menu.blogs")}</A>
-        <A class="hover:text-purple" activeClass="text-purple" href="/pricing" end>{t("menu.pricing")}</A>
+        <A class="hover:text-purple" activeClass="text-purple" href="/careers" end></A>
+        <A class="hover:text-purple" activeClass="text-purple" href="/blogs" end></A>
+        <A class="hover:text-purple" activeClass="text-purple" href="/pricing" end></A>
       </nav>
 
       <span class="w-60 hidden md:flex justify-end items-center gap-1">
-        <A class="max-md:hidden rounded-full text-white bg-purple p-1 px-3" href="/contact" end>{t("menu.contact")}</A>
+        <A class="max-md:hidden rounded-full text-white bg-purple p-1 px-3" href="/contact" end></A>
         <span class="font-black text-purple">&nbsp;|&nbsp;</span>
         <span class="flex items-center gap-1">
           <span class="relative">
@@ -182,8 +179,7 @@ export default function Header() {
           text-3xl
           text-white dark:text-black
           " href="/">
-            <Logo class="size-8.5 fill-white dark:fill-black" />
-            FutureSphere
+            Nexon Utilis
           </a>
           <Show
             when={theme() == "light"} fallback={
@@ -197,15 +193,15 @@ export default function Header() {
           </Show>
         </span>
         <nav class="flex flex-col justify-center items-center gap-1.25 text-white dark:text-black">
-          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/about" end>{t("menu.about")}</A>
-          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/careers" end>{t("menu.careers")}</A>
-          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/blogs" end>{t("menu.blogs")}</A>
-          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/pricing" end>{t("menu.pricing")}</A>
-          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/pricing" end>{t("menu.contact")}</A>
+          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/about" end></A>
+          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/careers" end></A>
+          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/blogs" end></A>
+          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/pricing" end></A>
+          <A class="text-xl hover:text-purple" activeClass="text-purple" href="/pricing" end></A>
         </nav>
         <span class="flex flex-col items-center gap-0.5 w-full">
-          <a class="w-full text-center rounded-full px-1.25 py-0.375 text-white bg-purple" href="/login">{t("ui.login")}</a>
-          <a class="w-full text-center rounded-full px-1.25 py-0.375 text-black dark:text-white bg-white dark:bg-dark" href="/signup">{t("ui.signup")}</a>
+          <a class="w-full text-center rounded-full px-1.25 py-0.375 text-white bg-purple" href="/login"></a>
+          <a class="w-full text-center rounded-full px-1.25 py-0.375 text-black dark:text-white bg-white dark:bg-dark" href="/signup"></a>
         </span>
       </div>
     </header>

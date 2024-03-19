@@ -2,7 +2,7 @@ import { JSX } from 'solid-js';
 import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkCheckFill, BsBookmarkDashFill } from 'solid-icons/bs';
 import { FiSun, FiMoon, FiX, FiMap } from 'solid-icons/fi';
 import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine } from 'solid-icons/ri';
-import { FaSolidCircleCheck, FaSolidCircleXmark, FaSolidBook } from 'solid-icons/fa';
+import { FaSolidCircleCheck, FaSolidCircleXmark } from 'solid-icons/fa';
 import { AiFillEye, AiFillEyeInvisible } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2 } from 'solid-icons/oc';

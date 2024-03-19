@@ -1,5 +1,4 @@
 import { JSXElement, splitProps } from 'solid-js';
-import MetaData from '../meta';
 import Main from '../main';
 
 interface PageProps {
@@ -10,7 +9,7 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps) {
-  const [meta, inner] = splitProps(props, ["title", "keywords", "description"]);
+  const [_meta, inner] = splitProps(props, ["title", "keywords", "description"]);
 
   return (
     <>
