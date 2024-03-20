@@ -145,7 +145,7 @@ export default function Home() {
                     </span>
                     <Text class="h-full text-white">{item.description}</Text>
                     <span class="flex flex-col md:flex-row gap-2 md:gap-4 w-full">
-                      <button onClick={() => copy(item.url)} class="group md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-white hover:text-[#2c2c54] hover:bg-white">{(copyNotification() == item.url)? <>Copied Successfully <Icon name="BiSolidCopy" class="text-purple size-4"/></> : <>Copy<Icon name="OcCopy2" class="group-hover:scale-110 size-4"/></>}</button>
+                      <button onClick={() => copy(item.url)} class="group md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-white hover:text-[#2c2c54] hover:bg-white">{(copyNotification() == item.url)? <>Copied Successfully <Icon name="BiSolidCopy" class="size-4"/></> : <>Copy<Icon name="OcCopy2" class="group-hover:scale-110 size-4"/></>}</button>
                       <a class="group md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-[#2c2c54] bg-white" target="_blank" href={item.url}>Access <Icon name="OcLinkexternal2" class="group-hover:scale-110 size-4"/></a>
                     </span>
                   </div>
