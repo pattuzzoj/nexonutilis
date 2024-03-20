@@ -22,7 +22,7 @@ export default function Accordion(props: Props) {
   return (
     <nav class="w-full flex flex-col gap-2" aria-labelledby={props.data.title}>
       <Title as={(props.data.url.split("/").length + 2) <= 6 ? (props.data.url.split("/").length) : "5"} id={props.data.title}>
-        <a class={`${isOpen() && "dark:text-[#2c2c54] bg-[#414066] dark:bg-white"} flex items-center gap-2 p-2 rounded hover:dark:text-[#2c2c54] hover:dark:bg-white`} href={props.data.url} onClick={(e) => {
+        <a class={`${isOpen() && "dark:text-[#2c2c54] bg-[#414066] dark:bg-white"} flex items-center gap-2 p-2 rounded hover:text-white hover:bg-[#414066] hover:dark:text-[#2c2c54] hover:dark:bg-white`} href={props.data.url} onClick={(e) => {
           e.preventDefault();
           setIsOpen(!isOpen());
           navigate(isOpen() ? props.data.url : props.data.url.slice(0, (props.data.url).lastIndexOf("/")));
