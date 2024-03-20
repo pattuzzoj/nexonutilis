@@ -1,9 +1,10 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "PHP",
   "description": "PHP is a server-side scripting language designed for web development. It is widely used for creating dynamic web pages and web applications. PHP offers powerful features for server-side programming, database integration, and web services. Despite its age, PHP continues to be a popular choice for web development due to its ease of use and extensive community support.",
   "roadmap": "",
-  "site": "https://www.php.net",
+  "official": "https://www.php.net",
   "items": [
     {
       "title": "PHP Tutorial",

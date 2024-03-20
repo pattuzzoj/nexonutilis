@@ -6,7 +6,8 @@ import { mobile } from "./mobile";
 import { tools } from "./tools";
 
 export const development = {
-  "type": "category",
+  "type": "categories",
+  "mode": "",
   "title": "Development",
   "description": "Discover a variety of resources about development.",
   "items": [

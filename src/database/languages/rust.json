@@ -1,9 +1,10 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "Rust",
   "description": "Rust is a modern, systems programming language designed for safety, speed, and concurrency. It offers memory safety without garbage collection and provides powerful abstractions for low-level programming tasks. Rust is often used for building performance-critical software, such as operating systems, game engines, and web servers, where reliability and efficiency are paramount.",
   "roadmap": "https://roadmap.sh/rust",
-  "site": "https://www.rust-lang.org/",
+  "official": "https://www.rust-lang.org/",
   "items": [
     {
       "title": "Rust - Programiz",

@@ -1,19 +1,19 @@
 import Header from 'layout/header';
 import Footer from 'layout/footer';
-import SideBar from 'components/sidebar';
 import DataProvider from 'context';
+import Aside from 'layout/aside';
 
 export default function App(props: any) {
   return (
-  <div class="lg:h-screen">
-    <Header/>
-    <div class="flex md:gap-8 mx-8">
-      <DataProvider>
-        <SideBar/>
-        {props.children}
-      </DataProvider>
-      <Footer/>
+    <div class="flex flex-col md:flex-row">
+      <Header />
+      <div class="min-h-screen md:w-4/6 lg:w-5/6 flex flex-col justify-between">
+        <DataProvider>
+          <Aside />
+          {props.children}
+        </DataProvider>
+        <Footer />
+      </div>
     </div>
-  </div>
   );
 }

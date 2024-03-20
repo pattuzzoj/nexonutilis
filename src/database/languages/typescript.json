@@ -1,9 +1,10 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "TypeScript",
   "description": "TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript. It brings static typing to JavaScript, enabling developers to catch errors early and write more maintainable code.",
   "roadmap": "https://roadmap.sh/typescript",
-  "site": "https://www.typescriptlang.org/",
+  "official": "https://www.typescriptlang.org/",
   "items": [
     {
       "title": "TypeScript Tutorial",

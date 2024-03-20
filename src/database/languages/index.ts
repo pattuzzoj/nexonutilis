@@ -7,13 +7,14 @@ import java from "./java.json";
 import rust from "./rust.json";
 
 export const languages = {
-  "type": "category",
+  "type": "categories",
+  "mode": "",
   "title": "Languages",
   "description": "Discover a variety of programming languages for software development.",
   "items": [
     kotlin,
-    javascript,
     java,
+    javascript,
     typescript,
     php,
     python,

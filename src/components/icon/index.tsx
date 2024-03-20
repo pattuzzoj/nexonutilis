@@ -1,8 +1,8 @@
 import { JSX } from 'solid-js';
-import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkCheckFill, BsBookmarkDashFill } from 'solid-icons/bs';
-import { FiSun, FiMoon, FiX, FiMap } from 'solid-icons/fi';
-import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine } from 'solid-icons/ri';
-import { FaSolidCircleCheck, FaSolidCircleXmark } from 'solid-icons/fa';
+import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill } from 'solid-icons/bs';
+import { FiSun, FiMoon, FiX, FiMap, FiHome } from 'solid-icons/fi';
+import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine } from 'solid-icons/ri';
+import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark } from 'solid-icons/fa';
 import { AiFillEye, AiFillEyeInvisible } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2 } from 'solid-icons/oc';
@@ -31,7 +31,11 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "OcLinkexternal2"
   | "BiSolidCopy"
   | "FiMap"
-  | "BiRegularBookBookmark";
+  | "BiRegularBookBookmark"
+  | "FiHome"
+  | "FaRegularBookmark"
+  | "RiArrowsArrowRightSLine"
+  | "BsBookmarkPlusFill";
   class?: string;
 };
 
@@ -59,7 +63,11 @@ export default function Icon(props: Props) {
     OcLinkexternal2,
     BiSolidCopy,
     FiMap,
-    BiRegularBookBookmark
+    BiRegularBookBookmark,
+    FiHome,
+    FaRegularBookmark,
+    RiArrowsArrowRightSLine,
+    BsBookmarkPlusFill
   }[props.name]
 
   return (

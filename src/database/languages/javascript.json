@@ -1,9 +1,12 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "JavaScript",
   "description": "JavaScript is a versatile programming language used for creating interactive websites, web applications, and server-side development. It is the backbone of modern web development, allowing developers to add dynamic behavior to web pages.",
+  "icon": "https://static-00.iconduck.com/assets.00/javascript-icon-256x256-8sn98o22.png",
   "roadmap": "https://roadmap.sh/javascript",
-  "site": "",
+  "official": "",
+  "url": "/languages/javascript",
   "items": [
     {
       "title": "JavaScript.Info",
@@ -35,7 +38,5 @@
       "description": "Tutorialgateway provides JavaScript tutorials with Examples and Screenshots. Please visit us to learn JavaScript Programming and Code easily.",
       "url": "https://www.tutorialgateway.org/javascript/"
     }
-  ],
-  "url": "/languages/javascript",
-  "icon": "https://static-00.iconduck.com/assets.00/javascript-icon-256x256-8sn98o22.png"
+  ]
 }

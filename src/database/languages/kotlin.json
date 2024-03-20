@@ -1,9 +1,10 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "Kotlin",
   "description": "Kotlin is a modern, statically typed programming language developed by JetBrains. It is fully interoperable with Java and is designed to be concise, expressive, and safe. Kotlin is widely used for Android app development, as well as for server-side development, web applications, and more.",
   "roadmap": "",
-  "site": "https://kotlinlang.org",
+  "official": "https://kotlinlang.org",
   "items": [
     {
       "title": "Kotlin - W3school",

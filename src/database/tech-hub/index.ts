@@ -2,7 +2,8 @@ import courses from './courses.json';
 import tutorials from './tutorials.json';
 
 export const techhub = {
-  "type": "category",
+  "type": "categories",
+  "mode": "",
   "title": "Tech Hub",
   "description": "Discover a central hub for technology enthusiasts and professionals alike.",
   "items": [
