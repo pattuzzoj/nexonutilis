@@ -4,6 +4,21 @@
   "title": "Forums",
   "description": "Join dynamic programming forums where you can ask questions, seek advice, and engage in discussions with a diverse community of developers. Whether you're troubleshooting code issues or exploring new technologies, forums provide valuable support and camaraderie.",
   "items": [
+    {
+      "title": "Code Forum",
+      "description": "Code Forum is a community that developers trust to help them exceed expectations. Where developers can learn, share and build their developer toolkit.",
+      "url": "https://codeforum.org/"
+    },
+    {
+      "title": "Coding Forums",
+      "description": "The Coding Forums is the place to find help with your coding and programming queries. We're a friendly community of coders ready to assist.",
+      "url": "https://www.thecodingforums.com/"
+    },
+    {
+      "title": "Stack Overflow",
+      "description": "Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
+      "url": "https://stackoverflow.com/"
+    }
   ],
   "url": "/community/forums"
 }

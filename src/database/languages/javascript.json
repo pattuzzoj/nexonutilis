@@ -19,9 +19,9 @@
       "url": "https://www.javascripttutorial.net/"
     },
     {
-      "title": "JavaScript - W3school",
-      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-      "url": "https://www.w3schools.com/js/default.asp"
+      "title": "JavaScript - Tutorial Gateway",
+      "description": "Tutorialgateway provides JavaScript tutorials with Examples and Screenshots. Please visit us to learn JavaScript Programming and Code easily.",
+      "url": "https://www.tutorialgateway.org/javascript/"
     },
     {
       "title": "JavaScript - MDN",
@@ -34,9 +34,9 @@
       "url": "https://www.programiz.com/javascript"
     },
     {
-      "title": "JavaScript - Tutorial Gateway",
-      "description": "Tutorialgateway provides JavaScript tutorials with Examples and Screenshots. Please visit us to learn JavaScript Programming and Code easily.",
-      "url": "https://www.tutorialgateway.org/javascript/"
+      "title": "JavaScript - W3school",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/js/default.asp"
     }
   ]
 }

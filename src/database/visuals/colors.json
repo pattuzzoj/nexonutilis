@@ -5,6 +5,11 @@
   "description": "Explore a vast collection of color schemes, palettes, and tools to enhance the aesthetic appeal of your projects. From vibrant hues to subtle shades, find the perfect color combinations to convey the right mood and message.",
   "items": [
     {
+      "title": "Canva",
+      "description": "Want a color scheme that perfectly matches your favorite images? With Canva's color palette generator, you can create color combinations in seconds.",
+      "url": "https://www.canva.com/colors/color-palette-generator/"
+    },
+    {
       "title": "Coolors",
       "description": "The super fast color palettes generator! Create the perfect palette or get inspired by thousands of beautiful color schemes",
       "url": "https://coolors.co/"
@@ -13,11 +18,6 @@
       "title": "Color Hunt",
       "description": "Discover the newest hand-picked color palettes of Color Hunt. Get color inspiration for your design and art projects.",
       "url": "https://colorhunt.co/"
-    },
-    {
-      "title": "Canva",
-      "description": "Want a color scheme that perfectly matches your favorite images? With Canva's color palette generator, you can create color combinations in seconds.",
-      "url": "https://www.canva.com/colors/color-palette-generator/"
     },
     {
       "title": "ColorSpace",

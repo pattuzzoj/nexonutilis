@@ -12,9 +12,9 @@
       "url": "https://www.pythontutorial.net/"
     },
     {
-      "title": "Python - W3school",
-      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-      "url": "https://www.w3schools.com/python/default.asp"
+      "title": "Python - TutorialGateway",
+      "description": "Python Tutorial: Learn Python programming language basic, advanced & data science. It helps you to learn about data science, machine learning.",
+      "url": "https://www.tutorialgateway.org/python-tutorial/"
     },
     {
       "title": "Python - Programiz",
@@ -22,9 +22,9 @@
       "url": "https://www.programiz.com/python-programming"
     },
     {
-      "title": "Python - TutorialGateway",
-      "description": "Python Tutorial: Learn Python programming language basic, advanced & data science. It helps you to learn about data science, machine learning.",
-      "url": "https://www.tutorialgateway.org/python-tutorial/"
+      "title": "Python - W3school",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/python/default.asp"
     }
   ],
   "url": "/languages/python",

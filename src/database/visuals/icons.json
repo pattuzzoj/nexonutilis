@@ -5,14 +5,14 @@
   "description": "Access a wide array of icons to visually complement your digital creations. From minimalist to detailed styles, find the perfect icons for your web pages, apps, and user interfaces, enhancing usability and design.",
   "items": [
     {
-      "title": "Iconfinder",
-      "description": "Iconfinder is the world's largest marketplace for icons, illustrations and 3D illustrations in SVG, AI, and PNG format.",
-      "url": "https://www.iconfinder.com/"
-    },
-    {
       "title": "Flaticon",
       "description": "Download free Icons & Stickers for your projects. Resources made by and for designers in PNG, SVG, EPS, PSD, and CSS formats.",
       "url": "https://www.flaticon.com/br/"
+    },
+    {
+      "title": "Iconfinder",
+      "description": "Iconfinder is the world's largest marketplace for icons, illustrations and 3D illustrations in SVG, AI, and PNG format.",
+      "url": "https://www.iconfinder.com/"
     },
     {
       "title": "Icons8",

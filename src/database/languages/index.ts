@@ -15,10 +15,10 @@ export const languages = {
     kotlin,
     java,
     javascript,
-    typescript,
     php,
     python,
-    rust
+    rust,
+    typescript
   ],
   "url": "/languages",
 }

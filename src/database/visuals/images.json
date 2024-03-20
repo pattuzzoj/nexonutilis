@@ -5,6 +5,16 @@
   "description": "Discover a rich library of images ranging from stock photos to illustrations. Elevate your projects with high-quality visuals, perfect for web design, marketing materials, or any creative endeavor needing that visual spark.",
   "items": [
     {
+      "title": "Free Images",
+      "description": "Download 100% free stock images. We have millions of photos, illustrations, vector graphics, clipart, icons and Photoshop files that you can download for free.",
+      "url": "https://www.freeimages.com/"
+    },
+    {
+      "title": "Pixels",
+      "description": "Free stock photos & videos you can use everywhere. Browse millions of high-quality royalty free stock images & copyright free pictures.",
+      "url": "https://www.pexels.com/"
+    },
+    {
       "title": "Unsplash",
       "description": "Beautiful, free images and photos that you can download and use for any project. Better than any royalty free or stock photos.",
       "url": "https://unsplash.com/"

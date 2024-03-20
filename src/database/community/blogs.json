@@ -4,6 +4,16 @@
   "title": "Blogs",
   "description": "Dive into insightful programming blogs covering a myriad of topics, including tutorials, best practices, industry trends, and personal experiences. Stay updated with the latest developments and gain valuable insights from seasoned professionals and enthusiasts alike.",
   "items": [
+    {
+      "title": "Blog da Rocketseat",
+      "description": "Junte-se a milhares de devs e acelere na direção dos seus objetivos. Transforme sua carreira em uma jornada de evolução contínua através das melhores tecnologias.",
+      "url": "https://blog.rocketseat.com.br/"
+    },
+    {
+      "title": "GitHub Blog",
+      "description": "Updates, ideas, and inspiration from GitHub to help developers build and design software.",
+      "url": "https://github.blog/"
+    }
   ],
   "url": "/community/blogs"
 }

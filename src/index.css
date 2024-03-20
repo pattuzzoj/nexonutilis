@@ -28,31 +28,31 @@
   
   h2 {
     @apply
-    text-2xl
+    text-xl
     font-semibold
   }
 
   h3 {
     @apply
-    text-xl
+    text-lg
     font-medium
   }
 
   h4 {
     @apply
-    text-lg
+    text-base
     font-medium
   }
 
   h5 {
     @apply
-    text-base
+    text-sm
     font-medium
   }
 
   h6 {
     @apply
-    text-sm
+    text-xs
     font-medium
   }
 

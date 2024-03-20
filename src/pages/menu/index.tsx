@@ -76,7 +76,7 @@ export default function Home() {
   }
   
   return (
-    <div class="h-full w-full flex flex-col py-4 px-8">
+    <div class="h-full w-full flex flex-col p-4">
       <div class="flex flex-col gap-8">
         <Switch>
           <Match when={data.item.mode == "card"}>
@@ -109,7 +109,7 @@ export default function Home() {
                 {(item) => (
                   <a class="w-full flex flex-col justify-center items-start gap-1 rounded-xl p-4 bg-[#2c2c54] dark:bg-[#414066] hover:scale-105 group h-32" href={item.url}>
                     <span class="flex justify-between w-full">
-                      <Title as="6" class="text-white">
+                      <Title as="5" class="text-white">
                         {item.title}
                       </Title>
                       <Icon name="RiArrowsArrowRightDoubleLine" class="invisible group-hover:visible text-white size-6"/>
@@ -121,12 +121,12 @@ export default function Home() {
             </div>
           </Match>
           <Match when={data.item.type == "resources"}>
-            <div class={`${data.item.icon ? "w-full sm:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2 lg:grid-cols-3"} grid gap-5 lg:gap-8 h-max`}>
+            <div class={`${data.item.icon ? "w-full sm:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2 lg:grid-cols-3"} grid gap-5 h-max`}>
               <For each={data.item.items}>
                 {(item) => (
                   <div class="flex flex-col justify-between gap-5 w-full rounded-xl p-4 bg-[#2c2c54] dark:bg-[#414066]">
                     <span class="flex justify-between w-full text-white">
-                      <Title as="6" class="text-white">
+                      <Title as="4" class="text-white">
                         {item.title}
                       </Title>
                       <span class="group hover:scale-110">

@@ -19,14 +19,14 @@ export default function Saved() {
   }
 
   return (
-    <div class="h-full w-full py-4 px-8">
+    <div class="h-full w-full p-4">
       <Show when={JSON.parse(savedList()).length} fallback={<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">Your saved items will appear here.</div>}>
-        <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
+        <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <For each={JSON.parse(savedList())}>
             {(item) => (
               <div class="flex flex-col justify-between gap-5 w-full rounded-xl p-4 bg-[#2c2c54] dark:bg-[#414066]">
                 <span class="flex justify-between w-full text-white">
-                  <Title as="6" class="text-white">
+                  <Title as="4" class="text-white">
                     {item.title}
                   </Title>
                   <button class="group hover:scale-110" onClick={() => removeSaved(item.url)}>
