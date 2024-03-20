@@ -83,12 +83,12 @@ export default function Home() {
             <div class="flex flex-col gap-1">
               <div class="flex items-center gap-3">
                 <img class="size-8 rounded-xl" src={data.item.icon} alt="" />
-                <Title as="2" class="text-white">{data.item.title}</Title>
+                <Title as="2" class="text-[#2c2c54] dark:text-white">{data.item.title}</Title>
               </div>
-              <Text class="p-2 text-wrap text-ellipsis text-white">{data.item.description}</Text>
+              <Text class="p-2 text-wrap text-ellipsis text-[#2c2c54] dark:text-white">{data.item.description}</Text>
               <span class="flex gap-2">
-                <Show when={data.item?.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-black bg-white" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
-                <Show when={data.item?.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-black bg-white" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
+                <Show when={data.item?.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-white dark:text-[#2c2c54] bg-[#2c2c54] dark:bg-white" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
+                <Show when={data.item?.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-white dark:text-[#2c2c54] bg-[#2c2c54] dark:bg-white" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
               </span>
             </div>
             {/* <div class="w-full lg:w-1/4 flex flex-col items-center gap-2 border-2 border-dark bg-[#2c2c54] dark:bg-[#414066] rounded-xl h-fit p-5">
