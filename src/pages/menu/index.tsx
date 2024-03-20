@@ -11,25 +11,18 @@ export default function Home() {
   const {data, setData} = useData();
   const location = useLocation();
   const path = () => location.pathname;
+  const map = new Map();
 
-  function setCurrentData(items: any) {
-    let currentItem: any = {url: ""};
-
+  (function setMap(items: any) {
     for (let index = 0; index < items.length; index++) {
-      if(path().startsWith(items[index].url) && items[index].url.length > currentItem.url.length) {
-        currentItem = items[index];
-      }      
-    }
+      map.set(items[index].url, items[index]);
 
-    setData("currentItems", (oldItems: any) => [...oldItems, currentItem]);
-
-    if (path() == currentItem.url) {
-      setData("item", currentItem);
-    } else {
-      setCurrentData(currentItem.items);
+      if ("items" in items[index]) {
+        setMap(items[index].items);
+      }
     }
-  }
-  
+  })(database.items)
+
   createEffect(() => {
     setData("item", {
       type: "",
@@ -42,14 +35,23 @@ export default function Home() {
       url: "",
       icon: ""
     });
+
     setData("currentItems", []);
 
-    if(path() != "/") {
-      setCurrentData(database.items);
-    } else {
+    if (path() == "/") {
       setData("item", database);
+    } else {
+      setData("item", map.get(path()));
+
+      const url = path().substring(1).split("/");
+      let currentPath = "";
+
+      for (let index = 0; index < url.length; index++) {
+        currentPath += "/" + url[index];
+        setData("currentItems", (path: any) => [...path, map.get(currentPath)]);
+      }
     }
-  });
+  })
   
   const [getSaved, addSaved, removeSaved] = useSaved();
   
