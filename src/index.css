@@ -62,19 +62,19 @@
   }
 }
 
-/* ::-webkit-scrollbar {
-  width: 5px;
+::-webkit-scrollbar {
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #2c2c54;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #515076;
+  background: #aaa;
   border-radius: 25px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #717096;
-} */
+  background: #fff;
+}
