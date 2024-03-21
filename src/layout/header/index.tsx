@@ -3,13 +3,12 @@ import useSwitch from 'hooks/useSwitch';
 import Icon from "components/icon";
 import Title from "components/typography/title";
 import Menu from "components/menu";
-import Logo from "assets/icons/logo.svg";
 
 export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(true);
 
   return (
-    <header class={`${menuIsOpen() ? "min-w-64 py-6 px-4" : "-translate-x-full w-0"} relative h-[5vh] md:h-screen flex justify-between items-center md:items-stretch md:flex-col bg-gray-300 dark:bg-gray-800`}>
+    <header class={`${menuIsOpen() ? "min-w-64 py-6 px-4" : "-translate-x-full w-0"} relative h-[5vh] md:h-screen flex justify-between items-center md:items-stretch md:flex-col bg-gray-300 dark:bg-gray-800 transition-all ease-in duration-300`}>
       <button onClick={() => setMenuIsOpen(!menuIsOpen())} class="hidden md:block absolute bottom-2 left-[105%]">
         <Show when={menuIsOpen()} fallback={<Icon name="RiSystemMenuUnfoldLine" class="size-8"/>}>
           <Icon name="RiSystemMenuFoldLine" class="size-8"/>
