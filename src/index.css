@@ -14,8 +14,8 @@
   #root {
     @apply
     flex flex-col justify-between min-h-screen
-    text-black dark:text-white
-    bg-white dark:bg-dark
+    text-gray-900 dark:text-white
+    bg-white dark:bg-gray-900
     selection:text-white selection:bg-purple
     transition-colors duration-100 ease-out
   }
@@ -62,23 +62,19 @@
   }
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #2c2c54;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #515076;
   border-radius: 25px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #717096;
-}
-
+} */

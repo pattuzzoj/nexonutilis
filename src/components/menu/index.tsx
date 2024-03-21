@@ -4,7 +4,7 @@ import { database } from "database";
 
 export default function Menu() {
   return (
-    <div class="hidden md:flex h-[80%] flex-col justify-start items-center overflow-y-auto">
+    <div class="hidden md:flex h-[80%] flex-col justify-start items-center gap-4 overflow-y-auto">
       <For each={database.items}>
         {item => <Accordion data={item}/>}
       </For>

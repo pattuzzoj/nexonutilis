@@ -6,9 +6,9 @@ import images from "./images.json";
 export const visuals = 
 {
   "type": "categories",
-
   "title": "Visuals",
   "description": "Discover a curated selection of visual resources to enhance your design and development projects. From vibrant color palettes and versatile font collections to iconic sets and inspiring images, find the perfect elements to bring your creative visions to life.",
+  "icon": "RiDesignPaletteLine",
   "items": [
     colors,
     fonts,

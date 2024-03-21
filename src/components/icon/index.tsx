@@ -1,11 +1,12 @@
 import { JSX } from 'solid-js';
-import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill } from 'solid-icons/bs';
-import { FiSun, FiMoon, FiX, FiMap, FiHome } from 'solid-icons/fi';
-import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine } from 'solid-icons/ri';
-import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark } from 'solid-icons/fa';
+import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
+import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity } from 'solid-icons/fi';
+import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine, RiDesignPaletteLine } from 'solid-icons/ri';
+import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConnectdevelop } from 'solid-icons/fa';
 import { AiFillEye, AiFillEyeInvisible } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
-import { OcCopy2, OcLinkexternal2 } from 'solid-icons/oc';
+import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
+import { TbLayoutDashboard } from 'solid-icons/tb';
 
 interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   name:
@@ -37,7 +38,14 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "RiArrowsArrowRightSLine"
   | "BsBookmarkPlusFill"
   | "RiSystemMenuUnfoldLine"
-  | "RiSystemMenuFoldLine";
+  | "RiSystemMenuFoldLine"
+  | "BsCode"
+  | "RiDesignPaletteLine"
+  | "OcPerson3"
+  | "BsRobot"
+  | "TbLayoutDashboard"
+  | "FiActivity"
+  | "FaBrandsConnectdevelop";
   class?: string;
 };
 
@@ -71,7 +79,15 @@ export default function Icon(props: Props) {
     RiArrowsArrowRightSLine,
     BsBookmarkPlusFill,
     RiSystemMenuUnfoldLine,
-    RiSystemMenuFoldLine
+    RiSystemMenuFoldLine,
+
+    TbLayoutDashboard,
+    BsCode,
+    FiActivity,
+    RiDesignPaletteLine,
+    OcPerson3,
+    BsRobot,
+    FaBrandsConnectdevelop
   }[props.name]
 
   return (

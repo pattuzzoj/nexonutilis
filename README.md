@@ -22,18 +22,18 @@ Visuals
 - Images
 Development
   - Front-End
-  -   - HTML
-  -   - CSS
-  -   -   - Methodologies
-  -   -   - Frameworks
-  -   - JavaScript
-  -   -   - Frameworks
-  -   -   -   - Angular
-  -   -   -   - Svelte
-  -   -   -   - Vue
-  -   -   - Libraries
-  -   -   -   - React
-  -   -   -   - Solid JS
+     - HTML
+     - CSS
+       - Methodologies
+       - Frameworks
+     - JavaScript
+       - Frameworks
+         - Angular
+         - Svelte
+         - Vue
+       - Libraries
+         - React
+         - Solid JS
   - Back-End
   -   - Node
   - Mobile

@@ -12,8 +12,9 @@ import rust from "./rust.json";
 
 export const languages = {
   "type": "categories",
-  "title": "Languages",
+  "title": "Language",
   "description": "Discover a variety of programming languages for software development.",
+  "icon": "BsCode",
   "items": [
     c,
     csharp,

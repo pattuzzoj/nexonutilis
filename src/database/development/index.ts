@@ -7,9 +7,9 @@ import { tools } from "./tools";
 
 export const development = {
   "type": "categories",
-
   "title": "Development",
   "description": "Discover a variety of resources about development.",
+  "icon": "FiActivity",
   "items": [
     frontend,
     backend,
