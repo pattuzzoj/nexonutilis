@@ -1,0 +1,28 @@
+{
+  "type": "resources",
+  "title": "Image Generators",
+  "description": "Discover tools and platforms for generating images using artificial intelligence.",
+  "url": "/ia/image",
+  "items": [
+    {
+      "title": "Image Creator from Microsoft Designer",
+      "description": "Free AI image generation tool based on DALL-E 3, known for high-quality results.",
+      "url": "https://designer.microsoft.com/image-creator"
+    },
+    {
+      "title": "Dream by WOMBO",
+      "description": "App that lets you create art and images with text prompts. Offers various artistic styles.",
+      "url": "https://www.w.ai/"
+    },
+    {
+      "title": "Canva Text-to-Image",
+      "description": "Free online tool to generate images from descriptions. Offers style options.",
+      "url": "https://www.canva.com/ai-image-generator/"
+    },
+    {
+      "title": "Pixlr AI Image Generator",
+      "description": "Creates high-quality images based on text input.",
+      "url": "https://pixlr.com/br/image-generator/"
+    }
+  ]
+}

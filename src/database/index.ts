@@ -2,6 +2,7 @@ import { techhub } from './tech-hub';
 import { languages } from './languages';
 import { development } from './development';
 import { visuals } from './visuals';
+import { ia } from "./ia"
 import { community } from './community';
 
 export const database = {
@@ -11,6 +12,7 @@ export const database = {
     languages,
     development,
     visuals,
-    community
+    ia,
+    community,
   ]
 }

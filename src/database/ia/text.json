@@ -1,0 +1,18 @@
+{
+  "type": "resources",
+  "title": "Text Generators",
+  "description": "Explore AI-powered text generation tools and models.",
+  "url": "/ia/text",
+  "items": [
+    {
+      "title": "ChatGPT",
+      "description": "Explore the capabilities of ChatGPT, an advanced conversational AI model developed by OpenAI.",
+      "url": "https://chat.openai.com/"
+      },
+      {
+      "title": "Gemini",
+      "description": "Discover Gemini, a powerful AI-based platform for cryptocurrency trading and investment.",
+      "url": "https://gemini.google.com/"
+      }
+  ]
+}
