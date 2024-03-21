@@ -11,7 +11,7 @@ export default function Navigation() {
   return (
     <span class="flex">
       <Show when={path()}>
-        <span class="flex items-center gap-2">
+        <span class="flex items-center gap-2 text-sm md:text-base">
           <a class="rounded p-2 text-[#2c2c54] dark:text-white hover:text-white hover:bg-[#2c2c54]" href="/">
             <Icon name="FiHome" class="size-6" />
           </a>
