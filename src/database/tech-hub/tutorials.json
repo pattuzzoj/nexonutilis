@@ -1,6 +1,5 @@
 {
   "type": "resources",
-  "mode": "",
   "title": "Tutorials",
   "description": "Unleash your coding potential with our curated tutorials.",
   "items": [
@@ -23,6 +22,16 @@
       "title": "Programiz",
       "description": "Learn to code in Python, C/C++, Java, and other popular programming languages with our easy to follow tutorials, examples, online compiler and references.",
       "url": "https://www.programiz.com/"
+    },
+    {
+      "title": "Khan Academy Computer Programming",
+      "description": "Master the fundamentals of computer programming with Khan Academy's interactive courses.  Their platform offers a structured learning path, perfect for beginners or those seeking to brush up on core concepts. Explore topics like JavaScript, SQL, and HTML/CSS.",
+      "url": "https://www.khanacademy.org/computer-programming"
+    },
+    {
+      "title": "Codecademy",
+      "description": "Learn by doing with Codecademy's interactive coding challenges. Choose from a wide range of programming languages and web development tracks to build practical skills through real-world projects.",
+      "url": "https://www.codecademy.com/"
     }
   ],
   "url": "/tech-hub/tutorials"

@@ -3,7 +3,7 @@ import tutorials from './tutorials.json';
 
 export const techhub = {
   "type": "categories",
-  "mode": "",
+
   "title": "Tech Hub",
   "description": "Discover a central hub for technology enthusiasts and professionals alike.",
   "items": [

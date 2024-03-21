@@ -7,7 +7,7 @@ import { tools } from "./tools";
 
 export const development = {
   "type": "categories",
-  "mode": "",
+
   "title": "Development",
   "description": "Discover a variety of resources about development.",
   "items": [

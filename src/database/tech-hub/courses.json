@@ -1,38 +1,47 @@
 {
   "type": "resources",
-  "mode": "",
   "title": "Courses",
-  "description": "Embark on a journey of continuous learning with our curated selection of courses.",
+  "description": "Embark on a journey of continuous learning with our curated selection of online courses. Explore a variety of platforms offering in-depth programs on programming, web development, data science, and more!",
   "items": [
     {
       "title": "Alura",
-      "description": "Learn Programming, Front-end, Back-end, Data Science, UX, DevOps, Innovation, and Management on Brazil's largest technology platform.",
+      "description": "Learn programming, front-end, back-end, data science, UX, DevOps, innovation, and management on Brazil's largest technology platform. (Content primarily in Portuguese)",
       "url": "https://www.alura.com.br/"
     },
     {
       "title": "EBAC",
-      "description": "EBAC offers a fast way to learn design and contemporary professions on the internet. Featuring open classes, online intensives, and courses for swift learning.",
+      "description": "EBAC offers a fast and convenient way to learn design and contemporary professions online.  Explore open classes, online intensives, and courses designed for rapid learning. (Content primarily in Portuguese)",
       "url": "https://ebaconline.com.br/"
     },
     {
       "title": "Rocketseat",
-      "description": "The complete platform for you to learn programming from scratch at your own pace, become Full Stack, and specialize in various technologies without leaving home.",
+      "description": "The complete platform to learn programming from scratch at your own pace.  Become a full-stack developer and specialize in various technologies without leaving home. (Content primarily in Portuguese)",
       "url": "https://www.rocketseat.com.br/"
     },
     {
       "title": "DevMedia",
-      "description": "Learn to code for REAL, with fewer classes and more practice. Do real projects, ask questions all the time, talk to other programmers.",
+      "description": "Learn to code for real with DevMedia.  Their approach focuses on practical application through real projects, encouraging questions and interaction with other programmers. (Content primarily in Portuguese)",
       "url": "https://www.devmedia.com.br/"
     },
     {
       "title": "Curso em Video",
-      "description": "Supercharge your resume with free Video Course courses. Learn computer science with free courses made by experts.",
+      "description": "Enhance your resume with free video courses from Curso em Video.  Learn computer science concepts through courses created by experts. (Content primarily in Portuguese)",
       "url": "https://www.cursoemvideo.com/"
     },
     {
-      "title": "Origamid",
-      "description": "Learn how to create websites. Classes in Programming, UX/UI Design, WordPress, HTML, CSS, JavaScript, React, TypeScript and more.",
-      "url": "https://www.origamid.com/"
+      "title": "Udacity",
+      "description": "Upskill or reskill with Udacity's nanodegree programs.  These intensive courses focus on specific career paths, combining video lessons, hands-on projects, and mentor support to prepare you for in-demand jobs.",
+      "url": "https://www.udacity.com/"
+    },
+    {
+      "title": "Pluralsight",
+      "description": "Expand your knowledge with Pluralsight's library of video tutorials on programming, IT operations, and creative skills.  Choose from subscription plans offering access to a vast collection of courses by industry experts.",
+      "url": "https://www.pluralsight.com/"
+    },
+    {
+      "title": " edX",
+      "description": "Pursue accredited online courses from top universities and institutions on edX. Explore a wide range of subjects, including computer science, data science, and software development, offered at various levels.",
+      "url": "https://www.edx.org/"
     }
   ],
   "url": "/tech-hub/courses"

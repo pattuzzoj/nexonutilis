@@ -1,0 +1,42 @@
+{
+  "type": "resources",
+  "mode": "card",
+  "title": "Preact",
+  "description": "Uma alternativa leve ao React com API moderna. Componentes e DOM Virtual.",
+  "icon": "",
+  "roadmap": "",
+  "official": "https://preactjs.com/",
+  "url": "/development/frontend/javascript/preact",
+  "items": [
+    {
+      "title": "Começando com Preact",
+      "description": "Aprenda os fundamentos do Preact, incluindo criação de componentes, manipulação de DOM e uso de estado.",
+      "url": "https://preactjs.com/guide/v10/getting-started/"
+    },
+    {
+      "title": "Tutoriais Preact",
+      "description": "Uma coleção de tutoriais para aprender diferentes aspectos do Preact.",
+      "url": "https://preactjs.com/tutorials/"
+    },
+    {
+      "title": "Exemplo de App Preact",
+      "description": "Veja um exemplo de aplicativo completo feito com Preact.",
+      "url": "https://github.com/preactjs/preact-examples"
+    },
+    {
+      "title": "Documentação Preact",
+      "description": "Documentação completa da API Preact.",
+      "url": "https://preactjs.com/docs/v10/"
+    },
+    {
+      "title": "Blog Preact",
+      "description": "Leia artigos sobre o Preact e seu desenvolvimento.",
+      "url": "https://preactjs.com/blog/"
+    },
+    {
+      "title": "Comunidade Preact",
+      "description": "Junte-se à comunidade Preact para obter ajuda e colaborar.",
+      "url": "https://preactjs.com/community/"
+    }
+  ]
+}

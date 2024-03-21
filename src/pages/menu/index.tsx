@@ -6,6 +6,7 @@ import { database } from "database";
 import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
 import useSwitch from "hooks/useSwitch";
+import Main from "layout/main";
 
 export default function Home() {
   const {data, setData} = useData();
@@ -21,7 +22,7 @@ export default function Home() {
         setMap(items[index].items);
       }
     }
-  })(database.items)
+  })(database.items);
 
   createEffect(() => {
     setData("item", {
@@ -78,7 +79,7 @@ export default function Home() {
   }
   
   return (
-    <div class="h-full w-full flex flex-col p-4">
+    <Main>
       <div class="flex flex-col gap-8">
         <Switch>
           <Match when={data.item.mode == "card"}>
@@ -106,7 +107,7 @@ export default function Home() {
         </Switch>
         <Switch>
           <Match when={data.item.type == "categories"}>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-5 lg:gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-5">
               <For each={data.item.items}>
                 {(item) => (
                   <a class="w-full flex flex-col justify-center items-start gap-1 rounded-xl p-4 bg-[#2c2c54] dark:bg-[#414066] hover:scale-105 group h-32" href={item.url}>
@@ -157,6 +158,6 @@ export default function Home() {
           </Match>
         </Switch>
       </div>
-    </div>
+    </Main>
   );
 }

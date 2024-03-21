@@ -8,16 +8,9 @@ export default function Main(props: MainProps) {
   return (
     <main 
     class="
-    flex justify-center items-center gap-8
+    h-[90vh] w-full flex flex-col p-4 overflow-y-scroll
     ">
-      <div 
-      class="
-      w-full
-      gap-y-3 sm:gap-y-3.5 md:gap-y-4 lg:gap-y-4.5 2xl:gap-y-5
-      mx-1 sm:mx-1.5 md:mx-2 lg:mx-3
-      ">
-        {props.children}
-      </div>
+      {props.children}
     </main>
   );
 }

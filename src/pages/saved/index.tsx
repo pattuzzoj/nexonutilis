@@ -3,6 +3,7 @@ import { For, Show } from "solid-js";
 import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
 import useSwitch from "hooks/useSwitch";
+import Main from "layout/main";
 
 
 export default function Saved() {
@@ -19,7 +20,7 @@ export default function Saved() {
   }
 
   return (
-    <div class="h-full w-full p-4">
+    <Main>
       <Show when={JSON.parse(savedList()).length} fallback={<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">Your saved items will appear here.</div>}>
         <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <For each={JSON.parse(savedList())}>
@@ -44,6 +45,6 @@ export default function Saved() {
           </For>
         </div>
       </Show>
-    </div>
+    </Main>
   );
 }
