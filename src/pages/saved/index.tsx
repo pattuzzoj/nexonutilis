@@ -21,7 +21,7 @@ export default function Saved() {
 
   return (
     <Main>
-      <Show when={JSON.parse(savedList()).length} fallback={<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">Your saved items will appear here.</div>}>
+      <Show when={JSON.parse(savedList()).length} fallback={<div class="w-full h-full flex justify-center items-center text-xl">Your saved items will appear here.</div>}>
         <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <For each={JSON.parse(savedList())}>
             {(item) => (

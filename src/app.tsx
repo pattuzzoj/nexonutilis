@@ -7,7 +7,7 @@ export default function App(props: any) {
   return (
     <div class="flex flex-col md:flex-row">
       <Header />
-      <div class="flex flex-col justify-between">
+      <div class="w-full flex flex-col justify-between">
         <DataProvider>
           <Aside />
           {props.children}
