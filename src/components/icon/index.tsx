@@ -1,5 +1,5 @@
 import { JSX } from 'solid-js';
-import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
+import { BsTwitter, BsFacebook, BsLinkedin, BsGithub, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
 import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity } from 'solid-icons/fi';
 import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine, RiDesignPaletteLine } from 'solid-icons/ri';
 import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConnectdevelop } from 'solid-icons/fa';
@@ -13,6 +13,7 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "BsTwitter"
   | "BsFacebook"
   | "BsLinkedin"
+  | "BsGithub"
   | "FiSun"
   | "FiMoon"
   | "FiX"
@@ -54,6 +55,7 @@ export default function Icon(props: Props) {
     BsTwitter,
     BsFacebook,
     BsLinkedin,
+    BsGithub,
     FiSun,
     FiMoon,
     FiX,
