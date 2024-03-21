@@ -33,7 +33,6 @@ export default function Accordion(props: Props) {
           {props.data.title}
         </a>
       </Title>
-
       <ul class={`${isOpen() ? "h-full" : "h-0"} flex flex-col gap-2 overflow-hidden transition-[height] duration-300`}>
         <For each={props.data.items}>
           {(item) => (
