@@ -1,7 +1,7 @@
 import { JSX } from 'solid-js';
 import { BsTwitter, BsFacebook, BsLinkedin, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill } from 'solid-icons/bs';
 import { FiSun, FiMoon, FiX, FiMap, FiHome } from 'solid-icons/fi';
-import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine } from 'solid-icons/ri';
+import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine } from 'solid-icons/ri';
 import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark } from 'solid-icons/fa';
 import { AiFillEye, AiFillEyeInvisible } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
@@ -35,7 +35,9 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "FiHome"
   | "FaRegularBookmark"
   | "RiArrowsArrowRightSLine"
-  | "BsBookmarkPlusFill";
+  | "BsBookmarkPlusFill"
+  | "RiSystemMenuUnfoldLine"
+  | "RiSystemMenuFoldLine";
   class?: string;
 };
 
@@ -67,7 +69,9 @@ export default function Icon(props: Props) {
     FiHome,
     FaRegularBookmark,
     RiArrowsArrowRightSLine,
-    BsBookmarkPlusFill
+    BsBookmarkPlusFill,
+    RiSystemMenuUnfoldLine,
+    RiSystemMenuFoldLine
   }[props.name]
 
   return (
