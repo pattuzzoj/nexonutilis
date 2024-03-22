@@ -5,78 +5,34 @@ import { useData } from "context";
 import { database } from "database";
 import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
-import useSwitch from "hooks/useSwitch";
 import Main from "layout/main";
+import {copy, copyNotification} from "utils/clipboard";
 
 export default function Home() {
   const {data, setData} = useData();
   const location = useLocation();
   const path = () => location.pathname;
-  const map = new Map();
-
-  (function setMap(items: any) {
-    for (let index = 0; index < items.length; index++) {
-      map.set(items[index].url, items[index]);
-
-      if ("items" in items[index]) {
-        setMap(items[index].items);
-      }
-    }
-  })(database.items);
 
   createEffect(() => {
-    setData("item", {
-      type: "",
-      mode: "",
-      title: "",
-      description: "",
-      roadmap: "",
-      doc: "",
-      items: [],
-      url: "",
-      icon: ""
-    });
-
-    setData("currentItems", []);
-
+    setData("item", {mode: ""});
+    setData("navigation", []);
+    
     if (path() == "/") {
       setData("item", database);
     } else {
-      setData("item", map.get(path()));
-
+      setData("item", data.map.get(path()));
+      
       const url = path().substring(1).split("/");
       let currentPath = "";
-
+      
       for (let index = 0; index < url.length; index++) {
         currentPath += "/" + url[index];
-        setData("currentItems", (path: any) => [...path, map.get(currentPath)]);
+        setData("navigation", (path: any) => [...path, data.map.get(currentPath)]);
       }
     }
   })
   
   const [getSaved, addSaved, removeSaved] = useSaved();
-  
-  function test(url: string) {
-    const list = JSON.parse(getSaved());
-    
-    for (let index = 0; index < list.length; index++) {
-      if(list[index].url == url) {
-        return true;
-      }
-    }
-    
-    return false;
-  }
-  
-  const [copyNotification, setCopyNotification] = useSwitch("");
-  
-  const copy = (url: string) => {
-    navigator.clipboard.writeText(url);
-    
-    setCopyNotification(url);
-    
-    setTimeout(() => setCopyNotification(""), 1000);
-  }
   
   return (
     <Main>
@@ -94,15 +50,6 @@ export default function Home() {
                 <Show when={data.item?.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
               </span>
             </div>
-            {/* <div class="w-full lg:w-1/4 flex flex-col items-center gap-2 border-2 border-dark bg-[#2c2c54] dark:bg-[#414066] rounded-xl h-fit p-5">
-              <img class="size-20 rounded-xl" src={data.item.icon} alt="" />
-              <Title as="4" class="text-white">{data.item.title}</Title>
-              <Text class="p-2 text-wrap text-ellipsis text-white">{data.item.description}</Text>
-              <span class="flex gap-6 w-full">
-                <Show when={data.item?.roadmap}><a class="w-full text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-black bg-white" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
-                <Show when={data.item?.official}><a class="w-full text-center flex justify-center items-center gap-2 rounded-xl p-2 border-2 text-black bg-white" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
-              </span>
-            </div> */}
           </Match>
         </Switch>
         <Switch>
@@ -133,7 +80,7 @@ export default function Home() {
                         {item.title}
                       </Title>
                       <span class="group hover:scale-110 text-white hover:text-gray-400">
-                        <Show when={test(item.url)} fallback={(
+                        <Show when={getSaved().includes(item.url)} fallback={(
                           <>
                             <button onClick={() => addSaved(item)}><Icon name="BsBookmarkPlus" class="size-6 group-hover:hidden"/></button>
                             <button onClick={() => addSaved(item)}><Icon name="BsBookmarkPlusFill" class="size-6 hidden group-hover:block"/></button>

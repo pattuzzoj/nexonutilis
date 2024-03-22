@@ -1,5 +1,5 @@
 import useSwitch from "hooks/useSwitch";
-import { For, Show, createEffect, createMemo } from "solid-js";
+import { For, Show, createEffect } from "solid-js";
 import { useLocation, useNavigate } from "@solidjs/router";
 import Icon from "components/icon";
 import Title from "components/typography/title";
@@ -10,18 +10,16 @@ interface Props {
 
 export default function Accordion(props: Props) {
   const location = useLocation();
+  const navigate = useNavigate();
   const path = () => location.pathname;
-  const initialState = createMemo(() => path().startsWith(props.data.url));
-
+  const initialState = () => path().startsWith(props.data.url);
   const [isOpen, setIsOpen] = useSwitch<boolean>(initialState());
 
   createEffect(() => path() && setIsOpen(initialState()));
 
-  const navigate = useNavigate();
-
   return (
     <nav class="w-full flex flex-col gap-2" aria-labelledby={props.data.title}>
-      <Title as={(props.data.url.split("/").length + 2) <= 6 ? (props.data.url.split("/").length) : "5"} id={props.data.title}>
+      <Title as={(props.data.url.substring(1).split("/").length + 1) <= 6 ? (props.data.url.split("/").length) : "6"} id={props.data.title}>
         <a class={`${isOpen() ? "text-white bg-gray-500" : "text-gray-900 dark:text-white"} group flex items-center gap-2 p-2 rounded-lg font-medium text-base hover:text-white hover:bg-gray-400`} href={props.data.url} onClick={(e) => {
           e.preventDefault();
           setIsOpen(!isOpen());
@@ -37,7 +35,7 @@ export default function Accordion(props: Props) {
         <For each={props.data.items}>
           {(item) => (
             <Show when={item.type == "resources"} fallback={<Accordion data={item}/>}>
-              <a class={`${(path() == item.url) ? "text-white bg-gray-500 text-end" : ""} hover:text-white hover:bg-gray-400 w-full rounded-lg py-1 px-4`} href={item.url}>{item.title}</a>
+              <a class={`${(path() == item.url) ? "text-white bg-gray-500 text-end" : ""} hover:text-white hover:bg-gray-400 w-full rounded-lg py-1 px-4 text-sm`} href={item.url}>{item.title}</a>
             </Show>
           )}
         </For>

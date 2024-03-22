@@ -2,28 +2,17 @@ import { Title, Text } from "components/typography";
 import { For, Show } from "solid-js";
 import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
-import useSwitch from "hooks/useSwitch";
 import Main from "layout/main";
-
+import {copy, copyNotification} from "utils/clipboard";
 
 export default function Saved() {
-  const [savedList, _addSaved, removeSaved] = useSaved();
-
-  const [copyNotification, setCopyNotification] = useSwitch("");
-  
-  const copy = (url: string) => {
-    navigator.clipboard.writeText(url);
-    
-    setCopyNotification(url);
-    
-    setTimeout(() => setCopyNotification(""), 1000);
-  }
+  const [getSaved, _addSaved, removeSaved] = useSaved();
 
   return (
     <Main>
-      <Show when={JSON.parse(savedList()).length} fallback={<div class="w-full h-full flex justify-center items-center text-xl">Your saved items will appear here.</div>}>
+      <Show when={getSaved().length} fallback={<div class="w-full h-full flex justify-center items-center text-xl">Your saved items will appear here.</div>}>
         <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <For each={JSON.parse(savedList())}>
+          <For each={getSaved()}>
             {(item) => (
               <div class="flex flex-col justify-between gap-5 w-full rounded-xl p-4 bg-gray-300 dark:bg-gray-800">
                 <span class="flex justify-between w-full">

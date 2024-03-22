@@ -15,7 +15,7 @@ export default function Navigation() {
           <a class="hidden md:flex rounded p-2 hover:text-white hover:bg-gray-400" href="/">
             <Icon name="FiHome" class="size-6" />
           </a>
-          <For each={data.currentItems}>
+          <For each={data.navigation}>
             {(item) => <><span class="font-bold text-xl">/ </span><a class="rounded p1 md:p-2 hover:text-white hover:bg-gray-400" href={item.url}>{item.title}</a></>}
           </For>
         </span>

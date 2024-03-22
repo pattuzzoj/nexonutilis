@@ -1,3 +1,4 @@
+import { createMemo } from "solid-js";
 import useLocalStorage from "./useLocalStorage";
 
 export default function useSaved(): any {
@@ -21,5 +22,7 @@ export default function useSaved(): any {
     setSavedList(JSON.stringify(list));
   }
 
-  return [savedList, addSaved, removeSaved];
+  const getSaved = createMemo(() => JSON.parse(savedList()));
+
+  return [getSaved, addSaved, removeSaved];
 }
