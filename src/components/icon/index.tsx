@@ -6,7 +6,7 @@ import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConn
 import { AiFillEye, AiFillEyeInvisible } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
-import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceImacCode  } from 'solid-icons/tb';
+import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode } from 'solid-icons/tb';
 
 interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   name:
@@ -51,8 +51,7 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "FaSolidLaptopCode"
   | "TbDeviceMobileCode"
   | "TbServerCog"
-  | "TbSettingsCode"
-  | "TbDeviceImacCode ";
+  | "TbSettingsCode";
   class?: string;
 };
 
@@ -88,7 +87,6 @@ export default function Icon(props: Props) {
     BsBookmarkPlusFill,
     RiSystemMenuUnfoldLine,
     RiSystemMenuFoldLine,
-
     TbLayoutDashboard,
     BsCode,
     FiActivity,
@@ -100,8 +98,7 @@ export default function Icon(props: Props) {
     FaSolidLaptopCode,
     TbDeviceMobileCode,
     TbServerCog,
-    TbSettingsCode,
-    TbDeviceImacCode
+    TbSettingsCode
   }[props.name]
 
   return (
