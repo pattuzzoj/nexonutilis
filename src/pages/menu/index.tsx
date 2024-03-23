@@ -32,7 +32,7 @@ export default function Home() {
     }
   })
   
-  const [getSaved, addSaved, removeSaved] = useSaved();
+  const [savedItems, addItem, removeItem] = useSaved();
   
   return (
     <Main>
@@ -80,13 +80,13 @@ export default function Home() {
                         {item.title}
                       </Title>
                       <span class="group hover:scale-110 text-white hover:text-gray-400">
-                        <Show when={getSaved().includes(item.url)} fallback={(
+                        <Show when={savedItems().find((savedItem: any) => savedItem.url == item.url)} fallback={(
                           <>
-                            <button onClick={() => addSaved(item)}><Icon name="BsBookmarkPlus" class="size-6 group-hover:hidden"/></button>
-                            <button onClick={() => addSaved(item)}><Icon name="BsBookmarkPlusFill" class="size-6 hidden group-hover:block"/></button>
+                            <button onClick={() => addItem(item)}><Icon name="BsBookmarkPlus" class="size-6 group-hover:hidden"/></button>
+                            <button onClick={() => addItem(item)}><Icon name="BsBookmarkPlusFill" class="size-6 hidden group-hover:block"/></button>
                           </>
                         )}>
-                          <button onClick={() => removeSaved(item.url)}>
+                          <button onClick={() => removeItem(item.url)}>
                             <Icon name="BsBookmarkCheckFill" class="size-6 group-hover:hidden"/>
                             <Icon name="BsBookmarkDash" class="size-6 hidden group-hover:block"/>
                           </button>

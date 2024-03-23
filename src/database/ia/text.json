@@ -13,6 +13,11 @@
       "title": "Gemini",
       "description": "Discover Gemini, a powerful AI-based platform for cryptocurrency trading and investment.",
       "url": "https://gemini.google.com/"
+      },
+      {
+        "title": "Phind",
+        "description": "Get answers to complex questions with Phind's AI answer engine.",
+        "url": "https://www.phind.com/"
       }
   ]
 }

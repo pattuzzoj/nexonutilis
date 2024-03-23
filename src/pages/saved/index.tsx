@@ -6,20 +6,20 @@ import Main from "layout/main";
 import {copy, copyNotification} from "utils/clipboard";
 
 export default function Saved() {
-  const [getSaved, _addSaved, removeSaved] = useSaved();
+  const [savedItems, _addItem, removeItem] = useSaved();
 
   return (
     <Main>
-      <Show when={getSaved().length} fallback={<div class="w-full h-full flex justify-center items-center text-xl">Your saved items will appear here.</div>}>
+      <Show when={savedItems().length} fallback={<div class="w-full h-full flex justify-center items-center text-xl">Your saved items will appear here.</div>}>
         <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <For each={getSaved()}>
+          <For each={savedItems()}>
             {(item) => (
               <div class="flex flex-col justify-between gap-5 w-full rounded-xl p-4 bg-gray-300 dark:bg-gray-800">
                 <span class="flex justify-between w-full">
                   <Title as="4">
                     {item.title}
                   </Title>
-                  <button class="group hover:scale-110 text-white hover:text-gray-400" onClick={() => removeSaved(item.url)}>
+                  <button class="group hover:scale-110 text-white hover:text-gray-400" onClick={() => removeItem(item.url)}>
                     <Icon name="BsBookmarkCheckFill" class="size-6 group-hover:hidden"/>
                     <Icon name="BsBookmarkDash" class="size-6 hidden group-hover:block"/>
                   </button>

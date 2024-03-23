@@ -4,9 +4,9 @@ import useLocalStorage from "./useLocalStorage";
 export default function useSaved(): any {
   const [savedList, setSavedList] = useLocalStorage<any>("saved", JSON.stringify([]));
 
-  const addSaved = (item: any) => setSavedList(JSON.stringify([item, ...JSON.parse(savedList())]));
+  const addItem = (item: any) => setSavedList(JSON.stringify([item, ...JSON.parse(savedList())]));
   
-  const removeSaved = (url: string) => {
+  const removeItem = (url: string) => {
     const list = JSON.parse(savedList());
     let indexItem = null;
 
@@ -22,7 +22,7 @@ export default function useSaved(): any {
     setSavedList(JSON.stringify(list));
   }
 
-  const getSaved = createMemo(() => JSON.parse(savedList()));
+  const savedItems = createMemo(() => JSON.parse(savedList()));
 
-  return [getSaved, addSaved, removeSaved];
+  return [savedItems, addItem, removeItem];
 }
