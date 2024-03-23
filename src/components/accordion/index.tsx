@@ -32,7 +32,7 @@ export default function Accordion(props: Props) {
         </a>
       </Title>
       <ul class={`${isOpen() ? "h-full" : "h-0"} ml-4 flex flex-col gap-2 overflow-hidden transition-[height] duration-300`}>
-        <For each={props.data.items}>
+        <For each={props.data.type == "categories" && props.data.items}>
           {(item) => (
             <Show when={item.type == "resources"} fallback={<Accordion data={item}/>}>
               <a class={`${(path() == item.url) ? "text-white bg-gray-500 text-end" : ""} hover:text-white hover:bg-gray-400 w-full rounded-lg py-1 px-4 text-base`} href={item.url}>

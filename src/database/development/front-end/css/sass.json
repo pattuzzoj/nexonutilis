@@ -8,5 +8,10 @@
   "official": "https://sass-lang.com/",
   "url": "/development/frontend/css/sass",
   "items": [
+    {
+      "title": "Sass - W3schools",
+      "description": "Sass is a CSS pre-processor. Sass reduces repetition of CSS and therefore saves time.",
+      "url": "https://www.w3schools.com/sass/default.php"
+    }
   ]
 }
