@@ -9,6 +9,9 @@ import php from "./php.json";
 import java from "./java.json";
 import ruby from "./ruby.json";
 import rust from "./rust.json";
+import lua from "./lua.json";
+import go from "./go.json";
+import swift from "./swift.json";
 
 export const languages = {
   "type": "categories",
@@ -20,12 +23,15 @@ export const languages = {
     csharp,
     cplusplus,
     kotlin,
+    go,
+    lua,
     java,
     javascript,
     php,
     python,
     ruby,
     rust,
+    swift,
     typescript
   ],
   "url": "/languages",

@@ -1,7 +1,11 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "PostgreSQL",
   "description": "PostgreSQL is an open-source relational database management system known for its robustness and standards compliance, offering advanced features such as complex data types, advanced queries, and ACID transactions.",
+  "official": "https://www.postgresql.org/",
+  "roadmap": "https://roadmap.sh/postgresql-dba",
+  "icon": "https://static-00.iconduck.com/assets.00/postgresql-icon-248x256-7cxcsssy.png",
   "items": [
     {
       "title": "PostgreSQL Tutorial",

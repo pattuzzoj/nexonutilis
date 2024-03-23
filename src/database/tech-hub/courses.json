@@ -29,9 +29,14 @@
       "url": "https://ebaconline.com.br/"
     },
     {
-      "title": " edX",
+      "title": "edX",
       "description": "Pursue accredited online courses from top universities and institutions on edX. Explore a wide range of subjects, including computer science, data science, and software development, offered at various levels.",
       "url": "https://www.edx.org/"
+    },
+    {
+      "title": "freeCodeCamp",
+      "description": "freeCodeCamp is a community of people from all around the world who are learning to code together.",
+      "url": "https://www.freecodecamp.org/"
     },
     {
       "title": "Pluralsight",

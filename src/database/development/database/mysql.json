@@ -1,7 +1,10 @@
 {
   "type": "resources",
+  "mode": "card",
   "title": "MySQL",
   "description": "MySQL is an open-source relational database management system widely used for its reliability and performance, offering a variety of features including powerful SQL queries and data replication.",
+  "official": "https://www.mysql.com/",
+  "icon": "https://static-00.iconduck.com/assets.00/mysql-original-wordmark-icon-256x133-co133152.png",
   "items": [
     {
       "title": "MySQL Tutorial",
