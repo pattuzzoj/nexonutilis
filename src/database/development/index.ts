@@ -1,8 +1,8 @@
-import { frontend } from "./front-end";
+import { data } from './database';
+import { frontend } from './front-end';
 import { backend } from "./back-end";
-import { database } from "./database";
-import { desktop } from "./desktop";
-import { mobile } from "./mobile";
+// import { desktop } from "./desktop";
+// import { mobile } from "./mobile";
 import { tools } from "./tools";
 
 export const development = {
@@ -13,9 +13,7 @@ export const development = {
   "items": [
     frontend,
     backend,
-    mobile,
-    desktop,
-    database,
+    data,
     tools,
   ],
   "url": "/development",

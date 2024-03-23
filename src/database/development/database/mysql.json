@@ -1,0 +1,18 @@
+{
+  "type": "resources",
+  "title": "MySQL",
+  "description": "MySQL is an open-source relational database management system widely used for its reliability and performance, offering a variety of features including powerful SQL queries and data replication.",
+  "items": [
+    {
+      "title": "MySQL Tutorial",
+      "description": "MySQL Tutorial website provides you with the most comprehensive MySQL tutorial that helps you learn MySQL fast, easy & fun.",
+      "url": "https://www.mysqltutorial.org/"
+    },
+    {
+      "title": "MySQL - W3schools",
+      "description": "MySQL is a widely used relational database management system (RDBMS). MySQL is free and open-source. MySQL is ideal for both small and large applications.",
+      "url": "https://www.w3schools.com/MySQL/default.asp"
+    }
+  ],
+  "url": "/development/database/mysql"
+}

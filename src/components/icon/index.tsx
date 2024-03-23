@@ -1,12 +1,12 @@
 import { JSX } from 'solid-js';
 import { BsTwitter, BsFacebook, BsLinkedin, BsGithub, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
-import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity } from 'solid-icons/fi';
+import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity, FiDatabase } from 'solid-icons/fi';
 import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine, RiDesignPaletteLine } from 'solid-icons/ri';
-import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConnectdevelop } from 'solid-icons/fa';
+import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConnectdevelop, FaSolidLaptopCode } from 'solid-icons/fa';
 import { AiFillEye, AiFillEyeInvisible } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
-import { TbLayoutDashboard } from 'solid-icons/tb';
+import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceImacCode  } from 'solid-icons/tb';
 
 interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   name:
@@ -46,7 +46,13 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "BsRobot"
   | "TbLayoutDashboard"
   | "FiActivity"
-  | "FaBrandsConnectdevelop";
+  | "FaBrandsConnectdevelop"
+  | "FiDatabase"
+  | "FaSolidLaptopCode"
+  | "TbDeviceMobileCode"
+  | "TbServerCog"
+  | "TbSettingsCode"
+  | "TbDeviceImacCode ";
   class?: string;
 };
 
@@ -89,7 +95,13 @@ export default function Icon(props: Props) {
     RiDesignPaletteLine,
     OcPerson3,
     BsRobot,
-    FaBrandsConnectdevelop
+    FaBrandsConnectdevelop,
+    FiDatabase,
+    FaSolidLaptopCode,
+    TbDeviceMobileCode,
+    TbServerCog,
+    TbSettingsCode,
+    TbDeviceImacCode
   }[props.name]
 
   return (

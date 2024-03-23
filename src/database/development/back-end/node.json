@@ -1,0 +1,21 @@
+{
+  "type": "resources",
+  "mode": "card",
+  "title": "Node.js",
+  "description": "Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.",
+  "icon": "https://static-00.iconduck.com/assets.00/nodejs-icon-224x256-oscp0y4n.png",
+  "official": "https://nodejs.org/en",
+  "items": [
+    {
+      "title": "Node.js - Tutorial",
+      "description": "This practical Node.js tutorial provides you with everything you need to use Node.js effectively. What you will learn: Learn the fundamentals of Node.",
+      "url": "https://www.javascripttutorial.net/nodejs-tutorial/"
+    },
+    {
+      "title": "Node.js - W3schools",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/nodejs/"
+    }
+  ],
+  "url": "/development/backend/nodejs"
+}
