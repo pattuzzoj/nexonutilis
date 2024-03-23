@@ -35,7 +35,9 @@ export default function Accordion(props: Props) {
         <For each={props.data.items}>
           {(item) => (
             <Show when={item.type == "resources"} fallback={<Accordion data={item}/>}>
-              <a class={`${(path() == item.url) ? "text-white bg-gray-500 text-end" : ""} hover:text-white hover:bg-gray-400 w-full rounded-lg py-1 px-4 text-base`} href={item.url}>{item.title}</a>
+              <a class={`${(path() == item.url) ? "text-white bg-gray-500 text-end" : ""} hover:text-white hover:bg-gray-400 w-full rounded-lg py-1 px-4 text-base`} href={item.url}>
+                {item.title}
+                </a>
             </Show>
           )}
         </For>

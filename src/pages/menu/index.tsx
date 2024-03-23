@@ -41,7 +41,7 @@ export default function Home() {
           <Match when={data.item.mode == "card"}>
             <div class="flex flex-col gap-1">
               <div class="flex items-center gap-3">
-                <img class="size-8 rounded-xl" src={data.item.icon} alt="" />
+                <img class="w-8 rounded-xl" src={data.item.icon} alt="" />
                 <Title as="2" class="text-[#2c2c54] dark:text-white">{data.item.title}</Title>
               </div>
               <Text class="p-2 text-wrap text-ellipsis text-[#2c2c54] dark:text-white">{data.item.description}</Text>

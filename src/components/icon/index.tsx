@@ -8,6 +8,10 @@ import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-ico
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
 import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode } from 'solid-icons/tb';
 
+import { AiOutlineBgColors } from 'solid-icons/ai';
+import { BsFonts, BsImage } from 'solid-icons/bs';
+import { FaSolidIcons } from 'solid-icons/fa';
+
 interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   name:
   | "BsTwitter"
@@ -51,7 +55,8 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "FaSolidLaptopCode"
   | "TbDeviceMobileCode"
   | "TbServerCog"
-  | "TbSettingsCode";
+  | "TbSettingsCode"
+  | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons";
   class?: string;
 };
 
@@ -98,7 +103,8 @@ export default function Icon(props: Props) {
     FaSolidLaptopCode,
     TbDeviceMobileCode,
     TbServerCog,
-    TbSettingsCode
+    TbSettingsCode,
+    AiOutlineBgColors, BsFonts, BsImage, FaSolidIcons
   }[props.name]
 
   return (
