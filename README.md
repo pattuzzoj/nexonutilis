@@ -13,6 +13,7 @@ Nexon Utilis is a web application that serves as an online repository of links r
 - **Tech Hub**: General technology and programming resources.
 - **Languages**: Links and information about various programming languages.
 - **Development**: Tools, frameworks, and libraries for web and mobile development.
+- **Hosting**: Hosting plataforms for websites and servers.
 - **Visuals**: Visual resources, such as color palettes, fonts, and icons.
 - **AI**: Resources related to artificial intelligence and machine learning.
 - **Community**: Blogs, forums, and online communities for developer interaction and collaboration.
