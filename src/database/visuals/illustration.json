@@ -1,0 +1,18 @@
+{
+  "type": "resources",
+  "title": "Illustration",
+  "description": "Visual representation of a subject, created through drawing, painting, or digitally. Used to enhance content or convey ideas in media like books, magazines, ads, and websites.",
+  "items": [
+    {
+      "title": "Undraw",
+      "description": "Create better designed websites, products and applications. Browse to find the images that fit your messaging, automagically customise the color to match your brand and use it as a normal image, embedded code or directly in your design workflow.",
+      "url": "https://undraw.co/"
+    },
+    {
+      "title": "Storyset",
+      "description": "Edit and animate all our customizable illustrations to enhance your projects totally free. Start now to be creative in our online editor.",
+      "url": "https://storyset.com/"
+    }
+  ],
+  "url": "/visuals/illustration"
+}

@@ -2,6 +2,7 @@ import colors from "./colors.json";
 import fonts from "./fonts.json";
 import icons from "./icons.json";
 import images from "./images.json";
+import illustration from "./illustration.json";
 
 export const visuals = 
 {
@@ -13,6 +14,7 @@ export const visuals =
     colors,
     fonts,
     icons,
+    illustration,
     images
   ],
   "url": "/visuals"
