@@ -14,7 +14,6 @@ import { FaSolidIcons } from 'solid-icons/fa';
 
 interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   name:
-  | "BsTwitter"
   | "BsGithub"
   | "FiSun"
   | "FiMoon"
