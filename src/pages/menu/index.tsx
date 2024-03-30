@@ -1,5 +1,5 @@
 import { Title, Text } from "components/typography";
-import { For, Match, Show, Switch, createEffect } from "solid-js";
+import { For, Match, Show, Switch, createEffect} from "solid-js";
 import { useLocation } from "@solidjs/router";
 import { useData } from "context";
 import { database } from "database";
