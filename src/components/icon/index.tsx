@@ -6,7 +6,7 @@ import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConn
 import { AiFillEye, AiFillEyeInvisible, AiOutlineCloudServer } from 'solid-icons/ai';
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
-import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode } from 'solid-icons/tb';
+import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceDesktopCog } from 'solid-icons/tb';
 
 import { AiOutlineBgColors } from 'solid-icons/ai';
 import { BsFonts, BsImage } from 'solid-icons/bs';
@@ -54,7 +54,8 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "TbServerCog"
   | "TbSettingsCode"
   | "AiOutlineCloudServer"
-  | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons";
+  | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
+  | "TbDeviceDesktopCog";
   class?: string;
 };
 
@@ -100,7 +101,8 @@ export default function Icon(props: Props) {
     TbServerCog,
     TbSettingsCode,
     AiOutlineCloudServer,
-    AiOutlineBgColors, BsFonts, BsImage, FaSolidIcons
+    AiOutlineBgColors, BsFonts, BsImage, FaSolidIcons,
+    TbDeviceDesktopCog
   }[props.name]
 
   return (

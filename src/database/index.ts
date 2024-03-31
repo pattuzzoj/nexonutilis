@@ -1,10 +1,11 @@
 import { techhub } from './tech-hub';
 import { languages } from './languages';
 import { development } from './development';
+import { hosting } from './hosting/hosting';
 import { visuals } from './visuals';
 import { ia } from "./ia"
+import { softwares } from "./softwares";
 import { community } from './community';
-import { hosting } from './hosting/hosting';
 
 export const database = {
   type: "categories",
@@ -15,6 +16,7 @@ export const database = {
     hosting,
     visuals,
     ia,
+    softwares,
     community,
   ]
 }

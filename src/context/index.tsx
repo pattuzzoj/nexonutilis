@@ -19,9 +19,8 @@ export default function DataProvider(props: {children: JSXElement}) {
 	
 	(function setMap(items: any) {
 		items.forEach((item: any) => {
-			data.map.set(item.url, item);
-
-			if("items" in item) {
+      if("items" in item) {
+        data.map.set(item.url, item);
 				setMap(item.items);
 			}
 		});
