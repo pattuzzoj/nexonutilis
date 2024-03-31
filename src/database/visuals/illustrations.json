@@ -4,15 +4,35 @@
   "description": "Visual representation of a subject, created through drawing, painting, or digitally. Used to enhance content or convey ideas in media like books, magazines, ads, and websites.",
   "items": [
     {
-      "title": "Undraw",
-      "description": "Create better designed websites, products and applications. Browse to find the images that fit your messaging, automagically customise the color to match your brand and use it as a normal image, embedded code or directly in your design workflow.",
-      "url": "https://undraw.co/"
+        "title": "unDraw",
+        "description": "unDraw offers open-source illustrations for any idea you can imagine. It provides a constantly updated collection of beautiful SVG images that you can use completely free and without attribution. Customize the color to match your brand and embed the illustrations directly into your design workflow.",
+        "url": "https://undraw.co/"
+    },
+    {
+        "title": "Illu-station",
+        "description": "Illu-station offers over 500 free illustrations in PNG and SVG formats. These illustrations cover various themes and can enhance your web design, presentations, or creative projects.",
+        "url": "https://illu-station.com/"
+    },
+    {
+        "title": "IRA Design",
+        "description": "IRA Design provides three free customizable libraries of illustrations in PNG and SVG formats. You can easily modify these illustrations to fit your specific design needs.",
+        "url": "https://iradesign.io/"
+    },
+    {
+        "title": "DrawKit",
+        "description": "DrawKit offers over 60 free libraries of illustrations in PNG and SVG formats. These illustrations are suitable for web design, app interfaces, and more.",
+        "url": "https://www.drawkit.io/"
+    },
+    {
+        "title": "Absurd Illustrations",
+        "description": "Absurd Illustrations provides a free library of quirky and playful illustrations. Additionally, they offer nine paid illustration packs for more variety.",
+        "url": "https://absurd.design/"
     },
     {
       "title": "Storyset",
       "description": "Edit and animate all our customizable illustrations to enhance your projects totally free. Start now to be creative in our online editor.",
       "url": "https://storyset.com/"
     }
-  ],
+],
   "url": "/visuals/illustration"
 }

@@ -3,26 +3,56 @@
   "title": "Icons",
   "description": "Access a wide array of icons to visually complement your digital creations. From minimalist to detailed styles, find the perfect icons for your web pages, apps, and user interfaces, enhancing usability and design.",
   "items": [
-    {
-      "title": "Flaticon",
-      "description": "Download free Icons & Stickers for your projects. Resources made by and for designers in PNG, SVG, EPS, PSD, and CSS formats.",
-      "url": "https://www.flaticon.com/br/"
-    },
-    {
-      "title": "Iconfinder",
-      "description": "Iconfinder is the world's largest marketplace for icons, illustrations and 3D illustrations in SVG, AI, and PNG format.",
-      "url": "https://www.iconfinder.com/"
-    },
-    {
-      "title": "Icons8",
-      "description": "Download free design elements: icons, photos, vector illustrations, and music for your videos.",
-      "url": "https://icons8.com.br/"
-    },
-    {
-      "title": "Icon.js",
-      "description": "Search for all icons... Ctrl + Enter. General. Material Symbols. GoogleApache 2.012511 icons. 123. 360. 10k. 10k-outline. 10k-outline-rounded.",
-      "url": "https://icones.js.org/"
-    }
+      {
+          "title": "Flaticon",
+          "description": "Flaticon is a platform offering 374,271 free icons related to the internet. You can find icons for use in presentations, exploratory projects, and Android apps.",
+          "url": "https://www.flaticon.com/br/icones-gratis/internet"
+      },
+      {
+          "title": "Freepik",
+          "description": "Freepik offers customizable internet icons for your websites, apps, and digital interfaces. These icons help users navigate, understand, and interact with online content.",
+          "url": "https://br.freepik.com/icones/internet"
+      },
+      {
+          "title": "Uicons",
+          "description": "Uicons provides over 25,000 SVG icons and free icon fonts. These icons are perfect for web projects, iOS, and Android.",
+          "url": "https://www.flaticon.com/br/uicons/interface-icons"
+      },
+      {
+          "title": "Iconfinder",
+          "description": "Iconfinder offers a vast collection of premium and free icons. You can explore internet-related icons and customize them as per your needs.",
+          "url": "https://www.iconfinder.com/"
+      },
+      {
+          "title": "Material Icons",
+          "description": "Google's Material Icons are an excellent source of icons for web projects and apps. They are well-documented and easy to use.",
+          "url": "https://material.io/resources/icons/"
+      },
+      {
+          "title": "FontAwesome",
+          "description": "FontAwesome offers scalable vector icons that can be used in web design and development projects. They have a wide variety of internet-related icons.",
+          "url": "https://fontawesome.com/"
+      },
+      {
+          "title": "Ionicons",
+          "description": "Ionicons are an open-source icon library created by the Ionic Framework team. They are ideal for mobile and web applications.",
+          "url": "https://ionicons.com/"
+      },
+      {
+          "title": "Feather Icons",
+          "description": "Feather Icons are minimalist and stylish icons that can be used in web projects and applications. They are lightweight and easy to integrate.",
+          "url": "https://feathericons.com/"
+      },
+      {
+          "title": "Simple Icons",
+          "description": "Simple Icons offers icons of popular internet-related brands. If you need icons for social networks, company logos, or online services, this is the right place.",
+          "url": "https://simpleicons.org/"
+      },
+      {
+          "title": "Iconmonstr",
+          "description": "Iconmonstr is a collection of simple and elegant icons. They are great for use in web projects and applications.",
+          "url": "https://iconmonstr.com/"
+      }
   ],
   "url": "/visuals/icons"
 }

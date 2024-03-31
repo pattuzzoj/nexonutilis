@@ -1,0 +1,48 @@
+{
+  "type": "resources",
+  "title": "Voice Generators",
+  "description": "Explore a comprehensive list of voice generator tools and APIs for converting text into lifelike speech.",
+  "url": "/ia/voice",
+  "items": [
+      {
+          "title": "Voice Generator",
+          "description": "This web app allows you to generate voice audio from text without requiring any login. It's completely free! The voices will differ depending on the browser you're using, as it utilizes your browser's built-in voice synthesis technology.",
+          "url": "https://voicegenerator.io/"
+      },
+      {
+          "title": "SpeechGen.io",
+          "description": "Create realistic voiceovers online! Insert any text to generate speech and download the resulting audio in MP3 or WAV format. Use AI voices to convert text to speech for free.",
+          "url": "https://speechgen.io/pt/"
+      },
+      {
+          "title": "ElevenLabs AI Voice Generator",
+          "description": "Rated as the best text-to-speech (TTS) software online. Create premium AI voices for free and generate text-to-speech voiceovers in minutes with their character AI voice generator. Supports 29 languages with 100+ voices.",
+          "url": "https://elevenlabs.io/"
+      },
+      {
+          "title": "Google Text-to-Speech API",
+          "description": "Google's powerful text-to-speech API allows developers to integrate natural-sounding voices into their applications. It supports multiple languages and offers customizable parameters.",
+          "url": "https://cloud.google.com/text-to-speech"
+      },
+      {
+          "title": "ResponsiveVoice",
+          "description": "ResponsiveVoice provides easy-to-use text-to-speech solutions for websites and applications. Choose from various voices and customize speech settings.",
+          "url": "https://responsivevoice.org/"
+      },
+      {
+          "title": "iSpeech",
+          "description": "iSpeech offers cloud-based text-to-speech APIs and SDKs. Developers can create voice-enabled applications across platforms using their robust tools.",
+          "url": "https://www.ispeech.org/"
+      },
+      {
+          "title": "Amazon Polly",
+          "description": "Amazon Polly is an AWS service that converts text into lifelike speech. It supports multiple languages and offers a variety of voices with customizable parameters.",
+          "url": "https://aws.amazon.com/polly/"
+      },
+      {
+          "title": "IBM Watson Text to Speech",
+          "description": "IBM Watson's Text to Speech service allows developers to add natural-sounding voices to their applications. It offers customization options and supports multiple languages.",
+          "url": "https://cloud.ibm.com/catalog/services/text-to-speech"
+      }
+  ]
+}

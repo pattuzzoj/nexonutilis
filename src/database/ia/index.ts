@@ -1,5 +1,6 @@
 import image from "./image.json";
 import text from "./text.json";
+import voice from "./voice.json";
 
 export const ia = {
   "type": "categories",
@@ -8,7 +9,8 @@ export const ia = {
   "icon": "BsRobot",
   "items": [
     image,
-    text
+    text,
+    voice
   ],
   "url": "/ia"
 }
