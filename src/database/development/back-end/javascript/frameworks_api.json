@@ -1,0 +1,83 @@
+{
+  "type": "resources",
+  "title": "Frameworks API",
+  "description": "A curated list of JavaScript frameworks for building APIs on the backend.",
+  "url": "/development/backend/javascript/frameworks",
+  "items": [
+    {
+      "title": "Express.js",
+      "description": "Express.js is a fast, unopinionated, and minimalist web framework for Node.js.",
+      "url": "https://expressjs.com/"
+    },
+    {
+      "title": "Koa",
+      "description": "Koa is a lightweight and expressive middleware framework for Node.js.",
+      "url": "https://koajs.com/"
+    },
+    {
+      "title": "Fastify",
+      "description": "Fastify is a web framework highly focused on providing the best developer experience with the least overhead.",
+      "url": "https://www.fastify.io/"
+    },
+    {
+      "title": "NestJS",
+      "description": "NestJS is a progressive Node.js framework for building efficient, reliable, and scalable server-side applications.",
+      "url": "https://nestjs.com/"
+    },
+    {
+      "title": "Hapi.js",
+      "description": "Hapi.js is a rich framework for building applications and services.",
+      "url": "https://hapi.dev/"
+    },
+    {
+      "title": "LoopBack",
+      "description": "LoopBack is a highly extensible Node.js framework for building APIs and connecting them with backend data sources.",
+      "url": "https://loopback.io/"
+    },
+    {
+      "title": "AdonisJS",
+      "description": "AdonisJS is a Node.js web framework with a focus on developer ergonomics and speed.",
+      "url": "https://adonisjs.com/"
+    },
+    {
+      "title": "Sails.js",
+      "description": "Sails.js is a real-time MVC framework for Node.js that simplifies the process of building custom, enterprise-grade Node.js applications.",
+      "url": "https://sailsjs.com/"
+    },
+    {
+      "title": "Feathers",
+      "description": "Feathers is a lightweight web framework for building real-time applications.",
+      "url": "https://feathersjs.com/"
+    },
+    {
+      "title": "Strapi",
+      "description": "Strapi is an open-source headless CMS that offers a customizable API generation feature.",
+      "url": "https://strapi.io/"
+    },
+    {
+      "title": "Nodal",
+      "description": "Nodal is a full-featured framework for building APIs and web servers in Node.js.",
+      "url": "http://www.nodaljs.com/"
+    },
+    {
+      "title": "LoopBack 4",
+      "description": "LoopBack 4 is a highly extensible Node.js framework for building APIs and connecting them with backend data sources.",
+      "url": "https://loopback.io/doc/en/lb4/"
+    },
+    {
+      "title": "Micro",
+      "description": "Micro is a minimalistic microservices framework for Node.js.",
+      "url": "https://github.com/vercel/micro"
+    },
+    {
+      "title": "Restify",
+      "description": "Restify is a Node.js web service framework optimized for building RESTful APIs.",
+      "url": "http://restify.com/"
+    },
+    {
+      "title": "Naja",
+      "description": "Naja is a modern, fast, and minimalist web framework for Node.js.",
+      "url": "https://github.com/najajs/naja"
+    }
+  ]
+}

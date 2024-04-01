@@ -1,12 +1,11 @@
 {
   "type": "resources",
-  "mode": "card",
   "title": "Preact",
-  "description": "Uma alternativa leve ao React com API moderna. Componentes e DOM Virtual.",
+  "description": "A light alternative for React with modern API, components and Virtual DOM.",
   "icon": "",
   "roadmap": "",
   "official": "https://preactjs.com/",
-  "url": "/development/frontend/javascript/preact",
+  "url": "/development/frontend/javascript/libraries/preact",
   "items": [
     {
       "title": "Começando com Preact",

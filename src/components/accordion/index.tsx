@@ -20,13 +20,13 @@ export default function Accordion(props: Props) {
   return (
     <nav class="w-full flex flex-col gap-2" aria-labelledby={props.data.title}>
       <Title as={(props.data.url.substring(1).split("/").length + 1) <= 6 ? (props.data.url.split("/").length) : "6"} id={props.data.title}>
-        <a class={`${isOpen() ? "text-white bg-gray-500" : "text-gray-900 dark:text-white"} group flex items-center gap-2 p-2 rounded-lg font-medium text-base hover:text-white hover:bg-gray-400`} href={props.data.url} onClick={(e) => {
+        <a class={`${isOpen() ? "text-white bg-gray-500 flex-row-reverse" : "text-gray-900 dark:text-white"} group flex items-center gap-2 p-2 rounded-lg font-medium text-base hover:text-white hover:bg-gray-400`} href={props.data.url} onClick={(e) => {
           e.preventDefault();
           setIsOpen(!isOpen());
           navigate(isOpen() ? props.data.url : props.data.url.slice(0, (props.data.url).lastIndexOf("/")));
         }}>
           <Show when={props.data?.icon} fallback={<Icon name="RiArrowsArrowRightSLine" class={`${isOpen() && "rotate-90"} size-7 transition-transform`} />}>
-            <Icon name={props.data.icon} class={`${isOpen() ? "rotate-90 text-white" : "text-gray-600 dark:text-white"} group-hover:text-white size-7 transition-transform`} />
+            <Icon name={props.data.icon} class={`${isOpen() ? "rotate-[360deg] text-white" : "text-gray-600 dark:text-white"} group-hover:text-white size-7 transition-transform`} />
           </Show>
           {props.data.title}
         </a>
