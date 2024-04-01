@@ -45,8 +45,8 @@ export default function Home() {
             </div>
             <Text class="p-2 text-wrap text-ellipsis text-[#2c2c54] dark:text-white">{data.item.description}</Text>
             <span class="flex gap-2">
-              <Show when={data.item?.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
-              <Show when={data.item?.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
+              <Show when={data.item?.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
+              <Show when={data.item?.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
             </span>
           </div>
         </Show>

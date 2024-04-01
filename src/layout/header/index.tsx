@@ -3,6 +3,7 @@ import useSwitch from 'hooks/useSwitch';
 import Icon from "components/icon";
 import Title from "components/typography/title";
 import Menu from "components/menu";
+import Search from 'components/search';
 
 export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(true);
@@ -15,6 +16,8 @@ export default function Header() {
         </Show>
       </button>
       <Title as="1" class="md:h-[10%] overflow-hidden"><a class="flex items-center gap-2 font-extralight text-gray-900 dark:text-white" href="/"><Icon name="FaBrandsConnectdevelop" class="size-8" /> Nexon Utilis</a></Title>
+      <Search />
+      <br />
       <Menu />
       <div class="md:h-[10%] flex flex-col justify-end overflow-hidden">
         <a class="group w-full flex items-center gap-2 p-2 hover:text-white hover:bg-gray-400 rounded" href="/saved"><Icon name="FaRegularBookmark" class="group-hover:text-white"/> Saved</a>

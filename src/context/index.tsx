@@ -6,6 +6,7 @@ export const DataContext = createContext();
 
 export default function DataProvider(props: {children: JSXElement}) {
 	const [data, setData] = createStore({
+    search: new Map(),
 		map: new Map(),
 		navigation: [],
 		item: {
