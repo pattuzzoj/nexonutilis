@@ -25,8 +25,8 @@ export default function Accordion(props: Props) {
           setIsOpen(!isOpen());
           navigate(isOpen() ? props.data.url : props.data.url.slice(0, (props.data.url).lastIndexOf("/")));
         }}>
-          <Show when={props.data?.icon} fallback={<Icon name="RiArrowsArrowRightSLine" class={`${isOpen() && "rotate-90"} size-7 transition-transform`} />}>
-            <Icon name={props.data.icon} class={`${isOpen() ? "rotate-[360deg] text-white" : "text-gray-600 dark:text-white"} group-hover:text-white size-7 transition-transform`} />
+          <Show when={props.data?.icon} fallback={<Icon name="RiArrowsArrowRightSLine" class={`${isOpen() && "rotate-90"} size-7 transition-transform duration-300`} />}>
+            <Icon name={props.data.icon} class={`${isOpen() ? "rotate-[360deg] text-white" : "text-gray-600 dark:text-white"} group-hover:text-white size-7 transition-transform duration-300`} />
           </Show>
           {props.data.title}
         </a>
