@@ -1,5 +1,10 @@
 {
   "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node index.js",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@vercel/postgres": "^0.8.0",
     "express": "^4.19.2"
