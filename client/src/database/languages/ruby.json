@@ -1,0 +1,32 @@
+{
+  "type": "resources",
+  "mode": "card",
+  "title": "Ruby",
+  "description": "Ruby is a general-purpose, interpreted, object-oriented programming language known for its simple and readable syntax. It is popular for full-stack web development, especially with the Ruby on Rails framework. It is also used for scripting, text processing, and task automation.",
+  "logo": "https://static-00.iconduck.com/assets.00/ruby-icon-256x256-derjrxb3.png",
+  "roadmap": "https://ruby-for-beginners.rubymonstas.org/roadmap.html",
+  "official": "https://www.ruby-lang.org/",
+  "url": "/languages/ruby",
+  "items": [
+    {
+      "title": "Ruby Tutorial - Tutorialspoint",
+      "description": "Explore tutorials and detailed references for Ruby, covering fundamental concepts, object-oriented programming, blocks and iterators, and much more.",
+      "url": "https://www.tutorialspoint.com/ruby/"
+    },
+    {
+      "title": "Ruby on Rails Guides",
+      "description": "Official documentation of Ruby on Rails, a popular framework for full-stack web development in Ruby. Learn how to build complete web applications with Ruby on Rails.",
+      "url": "https://guides.rubyonrails.org/"
+    },
+    {
+      "title": "Learn Ruby the Hard Way",
+      "description": "Learn Ruby through practical exercises and challenges that gradually teach you programming. Ideal for those who prefer an interactive approach.",
+      "url": "https://learnrubythehardway.org/book/"
+    },
+    {
+      "title": "Ruby for Beginners - GoRails",
+      "description": "Free online course for beginners in Ruby, offered by the GoRails platform. Learn the basics of the language and fundamental concepts of web development.",
+      "url": "https://gorails.com/guides/ruby-for-beginners"
+    }
+  ]
+}

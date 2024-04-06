@@ -1,0 +1,22 @@
+{
+  "type": "resources",
+  "mode": "card",
+  "title": "PostgreSQL",
+  "description": "PostgreSQL is an open-source relational database management system known for its robustness and standards compliance, offering advanced features such as complex data types, advanced queries, and ACID transactions.",
+  "url": "/development/database/postgresql",
+  "logo": "https://static-00.iconduck.com/assets.00/postgresql-icon-248x256-7cxcsssy.png",
+  "official": "https://www.postgresql.org/",
+  "roadmap": "https://roadmap.sh/postgresql-dba",
+  "items": [
+    {
+      "title": "PostgreSQL Tutorial",
+      "description": "Learn PostgreSQL quickly through a practical PostgreSQL tutorial designed for database administrators and application developers.",
+      "url": "https://www.postgresqltutorial.com/"
+    },
+    {
+      "title": "PostgreSQL - W3schools",
+      "description": "In this tutorial you get a step by step guide on how to install and create a PostgreSQL database. You will learn how to create a project where you can create, read, update, and delete data.",
+      "url": "https://www.w3schools.com/postgresql/index.php"
+    }
+  ]
+}

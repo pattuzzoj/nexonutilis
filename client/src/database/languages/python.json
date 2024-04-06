@@ -1,0 +1,32 @@
+{
+  "type": "resources",
+  "mode": "card",
+  "title": "Python",
+  "description": "Python is a versatile, high-level programming language known for its simplicity and readability. It is widely used in various domains such as web development, data science, artificial intelligence, and more. Python's extensive standard library and large ecosystem of third-party packages make it a popular choice among developers.",
+  "roadmap": "https://roadmap.sh/python",
+  "official": "https://www.rust-lang.org/",
+  "items": [
+    {
+      "title": "Python Tutorial",
+      "description": "This Python Tutorial helps you learn Python programming from scratch. If you want to master Python fast, this tutorial is a good start.",
+      "url": "https://www.pythontutorial.net/"
+    },
+    {
+      "title": "Python - TutorialGateway",
+      "description": "Python Tutorial: Learn Python programming language basic, advanced & data science. It helps you to learn about data science, machine learning.",
+      "url": "https://www.tutorialgateway.org/python-tutorial/"
+    },
+    {
+      "title": "Python - Programiz",
+      "description": "Python is a powerful general-purpose programming language. Our Python tutorial will guide you to learn Python one step at a time with the help of examples.",
+      "url": "https://www.programiz.com/python-programming"
+    },
+    {
+      "title": "Python - W3schools",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/python/default.asp"
+    }
+  ],
+  "url": "/languages/python",
+  "logo": "https://static-00.iconduck.com/assets.00/python-icon-512x512-48og66bp.png"
+}

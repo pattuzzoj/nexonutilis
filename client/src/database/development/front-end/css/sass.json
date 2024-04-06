@@ -1,0 +1,17 @@
+{
+  "type": "resources",
+  "mode": "card",
+  "title": "Sass",
+  "description": "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.",
+  "logo": "https://static-00.iconduck.com/assets.00/sass-icon-256x256-qqxwn8h6.png",
+  "roadmap": "",
+  "official": "https://sass-lang.com/",
+  "url": "/development/frontend/css/sass",
+  "items": [
+    {
+      "title": "Sass - W3schools",
+      "description": "Sass is a CSS pre-processor. Sass reduces repetition of CSS and therefore saves time.",
+      "url": "https://www.w3schools.com/sass/default.php"
+    }
+  ]
+}
