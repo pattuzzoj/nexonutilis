@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "@vercel/postgres": "^0.8.0",
     "express": "^4.19.2"
