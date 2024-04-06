@@ -1,8 +1,5 @@
 {
   "type": "module",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
     "@vercel/postgres": "^0.8.0",
     "dotenv": "^16.4.5",
