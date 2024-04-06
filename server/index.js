@@ -7,6 +7,8 @@ const app = express();
 const port = 3000;
 
 app.get('/api', async (req, res) => {
+  res.send("hello");
+  
   try {
     const {rows, fields} = await client.sql`
       SELECT
@@ -23,57 +25,57 @@ app.get('/api', async (req, res) => {
   }
 })
 
-app.get('/api/*', async (req, res) => {
-  const url = req.params[0];
-  const type = req.body.type;
+// app.get('/api/*', async (req, res) => {
+//   const url = req.params[0];
+//   const type = req.body.type;
 
-  try {
-    let table;
+//   try {
+//     let table;
 
-    if(type == "categories") {
-      table = "categories";
-    } else if(type == "resources") {
-      table = "resources";
-    }
+//     if(type == "categories") {
+//       table = "categories";
+//     } else if(type == "resources") {
+//       table = "resources";
+//     }
 
-    const {rows, fields} = await client.sql`
-      SELECT
-        *
-      FROM
-        ${table}
-      WHERE
-        url = ${req.params[0]}
-    `;
+//     const {rows, fields} = await client.sql`
+//       SELECT
+//         *
+//       FROM
+//         ${table}
+//       WHERE
+//         url = ${req.params[0]}
+//     `;
 
-    res.json(rows);
-  } finally {
-    await client.end();
-  }
-})
+//     res.json(rows);
+//   } finally {
+//     await client.end();
+//   }
+// })
 
-app.post('/api/*', async (req, res) => {
-  try {
-    res.send(req.params[0]);
-  } finally {
-    await client.end();
-  }
-})
+// app.post('/api/*', async (req, res) => {
+//   try {
+//     res.send(req.params[0]);
+//   } finally {
+//     await client.end();
+//   }
+// })
 
-app.update('/api/*', async (req, res) => {
-  try {
-    res.send(req.params[0]);
-  } finally {
-    await client.end();
-  }
-})
+// app.update('/api/*', async (req, res) => {
+//   try {
+//     res.send(req.params[0]);
+//   } finally {
+//     await client.end();
+//   }
+// })
 
-app.delete('/api/*', async (req, res) => {
-  try {
-    res.send(req.params[0]);
-  } finally {
-    await client.end();
-  }
-})
+// app.delete('/api/*', async (req, res) => {
+//   try {
+//     res.send(req.params[0]);
+//   } finally {
+//     await client.end();
+//   }
+// })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
