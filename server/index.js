@@ -7,7 +7,7 @@ import router from './src/routes.js';
 const app = express();
 const port = 3000;
 
-const allowedOrigins = ['https://nexonutilis.vercel.app/', 'https://nexonutilis-server.vercel.app/'];
+const allowedOrigins = ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app'];
 
 // Configuração do middleware de controle de CORS
 const corsOptions = {
