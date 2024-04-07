@@ -1,16 +1,24 @@
 import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
+import cors from 'cors';
 import router from './src/routes.js';
 
 const app = express();
 const port = 3000;
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://nexonutilis.vercel.app/'); // Permitir todas as origens
-  next();
-});
+var whitelist = ['https://nexonutilis.vercel.app/']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/', router);
