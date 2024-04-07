@@ -11,6 +11,8 @@ const knownAgents = (req, res, next) => {
   const userAgent = req.headers['user-agent'];
   const authority = req.headers['authority'];
 
+  console.log(authority);
+
   if ((userAgent && userAgent.includes('Mozilla/5.0') && authority.includes('nexonutilis.vercel.app'))) {
     next();
   } else {
