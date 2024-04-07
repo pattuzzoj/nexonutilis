@@ -9,7 +9,9 @@ const port = 3000;
 
 const knownAgents = (req, res, next) => {
   const userAgent = req.headers['user-agent'];
-  if (userAgent && userAgent.includes('Mozilla/5.0')) {
+  const authority = req.headers['authority'];
+
+  if ((userAgent && userAgent.includes('Mozilla/5.0') && (authority.includes('nexonutilis-server55.vercel.app') || authority.includes('nexonutilis.vercel.app')))) {
     next();
   } else {
     res.status(403).json({ error: 'Access forbidden.' });
