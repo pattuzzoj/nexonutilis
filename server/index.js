@@ -7,7 +7,7 @@ import router from './src/routes.js';
 const app = express();
 const port = 3000;
 
-var whitelist = ['https://nexonutilis.vercel.app/']
+var whitelist = ['https://nexonutilis.vercel.app/', 'https://nexonutilis-server.vercel.app/']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
