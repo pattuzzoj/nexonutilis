@@ -25,6 +25,20 @@ const corsOptions = {
 // Aplicando o middleware de controle de CORS para as rotas específicas
 app.use(cors(corsOptions));
 
+const isPostmanRequest = (req, res, next) => {
+  const userAgent = req.headers['user-agent'];
+  if (userAgent && userAgent.includes('Postman')) {
+    // Bloquear acesso se a solicitação for do Postman
+    res.status(403).json({ error: 'Access forbidden for Postman' });
+  } else {
+    // Permitir acesso para outras solicitações
+    next();
+  }
+};
+
+// Aplicando o middleware para todas as rotas
+app.use(isPostmanRequest);
+
 app.use(express.json());
 
 app.use('/', router);
