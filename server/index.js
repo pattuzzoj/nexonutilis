@@ -7,15 +7,12 @@ import router from './src/routes.js';
 const app = express();
 const port = 3000;
 
-const allowedOrigins = ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app'];
-
-// Configuração do middleware de controle de CORS
 app.use((req, res, next) => {
   res.set({
     'Content-Security-Policy': "default-src 'self'",
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
-    'Access-Control-Allow-Origin': 'https://nexonutilis.vercel.app/' // Permite apenas este domínio
+    'Access-Control-Allow-Origin': 'https://nexonutilis.vercel.app/'
   });
   next();
 });
