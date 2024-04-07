@@ -16,23 +16,8 @@ const corsOptions = {
       // Permitir o acesso se a origem estiver na lista de origens permitidas ou se não houver origem (ex: requisições locais)
       callback(null, true);
     } else {
-      // Negar o acesso se a origem não estiver na lista de origens permitidas
-      callback(new Error('Not allowed by CORS'));
+      callback(null, false);
     }
-  }
-};
-
-// Aplicando o middleware de controle de CORS para as rotas específicas
-app.use(cors(corsOptions));
-
-const isPostmanRequest = (req, res, next) => {
-  const userAgent = req.headers['user-agent'];
-  if (userAgent && userAgent.includes('Postman')) {
-    // Bloquear acesso se a solicitação for do Postman
-    res.status(403).json({ error: 'Access forbidden for Postman' });
-  } else {
-    // Permitir acesso para outras solicitações
-    next();
   }
 };
 
