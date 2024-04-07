@@ -18,6 +18,20 @@ var corsOptions = {
   }
 }
 
+app.use(cors({
+  credentials: true,
+  allowedHeaders: ['content-type', 'Authorization'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+  origin: (origin) => {
+      const allowedOrigins = ['https://nexonutilis.vercel.app/', 'https://nexonutilis-server.vercel.app/']; // Adicione as origens permitidas
+      if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+      } else {
+          callback(null, false);
+      }
+  }
+}))
+
 app.use(cors(corsOptions));
 app.use(express.json());
 
