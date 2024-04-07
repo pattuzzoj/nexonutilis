@@ -17,7 +17,7 @@ const knownAgents = (req, res, next) => {
 };
 
 app.use(knownAgents);
-app.use(cors({origin: ['https://nexonutilis.vercel.app/', 'https://nexonutilis-server.vercel.app/']}));
+app.use(cors({origin: ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app ']}));
 app.use(express.json());
 
 app.use('/', router);
