@@ -26,6 +26,11 @@ export default function MenuItem(props: MenuItemProps) {
 
   createEffect(() => path() && setIsOpen(initialState()));
 
+  if(props.depth == 2) {
+    console.log(`"title": "${props.title}"\n"description": "${props.description}"\n"url": "${props.url}"\n`);
+  }
+
+
   return (
     <nav class="w-full flex flex-col" aria-label={props.title}>
       <Title as={String(props.depth) as "2" | "3" | "4" | "5" | "6"} class="group">
