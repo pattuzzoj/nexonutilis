@@ -9,6 +9,7 @@ const port = 3000;
 
 app.use((req, res, next) => {
   res.set({
+    'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre',
     'Content-Security-Policy': "default-src 'self'",
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
