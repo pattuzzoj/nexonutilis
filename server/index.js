@@ -2,13 +2,14 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import router from './src/routes.js';
-import cors from 'cors';
-import request from 'node:http'
 
 const app = express();
 const port = 3000;
 
-request.setHeader('Access-Control-Allow-Origin', 'https://nexonutilis.vercel.app/');
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://nexonutilis.vercel.app/'); // Permitir todas as origens
+  next();
+});
 
 app.use(express.json());
 
