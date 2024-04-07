@@ -13,6 +13,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://nexonutilis.vercel.app/');
+  next();
+});
 
 app.use('/', router);
 
