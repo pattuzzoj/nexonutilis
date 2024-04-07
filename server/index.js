@@ -12,7 +12,8 @@ app.use((req, res, next) => {
     'Content-Security-Policy': "default-src 'self'",
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
-    'Access-Control-Allow-Origin': 'https://nexonutilis.vercel.app/'
+    'Access-Control-Allow-Origin': 'https://nexonutilis.vercel.app/', // Allowing only this domain
+    'Vary': 'Origin'
   });
   next();
 });
