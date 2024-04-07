@@ -12,7 +12,7 @@ const allowedOrigins = ['https://nexonutilis.vercel.app', 'https://nexonutilis-s
 // Configuração do middleware de controle de CORS
 const corsOptions = {
   origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    if (allowedOrigins.indexOf(origin) !== -1 || origin) {
       // Permitir o acesso se a origem estiver na lista de origens permitidas ou se não houver origem (ex: requisições locais)
       callback(null, true);
     } else {
