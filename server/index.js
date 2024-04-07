@@ -9,7 +9,7 @@ const port = 3000;
 
 const isPostmanRequest = (req, res, next) => {
   const userAgent = req.headers['user-agent'];
-  if (userAgent && userAgent.includes('Postman')) {
+  if (userAgent && userAgent.includes('Mozilla/5.0')) {
     // Blocking access if the request is from Postman
     res.status(403).json({ error: 'Access forbidden for Postman' });
   } else {
