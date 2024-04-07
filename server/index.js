@@ -21,9 +21,6 @@ const corsOptions = {
   }
 };
 
-// Aplicando o middleware para todas as rotas
-app.use(isPostmanRequest);
-
 app.use(express.json());
 
 app.use('/', router);
