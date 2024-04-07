@@ -22,7 +22,7 @@ app.use(cors({
   credentials: true,
   allowedHeaders: ['content-type', 'Authorization'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-  origin: (origin) => {
+  origin: (origin, callback = (error, allow) => {}) => {
       const allowedOrigins = ['https://nexonutilis.vercel.app/', 'https://nexonutilis-server.vercel.app/']; // Adicione as origens permitidas
       if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
