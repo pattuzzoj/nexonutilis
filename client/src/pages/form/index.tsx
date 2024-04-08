@@ -2,13 +2,12 @@ import { For, Match, Switch, createSignal } from "solid-js";
 import Icon from "components/icon";
 import Main from "layout/main";
 import useSwitch from "hooks/useSwitch";
-import useFetch from "hooks/useFetch";
+
 
 export default function Form() {
   const [type, setType] = useSwitch<string>("categories");
   const [_isOpen, _setIsOpen] = useSwitch<boolean>(false);
-  const [categories] = useFetch("https://nexonutilis-server.vercel.app/categories");
-  const [_resources] = useFetch("https://nexonutilis-server.vercel.app/resources");
+
   const [_info, _setInfo] = createSignal({});
   const [_list, _setList] = createSignal({});
 
