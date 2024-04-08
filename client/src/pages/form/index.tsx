@@ -1,38 +1,18 @@
-import { For, Match, Switch, createSignal } from "solid-js";
+import { For, Match, Switch, createEffect, createSignal } from "solid-js";
 import Icon from "components/icon";
 import Main from "layout/main";
 import useSwitch from "hooks/useSwitch";
+import useFetch from "hooks/useFetch";
 
 
 export default function Form() {
   const [type, setType] = useSwitch<string>("categories");
   const [_isOpen, _setIsOpen] = useSwitch<boolean>(false);
-
+  const [data] = useFetch('https://nexonutilis-server.vercel.app/category/asfasfsaas');
   const [_info, _setInfo] = createSignal({});
   const [_list, _setList] = createSignal({});
 
-  async function fazerRequisicao() {
-    try {
-      const resposta = await fetch('https://nexonutilis-server.vercel.app/category/asfasfsaas', {
-        headers: {
-          "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*',
-        },
-        mode: 'cors'
-      }); // Faz a requisição // Converte a resposta para JSON
-  
-      // Manipula os dados conforme necessário
-      const data = await resposta.json();
-
-      console.log('Resposta:', data);
-    } catch (erro: any) {
-      console.error(erro.message);
-    }
-  }
-  
-  // Chama a função para fazer a requisição
-  fazerRequisicao();
-
+  createEffect(() => console.log(data()));
 
   const lista = [
     {
