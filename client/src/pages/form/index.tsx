@@ -17,7 +17,8 @@ export default function Form() {
         headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
-        }
+        },
+        mode: 'no-cors'
       }); // Faz a requisição
       const dados = await resposta.json(); // Converte a resposta para JSON
   
