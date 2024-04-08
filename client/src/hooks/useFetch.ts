@@ -2,10 +2,7 @@ import { ResourceReturn, createResource } from 'solid-js';
 
 export default function useFetch<T>(url: string): ResourceReturn<T> {
   async function fetchResource(): Promise<T> {
-    const response = await fetch(url, {
-      method: 'GET',
-      mode: 'cors'
-    });
+    const response = await fetch(url);
 
     if(response.ok) {
       const data = await response.json();
