@@ -1,4 +1,4 @@
-import { For, Match, Switch, createEffect, createSignal } from "solid-js";
+import { For, Match, Switch, createSignal } from "solid-js";
 import Icon from "components/icon";
 import Main from "layout/main";
 import useSwitch from "hooks/useSwitch";
