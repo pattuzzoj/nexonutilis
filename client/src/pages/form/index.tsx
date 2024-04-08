@@ -18,7 +18,7 @@ export default function Form() {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
         },
-        mode: 'no-cors'
+        mode: 'cors'
       }); // Faz a requisição // Converte a resposta para JSON
   
       // Manipula os dados conforme necessário
