@@ -3,10 +3,13 @@ import { For, Match, Show, Switch, createSignal } from "solid-js";
 import Icon from "components/icon";
 import Main from "layout/main";
 import useSwitch from "hooks/useSwitch";
+import useFetch from "hooks/useFetch";
 
 export default function Form() {
   const [type, setType] = useSwitch<string>("categories");
   const [isOpen, setIsOpen] = useSwitch<boolean>(false);
+  const [categories] = useFetch("https://nexonutilis-server.vercel.app/categories");
+  const [resources] = useFetch("https://nexonutilis-server.vercel.app/resources");
   const [info, setInfo] = createSignal({});
   const [list, setList] = createSignal({});
 
@@ -81,6 +84,8 @@ export default function Form() {
 
   return (
     <Main>
+      <p>{JSON.stringify(categories())}</p>
+      <p>{"afasfa"}</p>
       <span class="flex gap-4">
         <button class={`${type() == "categories" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("categories")}>Categories</button>
         <button class={`${type() == "resources" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("resources")}>Resources</button>
