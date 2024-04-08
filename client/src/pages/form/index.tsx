@@ -25,7 +25,7 @@ export default function Form() {
       // Manipula os dados conforme necessário
       console.log('Resposta:', dados);
     } catch (erro) {
-      console.error('Ocorreu um erro:', erro);
+      console.error(erro);
     }
   }
   
