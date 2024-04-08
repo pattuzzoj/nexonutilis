@@ -6,6 +6,8 @@ export default function useFetch<T>(url: string): ResourceReturn<T> {
       mode: 'no-cors'
     });
 
+    console.log(response);
+
     if(response.ok) {
       const data = await response.json();
 
