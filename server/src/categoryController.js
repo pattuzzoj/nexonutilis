@@ -27,6 +27,8 @@ export const getCategory = async (req, res) => {
 
       res.status(200).json(category);
     } else {
+      res.json({text: "category not found"});
+      return;
       res.status(404).send("Category not found.");
     }
   } catch(e) {
