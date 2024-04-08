@@ -19,11 +19,10 @@ export default function Form() {
           'Access-Control-Allow-Origin': '*',
         },
         mode: 'no-cors'
-      }); // Faz a requisição
-      const dados = await resposta.json(); // Converte a resposta para JSON
+      }); // Faz a requisição // Converte a resposta para JSON
   
       // Manipula os dados conforme necessário
-      console.log('Resposta:', dados);
+      console.log('Resposta:', resposta);
     } catch (erro) {
       console.error(erro);
     }
