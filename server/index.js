@@ -21,6 +21,9 @@ const port = 3000;
 //   origin: ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app']
 // }));
 
+app.use(cors({
+  origin: ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app']
+}));
 
 app.use(express.json());
 
