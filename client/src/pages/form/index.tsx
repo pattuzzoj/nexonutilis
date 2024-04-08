@@ -22,7 +22,9 @@ export default function Form() {
       }); // Faz a requisição // Converte a resposta para JSON
   
       // Manipula os dados conforme necessário
-      console.log('Resposta:', resposta);
+      const data = await resposta.json();
+
+      console.log('Resposta:', data);
     } catch (erro: any) {
       console.error(erro.message);
     }
