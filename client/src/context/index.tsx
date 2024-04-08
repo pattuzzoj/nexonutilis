@@ -32,6 +32,8 @@ export default function DataProvider(props: {children: JSXElement}) {
 	(function setMap(items: Array<object>) {
 		items.forEach((item: any) => {
       if("items" in item) {
+        const {type, mode, title, description, url, logo, icon, roadmap, official} = item;
+        console.log(`"type": "${type}",\n"mode": "${mode}",\n"title": "${title}",\n"description": "${description}",\n"url": "${url}",\n"logo": "${logo}",\n"icon": "${icon}",\n"roadmap": "${roadmap}",\n"official": "${official}"`);
         data.map.set(item.url, item);
 				setMap(item.items);
 			}

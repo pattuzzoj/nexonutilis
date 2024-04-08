@@ -34,6 +34,24 @@ export const getCategories = async (req, res) => {
   }
 }
 
+export const getAllCategories = async (req, res) => {
+  const client = await db.connect();
+
+  try {
+    const {rows: categoriesRows} = await client.sql`
+    SELECT * FROM categories
+    `;
+
+    res.status(200).json(categoriesRows);
+  } catch(e) {
+    if(!res.headersSent) {
+      res.status(500).send(e);
+    }
+  } finally {
+    client.release();
+  }
+}
+
 export const setCategory = async (req, res) => {
   const client = await db.connect();
 
@@ -57,6 +75,30 @@ export const setCategory = async (req, res) => {
     } else {
       res.status(400).send("type, title, description, url as body is required.");
     }
+  } catch(e) {
+    if(!res.headersSent) {
+      res.status(500).send(e);
+    }
+  } finally {
+    client.release();
+  }
+}
+
+export const populateCategories = async (req, res) => {
+  const client = await db.connect();
+
+  try {
+    req.body.forEach(async category => {
+      const {type, title, description, url, mode, logo, official, roadmap, categoryOwner} = category;
+
+      const {rowCount: created} = await client.sql`
+      INSERT INTO categories (type, title, description, url, mode, logo, official, roadmap, category_owner)
+      SELECT ${type}, ${title}, ${description}, ${url}, ${mode}, ${logo}, ${official}, ${roadmap}, ${categoryOwner}
+      WHERE NOT EXISTS (SELECT 1 FROM categories WHERE url = ${url})
+      `;
+    })
+
+    res.status(200).send("Categories created.");
   } catch(e) {
     if(!res.headersSent) {
       res.status(500).send(e);

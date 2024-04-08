@@ -1,6 +1,6 @@
 import { db } from '@vercel/postgres';
 
-export const getItems = async (req, res) => {
+export const getResources = async (req, res) => {
   const client = await db.connect();
 
   try {
@@ -17,7 +17,7 @@ export const getItems = async (req, res) => {
     `;
     
     const category = categoryRow[0];
-
+    
     if(category) {
       category.items = itemsOwned;
       
@@ -34,9 +34,27 @@ export const getItems = async (req, res) => {
   }
 }
 
-export const setItem = async (req, res) => {
+export const getAllResources = async (req, res) => {
   const client = await db.connect();
 
+  try {
+    const {rows: resourcesRows} = await client.sql`
+    SELECT * FROM resources
+    `;
+
+    res.status(200).json(resourcesRows);
+  } catch(e) {
+    if(!res.headersSent) {
+      res.status(500).send(e);
+    }
+  } finally {
+    client.release();
+  }
+}
+
+export const setResource = async (req, res) => {
+  const client = await db.connect();
+  
   try {
     const {title, description, url, categoryOwner} = req.body;
 
@@ -49,7 +67,7 @@ export const setItem = async (req, res) => {
       AND
       NOT EXISTS (SELECT 1 FROM items WHERE url = ${url} AND category_owner = ${categoryOwner})
       `;
-
+      
       if(created) {
         res.status(200).send("Item created.");
       } else {
@@ -67,7 +85,33 @@ export const setItem = async (req, res) => {
   }
 }
 
-export const modItem = async (req, res) => {
+export const populateResources = async (req, res) => {
+  const client = await db.connect();
+
+  try {
+    req.body.forEach(async item => {
+      const {title, description, url, categoryOwner} = item;
+      const {rowCount: created} =  await client.sql`
+      INSERT INTO items (title, description, url, category_owner)
+      SELECT ${title}, ${description}, ${url}, ${categoryOwner}
+      WHERE
+      EXISTS (SELECT 1 FROM categories WHERE url = ${categoryOwner})
+      AND
+      NOT EXISTS (SELECT 1 FROM items WHERE url = ${url} AND category_owner = ${categoryOwner})
+      `;
+    });
+
+    res.status(200).send("Items created.");
+  } catch(e) {
+    if(!res.headersSent) {
+      res.status(500).send(e);
+    }
+  } finally {
+    client.release();
+  }
+}
+
+export const modResource = async (req, res) => {
   const client = await db.connect();
 
   try {
@@ -101,7 +145,7 @@ export const modItem = async (req, res) => {
   }
 }
 
-export const delItem = async (req, res) => {
+export const delResource = async (req, res) => {
   const client = await db.connect();
 
   try {

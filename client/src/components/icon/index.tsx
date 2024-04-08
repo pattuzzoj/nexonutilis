@@ -1,6 +1,6 @@
 import { JSX } from 'solid-js';
 import { BsGithub, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
-import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity, FiDatabase } from 'solid-icons/fi';
+import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity, FiDatabase, FiEdit, FiTrash, FiInfo } from 'solid-icons/fi';
 import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine, RiDesignPaletteLine } from 'solid-icons/ri';
 import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConnectdevelop, FaSolidLaptopCode } from 'solid-icons/fa';
 import { AiFillEye, AiFillEyeInvisible, AiOutlineCloudServer } from 'solid-icons/ai';
@@ -55,7 +55,10 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "TbSettingsCode"
   | "AiOutlineCloudServer"
   | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
-  | "TbDeviceDesktopCog";
+  | "TbDeviceDesktopCog"
+  | "FiEdit"
+  | "FiTrash"
+  | "FiInfo";
   class?: string;
 };
 
@@ -102,7 +105,8 @@ export default function Icon(props: Props) {
     TbSettingsCode,
     AiOutlineCloudServer,
     AiOutlineBgColors, BsFonts, BsImage, FaSolidIcons,
-    TbDeviceDesktopCog
+    TbDeviceDesktopCog,
+    FiEdit, FiTrash, FiInfo
   }[props.name]
 
   return (
