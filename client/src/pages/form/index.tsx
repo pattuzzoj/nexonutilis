@@ -13,7 +13,7 @@ export default function Form() {
 
   async function fazerRequisicao() {
     try {
-      const resposta = await fetch('https://nexonutilis-server.vercel.app/categories', {
+      const resposta = await fetch('https://nexonutilis-server.vercel.app/category/asfasfsaas', {
         headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
