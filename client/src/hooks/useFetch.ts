@@ -2,20 +2,20 @@ import { ResourceReturn, createResource } from 'solid-js';
 
 export default function useFetch<T>(url: string): ResourceReturn<T> {
   async function fetchResource(): Promise<T> {
-    const response = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*',
-      },
-      mode: 'cors'
-    });
-    
-    if(response.ok) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+        },
+        mode: 'cors'
+      });
+  
       const data = await response.json();
 
       return data;
-    } else {
-      throw new Error('Network response was not ok' + response.status);
+    } catch(e) {
+      throw new Error('Network response was not ok' + e);
     }
   }
 
