@@ -4,9 +4,6 @@ export default function useFetch<T>(url: string): ResourceReturn<T> {
   async function fetchResource(): Promise<T> {
     const response = await fetch(url, {
       method: 'GET',
-      headers: {
-        
-      },
       mode: 'cors'
     });
 
