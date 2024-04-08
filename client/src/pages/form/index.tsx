@@ -82,7 +82,7 @@ export default function Form() {
 
   return (
     <Main>
-      <p>{JSON.stringify(data()?.message)}</p>
+      <p>{data() && JSON.stringify(data()?.message)}</p>
       <span class="flex gap-4">
         <button class={`${type() == "categories" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("categories")}>Categories</button>
         <button class={`${type() == "resources" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("resources")}>Resources</button>
