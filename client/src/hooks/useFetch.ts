@@ -3,6 +3,10 @@ import { ResourceReturn, createResource } from 'solid-js';
 export default function useFetch<T>(url: string): ResourceReturn<T> {
   async function fetchResource(): Promise<T> {
     const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       mode: 'no-cors'
     });
 
