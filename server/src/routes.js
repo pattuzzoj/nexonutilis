@@ -1,24 +1,29 @@
 import express from 'express';
-import { getCategories, getAllCategories, setCategory, populateCategories, modCategory, delCategory } from './categoryController.js';
-import { getResources, getAllResources, setResource, populateResources, modResource, delResource } from './resourceController.js';
+import { getCategory, getAllCategories, setCategory, populateCategories, modCategory, delCategory } from './categoryController.js';
+import { getResource, getAllResources, setResource, populateResources, modResource, delResource } from './resourceController.js';
 
 const router = express.Router();
 
+// GET
+router.get('/category/:url', getCategory);
 router.get('/categories', getAllCategories);
-router.get('/categories/:url', getCategories);
+
+router.get('/resource/:url', getResource);
 router.get('/resources', getAllResources);
-router.get('/resources/:url', getResources);
 
-router.post('/categories/populate', populateCategories);
-router.post('/resources/populate', populateResources);
+// POST
+router.post('/category', setCategory);
+router.post('/categories', populateCategories);
 
-router.post('/categories', setCategory);
-router.post('/resources', setResource);
+router.post('/resource', setResource);
+router.post('/resources', populateResources);
 
-router.put('/categories', modCategory);
-router.put('/resources', modResource);
+// PUT
+router.put('/category', modCategory);
+router.put('/resource', modResource);
 
-router.delete('/categories/:url', delCategory);
-router.delete('/resources/:url', delResource);
+// DELETE
+router.delete('/category/:url', delCategory);
+router.delete('/resource/:url', delResource);
 
 export default router;
