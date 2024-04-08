@@ -106,7 +106,6 @@ export default function Form() {
 
   return (
     <Main>
-      <p>{JSON.stringify(categories())}</p>
       <p>{"afasfa"}</p>
       <span class="flex gap-4">
         <button class={`${type() == "categories" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("categories")}>Categories</button>
