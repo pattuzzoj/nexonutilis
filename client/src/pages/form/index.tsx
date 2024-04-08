@@ -11,18 +11,14 @@ export default function Form() {
   const [_info, _setInfo] = createSignal({});
   const [_list, _setList] = createSignal({});
 
-  const url = 'https://nexonutilis-server.vercel.app/categories';
-  const options = {
-    method: 'GET', // Método HTTP GET
-    headers: {
-      // Cabeçalhos opcionais, se necessário
-      'Content-Type': 'application/json'
-    }
-  };
-
   async function fazerRequisicao() {
     try {
-      const resposta = await fetch(url, options); // Faz a requisição
+      const resposta = await fetch('https://nexonutilis-server.vercel.app/categories', {
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+        }
+      }); // Faz a requisição
       const dados = await resposta.json(); // Converte a resposta para JSON
   
       // Manipula os dados conforme necessário
