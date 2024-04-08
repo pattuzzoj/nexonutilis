@@ -23,8 +23,8 @@ export default function Form() {
   
       // Manipula os dados conforme necessário
       console.log('Resposta:', resposta);
-    } catch (erro) {
-      console.error(erro);
+    } catch (erro: any) {
+      console.error(erro.message);
     }
   }
   
