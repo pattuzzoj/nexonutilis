@@ -7,8 +7,7 @@ export default function useFetch<T>(url: string): ResourceReturn<T> {
       headers: {
         
       },
-      mode: 'cors',
-      credentials: 'include'
+      mode: 'cors'
     });
 
     if(response.ok) {
