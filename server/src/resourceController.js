@@ -25,13 +25,13 @@ export const getResource = async (req, res) => {
     if(resource) {
       resource.resources = resourcesOwned;
       
-      res.status(200).json(resource);
+      res.status(200).json({success: true, data: resource});
     } else {
-      res.status(404).send("Resource not found.");
+      res.status(404).json({success: false, error: "Resource not found."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -46,10 +46,10 @@ export const getAllResources = async (req, res) => {
     SELECT * FROM resources ORDER BY category_url, position
     `;
 
-    res.status(200).json(resourcesRows);
+    res.status(200).json({success: true, data: resourcesRows});
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -73,16 +73,16 @@ export const setResource = async (req, res) => {
       `;
       
       if(created) {
-        res.status(200).send("Resource created.");
+        res.status(200).json({success: true, message: "Resource created."});
       } else {
-        res.status(400).send("Category does not exist or Resource already exists.");
+        res.status(400).json({success: false, error: "Category does not exist or Resource already exists."});
       }
     } else {
-      res.status(400).send("title, description, url, category_url as body is required.");
+      res.status(400).json({success: false, error: "title, description, url, category_url as body is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -107,13 +107,13 @@ export const populateResources = async (req, res) => {
         `;
       });
   
-      res.status(200).send("Resources created.");
+      res.status(200).json({success: true, message: "Resources created."});
     } else {
-      res.status(400).send("At least one resource is required.");
+      res.status(400).json({success: false, error: "At least one resource is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -139,16 +139,16 @@ export const modResource = async (req, res) => {
       `;
 
       if(updated) {
-        res.status(200).send("Resource updated.");
+        res.status(200).json({success: true, message: "Resource updated."});
       } else {
-        res.status(400).send("Resource does not exist.");
+        res.status(400).json({success: false, error: "Resource does not exist."});
       }
     } else {
-      res.status(400).send("At least one property is required.");
+      res.status(400).json({success: false, error: "At least one property is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -164,13 +164,13 @@ export const delResource = async (req, res) => {
     const {rowCount: deleted} = await client.sql`DELETE FROM resources WHERE id = ${id}`;
     
     if(deleted) {
-      res.status(200).send("Resource deleted.");
+      res.status(200).json({success: true, message: "Resource deleted."});
     } else {
-      res.status(400).send("Resource does not exist");
+      res.status(400).json({success: false, error: "Resource does not exist"});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();

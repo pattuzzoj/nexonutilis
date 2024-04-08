@@ -25,15 +25,13 @@ export const getCategory = async (req, res) => {
     if(category) {
       category.resources = categoriesOwned;
 
-      res.status(200).json(category);
+      res.status(200).json({success: true, data: category});
     } else {
-      res.json({text: "category not found"});
-      return;
-      res.status(404).send("Category not found.");
+      res.status(404).json({success: false, error: "Category not found."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -48,10 +46,10 @@ export const getAllCategories = async (req, res) => {
     SELECT * FROM categories ORDER BY url, category_url, position
     `;
 
-    res.status(200).json(categoriesRows);
+    res.status(200).json({success: true, data: categoriesRows});
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -72,16 +70,16 @@ export const setCategory = async (req, res) => {
       `;
 
       if(created) {
-        res.status(200).send("Category created.");
+        res.status(200).json({success: true, message: "Category created."});
       } else {
-        res.status(400).send("Category already exists.");
+        res.status(400).json({success: false, error: "Category already exists."});
       }
     } else {
-      res.status(400).send("type, title, description, url as body is required.");
+      res.status(400).json({success: false, error: "type, title, description, url as body is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -103,13 +101,13 @@ export const populateCategories = async (req, res) => {
         `;
       })
   
-      res.status(200).send("Categories created.");
+      res.status(200).json({success: true, message: "Categories created."});
     } else {
-      res.status(400).send("No categories provided.");
+      res.status(400).json({success: false, error: "No categories provided."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -140,16 +138,16 @@ export const modCategory = async (req, res) => {
       `;
 
       if(updated) {
-        res.status(200).send("Category updated.");
+        res.status(200).json({success: true, data: "Category updated."});
       } else {
-        res.status(400).send("Category does not exist.");
+        res.status(400).json({success: false, error: "Category does not exist."});
       }
     } else {
-      res.status(400).send("At least one property is required.");
+      res.status(400).json({success: false, error: "At least one property is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
@@ -168,15 +166,15 @@ export const delCategory = async (req, res) => {
     await client.sql`COMMIT`;
     
     if(deleted) {
-      res.status(200).send("Category deleted.");
+      res.status(200).json({success: true, message: "Category deleted."});
     } else {
-      res.status(400).send("Category does not exist");
+      res.status(400).json({success: false, error: "Category does not exist"});
     }
   } catch(e) {
     await client.sql`ROLLBACK`;
 
     if(!res.headersSent) {
-      res.status(500).send(e);
+      res.status(500).json({success: false, error: e});
     }
   } finally {
     client.release();
