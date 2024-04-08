@@ -7,6 +7,12 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
+const addCorsHeader = (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://nexonutilis.vercel.app');
+  next();
+};
+
+
 const knownAgents = (req, res, next) => {
   const userAgent = req.headers['user-agent'];
   if ((userAgent && userAgent.includes('Mozilla/5.0'))) {
@@ -16,6 +22,7 @@ const knownAgents = (req, res, next) => {
   }
 };
 
+app.use(addCorsHeader);
 app.use(knownAgents);
 app.use(cors({credentials: true, origin: ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app ']}));
 
