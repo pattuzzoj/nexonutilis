@@ -8,11 +8,9 @@ import useFetch from "hooks/useFetch";
 export default function Form() {
   const [type, setType] = useSwitch<string>("categories");
   const [_isOpen, _setIsOpen] = useSwitch<boolean>(false);
-  const [data] = useFetch('https://nexonutilis-server.vercel.app/category/asfasfsaas');
+  const [data] = useFetch<{success: boolean, message: string, error: string, data: any}>('https://nexonutilis-server.vercel.app/category/asfasfsaas');
   const [_info, _setInfo] = createSignal({});
   const [_list, _setList] = createSignal({});
-
-  createEffect(() => console.log(data()));
 
   const lista = [
     {
@@ -84,7 +82,7 @@ export default function Form() {
 
   return (
     <Main>
-      <p>{"afasfa"}</p>
+      <p>{JSON.stringify(data()!.message)}</p>
       <span class="flex gap-4">
         <button class={`${type() == "categories" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("categories")}>Categories</button>
         <button class={`${type() == "resources" && "bg-gray-500"} p-2 rounded-lg hover:bg-gray-500 text-lg`} onClick={() => setType("resources")}>Resources</button>
