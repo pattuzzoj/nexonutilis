@@ -8,7 +8,7 @@ import useFetch from "hooks/useFetch";
 export default function Form() {
   const [type, setType] = useSwitch<string>("categories");
   const [_isOpen, _setIsOpen] = useSwitch<boolean>(false);
-  const [categories] = useFetch<{success: boolean, message: string, error: string, data: any}>('DELETE','https://nexonutilis-server.vercel.app/categories');
+  const [categories] = useFetch<{success: boolean, message: string, error: string, data: any}>('GET','https://nexonutilis-server.vercel.app/categories');
   const [resources] = useFetch<{success: boolean, message: string, error: string, data: any}>('GET', 'https://nexonutilis-server.vercel.app/resources');
   const [info, setInfo] = createSignal<{
     id: number,
