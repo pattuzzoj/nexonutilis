@@ -50,7 +50,11 @@ export const getAllCategories = async (req, res) => {
     SELECT * FROM categories ORDER BY url, category_url, position
     `;
 
-    res.status(200).json({success: true, data: categoriesRows});
+    if(categoriesRows) {
+      res.status(200).json({success: true, data: categoriesRows});
+    } else {
+      res.status(404).json({success: false, error: "Categories not found."});
+    }
   } catch(e) {
     if(!res.headersSent) {
       res.status(500).json({success: false, error: e});

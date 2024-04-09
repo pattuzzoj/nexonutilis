@@ -50,7 +50,11 @@ export const getAllResources = async (req, res) => {
     SELECT * FROM resources ORDER BY category_url, position
     `;
 
-    res.status(200).json({success: true, data: resourcesRows});
+    if(resource) {
+      res.status(200).json({success: true, data: resourcesRows});
+    } else {
+      res.status(404).json({success: false, error: "Resources not found."});
+    }
   } catch(e) {
     if(!res.headersSent) {
       res.status(500).json({success: false, error: e});

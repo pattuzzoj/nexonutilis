@@ -8,7 +8,7 @@ import useFetch from "hooks/useFetch";
 export default function Form() {
   const [type, setType] = useSwitch<string>("categories");
   const [_isOpen, _setIsOpen] = useSwitch<boolean>(false);
-  const [categories] = useFetch<{success: boolean, message: string, error: string, data: any}>('DELETE','https://nexonutilis-server.vercel.app/category', {url: '/safassafsaf'});
+  const [categories] = useFetch<{success: boolean, message: string, error: string, data: any}>('DELETE','https://nexonutilis-server.vercel.app/categories');
   const [resources] = useFetch<{success: boolean, message: string, error: string, data: any}>('GET', 'https://nexonutilis-server.vercel.app/resources');
   const [info, setInfo] = createSignal<{
     id: number,
@@ -26,89 +26,9 @@ export default function Form() {
 
   createEffect(() => console.log(categories()))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const [_list, setList] = createSignal([]);
+  const [list, setList] = createSignal([]);
   const [menuInfo, setMenuInfo] = useSwitch<boolean>(false);
 
-  const lista = [
-    {
-        id: 1,
-        type: "type1",
-        title: "Title 1",
-        description: "Description 1",
-        url: "https://example.com/1",
-        icon: "icon1.png",
-        logo: "logo1.png",
-        official: true,
-        roadmap: "Roadmap 1",
-        position: 1,
-        category_url: "https://example.com/category1"
-    },
-    {
-        id: 2,
-        type: "type2",
-        title: "Title 2",
-        description: "Description 2",
-        url: "https://example.com/2",
-        icon: "icon2.png",
-        logo: "logo2.png",
-        official: false,
-        roadmap: "Roadmap 2",
-        position: 2,
-        category_url: "https://example.com/category2"
-    },
-    {
-        id: 3,
-        type: "type3",
-        title: "Title 3",
-        description: "Description 3",
-        url: "https://example.com/3",
-        icon: "icon3.png",
-        logo: "logo3.png",
-        official: true,
-        roadmap: "Roadmap 3",
-        position: 3,
-        category_url: "https://example.com/category3"
-    },
-    {
-        id: 4,
-        type: "type4",
-        title: "Title 4",
-        description: "Description 4",
-        url: "https://example.com/4",
-        icon: "icon4.png",
-        logo: "logo4.png",
-        official: false,
-        roadmap: "Roadmap 4",
-        position: 4,
-        category_url: "https://example.com/category4"
-    },
-    {
-        id: 5,
-        type: "type5",
-        title: "Title 5",
-        description: "Description 5",
-        url: "https://example.com/5",
-        icon: "icon5.png",
-        logo: "logo5.png",
-        official: true,
-        roadmap: "Roadmap 5",
-        position: 5,
-        category_url: "https://example.com/category5"
-    }
-  ];
   return (
     <Main>
       <div class="relative h-full">
@@ -157,7 +77,7 @@ export default function Form() {
             </tr>
           </thead>
           <tbody>
-            <For each={lista}>
+            <For each={list()}>
               {(item: any) => (
                 <tr class="rounded-lg odd:bg-gray-500 h-10 align-middle">
                   <td class="text-center">{item.id}</td>
