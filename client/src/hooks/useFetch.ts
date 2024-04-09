@@ -9,13 +9,12 @@ export default function useFetch<T>(method: string = 'GET', url: string, body: a
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
         },
-        mode: 'cors',
-        body: JSON.stringify(body)
+        mode: 'cors'
       });
 
       if(response) {
         const data = await response.json();
-        return data as T;
+        return data;
       } else {
         throw new Error('Error: ' + response);
       }
