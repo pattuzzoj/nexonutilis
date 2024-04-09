@@ -1,6 +1,6 @@
 import { ResourceReturn, createResource } from 'solid-js';
 
-export default function useFetch<T>(method: string = 'GET', url: string, body: any = {}): ResourceReturn<T> {
+export default function useFetch<T>(method: string = 'GET', url: string): ResourceReturn<T> {
   async function fetchResource(): Promise<T> {
     try {
       const response = await fetch(url, {
