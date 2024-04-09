@@ -13,10 +13,9 @@ export default function useFetch<T>(method: string = 'GET', url: string, body: a
         body: JSON.stringify(body)
       });
 
-      if(response) {
-        const data = await response.json();
-        return data;
-      }
+      const data = await response.json();
+
+      return data;
     } catch(e) {
       throw new Error('Network response was not ok' + e);
     }
