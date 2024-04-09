@@ -1,6 +1,6 @@
 import { ResourceReturn, createResource } from 'solid-js';
 
-export default function useFetch<T>(method: string = 'GET', url: string): ResourceReturn<T> {
+export default function useFetch<T>(method: string = 'GET', url: string, body: any = {}): ResourceReturn<T> {
   async function fetchResource(): Promise<T> {
     try {
       const response = await fetch(url, {
@@ -9,7 +9,8 @@ export default function useFetch<T>(method: string = 'GET', url: string): Resour
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
         },
-        mode: 'cors'
+        mode: 'cors',
+        body: JSON.stringify(body)
       });
 
       if(response) {

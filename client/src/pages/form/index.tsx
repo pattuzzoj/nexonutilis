@@ -24,7 +24,7 @@ export default function Form() {
     category_url: string
   }>()
 
-  createEffect(() => console.log(categories()))
+  createEffect(() => console.log(categories(), resources()))
 
   const [list, setList] = createSignal([]);
   const [menuInfo, setMenuInfo] = useSwitch<boolean>(false);
