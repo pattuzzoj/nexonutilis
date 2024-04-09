@@ -1,4 +1,4 @@
-import { JSX, JSXElement } from 'solid-js';
+import { JSXElement } from 'solid-js';
 
 interface MainProps {
   children: JSXElement;
