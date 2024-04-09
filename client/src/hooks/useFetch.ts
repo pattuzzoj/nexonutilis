@@ -12,10 +12,11 @@ export default function useFetch<T>(method: string = 'GET', url: string, body: a
         mode: 'cors',
         body: JSON.stringify(body)
       });
-  
-      const data = await response.json();
 
-      return data;
+      if(response) {
+        const data = await response.json();
+        return data;
+      }
     } catch(e) {
       throw new Error('Network response was not ok' + e);
     }

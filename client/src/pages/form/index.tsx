@@ -39,7 +39,7 @@ export default function Form() {
 
 
 
-  const [list, setList] = createSignal([]);
+  const [_list, setList] = createSignal([]);
   const [menuInfo, setMenuInfo] = useSwitch<boolean>(false);
 
   const lista = [
