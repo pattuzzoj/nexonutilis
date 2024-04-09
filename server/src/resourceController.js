@@ -4,30 +4,34 @@ export const getResource = async (req, res) => {
   const client = await db.connect();
 
   try {
-    const {url} = req.params;
+    const {url} = req.body;
 
-    const {rows: resourceRow} = await client.sql`
-    SELECT type, title, description, url, icon, logo, official, roadmap
-    FROM categories
-    WHERE url = ${'/' + url}
-    ORDER BY position
-    `;
-    
-    const {rows: resourcesOwned} = await client.sql`
-    SELECT title, description, url
-    FROM resources
-    WHERE category_url = ${'/' + url}
-    ORDER BY position
-    `;
-    
-    const resource = resourceRow[0];
-    
-    if(resource) {
-      resource.resources = resourcesOwned;
+    if(url) {
+      const {rows: resourceRow} = await client.sql`
+      SELECT type, title, description, url, icon, logo, official, roadmap
+      FROM categories
+      WHERE url = ${'/' + url}
+      ORDER BY position
+      `;
       
-      res.status(200).json({success: true, data: resource});
+      const {rows: resourcesOwned} = await client.sql`
+      SELECT title, description, url
+      FROM resources
+      WHERE category_url = ${'/' + url}
+      ORDER BY position
+      `;
+      
+      const resource = resourceRow[0];
+      
+      if(resource) {
+        resource.resources = resourcesOwned;
+        
+        res.status(200).json({success: true, data: resource});
+      } else {
+        res.status(404).json({success: false, error: "Resource not found."});
+      }
     } else {
-      res.status(404).json({success: false, error: "Resource not found."});
+      res.status(400).json({success: false, error: "url as body is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
@@ -159,14 +163,18 @@ export const delResource = async (req, res) => {
   const client = await db.connect();
 
   try {
-    const {id} = req.params;
+    const {id} = req.body;
 
-    const {rowCount: deleted} = await client.sql`DELETE FROM resources WHERE id = ${id}`;
-    
-    if(deleted) {
-      res.status(200).json({success: true, message: "Resource deleted."});
+    if(id) {
+      const {rowCount: deleted} = await client.sql`DELETE FROM resources WHERE id = ${id}`;
+      
+      if(deleted) {
+        res.status(200).json({success: true, message: "Resource deleted."});
+      } else {
+        res.status(400).json({success: false, error: "Resource does not exist"});
+      }
     } else {
-      res.status(400).json({success: false, error: "Resource does not exist"});
+      res.status(400).json({success: false, error: "id as body is required."});
     }
   } catch(e) {
     if(!res.headersSent) {

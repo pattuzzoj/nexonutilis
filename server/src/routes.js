@@ -5,10 +5,10 @@ import { getResource, getAllResources, setResource, populateResources, modResour
 const router = express.Router();
 
 // GET
-router.get('/category/:url', getCategory);
+router.get('/category', getCategory);
 router.get('/categories', getAllCategories);
 
-router.get('/resource/:url', getResource);
+router.get('/resource', getResource);
 router.get('/resources', getAllResources);
 
 // POST
@@ -23,7 +23,7 @@ router.put('/category', modCategory);
 router.put('/resource', modResource);
 
 // DELETE
-router.delete('/category/:url', delCategory);
-router.delete('/resource/:url', delResource);
+router.delete('/category', delCategory);
+router.delete('/resource', delResource);
 
 export default router;

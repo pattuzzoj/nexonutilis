@@ -4,30 +4,34 @@ export const getCategory = async (req, res) => {
   const client = await db.connect();
 
   try {
-    const {url} = req.params;
-    
-    const {rows: categoryRow} = await client.sql`
-    SELECT type, title, description, url, icon
-    FROM categories
-    WHERE url = ${'/' + url}
-    ORDER BY position
-    `;
-    
-    const {rows: categoriesOwned} = await client.sql`
-    SELECT type, title, description, url, icon
-    FROM categories
-    WHERE category_url = ${'/' + url}
-    ORDER BY position
-    `;
+    const {url} = req.body;
 
-    const category = categoryRow[0];
-
-    if(category) {
-      category.resources = categoriesOwned;
-
-      res.status(200).json({success: true, data: category});
+    if(url) {
+      const {rows: categoryRow} = await client.sql`
+      SELECT type, title, description, url, icon
+      FROM categories
+      WHERE url = ${'/' + url}
+      ORDER BY position
+      `;
+      
+      const {rows: categoriesOwned} = await client.sql`
+      SELECT type, title, description, url, icon
+      FROM categories
+      WHERE category_url = ${'/' + url}
+      ORDER BY position
+      `;
+  
+      const category = categoryRow[0];
+  
+      if(category) {
+        category.resources = categoriesOwned;
+  
+        res.status(200).json({success: true, data: category});
+      } else {
+        res.status(404).json({success: false, error: "Category not found."});
+      }
     } else {
-      res.status(404).json({success: false, error: "Category not found."});
+      res.status(400).json({success: false, error: "url as body is required."});
     }
   } catch(e) {
     if(!res.headersSent) {
@@ -158,17 +162,21 @@ export const delCategory = async (req, res) => {
   const client = await db.connect();
 
   try {
-    const {id, url} = req.params;
+    const {url} = req.body;
 
-    await client.sql`BEGIN`;
-    await client.sql`DELETE FROM resources WHERE category_url = ${'/' + url}`;
-    const {rowCount: deleted} = await client.sql`DELETE FROM categories WHERE id = ${id};`;
-    await client.sql`COMMIT`;
-    
-    if(deleted) {
-      res.status(200).json({success: true, message: "Category deleted."});
+    if(url) {
+      await client.sql`BEGIN`;
+      await client.sql`DELETE FROM resources WHERE category_url = ${'/' + url}`;
+      const {rowCount: deleted} = await client.sql`DELETE FROM categories WHERE url = ${url};`;
+      await client.sql`COMMIT`;
+      
+      if(deleted) {
+        res.status(200).json({success: true, message: "Category deleted."});
+      } else {
+        res.status(400).json({success: false, error: "Category does not exist"});
+      }
     } else {
-      res.status(400).json({success: false, error: "Category does not exist"});
+      res.status(400).json({success: false, error: "id and url as body is required."});
     }
   } catch(e) {
     await client.sql`ROLLBACK`;
