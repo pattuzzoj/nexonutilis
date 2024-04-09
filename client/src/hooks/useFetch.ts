@@ -1,7 +1,7 @@
-import { ResourceReturn, createResource } from 'solid-js';
+import { createResource } from 'solid-js';
 
-export default function useFetch<T>(method: string = 'GET', url: string, body: any = {}): ResourceReturn<T> {
-  async function fetchResource(): Promise<T> {
+export default function useFetch<T>(method: string = 'GET', url: string, body: any = {}) {
+  async function fetchResource() {
     try {
       const response = await fetch(url, {
         method,
@@ -13,9 +13,11 @@ export default function useFetch<T>(method: string = 'GET', url: string, body: a
         body: JSON.stringify(body)
       });
 
-      const data = await response.json();
+      if(response) {
+        const data = await response.json();
 
-      return data;
+        return data as T;
+      }
     } catch(e) {
       throw new Error('Network response was not ok' + e);
     }
