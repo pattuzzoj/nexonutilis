@@ -56,8 +56,8 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
 
 export default function Form() {
   const baseURL = "https://nexonutilis-server.vercel.app";
-  const [categories] = useFetch<Array<Category>>('GET', `${baseURL}/categories`);
-  const [resources] = useFetch<Array<Resource>>('GET', `${baseURL}/resources`);
+  const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `${baseURL}/categories`);
+  const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `${baseURL}/resources`);
   const [type, setType] = createSignal<string>("categories");
   const [list, setList] = createSignal<Array<Category | Resource>>([]);
   const [infoMenu, setInfoMenu] = createSignal<boolean>(false);
@@ -72,14 +72,19 @@ export default function Form() {
     setEditedInfo({ ...editedInfo() as any, [name]: value });
   }
 
-  function post() {
-    if(type() === "categories") {
-      fetchResource('POST', `${baseURL}/category`, editedInfo());
-    } else if(type() === 'resources') {
-      fetchResource('POST', `${baseURL}/resource`, editedInfo());
-    }
-  }
 
+
+  function mod() {
+    if(type() === "categories") {
+      fetchResource('PUT', `${baseURL}/category`, editedInfo());
+      setTimeout(refetchCategories, 1000);
+    } else if(type() === 'resources') {
+      fetchResource('PUT', `${baseURL}/resource`, editedInfo());
+      setTimeout(refetchResources, 1000);
+    }
+
+    setEditedInfo({} as any);
+  }
 
   function del({id, url}: {id: number, url: string}) {
     if(type() === "categories") {
@@ -188,7 +193,7 @@ export default function Form() {
               <strong class="w-1/4">Category URL:</strong>
               <span id="category_url" class="w-3/4" onInput={handleEditedInfo} contenteditable>{info()?.category_url}</span>
             </span>
-            <button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={post}>Save</button>
+            <button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={mod}>Save</button>
           </div>
         </div>
       </Show>
