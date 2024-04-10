@@ -72,12 +72,11 @@ export default function Form() {
 
   function post() {
     if(type() === "categories") {
-      fetchResource('POST', `${baseURL}/category`, editedInfo);
+      fetchResource('POST', `${baseURL}/category`, editedInfo());
     } else if(type() === 'resources') {
-      fetchResource('POST', `${baseURL}/resource`, editedInfo);
+      fetchResource('POST', `${baseURL}/resource`, editedInfo());
     }
   }
-
 
 
   function del({id, url}: {id: number, url: string}) {
