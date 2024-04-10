@@ -18,9 +18,9 @@ export default function useFetch<T>(method: string = 'GET', url: string, body?: 
 
       const response = await fetch(url, options);
 
-      if(response) {
+      if(response.ok) {
         const data = await response.json();
-        return data;
+        return data.data;
       } else {
         throw new Error('Error: ' + response);
       }
