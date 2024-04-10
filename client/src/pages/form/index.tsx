@@ -47,10 +47,10 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
       const data = await response.json();
       return data.data;
     } else {
-      throw new Error('Error: ' + response);
+      console.log(response);
     }
   } catch(e) {
-    throw new Error('Error: ' + e);
+    console.log(e);
   }
 }
 
@@ -71,8 +71,6 @@ export default function Form() {
     
     setEditedInfo({ ...editedInfo() as any, [name]: value });
   }
-
-
 
   function mod() {
     if(type() === "categories") {
