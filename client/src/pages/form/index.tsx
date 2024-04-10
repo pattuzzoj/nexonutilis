@@ -47,7 +47,8 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
       const data = await response.json();
       return data.data;
     } else {
-      console.log(response);
+      const data = await response.json();
+      console.log(data);
     }
   } catch(e) {
     console.log(e);
@@ -71,6 +72,8 @@ export default function Form() {
     
     setEditedInfo({ ...editedInfo() as any, [name]: value });
   }
+
+
 
   function mod() {
     if(type() === "categories") {
