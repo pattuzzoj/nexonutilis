@@ -1,4 +1,4 @@
-import { For, Match, Show, Switch, createSignal } from "solid-js";
+import { For, Match, Show, Switch, createEffect, createSignal } from "solid-js";
 import Main from "layout/main";
 import Icon from "components/icon";
 import useFetch from "hooks/useFetch";
@@ -64,6 +64,8 @@ export default function Form() {
   const [info, setInfo] = createSignal<Category | Resource>();
   const [editedInfo, setEditedInfo] = createSignal<Category | Resource>();
 
+  createEffect(() => setList(categories() || []));
+
   function handleEditedInfo(e: any) {
     const { id: name, textContent: value } = e.target;
     
@@ -71,14 +73,13 @@ export default function Form() {
   }
 
   function post() {
-    console.log(editedInfo());
-
     if(type() === "categories") {
       fetchResource('POST', `${baseURL}/category`, editedInfo());
     } else if(type() === 'resources') {
       fetchResource('POST', `${baseURL}/resource`, editedInfo());
     }
   }
+
 
   function del({id, url}: {id: number, url: string}) {
     if(type() === "categories") {

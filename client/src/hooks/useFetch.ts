@@ -22,10 +22,10 @@ export default function useFetch<T>(method: string = 'GET', url: string, body?: 
         const data = await response.json();
         return data.data;
       } else {
-        throw new Error('Error: ' + response);
+        throw new Error((response.json() as any).error as string);
       }
     } catch(e) {
-      throw new Error('Error: ' + e);
+      throw new Error(e as string);
     }
   }
 
