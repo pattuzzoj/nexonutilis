@@ -256,11 +256,7 @@ export async function deleteCategory(req, res) {
   const client = await db.connect();
 
   if(req.params.hasOwnProperty('id')) {
-    const { id } = req.params;
-
-    const message = typeof id
-
-    res.status(200).json({message: message});
+    const id = parseInt(req.params.id);
     
     try {
       await client.sql`BEGIN`;
