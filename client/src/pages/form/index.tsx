@@ -91,7 +91,7 @@ export default function Form() {
   const [data, setData] = createSignal<Category | Resource>();
   const [editedData, setEditedData] = createSignal<Category | Resource>();
 
-  // createEffect(() => setList(categories() || []));
+  createEffect(() => setList(categories() || []));
 
   function handleEditedData(e: any) {
     console.log(e.target)
@@ -134,94 +134,94 @@ export default function Form() {
     }
   }
 
-  setList(
-    [
-      {
-        "id": 1,
-        "parent_category_id": 0,
-        "type": 0,
-        "title": "Tech Hub",
-        "description": "A comprehensive suite of productivity tools for businesses and individuals.",
-        "url": "/tech-hub",
-        "index": 0,
-        "icon": "productivity_icon.png",
-        "logo": "productivity_logo.png",
-        "official_url": "https://www.productivitysuite.com/official",
-        "roadmap_url": "https://www.productivitysuite.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 2,
-        "parent_category_id": 0,
-        "type": 0,
-        "title": "Development",
-        "description": "An online platform for buying and selling various products.",
-        "url": "/development",
-        "index": 1,
-        "icon": "marketplace_icon.png",
-        "logo": "marketplace_logo.png",
-        "official_url": "https://www.onlinemarketplace.com/official",
-        "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 3,
-        "parent_category_id": 2,
-        "type": 0,
-        "title": "JavaScript",
-        "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
-        "url": "/javascript",
-        "index": 0,
-        "icon": "socialnetwork_icon.png",
-        "logo": "socialnetwork_logo.png",
-        "official_url": "https://www.socialnetwork.com/official",
-        "roadmap_url": "https://www.socialnetwork.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 4,
-        "parent_category_id": 3,
-        "type": 0,
-        "title": "Solid.js",
-        "description": "Track your expenses, set budgets, and manage your finances effectively.",
-        "url": "/solidjs",
-        "index": 0,
-        "icon": "budgetingapp_icon.png",
-        "logo": "budgetingapp_logo.png",
-        "official_url": "https://www.budgetingapp.com/official",
-        "roadmap_url": "https://www.budgetingapp.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 6,
-        "parent_category_id": 0,
-        "type": 0,
-        "title": "API",
-        "description": "Log your workouts, set fitness goals, and monitor your progress.",
-        "url": "/api",
-        "index": 2,
-        "icon": "workoutapp_icon.png",
-        "logo": "workoutapp_logo.png",
-        "official_url": "https://www.workoutapp.com/official",
-        "roadmap_url": "https://www.workoutapp.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 5,
-        "parent_category_id": 6,
-        "type": 0,
-        "title": "GPT",
-        "description": "Access courses and educational resources from various disciplines.",
-        "url": "/gpt",
-        "index": 0,
-        "icon": "onlinelearning_icon.png",
-        "logo": "onlinelearning_logo.png",
-        "official_url": "https://www.onlinelearningplatform.com/official",
-        "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
-        "items": []
-      }
-    ]
-  )
+  // setList(
+  //   [
+  //     {
+  //       "id": 1,
+  //       "parent_category_id": 0,
+  //       "type": 0,
+  //       "title": "Tech Hub",
+  //       "description": "A comprehensive suite of productivity tools for businesses and individuals.",
+  //       "url": "/tech-hub",
+  //       "index": 0,
+  //       "icon": "productivity_icon.png",
+  //       "logo": "productivity_logo.png",
+  //       "official_url": "https://www.productivitysuite.com/official",
+  //       "roadmap_url": "https://www.productivitysuite.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 2,
+  //       "parent_category_id": 0,
+  //       "type": 0,
+  //       "title": "Development",
+  //       "description": "An online platform for buying and selling various products.",
+  //       "url": "/development",
+  //       "index": 1,
+  //       "icon": "marketplace_icon.png",
+  //       "logo": "marketplace_logo.png",
+  //       "official_url": "https://www.onlinemarketplace.com/official",
+  //       "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 3,
+  //       "parent_category_id": 2,
+  //       "type": 0,
+  //       "title": "JavaScript",
+  //       "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
+  //       "url": "/javascript",
+  //       "index": 0,
+  //       "icon": "socialnetwork_icon.png",
+  //       "logo": "socialnetwork_logo.png",
+  //       "official_url": "https://www.socialnetwork.com/official",
+  //       "roadmap_url": "https://www.socialnetwork.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 4,
+  //       "parent_category_id": 3,
+  //       "type": 0,
+  //       "title": "Solid.js",
+  //       "description": "Track your expenses, set budgets, and manage your finances effectively.",
+  //       "url": "/solidjs",
+  //       "index": 0,
+  //       "icon": "budgetingapp_icon.png",
+  //       "logo": "budgetingapp_logo.png",
+  //       "official_url": "https://www.budgetingapp.com/official",
+  //       "roadmap_url": "https://www.budgetingapp.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 6,
+  //       "parent_category_id": 0,
+  //       "type": 0,
+  //       "title": "API",
+  //       "description": "Log your workouts, set fitness goals, and monitor your progress.",
+  //       "url": "/api",
+  //       "index": 2,
+  //       "icon": "workoutapp_icon.png",
+  //       "logo": "workoutapp_logo.png",
+  //       "official_url": "https://www.workoutapp.com/official",
+  //       "roadmap_url": "https://www.workoutapp.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 5,
+  //       "parent_category_id": 6,
+  //       "type": 0,
+  //       "title": "GPT",
+  //       "description": "Access courses and educational resources from various disciplines.",
+  //       "url": "/gpt",
+  //       "index": 0,
+  //       "icon": "onlinelearning_icon.png",
+  //       "logo": "onlinelearning_logo.png",
+  //       "official_url": "https://www.onlinelearningplatform.com/official",
+  //       "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
+  //       "items": []
+  //     }
+  //   ]
+  // )
 
   function Table(props: any) {
     return (
