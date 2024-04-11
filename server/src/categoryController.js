@@ -190,8 +190,6 @@ export async function postCategory(req, res) {
       WHERE NOT EXISTS (SELECT 1 FROM category WHERE parent_category_id = ${parent_category_id} AND url = ${url})
       `;
 
-      res.status.json({message: "Category created", data: created});
-
       if(created) {
         res.status(201).json({message: "Category created"});
       } else {
