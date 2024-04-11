@@ -103,7 +103,7 @@ export default function Form() {
   function post() {
     if(type() == "category") {
       useFetch('POST', `/category`, editedData());
-      setTimeout(refetchCategories, 500);
+      refetchCategories()
     } else {
       useFetch('POST', `/resource`, editedData());
       setTimeout(refetchResources, 500);
@@ -115,7 +115,7 @@ export default function Form() {
   function update(id: number) {
     if(type() == "category") {
       useFetch('PUT', `/category/${id}`, editedData());
-      setTimeout(refetchCategories, 500);
+      refetchCategories()
     } else {
       useFetch('PUT', `/resource/${id}`, editedData());
       setTimeout(refetchResources, 500);
@@ -127,7 +127,7 @@ export default function Form() {
   function del(id: number) {
     if(type() == "category") {
       useFetch("DELETE", `/category/${id}`);
-      setTimeout(refetchCategories, 500);
+      refetchCategories()
     } else {
       useFetch("DELETE", `/resource/${id}`);
       setTimeout(refetchResources, 500);
@@ -287,9 +287,6 @@ export default function Form() {
         ">
           <div class="relative flex flex-col gap-2 p-6" onInput={handleEditedData}>
             <button class="absolute top-0 right-0 p-2" onClick={() => setMenu(false)}><Icon name="FaSolidCircleXmark" class="size-5"/></button>
-            <label class="flex justify-between">ID: 
-              <input name="id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={data()?.id} disabled/>
-            </label>
             <Show when={type() == "category"}>
               <label class="flex justify-between">Type: 
                 <input name="type" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Category)?.type ?? undefined}/>

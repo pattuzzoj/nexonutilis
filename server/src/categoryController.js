@@ -184,7 +184,7 @@ export async function postCategory(req, res) {
     
   if([title, description, url].every((value) => value !== undefined)) {
     try {
-      const created = await client.sql`
+      const {rows: created} = await client.sql`
       INSERT INTO category (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
       SELECT ${type}, ${title}, ${description}, ${url}, ${index}, ${icon}, ${logo}, ${official_url}, ${roadmap_url}, ${parent_category_id}
       WHERE NOT EXISTS (SELECT 1 FROM category WHERE parent_category_id = ${parent_category_id} AND url = ${url})

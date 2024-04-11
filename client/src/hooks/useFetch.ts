@@ -27,7 +27,9 @@ export default function useFetch<T>(method: string = 'GET', url: string, body?: 
           console.log(data?.message);
         }
 
-        return data.data;
+        if(data?.data) {
+          return data.data;
+        }
       } else {
         console.log(data?.error)
       }

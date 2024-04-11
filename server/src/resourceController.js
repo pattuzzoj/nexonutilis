@@ -69,7 +69,7 @@ export async function postResource(req, res) {
 
   const {title, description, url, index, category_id} = req.body;
     
-  if([title, description, url, index, category_id].every((value) => value !== undefined)) {
+  if([title, description, url, category_id].every((value) => value !== undefined)) {
     try {
       const {rows: created} = await client.sql`
       INSERT INTO resource (title, description, url, index, category_id)
@@ -78,7 +78,7 @@ export async function postResource(req, res) {
       `;
 
       if(created) {
-        res.status(200).json({message: "Resource created"});
+        res.status(201).json({message: "Resource created"});
       } else {
         res.status(404).json({error: "Resource already exists"});
       }
