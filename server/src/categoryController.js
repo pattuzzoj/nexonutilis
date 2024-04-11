@@ -262,11 +262,11 @@ export async function deleteCategory(req, res) {
       await client.sql`BEGIN`;
       await client.sql`DELETE FROM resource WHERE category_id = ${id}`;
   
-      res.status(200).json({message: "Category deleted"});
-      return;
       const {rowCount: deleted} = await client.sql`DELETE FROM category WHERE id = ${id};`;
       await client.sql`COMMIT`;
-
+      
+      res.status(200).json({message: "Category deleted"});
+      return;
       if(deleted) {
         res.status(200).json({message: "Category deleted"});
       } else {
