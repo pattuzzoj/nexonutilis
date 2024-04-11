@@ -109,8 +109,8 @@ export async function putResource(req, res) {
           title = COALESCE(${title}, title),
           description = COALESCE(${description}, description),
           url = COALESCE(${url}, url),
-          index = COALESCE(${parseInt(index)}, index),
-          category_id = COALESCE(${parseInt(category_id)}, category_id)
+          index = COALESCE(${index}, index),
+          category_id = COALESCE(${category_id}, category_id)
         WHERE id = ${id}
         `;
   
