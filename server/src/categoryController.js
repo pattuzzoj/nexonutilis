@@ -1,194 +1,284 @@
-import { db } from '@vercel/postgres';
+import { db } from "@vercel/postgres";
 
-export const getCategory = async (req, res) => {
-  const client = await db.connect();
+const categories = [
+    {
+      "id": 1,
+      "parent_category_id": 0,
+      "type": 0,
+      "title": "Tech Hub",
+      "description": "A comprehensive suite of productivity tools for businesses and individuals.",
+      "url": "/tech-hub",
+      "index": 1,
+      "icon": "productivity_icon.png",
+      "logo": "productivity_logo.png",
+      "official_url": "https://www.productivitysuite.com/official",
+      "roadmap_url": "https://www.productivitysuite.com/roadmap"
+    },
+    {
+      "id": 2,
+      "parent_category_id": 0,
+      "type": 0,
+      "title": "Development",
+      "description": "An online platform for buying and selling various products.",
+      "url": "/development",
+      "index": 2,
+      "icon": "marketplace_icon.png",
+      "logo": "marketplace_logo.png",
+      "official_url": "https://www.onlinemarketplace.com/official",
+      "roadmap_url": "https://www.onlinemarketplace.com/roadmap"
+    },
+    {
+      "id": 3,
+      "parent_category_id": 2,
+      "type": 0,
+      "title": "JavaScript",
+      "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
+      "url": "/javascript",
+      "index": 3,
+      "icon": "socialnetwork_icon.png",
+      "logo": "socialnetwork_logo.png",
+      "official_url": "https://www.socialnetwork.com/official",
+      "roadmap_url": "https://www.socialnetwork.com/roadmap"
+    },
+    {
+      "id": 4,
+      "parent_category_id": 3,
+      "type": 0,
+      "title": "Solid.js",
+      "description": "Track your expenses, set budgets, and manage your finances effectively.",
+      "url": "/solidjs",
+      "index": 4,
+      "icon": "budgetingapp_icon.png",
+      "logo": "budgetingapp_logo.png",
+      "official_url": "https://www.budgetingapp.com/official",
+      "roadmap_url": "https://www.budgetingapp.com/roadmap"
+    },
+    {
+      "id": 5,
+      "parent_category_id": 6,
+      "type": 0,
+      "title": "GPT",
+      "description": "Access courses and educational resources from various disciplines.",
+      "url": "/gpt",
+      "index": 5,
+      "icon": "onlinelearning_icon.png",
+      "logo": "onlinelearning_logo.png",
+      "official_url": "https://www.onlinelearningplatform.com/official",
+      "roadmap_url": "https://www.onlinelearningplatform.com/roadmap"
+    },
+    {
+      "id": 6,
+      "parent_category_id": 0,
+      "type": 0,
+      "title": "API",
+      "description": "Log your workouts, set fitness goals, and monitor your progress.",
+      "url": "/api",
+      "index": 6,
+      "icon": "workoutapp_icon.png",
+      "logo": "workoutapp_logo.png",
+      "official_url": "https://www.workoutapp.com/official",
+      "roadmap_url": "https://www.workoutapp.com/roadmap"
+    }
+];
 
-  try {
-    const {url} = req.body;
+function buildCategoryHierarchy(parentId = 0, parentURL) {
+  const categoryTree = [];
 
-    if(url) {
-      const {rows: categoryRow} = await client.sql`
-      SELECT type, title, description, url, icon
-      FROM categories
-      WHERE url = ${'/' + url}
-      ORDER BY position
-      `;
-      
-      const {rows: categoriesOwned} = await client.sql`
-      SELECT type, title, description, url, icon
-      FROM categories
-      WHERE category_url = ${'/' + url}
-      ORDER BY position
-      `;
-  
-      const category = categoryRow[0];
-  
-      if(category) {
-        category.resources = categoriesOwned;
-  
-        res.status(200).json({success: true, data: category});
-      } else {
-        res.status(404).json({success: false, error: "Category not found."});
+  categories.forEach(category => {
+    if(category.parent_category_id === parentId) {
+      if(parentURL) {
+        category.url = `${parentURL}${category.url}`;
       }
-    } else {
-      res.status(400).json({success: false, error: "url as body is required."});
+
+      const subcategories = buildCategoryHierarchy(category.id, category.url);
+      const categoryObject = { ...category, items: subcategories };
+      categoryTree.push(categoryObject);
     }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
-  }
+  })
+
+  return categoryTree;
 }
 
-export const getAllCategories = async (req, res) => {
-  const client = await db.connect();
+const nestedCategoryHierarchy = buildCategoryHierarchy();
 
+console.log(JSON.stringify(nestedCategoryHierarchy, null, 2));
+
+
+
+
+
+
+
+
+
+
+// export async function getCategory(req, res) {
+//   const client = await db.connect();
+
+//   if(req.params.hasOwnProperty('url')) {
+//     const { url } = req.params;
+
+//     try {
+//       const {rows: category} = await client.sql`
+//       SELECT type, title, description, url, icon
+//       FROM category
+//       WHERE url = ${url}
+//       `;
+
+//       if(category) {
+//         const category = category[0];
+
+//         const {rows: subCategories} = await client.sql`
+//         SELECT title, description, url
+//         FROM category
+//         WHERE parent_category_id = ${category.id}
+//         ORDER BY index
+//         `;
+
+//         if(subCategories) {
+//           category.items = subCategories;
+//         }
+
+//         res.status(200).json({data: category});
+//       } else {
+//         res.status(404).json({error: "Resource not found"});
+//       }
+//     } catch(error) {
+//       if(!res.headersSent) {
+//         res.status(500).json({error: "Server error"});
+//       }
+//     } finally {
+//       client.release();
+//     }
+//   } else {
+//     res.status(400).json({error: "ID Parameter is missing"});
+//   }
+// }
+
+
+export async function getCategory(req, res) {
+  const client = await db.connect();
   try {
-    const {rows: categoriesRows} = await client.sql`
-    SELECT * FROM categories ORDER BY url, category_url, position
+    const {rows: category} = await client.sql`
+    SELECT * FROM category ORDER BY parent_category_id, index
     `;
 
-    if(categoriesRows) {
-      res.status(200).json({success: true, data: categoriesRows});
+    if(category) {
+      res.status(200).json({data: data});
     } else {
-      res.status(404).json({success: false, error: "Categories not found."});
+      res.status(404).json({error: "Categories not found"});
     }
-  } catch(e) {
+  } catch(error) {
     if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
+      res.status(500).json({error: "Server error"});
     }
   } finally {
     client.release();
   }
 }
 
-export const setCategory = async (req, res) => {
+export async function postCategory(req, res) {
   const client = await db.connect();
 
-  try {
-    const {type, title, description, url, icon, logo, official, roadmap, position, category_url} = req.body;
-
-    if([type, title, description, url].every(Boolean)) {
+  const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = req.body;
+    
+  if([type, title, description, url, index, parent_category_id].every((value) => value !== undefined)) {
+    try {
       const {rows: created} = await client.sql`
-      INSERT INTO categories (type, title, description, url, icon, logo, official, roadmap, position, category_url)
-      SELECT ${type}, ${title}, ${description}, ${url}, ${icon}, ${logo}, ${official}, ${roadmap}, ${position}, ${category_url}
-      WHERE NOT EXISTS (SELECT 1 FROM categories WHERE url = ${url})
+      INSERT INTO category (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
+      SELECT ${type}, ${title}, ${description}, ${url}, ${index}, ${icon}, ${logo}, ${official_url}, ${roadmap_url}, ${parent_category_id}
+      WHERE NOT EXISTS (SELECT 1 FROM category WHERE parent_category_id = ${parent_category_id} AND url = ${url})
       `;
 
       if(created) {
-        res.status(200).json({success: true, message: "Category created."});
+        res.status(200).json({data: data});
       } else {
-        res.status(400).json({success: false, error: "Category already exists."});
+        res.status(404).json({error: "Category created"});
       }
-    } else {
-      res.status(400).json({success: false, error: "type, title, description, url as body is required."});
+    } catch(error) {
+      if(!res.headersSent) {
+        res.status(500).json({error: "Server error"});
+      }
+    } finally {
+      client.release();
     }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
+  } else {
+    res.status(400).json({error: "Body is missing"});
   }
 }
 
-export const populateCategories = async (req, res) => {
+export async function putCategory(req, res) {
   const client = await db.connect();
 
-  try {
-    if(req.body.length) {
-      req.body.forEach(async category => {
-        const {type, title, description, url, icon, logo, official, roadmap, position, category_url} = category;
-  
-        await client.sql`
-        INSERT INTO categories (type, title, description, url, icon, logo, official, roadmap, position, category_url)
-        SELECT ${type}, ${title}, ${description}, ${url}, ${icon}, ${logo}, ${official}, ${roadmap}, ${position}, ${category_url}
-        WHERE NOT EXISTS (SELECT 1 FROM categories WHERE url = ${url})
-        `;
-      })
-  
-      res.status(200).json({success: true, message: "Categories created."});
-    } else {
-      res.status(400).json({success: false, error: "No categories provided."});
-    }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
-  }
-}
-
-export const modCategory = async (req, res) => {
-  const client = await db.connect();
-
-  try {
-    const {id, type, title, description, url, icon, logo, official, roadmap, position, category_url} = req.body;
+  if(req.params.hasOwnProperty('id')) {
+    const { id } = req.params;
+    const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = req.body;
     
-    if(id && [type, title, description, url, icon, logo, official, roadmap, position, category_url].some(Boolean)) {
-      const {rowCount: updated} = await client.sql`
-      UPDATE categories
-      SET
-        type = COALESCE(${type}, type),
-        title = COALESCE(${title}, title),
-        description = COALESCE(${description}, description),
-        url = COALESCE(${url}, url),
-        icon = COALESCE(${icon}, icon),
-        logo = COALESCE(${logo}, logo),
-        official = COALESCE(${official}, official),
-        roadmap = COALESCE(${roadmap}, roadmap),
-        position = COALESCE(${position}, position),
-        category_url = COALESCE(${category_url}, category_url)
-      WHERE id = ${id}
-      `;
-
-      if(updated) {
-        res.status(200).json({success: true, data: "Category updated."});
-      } else {
-        res.status(400).json({success: false, error: "Category does not exist."});
+    if([type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id].some((value) => value !== undefined)) {
+      try {
+        const {rowCount: updated} = await client.sql`
+        UPDATE category
+        SET
+          type = COALESCE(${type}, type),
+          title = COALESCE(${title}, title),
+          description = COALESCE(${description}, description),
+          url = COALESCE(${url}, url),
+          index = COALESCE(${index}, index),
+          icon = COALESCE(${icon}, icon),
+          logo = COALESCE(${logo}, logo),
+          official_url = COALESCE(${official_url}, official_url),
+          roadmap_url = COALESCE(${roadmap_url}, roadmap_url),
+          parent_category_id = COALESCE(${parent_category_id}, parent_category_id)
+        WHERE id = ${id}
+        `;
+  
+        if(updated) {
+          res.status(200).json({message: "Category Updated"});
+        } else {
+          res.status(404).json({error: "Resource not found"});
+        }
+      } catch(error) {
+        if(!res.headersSent) {
+          res.status(500).json({error: "Server error"});
+        }
+      } finally {
+        client.release();
       }
     } else {
-      res.status(400).json({success: false, error: "At least one property is required."});
+      res.status(400).json({error: "Body is missing"});
     }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
+  } else {
+    res.status(400).json({error: "ID Parameter is missing"});
   }
 }
 
-export const delCategory = async (req, res) => {
+export async function deleteCategory(req, res) {
   const client = await db.connect();
 
-  try {
-    const {url} = req.body;
+  if(req.params.hasOwnProperty('id')) {
+    const { id } = req.params;
 
-    if(url) {
+    try {
       await client.sql`BEGIN`;
-      await client.sql`DELETE FROM resources WHERE category_url = ${'/' + url}`;
-      const {rowCount: deleted} = await client.sql`DELETE FROM categories WHERE url = ${url};`;
+      await client.sql`DELETE FROM resource WHERE category_id = ${id}`;
+      const {rowCount: deleted} = await client.sql`DELETE FROM category WHERE id = ${id};`;
       await client.sql`COMMIT`;
-      
-      if(deleted) {
-        res.status(200).json({success: true, message: "Category deleted."});
-      } else {
-        res.status(400).json({success: false, error: "Category does not exist"});
-      }
-    } else {
-      res.status(400).json({success: false, error: "id and url as body is required."});
-    }
-  } catch(e) {
-    await client.sql`ROLLBACK`;
 
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
+      if(deleted) {
+        res.status(200).json({message: "Category deleted"});
+      } else {
+        res.status(404).json({error: "Category not found"});
+      }
+    } catch(error) {
+      await client.sql`ROLLBACK`;
+
+      if(!res.headersSent) {
+        res.status(500).json({error: "Server error"});
+      }
+    } finally {
+      client.release();
     }
-  } finally {
-    client.release();
+  } else {
+    res.status(400).json({error: "ID Parameter is missing"});
   }
 }

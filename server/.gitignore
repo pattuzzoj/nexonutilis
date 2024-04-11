@@ -25,3 +25,4 @@ dist-ssr
 *.txt
 *model.ts
 .env
+schema.sql

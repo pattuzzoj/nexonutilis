@@ -1,190 +1,162 @@
-import { db } from '@vercel/postgres';
+import { db } from "@vercel/postgres";
 
-export const getResource = async (req, res) => {
+// export async function getResource(req, res) {
+//   const client = await db.connect();
+
+//   if(req.params.hasOwnProperty('url')) {
+//     const { url } = req.params;
+
+//     try {
+//       const {rows: resource} = await client.sql`
+//       SELECT type, title, description, url, icon, logo, official_url, roadmap_url
+//       FROM resource
+//       WHERE url = ${url}
+//       `;
+
+//       if(resource) {
+//         const resource = resource[0];
+
+//         const {rows: resources} = await client.sql`
+//         SELECT title, description, url
+//         FROM resource
+//         WHERE category_id = ${resource.id}
+//         ORDER BY index
+//         `;
+
+//         if(resources) {
+//           resource.resources = resources;
+//         }
+
+//         res.status(200).json({data: resource});
+//       } else {
+//         res.status(404).json({error: "Resource not found"});
+//       }
+//     } catch(error) {
+//       if(!res.headersSent) {
+//         res.status(500).json({error: "Server error"});
+//       }
+//     } finally {
+//       client.release();
+//     }
+//   } else {
+//     res.status(400).json({error: "ID Parameter is missing"});
+//   }
+// }
+
+export async function getResource(req, res) {
   const client = await db.connect();
-
   try {
-    const {url} = req.body;
-
-    if(url) {
-      const {rows: resourceRow} = await client.sql`
-      SELECT type, title, description, url, icon, logo, official, roadmap
-      FROM categories
-      WHERE url = ${'/' + url}
-      ORDER BY position
-      `;
-      
-      const {rows: resourcesOwned} = await client.sql`
-      SELECT title, description, url
-      FROM resources
-      WHERE category_url = ${'/' + url}
-      ORDER BY position
-      `;
-      
-      const resource = resourceRow[0];
-      
-      if(resource) {
-        resource.resources = resourcesOwned;
-        
-        res.status(200).json({success: true, data: resource});
-      } else {
-        res.status(404).json({success: false, error: "Resource not found."});
-      }
-    } else {
-      res.status(400).json({success: false, error: "url as body is required."});
-    }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
-  }
-}
-
-export const getAllResources = async (req, res) => {
-  const client = await db.connect();
-
-  try {
-    const {rows: resourcesRows} = await client.sql`
-    SELECT * FROM resources ORDER BY category_url, position
+    const {rows: resource} = await client.sql`
+    SELECT * FROM resource ORDER BY category_id, index
     `;
 
-    if(resourcesRows) {
-      res.status(200).json({success: true, data: resourcesRows});
+    if(resource) {
+      res.status(200).json({data: data});
     } else {
-      res.status(404).json({success: false, error: "Resources not found."});
+      res.status(404).json({error: "Resources not found"});
     }
-  } catch(e) {
+  } catch(error) {
     if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
+      res.status(500).json({error: "Server error"});
     }
   } finally {
     client.release();
   }
 }
 
-export const setResource = async (req, res) => {
-  const client = await db.connect();
-  
-  try {
-    const {title, description, url, position, category_url} = req.body;
-
-    if([title, description, url, category_url].every(Boolean)) {  
-      const {rows: created} = await client.sql`
-      INSERT INTO resources (title, description, url, position, category_url)
-      SELECT ${title}, ${description}, ${url}, ${position}, ${category_url}
-      WHERE
-      EXISTS (SELECT 1 FROM categories WHERE url = ${category_url})
-      AND
-      NOT EXISTS (SELECT 1 FROM resources WHERE url = ${url} AND category_url = ${category_url})
-      `;
-      
-      if(created) {
-        res.status(200).json({success: true, message: "Resource created."});
-      } else {
-        res.status(400).json({success: false, error: "Category does not exist or Resource already exists."});
-      }
-    } else {
-      res.status(400).json({success: false, error: "title, description, url, category_url as body is required."});
-    }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
-  }
-}
-
-export const populateResources = async (req, res) => {
+export async function postResource(req, res) {
   const client = await db.connect();
 
-  try {
-    if(req.body.length) {
-      req.body.forEach(async item => {
-        const {title, description, url, position, category_url} = item;
-        
-        await client.sql`
-        INSERT INTO resources (title, description, url, position, category_url)
-        SELECT ${title}, ${description}, ${url}, ${position}, ${category_url}
-        WHERE
-        EXISTS (SELECT 1 FROM categories WHERE url = ${category_url})
-        AND
-        NOT EXISTS (SELECT 1 FROM resources WHERE url = ${url} AND category_url = ${category_url})
-        `;
-      });
-  
-      res.status(200).json({success: true, message: "Resources created."});
-    } else {
-      res.status(400).json({success: false, error: "At least one resource is required."});
-    }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
-  }
-}
-
-export const modResource = async (req, res) => {
-  const client = await db.connect();
-
-  try {
-    const {id, title, description, url, position, category_url} = req.body;
+  const {title, description, url, index, category_id} = req.body;
     
-    if(id && [title, description, url, position, category_url].some(Boolean)) {
-      const {rowCount: updated} = await client.sql`
-      UPDATE resources
-      SET
-        title = COALESCE(${title}, title),
-        description = COALESCE(${description}, description),
-        url = COALESCE(${url}, url),
-        position = COALESCE(${position}, position),
-        category_url = COALESCE(${category_url}, category_url)
-      WHERE id = ${id}
+  if([title, description, url, index, category_id].every((value) => value !== undefined)) {
+    try {
+      const {rows: created} = await client.sql`
+      INSERT INTO resource (title, description, url, index, category_id)
+      SELECT ${title}, ${description}, ${url}, ${index}, ${category_id}
+      WHERE NOT EXISTS (SELECT 1 FROM resource WHERE category_id = ${category_id} AND url = ${url})
       `;
 
-      if(updated) {
-        res.status(200).json({success: true, message: "Resource updated."});
+      if(created) {
+        res.status(200).json({data: data});
       } else {
-        res.status(400).json({success: false, error: "Resource does not exist."});
+        res.status(404).json({error: "Resource created"});
       }
-    } else {
-      res.status(400).json({success: false, error: "At least one property is required."});
+    } catch(error) {
+      if(!res.headersSent) {
+        res.status(500).json({error: "Server error"});
+      }
+    } finally {
+      client.release();
     }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
+  } else {
+    res.status(400).json({error: "Body is missing"});
   }
 }
 
-export const delResource = async (req, res) => {
+export async function putResource(req, res) {
   const client = await db.connect();
 
-  try {
-    const {id} = req.body;
-
-    if(id) {
-      const {rowCount: deleted} = await client.sql`DELETE FROM resources WHERE id = ${id}`;
-      
-      if(deleted) {
-        res.status(200).json({success: true, message: "Resource deleted."});
-      } else {
-        res.status(400).json({success: false, error: "Resource does not exist"});
+  if(req.params.hasOwnProperty('id')) {
+    const { id } = req.params;
+    const {title, description, url, index, category_id} = req.body;
+    
+    if([title, description, url, index, category_id].some((value) => value !== undefined)) {
+      try {
+        const {rowCount: updated} = await client.sql`
+        UPDATE category
+        SET
+          title = COALESCE(${title}, title),
+          description = COALESCE(${description}, description),
+          url = COALESCE(${url}, url),
+          index = COALESCE(${index}, index),
+          category_id = COALESCE(${category_id}, category_id)
+        WHERE id = ${id}
+        `;
+  
+        if(updated) {
+          res.status(200).json({message: "Resource Updated"});
+        } else {
+          res.status(404).json({error: "Resource not found"});
+        }
+      } catch(error) {
+        if(!res.headersSent) {
+          res.status(500).json({error: "Server error"});
+        }
+      } finally {
+        client.release();
       }
     } else {
-      res.status(400).json({success: false, error: "id as body is required."});
+      res.status(400).json({error: "Body is missing"});
     }
-  } catch(e) {
-    if(!res.headersSent) {
-      res.status(500).json({success: false, error: e});
-    }
-  } finally {
-    client.release();
+  } else {
+    res.status(400).json({error: "ID Parameter is missing"});
   }
 }
+
+export async function deleteResource(req, res) {
+  const client = await db.connect();
+
+  if(req.params.hasOwnProperty('id')) {
+    const { id } = req.params;
+
+    try {
+      const {rowCount: deleted} = await client.sql`DELETE FROM resource WHERE id = ${id}`;
+
+      if(deleted) {
+        res.status(200).json({message: "Resource deleted."});
+      } else {
+        res.status(404).json({error: "Resource not found."});
+      }
+    } catch(error) {
+      if(!res.headersSent) {
+        res.status(500).json({error: "Server error"});
+      }
+    } finally {
+      client.release();
+    }
+  } else {
+    res.status(400).json({error: "ID Parameter is missing"});
+  }
+}
+

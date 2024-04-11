@@ -1,29 +1,19 @@
 import express from 'express';
-import { getCategory, getAllCategories, setCategory, populateCategories, modCategory, delCategory } from './categoryController.js';
-import { getResource, getAllResources, setResource, populateResources, modResource, delResource } from './resourceController.js';
+import { getCategory, getCategories, postCategory, putCategory, deleteCategory } from './categoryController.js';
+import { getResource, getResources, postResource, putResource, deleteResource } from './resourceController.js';
 
 const router = express.Router();
 
-// GET
 router.get('/category', getCategory);
-router.get('/categories', getAllCategories);
-
 router.get('/resource', getResource);
-router.get('/resources', getAllResources);
 
-// POST
-router.post('/category', setCategory);
-router.post('/categories', populateCategories);
+router.post('/category', postCategory);
+router.post('/resource', postResource);
 
-router.post('/resource', setResource);
-router.post('/resources', populateResources);
+router.put('/category/:id', putCategory);
+router.put('/resource/:id', putResource);
 
-// PUT
-router.put('/category', modCategory);
-router.put('/resource', modResource);
-
-// DELETE
-router.delete('/category', delCategory);
-router.delete('/resource', delResource);
+router.delete('/category/:id', deleteCategory);
+router.delete('/resource/:id', deleteResource);
 
 export default router;

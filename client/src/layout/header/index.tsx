@@ -6,7 +6,7 @@ import Menu from "components/menu";
 import Search from 'components/search';
 
 export default function Header() {
-  const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(true);
+  const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(false);
 
   return (
     <header class={`${menuIsOpen() ? "min-w-64 py-6 px-4" : "-translate-x-full w-0"} relative h-[5vh] md:h-screen flex justify-between items-center md:items-stretch md:flex-col bg-gray-300 dark:bg-gray-800`}>

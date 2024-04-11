@@ -1,54 +1,57 @@
-import { For, Match, Show, Switch, createEffect, createSignal } from "solid-js";
+import { For, Match, Show, Switch, createEffect, createSignal, splitProps } from "solid-js";
 import Main from "layout/main";
 import Icon from "components/icon";
 import useFetch from "hooks/useFetch";
+import Title from "components/typography/title";
 
 interface Category {
   id: number;
-  type: string;
+  parent_category_id: number;
+  type: number;
   title: string;
   description: string;
   url: string;
+  index: number;
   icon: string;
   logo: string;
-  official: boolean;
-  roadmap: string;
-  position: number;
-  category_url: string;
+  official_url: string;
+  roadmap_url: string;
+  items: Array<Category | Resource>;
 }
 
 interface Resource {
   id: number;
+  category_id: number;
   title: string;
   description: string;
   url: string;
-  position: number;
-  category_url: string;
+  index: number;
 }
 
 async function fetchResource(method: string = 'GET', url: string, body?: any) {
+  const options: any = {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+    },
+    mode: 'cors'
+  }
+
+  if(body) {
+    options.body = JSON.stringify(body);
+  }
+
   try {
-    const options: any = {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*',
-      },
-      mode: 'cors'
-    }
-
-    if(body) {
-      options.body = JSON.stringify(body);
-    }
-
     const response = await fetch(url, options);
 
     if(response.ok) {
       const data = await response.json();
+      alert(data.message);
       return data.data;
     } else {
       const data = await response.json();
-      console.log(data);
+      alert(data.error);
     }
   } catch(e) {
     console.log(e);
@@ -57,42 +60,160 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
 
 export default function Form() {
   const baseURL = "https://nexonutilis-server.vercel.app";
-  const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `${baseURL}/categories`);
-  const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `${baseURL}/resources`);
+  const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `${baseURL}/category`);
+  const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `${baseURL}/resource`);
   const [type, setType] = createSignal<string>("categories");
   const [list, setList] = createSignal<Array<Category | Resource>>([]);
-  const [infoMenu, setInfoMenu] = createSignal<boolean>(false);
-  const [info, setInfo] = createSignal<Category | Resource>();
-  const [editedInfo, setEditedInfo] = createSignal<Category | Resource>();
+  const [_typeMenu, setTypeMenu] = createSignal<"create" | "edit" | "view">();
+  const [menu, setMenu] = createSignal<boolean>(false);
+  const [data, setData] = createSignal<Category | Resource>();
+  const [editedData, setEditedData] = createSignal<Category | Resource>();
 
-  createEffect(() => setList(categories() || []));
+  // createEffect(() => setList(categories() || []));
 
-  function handleEditedInfo(e: any) {
+  createEffect(() => console.log(categories()));
+
+  function handleeditedData(e: any) {
     const { id: name, textContent: value } = e.target;
     
-    setEditedInfo({ ...editedInfo() as any, [name]: value });
+    setEditedData({ ...editedData() as any, [name]: value });
   }
 
-
-
-  function mod() {
-    if(type() === "categories") {
-      fetchResource('PUT', `${baseURL}/category`, editedInfo());
+  function mod(id: number, type: number) {
+    if(typeof type == 'number') {
+      fetchResource('PUT', `${baseURL}/category/${id}`, editedData());
       setTimeout(refetchCategories, 1000);
-    } else if(type() === 'resources') {
-      fetchResource('PUT', `${baseURL}/resource`, editedInfo());
+    } else {
+      fetchResource('PUT', `${baseURL}/resource/${id}`, editedData());
       setTimeout(refetchResources, 1000);
     }
 
-    setEditedInfo({} as any);
+    setEditedData({} as any);
   }
 
-  function del({id, url}: {id: number, url: string}) {
-    if(type() === "categories") {
-      fetchResource("DELETE", `${baseURL}/category`, {url});
-    } else if(type() === "resources") {
-      fetchResource("DELETE", `${baseURL}/resource`, {id});
+  function del(id: number, type: number) {
+    if(typeof type == 'number') {
+      fetchResource("DELETE", `${baseURL}/category/${id}`);
+      setTimeout(refetchCategories, 1000);
+    } else {
+      fetchResource("DELETE", `${baseURL}/resource/${id}`);
+      setTimeout(refetchCategories, 1000);
     }
+  }
+
+  setList(
+    [
+      {
+        "id": 1,
+        "parent_category_id": 0,
+        "type": 0,
+        "title": "Tech Hub",
+        "description": "A comprehensive suite of productivity tools for businesses and individuals.",
+        "url": "/tech-hub",
+        "index": 0,
+        "icon": "productivity_icon.png",
+        "logo": "productivity_logo.png",
+        "official_url": "https://www.productivitysuite.com/official",
+        "roadmap_url": "https://www.productivitysuite.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 2,
+        "parent_category_id": 0,
+        "type": 0,
+        "title": "Development",
+        "description": "An online platform for buying and selling various products.",
+        "url": "/development",
+        "index": 1,
+        "icon": "marketplace_icon.png",
+        "logo": "marketplace_logo.png",
+        "official_url": "https://www.onlinemarketplace.com/official",
+        "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 3,
+        "parent_category_id": 2,
+        "type": 0,
+        "title": "JavaScript",
+        "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
+        "url": "/javascript",
+        "index": 0,
+        "icon": "socialnetwork_icon.png",
+        "logo": "socialnetwork_logo.png",
+        "official_url": "https://www.socialnetwork.com/official",
+        "roadmap_url": "https://www.socialnetwork.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 4,
+        "parent_category_id": 3,
+        "type": 0,
+        "title": "Solid.js",
+        "description": "Track your expenses, set budgets, and manage your finances effectively.",
+        "url": "/solidjs",
+        "index": 0,
+        "icon": "budgetingapp_icon.png",
+        "logo": "budgetingapp_logo.png",
+        "official_url": "https://www.budgetingapp.com/official",
+        "roadmap_url": "https://www.budgetingapp.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 6,
+        "parent_category_id": 0,
+        "type": 0,
+        "title": "API",
+        "description": "Log your workouts, set fitness goals, and monitor your progress.",
+        "url": "/api",
+        "index": 2,
+        "icon": "workoutapp_icon.png",
+        "logo": "workoutapp_logo.png",
+        "official_url": "https://www.workoutapp.com/official",
+        "roadmap_url": "https://www.workoutapp.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 5,
+        "parent_category_id": 6,
+        "type": 0,
+        "title": "GPT",
+        "description": "Access courses and educational resources from various disciplines.",
+        "url": "/gpt",
+        "index": 0,
+        "icon": "onlinelearning_icon.png",
+        "logo": "onlinelearning_logo.png",
+        "official_url": "https://www.onlinelearningplatform.com/official",
+        "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
+        "items": []
+      }
+    ]
+  )
+
+  function Table(props: any) {
+
+    return (
+      <For each={props.table}>
+        {(item: Category) => (
+          <div class="relative border-t-[1px] even:bg-gray-500">
+            <span class="flex justify-around items-center gap-4 py-2">
+              <span class="w-1/12 text-center">{item.id}</span>
+              <span contentEditable class="w-1/12 text-center">{item.parent_category_id}</span>
+              <span contentEditable class="w-1/12 text-center">{item.type}</span>
+              <span contentEditable class="w-2/12 text-start">{item.title}</span>
+              <span contentEditable class="w-6/12 text-start line-clamp-1">{item.description}</span>
+              <span contentEditable class="w-3/12 text-start">{item.url}</span>
+              <span contentEditable class="w-1/12 text-center">{item.index}</span>
+              <span contentEditable class="w-1/12 flex justify-center gap-4">
+                <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
+                <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                <button class="text-lg" onClick={() => del(item.id, item.type)}><Icon name="FiTrash"/></button>
+              </span>
+            </span>
+          </div>
+        )}
+      </For>
+    )
   }
 
   return (
@@ -101,100 +222,80 @@ export default function Form() {
         <button class={`${type() == "categories" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("categories"); setList(categories() || [])}}>Categories</button>
         <button class={`${type() == "resources" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resources"); setList(resources() || [])}}>Resources</button>
       </span>
-      <button class="" onClick={() => {setInfo({} as any); setInfoMenu(true)}}>Add</button>
-      <table class="w-full">
+      <button class="text-lg" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
+      <div class="w-full">
         <Switch>
           <Match when={type() == "categories"}>
-            <caption class="mb-4 font-semibold text-xl">Categories</caption>
+            <Title as="3" class="text-start mb-4 font-semibold text-xl">Categories</Title>
           </Match>
           <Match when={type() == "resources"}>
-            <caption class="mb-4 font-semibold text-xl">Resources</caption>
+            <Title as="3" class="text-start mb-4 font-semibold text-xl">Resources</Title>
           </Match>
         </Switch>
-        <thead>
-          <tr>
-            <th class="pb-2">ID</th>
-            <th class="pb-2">Type</th>
-            <th class="pb-2 text-start">Title</th>
-            <th class="pb-2 text-start">URL</th>
-            <th class="pb-2 text-start">Category URL</th>
-            <th class="pb-2">Position</th>
-            <th class="pb-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <For each={list()}>
-            {(item: any) => (
-              <tr class="rounded-lg odd:bg-gray-500 h-10 align-middle">
-                <td class="text-center">{item.id}</td>
-                <td class="text-center">{item.type}</td>
-                <td class="text-start">{item.title}</td>
-                <td class="text-start">{item.url}</td>
-                <td class="text-start">{item.category_url}</td>
-                <td class="text-center">{item.position}</td>
-                <td>
-                  <span class="flex justify-center gap-2">
-                    <button class="text-lg" onClick={() => {setInfo(item); setInfoMenu(true)}}><Icon name="FiEdit"/></button>
-                    <button class="text-lg" onClick={() => del({id: item.id, url: item.url})}><Icon name="FiTrash"/></button>
-                  </span>
-                </td>
-              </tr>
-            )}
-          </For>
-        </tbody>
-      </table>
-      <Show when={infoMenu()}>
+        <div class="border rounded-lg">
+          <div>
+            <span class="flex justify-around gap-4 py-2">
+              <span class="w-1/12 text-center">ID</span>
+              <span class="w-1/12 text-center">Parent ID</span>
+              <span class="w-1/12 text-center">Type</span>
+              <span class="w-2/12 text-start">Title</span>
+              <span class="w-6/12 text-start">Description</span>
+              <span class="w-3/12 text-start">URL</span>
+              <span class="w-1/12 text-center">Index</span>
+              <span class="w-1/12 text-center">Actions</span>
+            </span>
+          </div>
+          <Table table={list()}/>
+        </div>
+      </div>
+      <Show when={menu()}>
         <div class="
         absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%] z-10 container max-w-lg
         rounded-lg shadow-lg shadow-black bg-white dark:bg-gray-900 dark:text-white
         ">
           <div class="relative flex flex-col gap-2 p-6">
-            <button class="absolute top-0 right-0 p-2" onClick={() => setInfoMenu(false)}><Icon name="FaSolidCircleXmark" class="size-5"/></button>
+            <button class="absolute top-0 right-0 p-2" onClick={() => setMenu(false)}><Icon name="FaSolidCircleXmark" class="size-5"/></button>
             <Show when={type() == "categories"}>
               <span class="flex gap-2">
                 <strong class="w-1/4">Type:</strong>
-                <span id="type" class="w-3/4" onInput={handleEditedInfo} contenteditable>{(info() as unknown as Category)?.type}</span>
+                <span id="type" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.type}</span>
               </span>
             </Show>
             <span class="flex gap-2">
               <strong class="w-1/4">Title:</strong>
-              <span id="title" class="w-3/4" onInput={handleEditedInfo} contenteditable>{info()?.title}</span>
+              <span id="title" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.title}</span>
             </span>
             <span class="flex gap-2">
               <strong class="w-1/4">Description:</strong>
-              <span id="description" class="w-3/4" onInput={handleEditedInfo} contenteditable>{info()?.title}</span>
+              <span id="description" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.title}</span>
             </span>
             <span class="flex gap-2">
               <strong class="w-1/4">URL:</strong>
-              <span id="url" class="w-3/4" onInput={handleEditedInfo} contenteditable>{info()?.url}</span>
+              <span id="url" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.url}</span>
             </span>
             <Show when={type() == "categories"}>
               <span class="flex gap-2">
                 <strong class="w-1/4">Icon:</strong>
-                <span id="icon" class="w-3/4" onInput={handleEditedInfo} contenteditable>{(info() as unknown as Category)?.icon}</span>
+                <span id="icon" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.icon}</span>
               </span>
               <span class="flex gap-2">
                 <strong class="w-1/4">Logo:</strong>
-                <span id="logo" class="w-3/4" onInput={handleEditedInfo} contenteditable>{(info() as unknown as Category)?.logo}</span>
+                <span id="logo" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.logo}</span>
               </span>
               <span class="flex gap-2">
                 <strong class="w-1/4">Official:</strong>
-                <span id="official" class="w-3/4" onInput={handleEditedInfo} contenteditable>{(info() as unknown as Category)?.official}</span>
+                <span id="official" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.official_url}</span>
               </span>
               <span class="flex gap-2">
                 <strong class="w-1/4">Roadmap:</strong>
-                <span id="roadmap" class="w-3/4" onInput={handleEditedInfo} contenteditable>{(info() as unknown as Category)?.roadmap}</span>
+                <span id="roadmap" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.roadmap_url}</span>
               </span>
             </Show>
             <span class="flex gap-2">
               <strong class="w-1/4">Position:</strong>
-              <span id="position" class="w-3/4" onInput={handleEditedInfo} contenteditable>{info()?.position}</span>
+              <span id="position" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.index}</span>
             </span>
-            <span class="flex gap-2">
-              <strong class="w-1/4">Category URL:</strong>
-              <span id="category_url" class="w-3/4" onInput={handleEditedInfo} contenteditable>{info()?.category_url}</span>
-            </span>
-            <button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={mod}>Save</button>
+            <button class="rounded-lg p-2 bg-white text-black text-start font-medium" onClick={() => mod(0, 0)}>Save</button>
           </div>
         </div>
       </Show>
