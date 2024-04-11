@@ -22,7 +22,10 @@ export default function useFetch<T>(method: string = 'GET', url: string, body?: 
 
       if(response) {
         const data = await response.json();
-        console.log(data?.message);
+
+        if(data?.message) {
+          console.log(data?.message);
+        }
 
         return data.data;
       } else {
