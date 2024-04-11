@@ -52,13 +52,13 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
       function buildCategoryHierarchy(parentId: number, parentURL: string, data?: any) {
         const categoryTree: any = [];
       
-        data.data.forEach((category: any) => {
+        data.forEach((category: any) => {
           if(category.parent_category_id === parentId) {
             if(parentURL) {
               category.url = `${parentURL}${category.url}`;
             }
       
-            const subcategories = buildCategoryHierarchy(category.id, category.url);
+            const subcategories = buildCategoryHierarchy(category.id, category.url, data);
             const categoryObject = { ...category, items: subcategories };
             categoryTree.push(categoryObject);
           }
