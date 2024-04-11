@@ -108,8 +108,7 @@ export default function Form() {
       useFetch('POST', `/resource`, editedData());
       setTimeout(refetchResources, 500);
     }
-
-    console.log(editedData());
+    
     setEditedData({} as any);
   }
 
@@ -327,7 +326,7 @@ export default function Form() {
             </Show>
             <Show when={type() == "resource"}>
               <label class="flex justify-between">Category ID: 
-                <input name="parent_category_id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Resource)?.category_id}/>
+                <input name="category_id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Resource)?.category_id}/>
               </label>
             </Show>
             <Show when={typeMenu() == "create"} fallback={<button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={() => update((data() as any)?.id)}>Save</button>}>
