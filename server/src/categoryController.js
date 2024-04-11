@@ -257,13 +257,13 @@ export async function deleteCategory(req, res) {
 
   if(req.params.hasOwnProperty('id')) {
     const { id } = req.params;
-
-    res.status(200).json({message: "Category deleted"});
-    return;
-
+    
     try {
       await client.sql`BEGIN`;
       await client.sql`DELETE FROM resource WHERE category_id = ${id}`;
+  
+      res.status(200).json({message: "Category deleted"});
+      return;
       const {rowCount: deleted} = await client.sql`DELETE FROM category WHERE id = ${id};`;
       await client.sql`COMMIT`;
 
