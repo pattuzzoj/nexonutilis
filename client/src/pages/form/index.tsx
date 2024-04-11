@@ -1,4 +1,4 @@
-import { For, Match, Show, Switch, createEffect, createSignal, splitProps } from "solid-js";
+import { For, Match, Show, Switch, createEffect, createSignal } from "solid-js";
 import Main from "layout/main";
 import Icon from "components/icon";
 import useFetch from "hooks/useFetch";
@@ -78,6 +78,18 @@ export default function Form() {
     
     setEditedData({ ...editedData() as any, [name]: value });
   }
+
+  // function post() {
+  //   if(type() === "categories") {
+  //     fetchResource('POST', `${baseURL}/category`, editedData());
+  //     setTimeout(refetchCategories, 1000);
+  //   } else if(type() === 'resources') {
+  //     fetchResource('POST', `${baseURL}/resource`, editedData());
+  //     setTimeout(refetchResources, 1000);
+  //   }
+
+  //   setEditedData({} as any);
+  // }
 
   function mod(id: number, type: number) {
     if(typeof type == 'number') {
