@@ -259,6 +259,7 @@ export async function deleteCategory(req, res) {
     const { id } = req.params;
 
     res.status(200).json({message: "Category deleted"});
+    return;
 
     try {
       await client.sql`BEGIN`;
