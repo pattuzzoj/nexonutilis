@@ -180,13 +180,13 @@ export async function getCategory(req, res) {
 export async function postCategory(req, res) {
   const client = await db.connect();
 
-  const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = req.body;
+  const {type = 0, title, description, url, index = 0, icon = null, logo = null, official_url = null, roadmap_url = null, parent_category_id = 0} = req.body;
     
   if([title, description, url].every((value) => value !== undefined)) {
     try {
       const {rows: created} = await client.sql`
       INSERT INTO category (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
-      SELECT ${type || 0}, ${title}, ${description}, ${url}, ${index || 0}, ${icon || null}, ${logo || null}, ${official_url || null}, ${roadmap_url || null}, ${1}
+      SELECT ${type}, ${title}, ${description}, ${url}, ${index}, ${icon}, ${logo}, ${official_url}, ${roadmap_url}, ${parent_category_id}
       WHERE NOT EXISTS (SELECT 1 FROM category WHERE parent_category_id = ${parent_category_id} AND url = ${url})
       `;
 
