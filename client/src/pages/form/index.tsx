@@ -50,6 +50,7 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
       const nestedCategoryHierarchy = await buildCategoryHierarchy(0, '', data.data);
       
       function buildCategoryHierarchy(parentId: number, parentURL: string, data?: any) {
+        console.log(data)
         const categoryTree: any = [];
       
         data.forEach((category: any) => {
