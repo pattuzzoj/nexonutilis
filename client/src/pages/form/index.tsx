@@ -94,8 +94,8 @@ export default function Form() {
   createEffect(() => setList(categories() || []));
 
   function handleEditedData(e: any) {
-    console.log(e.target)
     const { name, value } = e.target;
+    console.log(name, value);
     
     setEditedData({ ...editedData() as any, [name]: value });
   }
@@ -108,6 +108,8 @@ export default function Form() {
       useFetch('POST', `/resource`, editedData());
       setTimeout(refetchResources, 250);
     }
+
+    console.log(editedData());
     
     setEditedData({} as any);
   }
