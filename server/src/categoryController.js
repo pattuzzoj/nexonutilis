@@ -256,12 +256,11 @@ export async function deleteCategory(req, res) {
   const client = await db.connect();
 
   if(req.params.hasOwnProperty('id')) {
-    const id = parseInt(req.params.id);
+    const { id } = req.params;
     
     try {
       await client.sql`BEGIN`;
-      await client.sql`DELETE FROM category WHERE category_id = ${id}`;
-  
+      // await client.sql`DELETE FROM category WHERE category_id = ${id}`;
       const {rowCount: deleted} = await client.sql`DELETE FROM category WHERE id = ${id};`;
       await client.sql`COMMIT`;
 
