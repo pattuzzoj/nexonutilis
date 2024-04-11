@@ -51,7 +51,7 @@ export async function getResource(req, res) {
     `;
 
     if(resource) {
-      res.status(200).json({data: data});
+      res.status(200).json({data: resource});
     } else {
       res.status(404).json({error: "Resources not found"});
     }

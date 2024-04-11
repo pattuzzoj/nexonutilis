@@ -164,7 +164,7 @@ export async function getCategory(req, res) {
     `;
 
     if(category) {
-      res.status(200).json({data: data});
+      res.status(200).json({data: category});
     } else {
       res.status(404).json({error: "Categories not found"});
     }
