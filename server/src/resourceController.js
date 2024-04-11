@@ -73,8 +73,8 @@ export async function postResource(req, res) {
     try {
       const {rows: created} = await client.sql`
       INSERT INTO resource (title, description, url, index, category_id)
-      SELECT ${title}, ${description}, ${url}, ${index}, ${category_id}
-      WHERE NOT EXISTS (SELECT 1 FROM resource WHERE category_id = ${category_id} AND url = ${url})
+      SELECT ${title}, ${description}, ${url}, ${parseInt(index)}, ${parseInt(category_id)}
+      WHERE NOT EXISTS (SELECT 1 FROM resource WHERE category_id = ${parseInt(category_id)} AND url = ${url})
       `;
 
       if(created) {
@@ -109,8 +109,8 @@ export async function putResource(req, res) {
           title = COALESCE(${title}, title),
           description = COALESCE(${description}, description),
           url = COALESCE(${url}, url),
-          index = COALESCE(${index}, index),
-          category_id = COALESCE(${category_id}, category_id)
+          index = COALESCE(${parseInt(index)}, index),
+          category_id = COALESCE(${parseInt(category_id)}, category_id)
         WHERE id = ${id}
         `;
   

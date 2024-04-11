@@ -186,7 +186,7 @@ export async function postCategory(req, res) {
     try {
       const {rows: created} = await client.sql`
       INSERT INTO category (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
-      SELECT ${parseInt(type)}, ${title}, ${description}, ${url}, ${parseInt(index)}, ${icon}, ${logo}, ${official_url}, ${roadmap_url}, ${parseInt(parent_category_id)}
+      SELECT ${parseInt(type)}, ${title}, ${description}, ${url}, ${parseInt(index)}, ${icon || null}, ${logo || null}, ${official_url || null}, ${roadmap_url || null}, ${parseInt(parent_category_id)}
       WHERE NOT EXISTS (SELECT 1 FROM category WHERE parent_category_id = ${parseInt(parent_category_id)} AND url = ${url})
       `;
 
@@ -219,16 +219,16 @@ export async function putCategory(req, res) {
         const {rowCount: updated} = await client.sql`
         UPDATE category
         SET
-          type = COALESCE(${type}, type),
+          type = COALESCE(${parseInt(type)}, type),
           title = COALESCE(${title}, title),
           description = COALESCE(${description}, description),
           url = COALESCE(${url}, url),
-          index = COALESCE(${index}, index),
+          index = COALESCE(${parseInt(index)}, index),
           icon = COALESCE(${icon}, icon),
           logo = COALESCE(${logo}, logo),
           official_url = COALESCE(${official_url}, official_url),
           roadmap_url = COALESCE(${roadmap_url}, roadmap_url),
-          parent_category_id = COALESCE(${parent_category_id}, parent_category_id)
+          parent_category_id = COALESCE(${parseInt(parent_category_id)}, parent_category_id)
         WHERE id = ${id}
         `;
   
