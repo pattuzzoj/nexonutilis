@@ -182,7 +182,7 @@ export async function postCategory(req, res) {
 
   const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = req.body;
     
-  if([type, title, description, url, index, parent_category_id].every((value) => value !== undefined)) {
+  if([type, title, description, url, index].every((value) => value !== undefined)) {
     try {
       const created = await client.sql`
       INSERT INTO category (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
