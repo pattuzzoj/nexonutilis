@@ -1,31 +1,35 @@
 import { ResourceReturn, createResource } from 'solid-js';
 
+const baseURL = "https://nexonutilis-server.vercel.app";
+
 export default function useFetch<T>(method: string = 'GET', url: string, body?: any): ResourceReturn<T> {
-  async function fetchResource(): Promise<T> {
+  async function fetchResource() {
+    const options: any = {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+      },
+      mode: 'cors'
+    }
+  
+    if(body) {
+      options.body = JSON.stringify(body);
+    }
+  
     try {
-      const options: any = {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*',
-        },
-        mode: 'cors'
-      }
+      const response = await fetch(baseURL + url, options);
 
-      if(body) {
-        options.body = JSON.stringify(body);
-      }
-
-      const response = await fetch(url, options);
-
-      if(response.ok) {
+      if(response) {
         const data = await response.json();
-        return data.data;
+        alert(data?.message);
+
+        return data;
       } else {
-        throw new Error((response.json() as any).error as string);
+        alert(data?.error)
       }
     } catch(e) {
-      throw new Error(e as string);
+      console.log(e);
     }
   }
 

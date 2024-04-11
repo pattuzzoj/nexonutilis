@@ -1,7 +1,8 @@
-import { For, Match, Show, Switch, createSignal } from "solid-js";
+import { For, Match, Show, Switch, createEffect, createSignal } from "solid-js";
 import Main from "layout/main";
 import Icon from "components/icon";
 import Title from "components/typography/title";
+import useFetch from "hooks/useFetch";
 
 interface Category {
   id: number;
@@ -27,63 +28,62 @@ interface Resource {
   index: number;
 }
 
-async function fetchResource(method: string = 'GET', url: string, body?: any) {
-  const options: any = {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': '*',
-    },
-    mode: 'cors'
-  }
+// async function fetchResource(method: string = 'GET', url: string, body?: any) {
+//   const options: any = {
+//     method,
+//     headers: {
+//       "Content-Type": "application/json",
+//       'Access-Control-Allow-Origin': '*',
+//     },
+//     mode: 'cors'
+//   }
 
-  if(body) {
-    options.body = JSON.stringify(body);
-  }
+//   if(body) {
+//     options.body = JSON.stringify(body);
+//   }
 
-  try {
-    const response = await fetch(url, options);
+//   try {
+//     const response = await fetch(url, options);
 
-    if(response.ok) {
-      const data = await response.json();
+//     if(response.ok) {
+//       const data = await response.json();
 
-      const nestedCategoryHierarchy = await buildCategoryHierarchy(null, '', data.data);
+//       const nestedCategoryHierarchy = await buildCategoryHierarchy(null, '', data.data);
       
-      function buildCategoryHierarchy(parentId: number | null, parentURL: string, data?: any) {
-        console.log(data)
-        const categoryTree: any = [];
+//       function buildCategoryHierarchy(parentId: number | null, parentURL: string, data?: any) {
+//         console.log(data)
+//         const categoryTree: any = [];
       
-        data.forEach((category: any) => {
-          if(category.parent_category_id === parentId) {
-            if(parentURL) {
-              category.url = `${parentURL}${category.url}`;
-            }
+//         data.forEach((category: any) => {
+//           if(category.parent_category_id === parentId) {
+//             if(parentURL) {
+//               category.url = `${parentURL}${category.url}`;
+//             }
       
-            const subcategories = buildCategoryHierarchy(category.id, category.url, data);
-            const categoryObject = { ...category, items: subcategories };
-            categoryTree.push(categoryObject);
-          }
-        })
+//             const subcategories = buildCategoryHierarchy(category.id, category.url, data);
+//             const categoryObject = { ...category, items: subcategories };
+//             categoryTree.push(categoryObject);
+//           }
+//         })
       
-        return categoryTree;
-      }
+//         return categoryTree;
+//       }
 
-      console.log(JSON.stringify(nestedCategoryHierarchy, null, 2));
-      return data.data;
-    } else {
-      const data = await response.json();
-      alert(data.error);
-    }
-  } catch(e) {
-    console.log(e);
-  }
-}
+//       console.log(JSON.stringify(nestedCategoryHierarchy, null, 2));
+//       return data.data;
+//     } else {
+//       const data = await response.json();
+//       alert(data.error);
+//     }
+//   } catch(e) {
+//     console.log(e);
+//   }
+// }
 
 export default function Form() {
-  const baseURL = "https://nexonutilis-server.vercel.app";
-  fetchResource('GET', `${baseURL}/category`);
-  // const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `${baseURL}/category`);
-  // const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `${baseURL}/resource`);
+  // fetchResource('GET', `/category`);
+  const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `/category`);
+  const [_resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `/resource`);
   const [type, setType] = createSignal<string>("categories");
   const [list, setList] = createSignal<Array<Category | Resource>>([]);
   const [_typeMenu, setTypeMenu] = createSignal<"create" | "edit" | "view">();
@@ -91,7 +91,7 @@ export default function Form() {
   const [data, setData] = createSignal<Category | Resource>();
   const [editedData, setEditedData] = createSignal<Category | Resource>();
 
-  // createEffect(() => setList(categories() || []));
+  createEffect(() => setList(categories() || []));
 
   function handleeditedData(e: any) {
     const { id: name, textContent: value } = e.target;
@@ -101,10 +101,10 @@ export default function Form() {
 
   // function post() {
   //   if(type() === "categories") {
-  //     fetchResource('POST', `${baseURL}/category`, editedData());
+  //     fetchResource('POST', `/category`, editedData());
   //     setTimeout(refetchCategories, 1000);
   //   } else if(type() === 'resources') {
-  //     fetchResource('POST', `${baseURL}/resource`, editedData());
+  //     fetchResource('POST', `/resource`, editedData());
   //     setTimeout(refetchResources, 1000);
   //   }
 
@@ -113,11 +113,11 @@ export default function Form() {
 
   function mod(id: number, type: number) {
     if(typeof type == 'number') {
-      fetchResource('PUT', `${baseURL}/category/${id}`, editedData());
-      // setTimeout(refetchCategories, 1000);
+      useFetch('PUT', `/category/${id}`, editedData());
+      setTimeout(refetchCategories, 1000);
     } else {
-      fetchResource('PUT', `${baseURL}/resource/${id}`, editedData());
-      // setTimeout(refetchResources, 1000);
+      useFetch('PUT', `/resource/${id}`, editedData());
+      setTimeout(refetchResources, 1000);
     }
 
     setEditedData({} as any);
@@ -125,102 +125,102 @@ export default function Form() {
 
   function del(id: number, type: number) {
     if(typeof type == 'number') {
-      fetchResource("DELETE", `${baseURL}/category/${id}`);
-      // setTimeout(refetchCategories, 1000);
+      useFetch("DELETE", `/category/${id}`);
+      setTimeout(refetchCategories, 1000);
     } else {
-      fetchResource("DELETE", `${baseURL}/resource/${id}`);
-      // setTimeout(refetchCategories, 1000);
+      useFetch("DELETE", `/resource/${id}`);
+      setTimeout(refetchResources, 1000);
     }
   }
 
-  setList(
-    [
-      {
-        "id": 1,
-        "parent_category_id": 0,
-        "type": 0,
-        "title": "Tech Hub",
-        "description": "A comprehensive suite of productivity tools for businesses and individuals.",
-        "url": "/tech-hub",
-        "index": 0,
-        "icon": "productivity_icon.png",
-        "logo": "productivity_logo.png",
-        "official_url": "https://www.productivitysuite.com/official",
-        "roadmap_url": "https://www.productivitysuite.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 2,
-        "parent_category_id": 0,
-        "type": 0,
-        "title": "Development",
-        "description": "An online platform for buying and selling various products.",
-        "url": "/development",
-        "index": 1,
-        "icon": "marketplace_icon.png",
-        "logo": "marketplace_logo.png",
-        "official_url": "https://www.onlinemarketplace.com/official",
-        "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 3,
-        "parent_category_id": 2,
-        "type": 0,
-        "title": "JavaScript",
-        "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
-        "url": "/javascript",
-        "index": 0,
-        "icon": "socialnetwork_icon.png",
-        "logo": "socialnetwork_logo.png",
-        "official_url": "https://www.socialnetwork.com/official",
-        "roadmap_url": "https://www.socialnetwork.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 4,
-        "parent_category_id": 3,
-        "type": 0,
-        "title": "Solid.js",
-        "description": "Track your expenses, set budgets, and manage your finances effectively.",
-        "url": "/solidjs",
-        "index": 0,
-        "icon": "budgetingapp_icon.png",
-        "logo": "budgetingapp_logo.png",
-        "official_url": "https://www.budgetingapp.com/official",
-        "roadmap_url": "https://www.budgetingapp.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 6,
-        "parent_category_id": 0,
-        "type": 0,
-        "title": "API",
-        "description": "Log your workouts, set fitness goals, and monitor your progress.",
-        "url": "/api",
-        "index": 2,
-        "icon": "workoutapp_icon.png",
-        "logo": "workoutapp_logo.png",
-        "official_url": "https://www.workoutapp.com/official",
-        "roadmap_url": "https://www.workoutapp.com/roadmap",
-        "items": []
-      },
-      {
-        "id": 5,
-        "parent_category_id": 6,
-        "type": 0,
-        "title": "GPT",
-        "description": "Access courses and educational resources from various disciplines.",
-        "url": "/gpt",
-        "index": 0,
-        "icon": "onlinelearning_icon.png",
-        "logo": "onlinelearning_logo.png",
-        "official_url": "https://www.onlinelearningplatform.com/official",
-        "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
-        "items": []
-      }
-    ]
-  )
+  // setList(
+  //   [
+  //     {
+  //       "id": 1,
+  //       "parent_category_id": 0,
+  //       "type": 0,
+  //       "title": "Tech Hub",
+  //       "description": "A comprehensive suite of productivity tools for businesses and individuals.",
+  //       "url": "/tech-hub",
+  //       "index": 0,
+  //       "icon": "productivity_icon.png",
+  //       "logo": "productivity_logo.png",
+  //       "official_url": "https://www.productivitysuite.com/official",
+  //       "roadmap_url": "https://www.productivitysuite.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 2,
+  //       "parent_category_id": 0,
+  //       "type": 0,
+  //       "title": "Development",
+  //       "description": "An online platform for buying and selling various products.",
+  //       "url": "/development",
+  //       "index": 1,
+  //       "icon": "marketplace_icon.png",
+  //       "logo": "marketplace_logo.png",
+  //       "official_url": "https://www.onlinemarketplace.com/official",
+  //       "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 3,
+  //       "parent_category_id": 2,
+  //       "type": 0,
+  //       "title": "JavaScript",
+  //       "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
+  //       "url": "/javascript",
+  //       "index": 0,
+  //       "icon": "socialnetwork_icon.png",
+  //       "logo": "socialnetwork_logo.png",
+  //       "official_url": "https://www.socialnetwork.com/official",
+  //       "roadmap_url": "https://www.socialnetwork.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 4,
+  //       "parent_category_id": 3,
+  //       "type": 0,
+  //       "title": "Solid.js",
+  //       "description": "Track your expenses, set budgets, and manage your finances effectively.",
+  //       "url": "/solidjs",
+  //       "index": 0,
+  //       "icon": "budgetingapp_icon.png",
+  //       "logo": "budgetingapp_logo.png",
+  //       "official_url": "https://www.budgetingapp.com/official",
+  //       "roadmap_url": "https://www.budgetingapp.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 6,
+  //       "parent_category_id": 0,
+  //       "type": 0,
+  //       "title": "API",
+  //       "description": "Log your workouts, set fitness goals, and monitor your progress.",
+  //       "url": "/api",
+  //       "index": 2,
+  //       "icon": "workoutapp_icon.png",
+  //       "logo": "workoutapp_logo.png",
+  //       "official_url": "https://www.workoutapp.com/official",
+  //       "roadmap_url": "https://www.workoutapp.com/roadmap",
+  //       "items": []
+  //     },
+  //     {
+  //       "id": 5,
+  //       "parent_category_id": 6,
+  //       "type": 0,
+  //       "title": "GPT",
+  //       "description": "Access courses and educational resources from various disciplines.",
+  //       "url": "/gpt",
+  //       "index": 0,
+  //       "icon": "onlinelearning_icon.png",
+  //       "logo": "onlinelearning_logo.png",
+  //       "official_url": "https://www.onlinelearningplatform.com/official",
+  //       "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
+  //       "items": []
+  //     }
+  //   ]
+  // )
 
   function Table(props: any) {
 
