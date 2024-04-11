@@ -109,6 +109,7 @@ export default function Form() {
       setTimeout(refetchResources, 500);
     }
 
+    console.log(editedData());
     setEditedData({} as any);
   }
 
