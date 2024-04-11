@@ -112,7 +112,7 @@ export default function Form() {
   // }
 
   function mod(id: number, type: number) {
-    if(typeof type == 'number') {
+    if(type === 0) {
       useFetch('PUT', `/category/${id}`, editedData());
       setTimeout(refetchCategories, 1000);
     } else {
@@ -124,7 +124,7 @@ export default function Form() {
   }
 
   function del(id: number, type: number) {
-    if(typeof type == 'number') {
+    if(type === 0) {
       useFetch("DELETE", `/category/${id}`);
       setTimeout(refetchCategories, 1000);
     } else {
@@ -223,7 +223,6 @@ export default function Form() {
   // )
 
   function Table(props: any) {
-
     return (
       <For each={props.table}>
         {(item: Category) => (
@@ -327,7 +326,7 @@ export default function Form() {
               <strong class="w-1/4">Position:</strong>
               <span id="position" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.index}</span>
             </span>
-            <button class="rounded-lg p-2 bg-white text-black text-start font-medium" onClick={() => mod(0, 0)}>Save</button>
+            <button class="rounded-lg p-2 bg-white text-black text-start font-medium" onClick={() => mod((data() as unknown as Category)?.id, (data() as unknown as Category)?.type)}>Save</button>
           </div>
         </div>
       </Show>
