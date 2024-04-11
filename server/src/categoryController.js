@@ -257,6 +257,10 @@ export async function deleteCategory(req, res) {
 
   if(req.params.hasOwnProperty('id')) {
     const { id } = req.params;
+
+    const message = typeof id
+
+    res.status(200).json({message: message});
     
     try {
       await client.sql`BEGIN`;
