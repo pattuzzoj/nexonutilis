@@ -83,144 +83,145 @@ interface Resource {
 export default function Form() {
   // fetchResource('GET', `/category`);
   const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `/category`);
-  const [_resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `/resource`);
-  const [type, setType] = createSignal<string>("categories");
+  const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `/resource`);
+  const [type, setType] = createSignal<string>("category");
   const [list, setList] = createSignal<Array<Category | Resource>>([]);
-  const [_typeMenu, setTypeMenu] = createSignal<"create" | "edit" | "view">();
+  const [typeMenu, setTypeMenu] = createSignal<"create" | "edit" | "view">();
   const [menu, setMenu] = createSignal<boolean>(false);
   const [data, setData] = createSignal<Category | Resource>();
   const [editedData, setEditedData] = createSignal<Category | Resource>();
 
-  createEffect(() => setList(categories() || []));
+  // createEffect(() => setList(categories() || []));
 
-  function handleeditedData(e: any) {
-    const { id: name, textContent: value } = e.target;
+  function handleEditedData(e: any) {
+    console.log(e.target)
+    const { name, value } = e.target;
     
     setEditedData({ ...editedData() as any, [name]: value });
   }
 
-  // function post() {
-  //   if(type() === "categories") {
-  //     fetchResource('POST', `/category`, editedData());
-  //     setTimeout(refetchCategories, 1000);
-  //   } else if(type() === 'resources') {
-  //     fetchResource('POST', `/resource`, editedData());
-  //     setTimeout(refetchResources, 1000);
-  //   }
-
-  //   setEditedData({} as any);
-  // }
-
-  function mod(id: number, type: number) {
-    if(type === 0) {
-      useFetch('PUT', `/category/${id}`, editedData());
-      setTimeout(refetchCategories, 1000);
+  function post() {
+    if(type() == "category") {
+      useFetch('POST', `/category`, editedData());
+      setTimeout(refetchCategories, 500);
     } else {
-      useFetch('PUT', `/resource/${id}`, editedData());
-      setTimeout(refetchResources, 1000);
+      useFetch('POST', `/resource`, editedData());
+      setTimeout(refetchResources, 500);
     }
 
     setEditedData({} as any);
   }
 
-  function del(id: number, type: number) {
-    if(type === 0) {
+  function update(id: number) {
+    if(type() == "category") {
+      useFetch('PUT', `/category/${id}`, editedData());
+      setTimeout(refetchCategories, 500);
+    } else {
+      useFetch('PUT', `/resource/${id}`, editedData());
+      setTimeout(refetchResources, 500);
+    }
+
+    setEditedData({} as any);
+  }
+
+  function del(id: number) {
+    if(type() == "category") {
       useFetch("DELETE", `/category/${id}`);
-      setTimeout(refetchCategories, 1000);
+      setTimeout(refetchCategories, 500);
     } else {
       useFetch("DELETE", `/resource/${id}`);
-      setTimeout(refetchResources, 1000);
+      setTimeout(refetchResources, 500);
     }
   }
 
-  // setList(
-  //   [
-  //     {
-  //       "id": 1,
-  //       "parent_category_id": 0,
-  //       "type": 0,
-  //       "title": "Tech Hub",
-  //       "description": "A comprehensive suite of productivity tools for businesses and individuals.",
-  //       "url": "/tech-hub",
-  //       "index": 0,
-  //       "icon": "productivity_icon.png",
-  //       "logo": "productivity_logo.png",
-  //       "official_url": "https://www.productivitysuite.com/official",
-  //       "roadmap_url": "https://www.productivitysuite.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 2,
-  //       "parent_category_id": 0,
-  //       "type": 0,
-  //       "title": "Development",
-  //       "description": "An online platform for buying and selling various products.",
-  //       "url": "/development",
-  //       "index": 1,
-  //       "icon": "marketplace_icon.png",
-  //       "logo": "marketplace_logo.png",
-  //       "official_url": "https://www.onlinemarketplace.com/official",
-  //       "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 3,
-  //       "parent_category_id": 2,
-  //       "type": 0,
-  //       "title": "JavaScript",
-  //       "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
-  //       "url": "/javascript",
-  //       "index": 0,
-  //       "icon": "socialnetwork_icon.png",
-  //       "logo": "socialnetwork_logo.png",
-  //       "official_url": "https://www.socialnetwork.com/official",
-  //       "roadmap_url": "https://www.socialnetwork.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 4,
-  //       "parent_category_id": 3,
-  //       "type": 0,
-  //       "title": "Solid.js",
-  //       "description": "Track your expenses, set budgets, and manage your finances effectively.",
-  //       "url": "/solidjs",
-  //       "index": 0,
-  //       "icon": "budgetingapp_icon.png",
-  //       "logo": "budgetingapp_logo.png",
-  //       "official_url": "https://www.budgetingapp.com/official",
-  //       "roadmap_url": "https://www.budgetingapp.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 6,
-  //       "parent_category_id": 0,
-  //       "type": 0,
-  //       "title": "API",
-  //       "description": "Log your workouts, set fitness goals, and monitor your progress.",
-  //       "url": "/api",
-  //       "index": 2,
-  //       "icon": "workoutapp_icon.png",
-  //       "logo": "workoutapp_logo.png",
-  //       "official_url": "https://www.workoutapp.com/official",
-  //       "roadmap_url": "https://www.workoutapp.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 5,
-  //       "parent_category_id": 6,
-  //       "type": 0,
-  //       "title": "GPT",
-  //       "description": "Access courses and educational resources from various disciplines.",
-  //       "url": "/gpt",
-  //       "index": 0,
-  //       "icon": "onlinelearning_icon.png",
-  //       "logo": "onlinelearning_logo.png",
-  //       "official_url": "https://www.onlinelearningplatform.com/official",
-  //       "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
-  //       "items": []
-  //     }
-  //   ]
-  // )
+  setList(
+    [
+      {
+        "id": 1,
+        "parent_category_id": 0,
+        "type": 0,
+        "title": "Tech Hub",
+        "description": "A comprehensive suite of productivity tools for businesses and individuals.",
+        "url": "/tech-hub",
+        "index": 0,
+        "icon": "productivity_icon.png",
+        "logo": "productivity_logo.png",
+        "official_url": "https://www.productivitysuite.com/official",
+        "roadmap_url": "https://www.productivitysuite.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 2,
+        "parent_category_id": 0,
+        "type": 0,
+        "title": "Development",
+        "description": "An online platform for buying and selling various products.",
+        "url": "/development",
+        "index": 1,
+        "icon": "marketplace_icon.png",
+        "logo": "marketplace_logo.png",
+        "official_url": "https://www.onlinemarketplace.com/official",
+        "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 3,
+        "parent_category_id": 2,
+        "type": 0,
+        "title": "JavaScript",
+        "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
+        "url": "/javascript",
+        "index": 0,
+        "icon": "socialnetwork_icon.png",
+        "logo": "socialnetwork_logo.png",
+        "official_url": "https://www.socialnetwork.com/official",
+        "roadmap_url": "https://www.socialnetwork.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 4,
+        "parent_category_id": 3,
+        "type": 0,
+        "title": "Solid.js",
+        "description": "Track your expenses, set budgets, and manage your finances effectively.",
+        "url": "/solidjs",
+        "index": 0,
+        "icon": "budgetingapp_icon.png",
+        "logo": "budgetingapp_logo.png",
+        "official_url": "https://www.budgetingapp.com/official",
+        "roadmap_url": "https://www.budgetingapp.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 6,
+        "parent_category_id": 0,
+        "type": 0,
+        "title": "API",
+        "description": "Log your workouts, set fitness goals, and monitor your progress.",
+        "url": "/api",
+        "index": 2,
+        "icon": "workoutapp_icon.png",
+        "logo": "workoutapp_logo.png",
+        "official_url": "https://www.workoutapp.com/official",
+        "roadmap_url": "https://www.workoutapp.com/roadmap",
+        "items": []
+      },
+      {
+        "id": 5,
+        "parent_category_id": 6,
+        "type": 0,
+        "title": "GPT",
+        "description": "Access courses and educational resources from various disciplines.",
+        "url": "/gpt",
+        "index": 0,
+        "icon": "onlinelearning_icon.png",
+        "logo": "onlinelearning_logo.png",
+        "official_url": "https://www.onlinelearningplatform.com/official",
+        "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
+        "items": []
+      }
+    ]
+  )
 
   function Table(props: any) {
     return (
@@ -238,7 +239,7 @@ export default function Form() {
               <span contentEditable class="w-1/12 flex justify-center gap-4">
                 <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
                 <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
-                <button class="text-lg" onClick={() => del(item.id, item.type)}><Icon name="FiTrash"/></button>
+                <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
               </span>
             </span>
           </div>
@@ -250,16 +251,16 @@ export default function Form() {
   return (
     <Main class="relative">
       <span class="flex gap-4">
-        <button class={`${type() == "categories" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("categories"); setList([])}}>Categories</button>
-        <button class={`${type() == "resources" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resources"); setList([])}}>Resources</button>
+        <button class={`${type() == "category" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("category"); setList(categories() || [])}}>Categories</button>
+        <button class={`${type() == "resource" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resource"); setList(resources() || [])}}>Resources</button>
       </span>
       <button class="text-lg" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
       <div class="w-full">
         <Switch>
-          <Match when={type() == "categories"}>
+          <Match when={type() == "category"}>
             <Title as="3" class="text-start mb-4 font-semibold text-xl">Categories</Title>
           </Match>
-          <Match when={type() == "resources"}>
+          <Match when={type() == "resource"}>
             <Title as="3" class="text-start mb-4 font-semibold text-xl">Resources</Title>
           </Match>
         </Switch>
@@ -284,49 +285,53 @@ export default function Form() {
         absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%] z-10 container max-w-lg
         rounded-lg shadow-lg shadow-black bg-white dark:bg-gray-900 dark:text-white
         ">
-          <div class="relative flex flex-col gap-2 p-6">
+          <div class="relative flex flex-col gap-2 p-6" onInput={handleEditedData}>
             <button class="absolute top-0 right-0 p-2" onClick={() => setMenu(false)}><Icon name="FaSolidCircleXmark" class="size-5"/></button>
-            <Show when={type() == "categories"}>
-              <span class="flex gap-2">
-                <strong class="w-1/4">Type:</strong>
-                <span id="type" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.type}</span>
-              </span>
+            <label class="flex justify-between">ID: 
+              <input name="id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={data()?.id} disabled/>
+            </label>
+            <Show when={type() == "category"}>
+              <label class="flex justify-between">Type: 
+                <input name="type" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Category)?.type ?? undefined}/>
+              </label>
             </Show>
-            <span class="flex gap-2">
-              <strong class="w-1/4">Title:</strong>
-              <span id="title" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.title}</span>
-            </span>
-            <span class="flex gap-2">
-              <strong class="w-1/4">Description:</strong>
-              <span id="description" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.title}</span>
-            </span>
-            <span class="flex gap-2">
-              <strong class="w-1/4">URL:</strong>
-              <span id="url" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.url}</span>
-            </span>
-            <Show when={type() == "categories"}>
-              <span class="flex gap-2">
-                <strong class="w-1/4">Icon:</strong>
-                <span id="icon" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.icon}</span>
-              </span>
-              <span class="flex gap-2">
-                <strong class="w-1/4">Logo:</strong>
-                <span id="logo" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.logo}</span>
-              </span>
-              <span class="flex gap-2">
-                <strong class="w-1/4">Official:</strong>
-                <span id="official" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.official_url}</span>
-              </span>
-              <span class="flex gap-2">
-                <strong class="w-1/4">Roadmap:</strong>
-                <span id="roadmap" class="w-3/4" onInput={handleeditedData} contenteditable>{(data() as unknown as Category)?.roadmap_url}</span>
-              </span>
+            <label class="flex justify-between">Title: 
+              <input name="title" class="w-4/6 rounded-lg p-1 text-black" type="text" value={data()?.title || ''}/>
+            </label>
+            <label class="flex justify-between">Description: 
+              <input name="description" class="w-4/6 rounded-lg p-1 text-black" type="text" value={data()?.description || ''}/>
+            </label>
+            <label class="flex justify-between">URL: 
+              <input name="url" class="w-4/6 rounded-lg p-1 text-black" type="text" value={data()?.url || ''}/>
+            </label>
+            <label class="flex justify-between">Index: 
+              <input name="index" class="w-4/6 rounded-lg p-1 text-black" type="number" value={data()?.index}/>
+            </label>
+            <Show when={type() == "category"}>
+              <label class="flex justify-between">Icon: 
+                <input name="icon" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.icon || ''}/>
+              </label>
+              <label class="flex justify-between">Logo: 
+                <input name="logo" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.logo || ''}/>
+              </label>
+              <label class="flex justify-between">Official URL: 
+                <input name="official_url" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.official_url || ''}/>
+              </label>
+              <label class="flex justify-between">Roadmap URL: 
+                <input name="roadmap_url" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.roadmap_url || ''}/>
+              </label>
+              <label class="flex justify-between">Parent Category ID: 
+                <input name="parent_category_id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Category)?.parent_category_id}/>
+              </label>
             </Show>
-            <span class="flex gap-2">
-              <strong class="w-1/4">Position:</strong>
-              <span id="position" class="w-3/4" onInput={handleeditedData} contenteditable>{data()?.index}</span>
-            </span>
-            <button class="rounded-lg p-2 bg-white text-black text-start font-medium" onClick={() => mod((data() as unknown as Category)?.id, (data() as unknown as Category)?.type)}>Save</button>
+            <Show when={type() == "resource"}>
+              <label class="flex justify-between">Category ID: 
+                <input name="parent_category_id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Resource)?.category_id}/>
+              </label>
+            </Show>
+            <Show when={typeMenu() == "create"} fallback={<button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={() => update((data() as any)?.id)}>Save</button>}>
+              <button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={() => post()}>Create</button>
+            </Show>
           </div>
         </div>
       </Show>
