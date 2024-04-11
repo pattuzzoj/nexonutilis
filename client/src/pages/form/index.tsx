@@ -1,7 +1,6 @@
-import { For, Match, Show, Switch, createEffect, createSignal } from "solid-js";
+import { For, Match, Show, Switch, createSignal } from "solid-js";
 import Main from "layout/main";
 import Icon from "components/icon";
-import useFetch from "hooks/useFetch";
 import Title from "components/typography/title";
 
 interface Category {
@@ -47,7 +46,7 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
 
     if(response.ok) {
       const data = await response.json();
-      alert(data.message);
+      console.log(data);
       return data.data;
     } else {
       const data = await response.json();
@@ -57,11 +56,11 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
     console.log(e);
   }
 }
-
 export default function Form() {
   const baseURL = "https://nexonutilis-server.vercel.app";
-  const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `${baseURL}/category`);
-  const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `${baseURL}/resource`);
+  fetchResource('GET', `${baseURL}/category`);
+  // const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `${baseURL}/category`);
+  // const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `${baseURL}/resource`);
   const [type, setType] = createSignal<string>("categories");
   const [list, setList] = createSignal<Array<Category | Resource>>([]);
   const [_typeMenu, setTypeMenu] = createSignal<"create" | "edit" | "view">();
@@ -70,8 +69,6 @@ export default function Form() {
   const [editedData, setEditedData] = createSignal<Category | Resource>();
 
   // createEffect(() => setList(categories() || []));
-
-  createEffect(() => console.log(categories()));
 
   function handleeditedData(e: any) {
     const { id: name, textContent: value } = e.target;
@@ -94,10 +91,10 @@ export default function Form() {
   function mod(id: number, type: number) {
     if(typeof type == 'number') {
       fetchResource('PUT', `${baseURL}/category/${id}`, editedData());
-      setTimeout(refetchCategories, 1000);
+      // setTimeout(refetchCategories, 1000);
     } else {
       fetchResource('PUT', `${baseURL}/resource/${id}`, editedData());
-      setTimeout(refetchResources, 1000);
+      // setTimeout(refetchResources, 1000);
     }
 
     setEditedData({} as any);
@@ -106,10 +103,10 @@ export default function Form() {
   function del(id: number, type: number) {
     if(typeof type == 'number') {
       fetchResource("DELETE", `${baseURL}/category/${id}`);
-      setTimeout(refetchCategories, 1000);
+      // setTimeout(refetchCategories, 1000);
     } else {
       fetchResource("DELETE", `${baseURL}/resource/${id}`);
-      setTimeout(refetchCategories, 1000);
+      // setTimeout(refetchCategories, 1000);
     }
   }
 
@@ -231,8 +228,8 @@ export default function Form() {
   return (
     <Main class="relative">
       <span class="flex gap-4">
-        <button class={`${type() == "categories" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("categories"); setList(categories() || [])}}>Categories</button>
-        <button class={`${type() == "resources" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resources"); setList(resources() || [])}}>Resources</button>
+        <button class={`${type() == "categories" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("categories"); setList([])}}>Categories</button>
+        <button class={`${type() == "resources" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resources"); setList([])}}>Resources</button>
       </span>
       <button class="text-lg" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
       <div class="w-full">
