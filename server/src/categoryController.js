@@ -264,9 +264,7 @@ export async function deleteCategory(req, res) {
   
       const {rowCount: deleted} = await client.sql`DELETE FROM category WHERE id = ${id};`;
       await client.sql`COMMIT`;
-      
-      res.status(200).json({message: "Category deleted"});
-      return;
+
       if(deleted) {
         res.status(200).json({message: "Category deleted"});
       } else {
