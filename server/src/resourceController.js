@@ -78,9 +78,9 @@ export async function postResource(req, res) {
       `;
 
       if(created) {
-        res.status(200).json({data: data});
+        res.status(200).json({message: "Resource created"});
       } else {
-        res.status(404).json({error: "Resource created"});
+        res.status(404).json({error: "Resource already exists"});
       }
     } catch(error) {
       if(!res.headersSent) {

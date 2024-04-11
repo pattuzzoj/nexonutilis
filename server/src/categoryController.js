@@ -191,9 +191,9 @@ export async function postCategory(req, res) {
       `;
 
       if(created) {
-        res.status(200).json({data: data});
+        res.status(200).json({message: "Category created"});
       } else {
-        res.status(404).json({error: "Category created"});
+        res.status(400).json({error: "Category already exists"});
       }
     } catch(error) {
       if(!res.headersSent) {

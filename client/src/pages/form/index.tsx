@@ -46,7 +46,27 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
 
     if(response.ok) {
       const data = await response.json();
-      console.log(data);
+      const nestedCategoryHierarchy = buildCategoryHierarchy(0, '');
+      
+      function buildCategoryHierarchy(parentId = 0, parentURL: string) {
+        const categoryTree: any = [];
+      
+        data.data.forEach((category: any) => {
+          if(category.parent_category_id === parentId) {
+            if(parentURL) {
+              category.url = `${parentURL}${category.url}`;
+            }
+      
+            const subcategories = buildCategoryHierarchy(category.id, category.url);
+            const categoryObject = { ...category, items: subcategories };
+            categoryTree.push(categoryObject);
+          }
+        })
+      
+        return categoryTree;
+      }
+
+      console.log(JSON.stringify(nestedCategoryHierarchy, null, 2));
       return data.data;
     } else {
       const data = await response.json();
@@ -56,6 +76,7 @@ async function fetchResource(method: string = 'GET', url: string, body?: any) {
     console.log(e);
   }
 }
+
 export default function Form() {
   const baseURL = "https://nexonutilis-server.vercel.app";
   fetchResource('GET', `${baseURL}/category`);
