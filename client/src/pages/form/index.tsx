@@ -227,7 +227,7 @@ export default function Form() {
     return (
       <For each={props.table}>
         {(item: Category) => (
-          <div class="relative border-t-[1px] even:bg-gray-250">
+          <div class="relative border-t-[1px] even:bg-gray-500">
             <span class="flex justify-around items-center gap-4 py-2">
               <span class="w-1/12 text-center">{item.id}</span>
               <span contentEditable class="w-1/12 text-center">{item.parent_category_id}</span>
@@ -251,8 +251,8 @@ export default function Form() {
   return (
     <Main class="relative">
       <span class="flex gap-4">
-        <button class={`${type() == "category" && "bg-gray-250"} rounded-lg p-2 hover:bg-gray-250 text-lg`} onClick={() => {setType("category"); setList(categories() || [])}}>Categories</button>
-        <button class={`${type() == "resource" && "bg-gray-250"} rounded-lg p-2 hover:bg-gray-250 text-lg`} onClick={() => {setType("resource"); setList(resources() || [])}}>Resources</button>
+        <button class={`${type() == "category" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("category"); setList(categories() || [])}}>Categories</button>
+        <button class={`${type() == "resource" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resource"); setList(resources() || [])}}>Resources</button>
       </span>
       <button class="text-lg" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
       <div class="w-full">
