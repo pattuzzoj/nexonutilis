@@ -24,7 +24,7 @@ export default function useFetch<T>(method: string = 'GET', url: string, body?: 
         const data = await response.json();
         alert(data?.message);
 
-        return data;
+        return data.data;
       } else {
         alert(data?.error)
       }
