@@ -10,7 +10,7 @@ export async function getResources() {
 }
 
 export async function createResource(body) {
-  const {title, description, url, index, category_id} = body;
+  const {title, description, url, index = 0, category_id} = body;
 
   try {
     const created = await query(

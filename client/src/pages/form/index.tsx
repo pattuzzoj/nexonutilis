@@ -28,60 +28,7 @@ interface Resource {
   index: number;
 }
 
-// async function fetchResource(method: string = 'GET', url: string, body?: any) {
-//   const options: any = {
-//     method,
-//     headers: {
-//       "Content-Type": "application/json",
-//       'Access-Control-Allow-Origin': '*',
-//     },
-//     mode: 'cors'
-//   }
-
-//   if(body) {
-//     options.body = JSON.stringify(body);
-//   }
-
-//   try {
-//     const response = await fetch(url, options);
-
-//     if(response.ok) {
-//       const data = await response.json();
-
-//       const nestedCategoryHierarchy = await buildCategoryHierarchy(null, '', data.data);
-      
-//       function buildCategoryHierarchy(parentId: number | null, parentURL: string, data?: any) {
-//         console.log(data)
-//         const categoryTree: any = [];
-      
-//         data.forEach((category: any) => {
-//           if(category.parent_category_id === parentId) {
-//             if(parentURL) {
-//               category.url = `${parentURL}${category.url}`;
-//             }
-      
-//             const subcategories = buildCategoryHierarchy(category.id, category.url, data);
-//             const categoryObject = { ...category, items: subcategories };
-//             categoryTree.push(categoryObject);
-//           }
-//         })
-      
-//         return categoryTree;
-//       }
-
-//       console.log(JSON.stringify(nestedCategoryHierarchy, null, 2));
-//       return data.data;
-//     } else {
-//       const data = await response.json();
-//       alert(data.error);
-//     }
-//   } catch(e) {
-//     console.log(e);
-//   }
-// }
-
 export default function Form() {
-  // fetchResource('GET', `/category`);
   const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `/category`);
   const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `/resource`);
   const [type, setType] = createSignal<string>("category");
@@ -103,10 +50,10 @@ export default function Form() {
   function post() {
     if(type() == "category") {
       useFetch('POST', `/category`, editedData());
-      setTimeout(refetchCategories, 250)
+      setTimeout(refetchCategories, 500)
     } else {
       useFetch('POST', `/resource`, editedData());
-      setTimeout(refetchResources, 250);
+      setTimeout(refetchResources, 500);
     }
 
     console.log(editedData());
@@ -117,10 +64,10 @@ export default function Form() {
   function update(id: number) {
     if(type() == "category") {
       useFetch('PUT', `/category/${id}`, editedData());
-      setTimeout(refetchCategories, 250)
+      setTimeout(refetchCategories, 500)
     } else {
       useFetch('PUT', `/resource/${id}`, editedData());
-      setTimeout(refetchResources, 250);
+      setTimeout(refetchResources, 500);
     }
 
     setEditedData({} as any);
@@ -129,125 +76,11 @@ export default function Form() {
   function del(id: number) {
     if(type() == "category") {
       useFetch("DELETE", `/category/${id}`);
-      setTimeout(refetchCategories, 250)
+      setTimeout(refetchCategories, 500)
     } else {
       useFetch("DELETE", `/resource/${id}`);
-      setTimeout(refetchResources, 250);
+      setTimeout(refetchResources, 500);
     }
-  }
-
-  // setList(
-  //   [
-  //     {
-  //       "id": 1,
-  //       "parent_category_id": 0,
-  //       "type": 0,
-  //       "title": "Tech Hub",
-  //       "description": "A comprehensive suite of productivity tools for businesses and individuals.",
-  //       "url": "/tech-hub",
-  //       "index": 0,
-  //       "icon": "productivity_icon.png",
-  //       "logo": "productivity_logo.png",
-  //       "official_url": "https://www.productivitysuite.com/official",
-  //       "roadmap_url": "https://www.productivitysuite.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 2,
-  //       "parent_category_id": 0,
-  //       "type": 0,
-  //       "title": "Development",
-  //       "description": "An online platform for buying and selling various products.",
-  //       "url": "/development",
-  //       "index": 1,
-  //       "icon": "marketplace_icon.png",
-  //       "logo": "marketplace_logo.png",
-  //       "official_url": "https://www.onlinemarketplace.com/official",
-  //       "roadmap_url": "https://www.onlinemarketplace.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 3,
-  //       "parent_category_id": 2,
-  //       "type": 0,
-  //       "title": "JavaScript",
-  //       "description": "Connect with friends, family, and colleagues through posts, photos, and messages.",
-  //       "url": "/javascript",
-  //       "index": 0,
-  //       "icon": "socialnetwork_icon.png",
-  //       "logo": "socialnetwork_logo.png",
-  //       "official_url": "https://www.socialnetwork.com/official",
-  //       "roadmap_url": "https://www.socialnetwork.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 4,
-  //       "parent_category_id": 3,
-  //       "type": 0,
-  //       "title": "Solid.js",
-  //       "description": "Track your expenses, set budgets, and manage your finances effectively.",
-  //       "url": "/solidjs",
-  //       "index": 0,
-  //       "icon": "budgetingapp_icon.png",
-  //       "logo": "budgetingapp_logo.png",
-  //       "official_url": "https://www.budgetingapp.com/official",
-  //       "roadmap_url": "https://www.budgetingapp.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 6,
-  //       "parent_category_id": 0,
-  //       "type": 0,
-  //       "title": "API",
-  //       "description": "Log your workouts, set fitness goals, and monitor your progress.",
-  //       "url": "/api",
-  //       "index": 2,
-  //       "icon": "workoutapp_icon.png",
-  //       "logo": "workoutapp_logo.png",
-  //       "official_url": "https://www.workoutapp.com/official",
-  //       "roadmap_url": "https://www.workoutapp.com/roadmap",
-  //       "items": []
-  //     },
-  //     {
-  //       "id": 5,
-  //       "parent_category_id": 6,
-  //       "type": 0,
-  //       "title": "GPT",
-  //       "description": "Access courses and educational resources from various disciplines.",
-  //       "url": "/gpt",
-  //       "index": 0,
-  //       "icon": "onlinelearning_icon.png",
-  //       "logo": "onlinelearning_logo.png",
-  //       "official_url": "https://www.onlinelearningplatform.com/official",
-  //       "roadmap_url": "https://www.onlinelearningplatform.com/roadmap",
-  //       "items": []
-  //     }
-  //   ]
-  // )
-
-  function Table(props: any) {
-    return (
-      <For each={props.table}>
-        {(item: Category) => (
-          <div class="relative border-t-[1px] even:bg-gray-500">
-            <span class="flex justify-around items-center gap-4 py-2">
-              <span class="w-1/12 text-center">{item.id}</span>
-              <span contentEditable class="w-1/12 text-center">{item.parent_category_id}</span>
-              <span contentEditable class="w-1/12 text-center">{item.type}</span>
-              <span contentEditable class="w-2/12 text-start">{item.title}</span>
-              <span contentEditable class="w-6/12 text-start line-clamp-1">{item.description}</span>
-              <span contentEditable class="w-3/12 text-start">{item.url}</span>
-              <span contentEditable class="w-1/12 text-center">{item.index}</span>
-              <span contentEditable class="w-1/12 flex justify-center gap-4">
-                <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
-                <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
-                <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
-              </span>
-            </span>
-          </div>
-        )}
-      </For>
-    )
   }
 
   return (
@@ -267,19 +100,74 @@ export default function Form() {
           </Match>
         </Switch>
         <div class="border rounded-lg">
-          <div>
-            <span class="flex justify-around gap-4 py-2">
-              <span class="w-1/12 text-center">ID</span>
-              <span class="w-1/12 text-center">Parent ID</span>
-              <span class="w-1/12 text-center">Type</span>
-              <span class="w-2/12 text-start">Title</span>
-              <span class="w-6/12 text-start">Description</span>
-              <span class="w-3/12 text-start">URL</span>
-              <span class="w-1/12 text-center">Index</span>
-              <span class="w-1/12 text-center">Actions</span>
-            </span>
-          </div>
-          <Table table={list()}/>
+          <Switch>
+            <Match when={type() == "categories"}>
+              <div>
+                <span class="flex justify-around gap-4 py-2">
+                  <span class="w-1/12 text-center">ID</span>
+                  <span class="w-1/12 text-center">Parent ID</span>
+                  <span class="w-1/12 text-center">Type</span>
+                  <span class="w-2/12 text-start">Title</span>
+                  <span class="w-6/12 text-start">Description</span>
+                  <span class="w-3/12 text-start">URL</span>
+                  <span class="w-1/12 text-center">Index</span>
+                  <span class="w-1/12 text-center">Actions</span>
+                </span>
+              </div>
+              <For each={list() as Array<Category>}>
+                {(item) => (
+                  <div class="relative border-t-[1px] even:bg-gray-500">
+                    <span class="flex justify-around items-center gap-4 py-2">
+                      <span class="w-1/12 text-center">{item.id}</span>
+                      <span class="w-1/12 text-center">{item.parent_category_id}</span>
+                      <span class="w-1/12 text-center">{item.type}</span>
+                      <span class="w-2/12 text-start">{item.title}</span>
+                      <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
+                      <span class="w-3/12 text-start">{item.url}</span>
+                      <span class="w-1/12 text-center">{item.index}</span>
+                      <span class="w-1/12 flex justify-center gap-4">
+                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
+                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                        <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
+                      </span>
+                    </span>
+                  </div>
+                )}
+              </For>
+            </Match>
+            <Match when={type() == "resources"}>
+              <div>
+                <span class="flex justify-around gap-4 py-2">
+                  <span class="w-1/12 text-center">ID</span>
+                  <span class="w-1/12 text-center">Category ID</span>
+                  <span class="w-2/12 text-start">Title</span>
+                  <span class="w-6/12 text-start">Description</span>
+                  <span class="w-3/12 text-start">URL</span>
+                  <span class="w-1/12 text-center">Index</span>
+                  <span class="w-1/12 text-center">Actions</span>
+                </span>
+              </div>
+              <For each={list() as Array<Resource>}>
+                {(item) => (
+                  <div class="relative border-t-[1px] even:bg-gray-500">
+                    <span class="flex justify-around items-center gap-4 py-2">
+                      <span class="w-1/12 text-center">{item.id}</span>
+                      <span class="w-1/12 text-center">{item.category_id}</span>
+                      <span class="w-2/12 text-start">{item.title}</span>
+                      <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
+                      <span class="w-3/12 text-start">{item.url}</span>
+                      <span class="w-1/12 text-center">{item.index}</span>
+                      <span class="w-1/12 flex justify-center gap-4">
+                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
+                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                        <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
+                      </span>
+                    </span>
+                  </div>
+                )}
+              </For>
+            </Match>
+          </Switch>
         </div>
       </div>
       <Show when={menu()}>
