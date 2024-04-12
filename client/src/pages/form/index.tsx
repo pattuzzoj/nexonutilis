@@ -101,7 +101,7 @@ export default function Form() {
         </Switch>
         <div class="border rounded-lg">
           <Switch>
-            <Match when={type() == "categories"}>
+            <Match when={type() == "category"}>
               <div>
                 <span class="flex justify-around gap-4 py-2">
                   <span class="w-1/12 text-center">ID</span>
@@ -135,7 +135,7 @@ export default function Form() {
                 )}
               </For>
             </Match>
-            <Match when={type() == "resources"}>
+            <Match when={type() == "resource"}>
               <div>
                 <span class="flex justify-around gap-4 py-2">
                   <span class="w-1/12 text-center">ID</span>
