@@ -7,7 +7,7 @@ import useFetch from "hooks/useFetch";
 interface Category {
   id: number;
   parent_category_id: number;
-  type: number;
+  type: string;
   title: string;
   description: string;
   url: string;
@@ -112,41 +112,41 @@ export default function Form() {
           <Switch>
             <Match when={type() == "category"}>
               <div>
-                <span class="flex justify-around gap-4 py-2">
+                <span class="flex justify-around gap-4 py-2 px-1">
                   <span class="w-1/12 text-center">ID</span>
                   <span class="w-1/12 text-center">Parent ID</span>
                   <span class="w-1/12 text-center">Type</span>
                   <span class="w-2/12 text-start">Title</span>
                   <span class="w-6/12 text-start">Description</span>
                   <span class="w-3/12 text-start">URL</span>
+                  <span class="w-3/12 text-start">Icon</span>
                   <span class="w-1/12 text-center">Index</span>
                   <span class="w-1/12 text-center">Actions</span>
                 </span>
               </div>
               <For each={list() as Array<Category>}>
                 {(item) => (
-                  <div class="relative border-t-[1px] even:bg-gray-500">
-                    <span class="flex justify-around items-center gap-4 py-2">
-                      <span class="w-1/12 text-center">{item.id}</span>
-                      <span class="w-1/12 text-center">{item.parent_category_id}</span>
-                      <span class="w-1/12 text-center">{item.type}</span>
-                      <span class="w-2/12 text-start">{item.title}</span>
-                      <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
-                      <span class="w-3/12 text-start">{item.url}</span>
-                      <span class="w-1/12 text-center">{item.index}</span>
-                      <span class="w-1/12 flex justify-center gap-2">
-                        <button class="text-lg" onClick={() => {setData({...initialValue, parent_category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
-                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
-                        <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
-                      </span>
+                  <span class="flex justify-around items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
+                    <span class="w-1/12 text-center">{item.id}</span>
+                    <span class="w-1/12 text-center">{item.parent_category_id}</span>
+                    <span class="w-1/12 text-center">{item.type}</span>
+                    <span class="w-2/12 text-start">{item.title}</span>
+                    <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
+                    <span class="w-3/12 text-start">{item.url}</span>
+                    <span class="w-3/12 text-start">{item.icon}</span>
+                    <span class="w-1/12 text-center">{item.index}</span>
+                    <span class="w-1/12 flex justify-center gap-2">
+                      <button class="text-lg" onClick={() => {setData({...initialValue, parent_category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
+                      <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                      <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                     </span>
-                  </div>
+                  </span>
                 )}
               </For>
             </Match>
             <Match when={type() == "resource"}>
               <div>
-                <span class="flex justify-around gap-4 py-2">
+                <span class="flex justify-around gap-4 py-2 px-1">
                   <span class="w-1/12 text-center">ID</span>
                   <span class="w-1/12 text-center">Category ID</span>
                   <span class="w-2/12 text-start">Title</span>
@@ -158,20 +158,18 @@ export default function Form() {
               </div>
               <For each={list() as Array<Resource>}>
                 {(item) => (
-                  <div class="relative border-t-[1px] even:bg-gray-500">
-                    <span class="flex justify-around items-center gap-4 py-2">
-                      <span class="w-1/12 text-center">{item.id}</span>
-                      <span class="w-1/12 text-center">{item.category_id}</span>
-                      <span class="w-2/12 text-start">{item.title}</span>
-                      <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
-                      <span class="w-3/12 text-start">{item.url}</span>
-                      <span class="w-1/12 text-center">{item.index}</span>
-                      <span class="w-1/12 flex justify-center gap-2">
-                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
-                        <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
-                      </span>
+                  <span class="flex justify-around items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
+                    <span class="w-1/12 text-center">{item.id}</span>
+                    <span class="w-1/12 text-center">{item.category_id}</span>
+                    <span class="w-2/12 text-start">{item.title}</span>
+                    <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
+                    <span class="w-3/12 text-start">{item.url}</span>
+                    <span class="w-1/12 text-center">{item.index}</span>
+                    <span class="w-1/12 flex justify-center gap-2">
+                      <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                      <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                     </span>
-                  </div>
+                  </span>
                 )}
               </For>
             </Match>

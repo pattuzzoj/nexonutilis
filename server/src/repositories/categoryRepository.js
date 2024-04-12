@@ -10,7 +10,7 @@ export async function getCategories() {
 }
 
 export async function createCategory(body) {
-  const {type = 0, title, description, url, index = 0, icon = null, logo = null, official_url = null, roadmap_url = null, parent_category_id = null} = body;
+  const {type = 'category', title, description, url, index = 0, icon = null, logo = null, official_url = null, roadmap_url = null, parent_category_id = null} = body;
 
   try {
     const {rows: created} = await query(
