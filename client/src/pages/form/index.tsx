@@ -3,7 +3,6 @@ import Main from "layout/main";
 import Icon from "components/icon";
 import Title from "components/typography/title";
 import useFetch from "hooks/useFetch";
-import { Category } from "database/class";
 
 interface Category {
   id: number;
