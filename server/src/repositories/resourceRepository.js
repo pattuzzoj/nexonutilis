@@ -2,9 +2,9 @@ import { query } from "../utils/query.js";
 
 export async function getResources() {
   try {
-    const resources = await query("SELECT * FROM resource");
+    const {rows: resources} = await query(`SELECT * FROM resource`);
     return resources;
-  } catch (error) {
+  } catch(error) {
     throw error;
   }
 }
@@ -13,12 +13,14 @@ export async function createResource(body) {
   const {title, description, url, index = 0, category_id} = body;
 
   try {
-    const created = await query(
-      `INSERT INTO resource
+    const {rows: created} = await query(
+      `
+      INSERT INTO resource
       (title, description, url, index, category_id)
       VALUES ($1, $2, $3, $4, $5)
       `,
       [title, description, url, index, category_id]);
+
     return created;
   } catch (error) {
     throw error;
@@ -29,8 +31,9 @@ export async function updateResourceById(id, body) {
   const {title, description, url, index, category_id} = body;
 
   try {
-    const updated = await query(
-      `UPDATE resource
+    const {rowCount: updated} = await query(
+      `
+      UPDATE resource
       SET
       title = COALESCE($2, title),
       description = COALESCE($3, description),
@@ -40,6 +43,7 @@ export async function updateResourceById(id, body) {
       WHERE id = $6
       `,
       [id, title, description, url, index, category_id]);
+
     return updated;
   } catch (error) {
     throw error;
