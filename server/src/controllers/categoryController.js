@@ -1,4 +1,4 @@
-import { getCategories, deleteCategoryById } from "../repositories/categoryRepository";
+import { getCategories, deleteCategoryById } from "../repositories/categoryRepository.js";
 
 export async function getCategory(req, res) {
   try {

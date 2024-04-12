@@ -1,4 +1,4 @@
-import { QueryArrayResult, db } from "@vercel/postgres";
+import { db } from "@vercel/postgres";
 
 async function query(query, values = []) {
   const client = await db.connect();
