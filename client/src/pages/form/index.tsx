@@ -3,6 +3,7 @@ import Main from "layout/main";
 import Icon from "components/icon";
 import Title from "components/typography/title";
 import useFetch from "hooks/useFetch";
+import { Category } from "database/class";
 
 interface Category {
   id: number;
@@ -37,6 +38,7 @@ export default function Form() {
   const [menu, setMenu] = createSignal<boolean>(false);
   const [data, setData] = createSignal<Category | Resource>();
   const [editedData, setEditedData] = createSignal<Category | Resource>();
+  let initialValue: Category;
 
   createEffect(() => {
     if(type() == "category") {
@@ -133,8 +135,8 @@ export default function Form() {
                       <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
                       <span class="w-3/12 text-start">{item.url}</span>
                       <span class="w-1/12 text-center">{item.index}</span>
-                      <span class="w-1/12 flex justify-center gap-4">
-                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
+                      <span class="w-1/12 flex justify-center gap-2">
+                        <button class="text-lg" onClick={() => {setData({...initialValue, parent_category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
                         <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
                         <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                       </span>
@@ -165,8 +167,7 @@ export default function Form() {
                       <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
                       <span class="w-3/12 text-start">{item.url}</span>
                       <span class="w-1/12 text-center">{item.index}</span>
-                      <span class="w-1/12 flex justify-center gap-4">
-                        <button class="text-lg" onClick={() => {setData(item); setTypeMenu("view"); setMenu(true);}}><Icon name="FiInfo"/></button>
+                      <span class="w-1/12 flex justify-center gap-2">
                         <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
                         <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                       </span>

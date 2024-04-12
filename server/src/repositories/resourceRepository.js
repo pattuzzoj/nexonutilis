@@ -2,7 +2,7 @@ import { query } from "../utils/query.js";
 
 export async function getResources() {
   try {
-    const {rows: resources} = await query(`SELECT * FROM resource`);
+    const {rows: resources} = await query(`SELECT * FROM resource ORDER BY index`);
     return resources;
   } catch(error) {
     throw error;
@@ -40,7 +40,7 @@ export async function updateResourceById(id, body) {
       url = COALESCE($4, url),
       index = COALESCE($5, index),
       category_id = COALESCE($6, category_id)
-      WHERE id = $6
+      WHERE id = $1
       `,
       [id, title, description, url, index, category_id]);
 

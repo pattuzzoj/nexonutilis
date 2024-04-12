@@ -7,6 +7,7 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineCloudServer } from 'solid-icons
 import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
 import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceDesktopCog, TbMenu, TbCircleArrowRight, TbCircleArrowDown } from 'solid-icons/tb';
+import { IoAddCircleOutline } from 'solid-icons/io'
 
 import { AiOutlineBgColors } from 'solid-icons/ai';
 import { BsFonts, BsImage } from 'solid-icons/bs';
@@ -60,7 +61,8 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "FiTrash"
   | "FiInfo"
   | "TbMenu"
-  | "TbCircleArrowRight" | "TbCircleArrowDown";
+  | "TbCircleArrowRight" | "TbCircleArrowDown"
+  | "IoAddCircleOutline";
   class?: string;
 };
 
@@ -110,7 +112,8 @@ export default function Icon(props: Props) {
     TbDeviceDesktopCog,
     FiEdit, FiTrash, FiInfo,
     TbMenu,
-    TbCircleArrowRight, TbCircleArrowDown
+    TbCircleArrowRight, TbCircleArrowDown,
+    IoAddCircleOutline
   }[props.name]
 
   return (

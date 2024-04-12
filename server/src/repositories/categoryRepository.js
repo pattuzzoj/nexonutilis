@@ -2,7 +2,7 @@ import { query } from "../utils/query.js";
 
 export async function getCategories() {
   try {
-    const {rows: categories} = await query(`SELECT * FROM category`);
+    const {rows: categories} = await query(`SELECT * FROM category ORDER BY index`);
     return categories;
   } catch(error) {
     throw error;
