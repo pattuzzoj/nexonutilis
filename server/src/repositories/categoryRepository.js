@@ -1,44 +1,8 @@
-import { db } from "@vercel/postgres";
-
-async function query(query, values = []) {
-  const client = await db.connect();
-
-  try {
-    const queryResult = await client.query(query, values);
-    return queryResult;
-  } catch(error) {
-    throw error;
-  } finally {
-    client.release();
-  }
-}
-
-export async function getCategoryById(id) {
-  try {
-    const {rows: [category]} = await query(
-      `
-      SELECT *
-      FROM category
-      WHERE id = $1
-      `,
-      [id]
-    );
-
-    return category;
-  } catch(error) {
-    throw error;
-  }
-}
+import { query } from "../utils/query.js";
 
 export async function getCategories() {
   try {
-    const {rows: categories} = await query(
-      `
-      SELECT *
-      FROM category
-      `
-    );
-
+    const {rows: categories} = await query(`SELECT * FROM category`);
     return categories;
   } catch(error) {
     throw error;
@@ -49,7 +13,7 @@ export async function createCategory(body) {
   const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = body;
 
   try {
-    const {rows: [created]} = await query(
+    const {rows: created} = await query(
       `
       INSERT INTO category
       (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
