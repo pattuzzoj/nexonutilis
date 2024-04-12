@@ -2,7 +2,7 @@ import { query } from "../utils/query.js";
 
 export async function getResources() {
   try {
-    const {rows: resources} = await query(`SELECT * FROM resource ORDER BY index`);
+    const {rows: resources} = await query(`SELECT * FROM resource ORDER BY id, index`);
     return resources;
   } catch(error) {
     throw error;
