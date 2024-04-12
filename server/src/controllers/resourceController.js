@@ -1,4 +1,4 @@
-import { getResources, createResource, updateResource, deleteResource } from "../repositories/resourceRepository.js";
+import { getResources, createResource, updateResourceById, deleteResourceById } from "../repositories/resourceRepository.js";
 
 export async function getResource(req, res) {
   try {
@@ -27,7 +27,7 @@ export async function putResource(req, res) {
   const { id } = req.params;
 
   try {
-    const updated = await updateResource(id, req.body);
+    const updated = await updateResourceById(id, req.body);
 
     if(updated) {
       res.status(200).json({message: "Resource updated"});
@@ -43,7 +43,7 @@ export async function deleteResource(req, res) {
   const { id } = req.params;
 
   try {
-    const deleted = await deleteResource(parseInt(id));
+    const deleted = await deleteResourceById(parseInt(id));
 
     if(deleted) {
       res.status(200).json({message: "Resource deleted"});
