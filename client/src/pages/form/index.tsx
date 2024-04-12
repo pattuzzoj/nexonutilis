@@ -52,8 +52,22 @@ export default function Form() {
   createEffect(() => setList(categories() || []));
 
   function handleEditedData(e: any) {
-    const { name, value } = e.target;
-    setEditedData({ ...editedData() as any, [name]: value });
+    e.preventDefault();
+    const fields = [...e.currentTarget.elements];
+
+    fields.forEach(field => {
+      if(field.nodeName == 'INPUT') {
+        if(field.value ?? false) {
+          setEditedData({ ...editedData() as any, [field.name]: field.value });
+        }
+      }      
+    })
+    
+    if(typeMenu() == "create") {
+      post();
+    } else if(typeMenu() == "edit") {
+      update(data()!.id);
+    }
   }
 
   function post() {
@@ -64,8 +78,6 @@ export default function Form() {
       useFetch('POST', `/resource`, editedData());
       setTimeout(refetchResources, 500);
     }
-
-    console.log(editedData());
     
     setEditedData({} as any);
   }
@@ -181,11 +193,11 @@ export default function Form() {
         absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%] z-10 container max-w-lg
         rounded-lg shadow-lg shadow-black bg-white dark:bg-gray-900 dark:text-white
         ">
-          <div class="relative flex flex-col gap-2 p-6" onInput={handleEditedData}>
+          <form class="relative flex flex-col gap-2 p-6" onSubmit={handleEditedData}>
             <button class="absolute top-0 right-0 p-2" onClick={() => setMenu(false)}><Icon name="FaSolidCircleXmark" class="size-5"/></button>
             <Show when={type() == "category"}>
               <label class="flex justify-between">Type: 
-                <input name="type" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Category)?.type ?? undefined}/>
+                <input name="type" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.type ?? 'categories'}/>
               </label>
             </Show>
             <label class="flex justify-between">Title: 
@@ -222,10 +234,10 @@ export default function Form() {
                 <input name="category_id" class="w-4/6 rounded-lg p-1 text-black" type="number" value={(data() as Resource)?.category_id}/>
               </label>
             </Show>
-            <Show when={typeMenu() == "create"} fallback={<button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={() => update((data() as any)?.id)}>Save</button>}>
-              <button class="rounded-lg p-2 bg-white text-black text-center font-medium" onClick={() => post()}>Create</button>
+            <Show when={typeMenu() == "create"} fallback={<button class="rounded-lg p-2 bg-white text-black text-center font-medium">Save</button>}>
+              <button type="submit" class="rounded-lg p-2 bg-white text-black text-center font-medium">Create</button>
             </Show>
-          </div>
+          </form>
         </div>
       </Show>
     </Main>
