@@ -38,12 +38,20 @@ export default function Form() {
   const [data, setData] = createSignal<Category | Resource>();
   const [editedData, setEditedData] = createSignal<Category | Resource>();
 
+  createEffect(() => {
+    if(type() == "category") {
+      setList(categories() || []);
+    } else if((type() == "resource")) {
+      setList(resources() || []);
+    } else {
+      setList([]);
+    }
+  })
+
   createEffect(() => setList(categories() || []));
 
   function handleEditedData(e: any) {
     const { name, value } = e.target;
-    console.log(name, value);
-    
     setEditedData({ ...editedData() as any, [name]: value });
   }
 
