@@ -1,20 +1,6 @@
 import { QueryArrayResult, db } from "@vercel/postgres";
 
-interface Category {
-  id: number;
-  parent_category_id: number;
-  type: number;
-  title: string;
-  description: string;
-  url: string;
-  index: number;
-  icon: string;
-  logo: string;
-  official_url: string;
-  roadmap_url: string;
-}
-
-async function query(query: string, values: Array<any> = []): Promise<QueryArrayResult<any[]>>  {
+async function query(query, values = []) {
   const client = await db.connect();
 
   try {
@@ -27,7 +13,7 @@ async function query(query: string, values: Array<any> = []): Promise<QueryArray
   }
 }
 
-export async function getCategoryById(id: number) {
+export async function getCategoryById(id) {
   try {
     const {rows: [category]} = await query(
       `
@@ -59,7 +45,7 @@ export async function getCategories() {
   }
 }
 
-export async function createCategory(body: Category) {
+export async function createCategory(body) {
   const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = body;
 
   try {
@@ -78,7 +64,7 @@ export async function createCategory(body: Category) {
   }
 }
 
-export async function updateCategoryById(id: number, body: Category) {
+export async function updateCategoryById(id, body) {
   const {type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id} = body;
 
   try {
@@ -107,7 +93,7 @@ export async function updateCategoryById(id: number, body: Category) {
   }
 }
 
-export async function deleteCategoryById(id: number) {
+export async function deleteCategoryById(id) {
   try {
     const {rowCount: deleted} = await query(`DELETE FROM category WHERE id = $1`, [id]);
     return deleted;

@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 import routes from './src/routes';
 import cors from 'cors';
@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
-const knownAgents = (req: Request, res: Response, next: NextFunction) => {
+const knownAgents = (req, res, next) => {
   const userAgent = req.headers['user-agent'];
   if ((userAgent && userAgent.includes('Mozilla/5.0'))) {
     next();

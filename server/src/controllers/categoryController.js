@@ -1,7 +1,6 @@
-import { Request, Response } from "express";
 import { getCategories, deleteCategoryById } from "../repositories/categoryRepository";
 
-export async function getCategory(_req: Request, res: Response) {
+export async function getCategory(req, res) {
   try {
     const categories = await getCategories();
 
@@ -11,7 +10,7 @@ export async function getCategory(_req: Request, res: Response) {
   }
 }
 
-export async function deleteCategory(req: Request, res: Response) {
+export async function deleteCategory(req, res) {
   const { id } = req.params;
 
   try {
