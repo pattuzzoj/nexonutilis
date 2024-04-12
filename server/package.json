@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "scripts": {
+    "tsc": "tsc"
+  },
   "dependencies": {
     "@vercel/postgres": "^0.8.0",
     "cors": "^2.8.5",
@@ -8,6 +11,7 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21"
+    "@types/express": "^4.17.21",
+    "typescript": "^5.4.5"
   }
 }

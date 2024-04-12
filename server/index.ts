@@ -1,13 +1,13 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import router from './src/routes.js';
+import routes from './src/routes';
 import cors from 'cors';
 dotenv.config();
 
 const app = express();
 const port = 3000;
 
-const knownAgents = (req, res, next) => {
+const knownAgents = (req: Request, res: Response, next: NextFunction) => {
   const userAgent = req.headers['user-agent'];
   if ((userAgent && userAgent.includes('Mozilla/5.0'))) {
     next();
@@ -23,7 +23,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use('/', router);
+app.use('/', routes);
 
 app.listen(port, () => {
   console.log(`Running`);
