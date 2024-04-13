@@ -62,7 +62,7 @@ export default function Form() {
         }
       }      
     })
-    
+
     if(typeMenu() == "create") {
       post();
     } else if(typeMenu() == "edit") {
@@ -106,11 +106,14 @@ export default function Form() {
 
   return (
     <Main class="relative">
-      <span class="flex gap-4">
-        <button class={`${type() == "category" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("category"); setList(categories() || [])}}>Categories</button>
-        <button class={`${type() == "resource" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resource"); setList(resources() || [])}}>Resources</button>
+      <span class="flex justify-between">
+        <span class="flex gap-2">
+          <button class={`${type() == "category" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("category"); setList(categories() || [])}}>Categories</button>
+          <button class={`${type() == "resource" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resource"); setList(resources() || [])}}>Resources</button>
+        </span>
+        <button class="rounded-lg p-2 bg-gray-500" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
       </span>
-      <button class="text-lg" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
+      <br />
       <div class="w-full">
         <Switch>
           <Match when={type() == "category"}>
@@ -124,8 +127,8 @@ export default function Form() {
           <Switch>
             <Match when={type() == "category"}>
               <div>
-                <span class="flex justify-around gap-4 py-2 px-1">
-                  <span class="w-1/12 text-center">ID</span>
+                <span class="flex justify-between gap-4 py-2 px-1">
+                  <span class="min-w-[5ch] text-center">ID</span>
                   <span class="w-1/12 text-center">Parent ID</span>
                   <span class="w-1/12 text-center">Type</span>
                   <span class="w-2/12 text-start">Title</span>
@@ -133,13 +136,13 @@ export default function Form() {
                   <span class="w-3/12 text-start">URL</span>
                   <span class="w-3/12 text-start">Icon</span>
                   <span class="w-1/12 text-center">Index</span>
-                  <span class="w-1/12 text-center">Actions</span>
+                  <span class="min-w-[15ch] text-center">Actions</span>
                 </span>
               </div>
               <For each={list() as Array<Category>}>
                 {(item) => (
-                  <span class="flex justify-around items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
-                    <span class="w-1/12 text-center">{item.id}</span>
+                  <span class="flex justify-between items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
+                    <span class="min-w-[5ch] text-center">{item.id}</span>
                     <span class="w-1/12 text-center">{item.parent_category_id}</span>
                     <span class="w-1/12 text-center">{item.type}</span>
                     <span class="w-2/12 text-start">{item.title}</span>
@@ -147,7 +150,7 @@ export default function Form() {
                     <span class="w-3/12 text-start">{item.url}</span>
                     <span class="w-3/12 text-start">{item.icon}</span>
                     <span class="w-1/12 text-center">{item.index}</span>
-                    <span class="w-1/12 flex justify-center gap-2">
+                    <span class="min-w-[15ch] flex justify-center gap-2">
                       <button class="text-lg" onClick={() => {setData({...initialValue, parent_category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
                       <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
                       <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
@@ -158,26 +161,26 @@ export default function Form() {
             </Match>
             <Match when={type() == "resource"}>
               <div>
-                <span class="flex justify-around gap-4 py-2 px-1">
-                  <span class="w-1/12 text-center">ID</span>
+                <span class="flex justify-between gap-4 py-2 px-1">
+                  <span class="min-w-[5ch] text-center">ID</span>
                   <span class="w-1/12 text-center">Category ID</span>
                   <span class="w-2/12 text-start">Title</span>
                   <span class="w-6/12 text-start">Description</span>
                   <span class="w-3/12 text-start">URL</span>
                   <span class="w-1/12 text-center">Index</span>
-                  <span class="w-1/12 text-center">Actions</span>
+                  <span class="min-w-[15ch] text-center">Actions</span>
                 </span>
               </div>
               <For each={list() as Array<Resource>}>
                 {(item) => (
-                  <span class="flex justify-around items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
-                    <span class="w-1/12 text-center">{item.id}</span>
+                  <span class="flex justify-between items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
+                    <span class="min-w-[5ch] text-center">{item.id}</span>
                     <span class="w-1/12 text-center">{item.category_id}</span>
                     <span class="w-2/12 text-start">{item.title}</span>
                     <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
                     <span class="w-3/12 text-start">{item.url}</span>
                     <span class="w-1/12 text-center">{item.index}</span>
-                    <span class="w-1/12 flex justify-center gap-2">
+                    <span class="min-w-[15ch] flex justify-center gap-2">
                       <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
                       <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                     </span>
@@ -197,7 +200,7 @@ export default function Form() {
             <button class="absolute top-0 right-0 p-2" onClick={() => setMenu(false)}><Icon name="FaSolidCircleXmark" class="size-5"/></button>
             <Show when={type() == "category"}>
               <label class="flex justify-between">Type: 
-                <input name="type" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.type ?? 'categories'}/>
+                <input name="type" class="w-4/6 rounded-lg p-1 text-black" type="text" value={(data() as Category)?.type ?? 'category'}/>
               </label>
             </Show>
             <label class="flex justify-between">Title: 

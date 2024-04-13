@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <Main>
       <div class="flex flex-col gap-8">
-        <Show when={data.item.mode == "card"}>
+        {/* <Show when={data.item.mode == "card"}>
           <div class="flex flex-col gap-1">
             <div class="flex items-center gap-3">
               <img class="w-8 rounded-xl" src={data.item.logo} alt="" />
@@ -25,9 +25,9 @@ export default function Home() {
               <Show when={data.item.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
             </span>
           </div>
-        </Show>
+        </Show> */}
         <Switch>
-          <Match when={data.item.type == "categories"}>
+          <Match when={data.item.type == "category"}>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 md:gap-5">
               <For each={data.item.items}>
                 {(item) => (
@@ -47,7 +47,7 @@ export default function Home() {
               </For>
             </div>
           </Match>
-          <Match when={data.item.type == "resources"}>
+          <Match when={data.item.type == "resource"}>
             <div class="w-full md:grid-cols-2 lg:grid-cols-3 grid gap-5 h-max">
               <For each={data.item.items}>
                 {(item) => (

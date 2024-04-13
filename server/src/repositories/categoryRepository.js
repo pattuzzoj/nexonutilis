@@ -2,7 +2,7 @@ import { query } from "../utils/query.js";
 
 export async function getCategories() {
   try {
-    const {rows: categories} = await query(`SELECT * FROM category ORDER BY id, parent_category_id, index`);
+    const {rows: categories} = await query(`SELECT * FROM category ORDER BY parent_category_id, index`);
     return categories;
   } catch(error) {
     throw error;
