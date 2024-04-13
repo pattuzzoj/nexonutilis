@@ -27,7 +27,7 @@ export default function Home() {
           </div>
         </Show> */}
         <Switch>
-          <Match when={data.item.type == "category"}>
+          <Match when={data.item?.type == "category"}>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 md:gap-5">
               <For each={data.item.items}>
                 {(item) => (
@@ -47,7 +47,7 @@ export default function Home() {
               </For>
             </div>
           </Match>
-          <Match when={data.item.type == "resource"}>
+          <Match when={data.item?.type == "resource"}>
             <div class="w-full md:grid-cols-2 lg:grid-cols-3 grid gap-5 h-max">
               <For each={data.item.items}>
                 {(item) => (

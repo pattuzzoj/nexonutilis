@@ -45,10 +45,10 @@ export default function MenuItem(props: MenuItemProps) {
         <For each={props.items}>
           {(item) => (
             <Switch>
-              <Match when={item.type == "category"}>
+              <Match when={item?.type == "category"}>
                 <MenuItem {...item} depth={(props.depth || 2) + 1}/>
               </Match>
-              <Match when={item.type == "resource"}>
+              <Match when={item?.type == "resource"}>
                 <a class={`${(path() == item.url) && "text-end text-white bg-gray-500"} w-full py-1 px-2 text-base hover:text-white hover:bg-gray-400`} href={item.url}>{item.title}</a>
               </Match>
             </Switch>

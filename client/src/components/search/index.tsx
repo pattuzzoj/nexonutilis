@@ -13,7 +13,7 @@ export default function Search() {
       setValue(e.target.value);
       data.map.forEach((item: any) => {
         if("url" in item && item.url.lastIndexOf('/')) {
-          if(item.type == "resource" && item.title.toLowerCase().startsWith(e.target.value.toLowerCase())) {
+          if(item?.type == "resource" && item.title.toLowerCase().startsWith(e.target.value.toLowerCase())) {
             setList(items => [...items, {"title": item.title, "url": item.url}]);
           }
         }
