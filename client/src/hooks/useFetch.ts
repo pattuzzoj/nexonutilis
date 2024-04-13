@@ -10,7 +10,7 @@ export default function useFetch<T>(method: string = 'GET', url: string, body?: 
         "Content-Type": "application/json",
         'Access-Control-Allow-Origin': '*',
       },
-      // mode: 'cors'
+      mode: 'cors'
     }
   
     if(body) {
