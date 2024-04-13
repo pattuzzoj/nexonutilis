@@ -94,10 +94,8 @@ export default function DataProvider(props: {children: JSXElement}) {
     
             if(subcategories.length) {
               categoryObject = {title: category.title, description: category.description, url: category.url, items: subcategories}
-              // categoryObject = { ...category, items: subcategories };
             } else {
               categoryObject = {title: category.title, description: category.description, url: category.url}
-              // categoryObject = { ...category };
             }
     
             categoryTree.push(categoryObject);
