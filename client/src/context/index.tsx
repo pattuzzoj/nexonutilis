@@ -109,6 +109,8 @@ export default function DataProvider(props: {children: JSXElement}) {
     
       const database: Array<any> = buildCategoryHierarchy(0);
 
+      console.log(database);
+
       setData("data", database);
     }
   });
@@ -156,6 +158,7 @@ export default function DataProvider(props: {children: JSXElement}) {
       }
     
       const database: Array<any> = buildCategoryHierarchy(0);
+      console.log(database);
 
       (function setMap(items: Array<object>) {
         items.forEach((item: any) => {
