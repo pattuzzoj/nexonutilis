@@ -18,7 +18,7 @@ const knownAgents = (req, res, next) => {
 
 app.use(knownAgents);
 app.use(cors({
-  origin: '*'
+  origin: ['https://nexonutilis.vercel.app', 'https://nexonutilis-server.vercel.app', 'http://localhost:5173']
 }));
 
 app.use(express.json());

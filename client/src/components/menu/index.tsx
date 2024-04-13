@@ -1,8 +1,6 @@
 import { For } from "solid-js";
 import MenuItem from "./menuItems";
 import { useData } from "context";
-// import { database } from "database";
-
 export default function Menu() {
   const {data} = useData();
 

@@ -9,7 +9,7 @@ import {copy, copyNotification} from "utils/clipboard";
 export default function Home() {
   const {data} = useData();
   const [savedItems, addItem, removeItem] = useSaved();
-  
+
   return (
     <Main>
       <div class="flex flex-col gap-8">

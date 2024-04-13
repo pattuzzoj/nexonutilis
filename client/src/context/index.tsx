@@ -1,6 +1,5 @@
 import { JSXElement, createContext, createEffect, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
-// import { database } from "database";
 import { useLocation } from "@solidjs/router";
 import useFetch from "hooks/useFetch";
 
@@ -41,12 +40,6 @@ interface Resource {
   index: number;
 }
 
-interface Data {
-  title: string,
-  description: string,
-  url: string
-}
-
 export const DataContext = createContext();
 
 export default function DataProvider(props: {children: JSXElement}) {
@@ -54,115 +47,67 @@ export default function DataProvider(props: {children: JSXElement}) {
   const [resources] = useFetch<Array<Resource>>('GET', `/resource`);
   const location = useLocation();
   const path = () => location.pathname;
-	const [data, setData] = createStore<{map: Map<string, object>; navigation: Array<{title: string, url: string}>; item: Item, data: Array<Data>}>({
+	const [data, setData] = createStore<{map: Map<string, object>; navigation: Array<{title: string, url: string}>; item: Item, data: any}>({
     map: new Map(),
     navigation: [],
     item: {} as Item,
-    data: [] as Array<Data>
+    data: [] as any
   });
-	
-  // data.map.set("/", database);
 
   createEffect(() => {
-    if(categories()?.length && resources()?.length) {
+    if(categories() && resources()) {
       const categoryList = categories() || [];
       const resourceList = resources() || [];
 
-      for(let i = 0; i < categories.length; i++) {
+      for(let i = 0; i < categoryList.length; i++) {
         resourceList.forEach(resource => {
-          if(resource.category_id === categoryList[i].id) {
+          if(resource.category_id == categoryList[i].id) {
             if(!categoryList[i].hasOwnProperty('items')) {
               categoryList[i].items = [];
+              categoryList[i].items.push(resource);
             }
-    
-            categoryList[i].items.push(resource);
           }
         })
       }
-
-      function buildCategoryHierarchy(parentId = 0, parentURL?: string): Array<any> {
+      
+      function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<any> {
         const categoryTree: Array<any> = [];
     
         categoryList.forEach(category => {
-          if(category.parent_category_id === parentId) {
+          if(category.parent_category_id == parentId) {
             if(parentURL) {
               category.url = `${parentURL}${category.url}`;
             }
-    
-            let categoryObject: any = { ...category };
+            
+            let categoryObject: any = category;
             const subcategories = buildCategoryHierarchy(category.id, category.url);
     
             if(subcategories.length) {
-              categoryObject = {title: category.title, description: category.description, url: category.url, items: subcategories}
-            } else {
-              categoryObject = {title: category.title, description: category.description, url: category.url}
+              categoryObject = {...categoryObject, items: subcategories}
             }
-    
+            
             categoryTree.push(categoryObject);
           }
         })
-    
+
         return categoryTree;
       }
-    
-      const database: Array<any> = buildCategoryHierarchy(0);
+      const database = buildCategoryHierarchy();
 
       setData("data", database);
-    }
-  });
-
-  createEffect(() => {
-    if(categories()?.length && resources()?.length) {
-      const categoryList = categories() || [];
-      const resourceList = resources() || [];
-
-      for(let i = 0; i < categories.length; i++) {
-        resourceList.forEach(resource => {
-          if(resource.category_id === categoryList[i].id) {
-            if(!categoryList[i].hasOwnProperty('items')) {
-              categoryList[i].items = [];
-            }
-    
-            categoryList[i].items.push(resource);
-          }
-        })
-      }
-
-      function buildCategoryHierarchy(parentId = 0, parentURL?: string): Array<any> {
-        const categoryTree: Array<any> = [];
-    
-        categoryList.forEach(category => {
-          if(category.parent_category_id === parentId) {
-            if(parentURL) {
-              category.url = `${parentURL}${category.url}`;
-            }
-    
-            let categoryObject: any = { ...category };
-            const subcategories = buildCategoryHierarchy(category.id, category.url);
-    
-            if(subcategories.length) {
-              categoryObject = { ...category, items: subcategories };
-            } else {
-              categoryObject = { ...category };
-            }
-    
-            categoryTree.push(categoryObject);
-          }
-        })
-    
-        return categoryTree;
-      }
-    
-      const database: Array<any> = buildCategoryHierarchy(0);
 
       (function setMap(items: Array<object>) {
         items.forEach((item: any) => {
-          if("items" in item) {
+          if("items" in item && item.items) {
             data.map.set(item.url, item);
             setMap(item.items);
           }
         });
       })(database);
+
+      data.map.set("/", {type: "category", items: database});
+      setData("item", data.map.get(path()) as Item);
+
     }
   });
 
