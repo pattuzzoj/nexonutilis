@@ -1,43 +1,28 @@
-import { JSXElement, createContext, createEffect, useContext } from "solid-js";
+import { JSXElement, createContext, createEffect, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 import { useLocation } from "@solidjs/router";
 import useFetch from "hooks/useFetch";
 
 interface Item {
-  type: string;
-  mode?: string;
-  title: string;
-  description: string;
-  url: string;
-  logo?: string;
-  icon?: string;
-  roadmap?: string;
-  official?: string;
-  items?: Array<Item>;
-}
-
-interface Category {
   id: number;
-  parent_category_id: number;
-  type: string;
   title: string;
   description: string;
   url: string;
   index: number;
+}
+
+interface Resource extends Item {
+  category_id: number;
+}
+
+interface Category extends Item {
+  type: string;
+  parent_category_id: number;
   icon: string;
   logo: string;
   official_url: string;
   roadmap_url: string;
   items: Array<Category | Resource>;
-}
-
-interface Resource {
-  id: number;
-  category_id: number;
-  title: string;
-  description: string;
-  url: string;
-  index: number;
 }
 
 export const DataContext = createContext();
@@ -47,101 +32,95 @@ export default function DataProvider(props: {children: JSXElement}) {
   const [resources] = useFetch<Array<Resource>>('GET', `/resource`);
   const location = useLocation();
   const path = () => location.pathname;
-	const [data, setData] = createStore<{map: Map<string, object>; navigation: Array<{title: string, url: string}>; item: Item, data: any}>({
-    map: new Map(),
-    navigation: [],
-    item: {} as Item,
-    data: [] as any
+  const [data, setData] = createStore<{routes: Map<string, object>; path: Array<{title: string, url: string}>; item: Category; data: Array<Category>}>({
+    routes: new Map(),
+    path: [],
+    item: {} as Category,
+    data: {} as Array<Category>
   });
 
-  createEffect(() => {
-    if(categories() && resources()) {
-      const categoryList = categories() || [];
-      const resourceList = resources() || [];
+  createEffect(on([categories, resources], ([categories, resources]) => {
+    if(categories && resources) {
+      const categoryList: Array<Category> = categories;
+      const resourceList: Array<Resource> = resources;
 
-      for(let i = 0; i < categoryList.length; i++) {
-        resourceList.forEach(resource => {
-          if(resource.category_id == categoryList[i].id) {
-            if(!categoryList[i].hasOwnProperty('items')) {
-              categoryList[i].items = [];
+      resourceList.forEach(resource => {
+        for(let i = 0; i < categoryList.length; i++) {
+          if(categoryList[i].id == resource.category_id) {
+            if(!categoryList[i].hasOwnProperty("items")) {
+              categoryList[i].items = [resource];
+            } else {
               categoryList[i].items.push(resource);
             }
           }
-        })
-      }
-      
-      function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<any> {
-        const categoryTree: Array<any> = [];
-    
+        }
+      })
+
+      function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<Category> {
+        const categoryTree: Array<Category> = [];
+
         categoryList.forEach(category => {
           if(category.parent_category_id == parentId) {
             if(parentURL) {
               category.url = `${parentURL}${category.url}`;
             }
             
-            let categoryObject: any = category;
+            let categoryObject: Category = category;
             const subcategories = buildCategoryHierarchy(category.id, category.url);
-    
+
             if(subcategories.length) {
               categoryObject = {...categoryObject, items: subcategories}
             }
-            
+
             categoryTree.push(categoryObject);
           }
         })
 
         return categoryTree;
       }
-      const database = buildCategoryHierarchy();
 
-      setData("data", database);
+      const categoryHierarchy = buildCategoryHierarchy();
 
-      (function setMap(items: Array<object>) {
-        items.forEach((item: any) => {
-          if("items" in item && item.items) {
-            data.map.set(item.url, item);
-            setMap(item.items);
+      setData("data", categoryHierarchy);
+      data.routes.set("/", {type: "category", items: categoryHierarchy});
+
+      (function setRoutes(categories: Array<Category>) {
+        categories.forEach((category: Category) => {
+          if(category.hasOwnProperty("items")) {
+            if(category.type == "category") {
+              setRoutes(category.items as Array<Category>);
+            }
+
+            data.routes.set(category.url, category);
           }
-        });
-      })(database);
+        })
+      })(categoryHierarchy);
 
-      data.map.set("/", {type: "category", items: database});
-      setData("item", data.map.get(path()) as Item);
-
+      setData("item", data.routes.get(path()) as Item);
     }
-  });
+  }));
 
-  createEffect(() => {
-    setData("navigation", []);
-    setData("item", {
-      type: '',
-      mode: '',
-      title: '',
-      description: '',
-      url: '',
-      logo: '',
-      icon: '',
-      official: '',
-      roadmap: '',
-      items: [],
-    });
+  createEffect(on(path, (path) => {
+    setData("path", []);
 
-    setData("item", data.map.get(path()) as Item);
+    if(data.routes.has(path)) {
+      setData("item", data.routes.get(path) as Category);
+    }
 
-    if(path() != "/") {
-      const url = path().substring(1).split("/");
+    if(path != '/') {
+      const url = path.substring(1).split("/");
       let currentPath = '';
-  
+
       for(let index = 0; index < url.length; index++) {
         currentPath += "/" + url[index];
 
-        if(data.map.has(currentPath)) {
-          let item: {title: string, url: string} = data.map.get(currentPath) as {title: string, url: string};
-          setData("navigation", (paths) => [...paths, {title: item.title, url: item.url} ]);
+        if(data.routes.has(currentPath)) {
+          const item: {title: string, url: string} = data.routes.get(currentPath) as {title: string, url: string};
+          setData("path", (paths) => [...paths, {title: item.title, url: item.url} ]);
         }
       }
     }
-  })
+  }));
 
 	return (
 		<DataContext.Provider value={{data, setData}}>

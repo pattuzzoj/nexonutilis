@@ -13,23 +13,23 @@ export default function Home() {
   return (
     <Main>
       <div class="flex flex-col gap-8">
-        {/* <Show when={data.item.mode == "card"}>
-          <div class="flex flex-col gap-1">
-            <div class="flex items-center gap-3">
-              <img class="w-8 rounded-xl" src={data.item.logo} alt="" />
-              <Title as="2" class="text-[#2c2c54] dark:text-white">{data.item.title}</Title>
+          {/* <Show when={data.item.mode == "card"}>
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center gap-3">
+                <img class="w-8 rounded-xl" src={data.item.logo} alt="" />
+                <Title as="2" class="text-[#2c2c54] dark:text-white">{data.item.title}</Title>
+              </div>
+              <Text class="p-2 text-wrap text-ellipsis text-[#2c2c54] dark:text-white">{data.item.description}</Text>
+              <span class="flex gap-2">
+                <Show when={data.item.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
+                <Show when={data.item.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
+              </span>
             </div>
-            <Text class="p-2 text-wrap text-ellipsis text-[#2c2c54] dark:text-white">{data.item.description}</Text>
-            <span class="flex gap-2">
-              <Show when={data.item.official}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.official}><Icon name="BiRegularBookBookmark" class="size-4"/>Official</a></Show>
-              <Show when={data.item.roadmap}><a class="text-center flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500" target="_blank" href={data.item.roadmap}><Icon name="FiMap" class="size-4"/> Roadmap</a></Show>
-            </span>
-          </div>
-        </Show> */}
+          </Show> */}
         <Switch>
           <Match when={data.item?.type == "category"}>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 md:gap-5">
-              <For each={data.item.items}>
+              <For each={data.item?.items}>
                 {(item) => (
                   <a class="w-full flex flex-col justify-between items-start gap-1 rounded-xl p-4 bg-gray-300 dark:bg-gray-800 hover:scale-95 group h-32" href={item.url}>
                     <span class="flex justify-between w-full">
@@ -49,7 +49,7 @@ export default function Home() {
           </Match>
           <Match when={data.item?.type == "resource"}>
             <div class="w-full md:grid-cols-2 lg:grid-cols-3 grid gap-5 h-max">
-              <For each={data.item.items}>
+              <For each={data.item?.items}>
                 {(item) => (
                   <div class="flex flex-col justify-between gap-5 w-full rounded-xl p-4 bg-gray-300 dark:bg-gray-800">
                     <span class="flex justify-between w-full">

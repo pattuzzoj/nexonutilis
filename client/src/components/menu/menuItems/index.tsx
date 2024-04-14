@@ -25,7 +25,7 @@ export default function MenuItem(props: MenuItemProps) {
   const [isOpen, setIsOpen] = useSwitch<boolean>(initialState());
 
   createEffect(() => path() && setIsOpen(initialState()));
-
+  
   return (
     <nav class="w-full flex flex-col" aria-label={props.title}>
       <Title as={String(props.depth) as "2" | "3" | "4" | "5" | "6"} class="group">
@@ -42,7 +42,7 @@ export default function MenuItem(props: MenuItemProps) {
         </a>
       </Title>
       <nav class={`${isOpen() ? "h-full" : "h-0"} flex flex-col rounded-b-lg bg-gray-700 overflow-hidden tranisition-[height] duration-300`}>
-        <For each={props.items}>
+        <For each={props?.items}>
           {(item) => (
             <Switch>
               <Match when={item?.type == "category"}>

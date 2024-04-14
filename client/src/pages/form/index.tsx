@@ -1,17 +1,24 @@
-import { For, Match, Show, Switch, createEffect, createSignal } from "solid-js";
+import { For, Show, createEffect, createSignal } from "solid-js";
 import Main from "layout/main";
 import Icon from "components/icon";
-import Title from "components/typography/title";
 import useFetch from "hooks/useFetch";
+import { useData } from "context";
 
-interface Category {
+interface Item {
   id: number;
-  parent_category_id: number;
-  type: string;
   title: string;
   description: string;
   url: string;
   index: number;
+}
+
+interface Resource extends Item {
+  category_id: number;
+}
+
+interface Category extends Item {
+  type: string;
+  parent_category_id: number;
   icon: string;
   logo: string;
   official_url: string;
@@ -19,37 +26,20 @@ interface Category {
   items: Array<Category | Resource>;
 }
 
-interface Resource {
-  id: number;
-  category_id: number;
-  title: string;
-  description: string;
-  url: string;
-  index: number;
-}
-
 export default function Form() {
-  const [categories, {refetch: refetchCategories}] = useFetch<Array<Category>>('GET', `/category`);
-  const [resources, {refetch: refetchResources}] = useFetch<Array<Resource>>('GET', `/resource`);
+  const {data: database} = useData();
   const [type, setType] = createSignal<string>("category");
-  const [list, setList] = createSignal<Array<Category | Resource>>([]);
+  const [list, setList] = createSignal<Array<Category | Resource>>(database.data || []);
   const [typeMenu, setTypeMenu] = createSignal<"create" | "edit" | "view">();
   const [menu, setMenu] = createSignal<boolean>(false);
   const [data, setData] = createSignal<Category | Resource>();
   const [editedData, setEditedData] = createSignal<Category | Resource>();
+  const [path, setPath] = createSignal<Array<{title: string, items: any}>>([]);
   let initialValue: Category;
 
   createEffect(() => {
-    if(type() == "category") {
-      setList(categories() || []);
-    } else if((type() == "resource")) {
-      setList(resources() || []);
-    } else {
-      setList([]);
-    }
+    setList(database.data || []);
   })
-
-  createEffect(() => setList(categories() || []));
 
   function handleEditedData(e: any) {
     e.preventDefault();
@@ -73,10 +63,8 @@ export default function Form() {
   function post() {
     if(type() == "category") {
       useFetch('POST', `/category`, editedData());
-      setTimeout(refetchCategories, 500)
     } else {
       useFetch('POST', `/resource`, editedData());
-      setTimeout(refetchResources, 500);
     }
     
     setEditedData({} as any);
@@ -85,10 +73,8 @@ export default function Form() {
   function update(id: number) {
     if(type() == "category") {
       useFetch('PUT', `/category/${id}`, editedData());
-      setTimeout(refetchCategories, 500)
     } else {
       useFetch('PUT', `/resource/${id}`, editedData());
-      setTimeout(refetchResources, 500);
     }
 
     setEditedData({} as any);
@@ -97,98 +83,60 @@ export default function Form() {
   function del(id: number) {
     if(type() == "category") {
       useFetch("DELETE", `/category/${id}`);
-      setTimeout(refetchCategories, 500)
     } else {
       useFetch("DELETE", `/resource/${id}`);
-      setTimeout(refetchResources, 500);
     }
   }
 
   return (
     <Main class="relative">
-      <span class="flex justify-between">
-        <span class="flex gap-2">
-          <button class={`${type() == "category" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("category"); setList(categories() || [])}}>Categories</button>
-          <button class={`${type() == "resource" && "bg-gray-500"} rounded-lg p-2 hover:bg-gray-500 text-lg`} onClick={() => {setType("resource"); setList(resources() || [])}}>Resources</button>
-        </span>
-        <button class="rounded-lg p-2 bg-gray-500" onClick={() => {setData({} as any); setTypeMenu("create"); setMenu(true);}}>Add</button>
-      </span>
-      <br />
       <div class="w-full">
-        <Switch>
-          <Match when={type() == "category"}>
-            <Title as="3" class="text-start mb-4 font-semibold text-xl">Categories</Title>
-          </Match>
-          <Match when={type() == "resource"}>
-            <Title as="3" class="text-start mb-4 font-semibold text-xl">Resources</Title>
-          </Match>
-        </Switch>
+        <Show when={path()}>
+          <span class="flex justify-between">
+            <span class="w-4/5 overflow-hidden overflow-x-scroll text-nowrap flex items-center gap-2 text-sm md:text-base">
+              <button class="flex rounded p-2 hover:text-white hover:bg-gray-400" onClick={() => {setList(database.data); setPath([]);}}>
+                <Icon name="FiHome" class="size-6" />
+              </button>
+              <For each={path()}>
+                {(item, index) => <><span class="font-bold text-xl">/</span><button class="rounded p1 md:p-2 hover:text-white hover:bg-gray-400" onClick={() => {setList(item.items); setPath(path().slice(0, index() + 1))}}>{item.title}</button></>}
+              </For>
+            </span>
+            <button class="flex justify-center items-center h-8 w-8 pb-1 rounded-lg text-3xl bg-gray-500" onClick={() => {setType("category"); setMenu(true);}}>+</button>
+          </span>
+        </Show>
+        <br />
         <div class="border rounded-lg">
-          <Switch>
-            <Match when={type() == "category"}>
-              <div>
-                <span class="flex justify-between gap-4 py-2 px-1">
-                  <span class="min-w-[5ch] text-center">ID</span>
-                  <span class="w-1/12 text-center">Parent ID</span>
-                  <span class="w-1/12 text-center">Type</span>
-                  <span class="w-2/12 text-start">Title</span>
-                  <span class="w-6/12 text-start">Description</span>
-                  <span class="w-3/12 text-start">URL</span>
-                  <span class="w-3/12 text-start">Icon</span>
-                  <span class="w-1/12 text-center">Index</span>
-                  <span class="min-w-[15ch] text-center">Actions</span>
+          <div>
+            <span class="flex justify-between gap-4 py-2 px-1 pl-4">
+              <span class="min-w-[5ch] text-center">ID</span>
+              <span class="w-2/12 text-start">Title</span>
+              <span class="w-6/12 text-start">Description</span>
+              <span class="w-3/12 text-start">URL</span>
+              <span class="w-1/12 text-center">Index</span>
+              <span class="min-w-[15ch] text-center">Actions</span>
+            </span>
+          </div>
+          <For each={list() as Array<Category>}>
+            {(item) => (
+              <span class="relative flex justify-between items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1 pl-4">
+                <Show when={item.hasOwnProperty("items")}>
+                  <button class="absolute top-50 left-1.5 rounded text-lg bg-gray-900" onClick={() => {setList(item?.items); setPath([...path(), {title: item.title, items: item?.items}])}}><Icon name="TbMenu"/></button>
+                </Show>
+                <span class="min-w-[5ch] text-center">{item.id}</span>
+                <span class="w-2/12 text-start">{item.title}</span>
+                <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
+                <span class="w-3/12 text-start">{item?.type ? item.url.substring(item.url.lastIndexOf('/')) : item.url}</span>
+                <span class="w-1/12 text-center">{item.index}</span>
+                <span class="min-w-[15ch] flex justify-center gap-2">
+                <Show when={item.hasOwnProperty("type")}>
+                  <button class="text-lg" onClick={() => {setType(item.type); setData({...initialValue, parent_category_id: item.id, category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
+                </Show>
+                  <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                  <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                 </span>
-              </div>
-              <For each={list() as Array<Category>}>
-                {(item) => (
-                  <span class="flex justify-between items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
-                    <span class="min-w-[5ch] text-center">{item.id}</span>
-                    <span class="w-1/12 text-center">{item.parent_category_id}</span>
-                    <span class="w-1/12 text-center">{item.type}</span>
-                    <span class="w-2/12 text-start">{item.title}</span>
-                    <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
-                    <span class="w-3/12 text-start">{item.url}</span>
-                    <span class="w-3/12 text-start">{item.icon}</span>
-                    <span class="w-1/12 text-center">{item.index}</span>
-                    <span class="min-w-[15ch] flex justify-center gap-2">
-                      <button class="text-lg" onClick={() => {setData({...initialValue, parent_category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
-                      <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
-                      <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
-                    </span>
-                  </span>
-                )}
-              </For>
-            </Match>
-            <Match when={type() == "resource"}>
-              <div>
-                <span class="flex justify-between gap-4 py-2 px-1">
-                  <span class="min-w-[5ch] text-center">ID</span>
-                  <span class="w-1/12 text-center">Category ID</span>
-                  <span class="w-2/12 text-start">Title</span>
-                  <span class="w-6/12 text-start">Description</span>
-                  <span class="w-3/12 text-start">URL</span>
-                  <span class="w-1/12 text-center">Index</span>
-                  <span class="min-w-[15ch] text-center">Actions</span>
-                </span>
-              </div>
-              <For each={list() as Array<Resource>}>
-                {(item) => (
-                  <span class="flex justify-between items-center gap-4 border-t-[1px] even:bg-gray-500 py-2 px-1">
-                    <span class="min-w-[5ch] text-center">{item.id}</span>
-                    <span class="w-1/12 text-center">{item.category_id}</span>
-                    <span class="w-2/12 text-start">{item.title}</span>
-                    <span class="w-6/12 text-start line-clamp-1">{item.description}</span>
-                    <span class="w-3/12 text-start">{item.url}</span>
-                    <span class="w-1/12 text-center">{item.index}</span>
-                    <span class="min-w-[15ch] flex justify-center gap-2">
-                      <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
-                      <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
-                    </span>
-                  </span>
-                )}
-              </For>
-            </Match>
-          </Switch>
+              </span>
+            )}
+          </For>
         </div>
       </div>
       <Show when={menu()}>
