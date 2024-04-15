@@ -64,7 +64,7 @@ export default function Home() {
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 md:gap-5">
               <For each={data.item?.items || new Array(8)}>
                 {(item) => (
-                  <a class="w-full flex flex-col justify-between items-start gap-1 rounded-xl p-4 bg-gray-300 dark:bg-gray-800 hover:scale-95 group h-32" href={item?.url}>
+                  <a class="w-full flex flex-col justify-between items-start gap-1 rounded-xl p-4 bg-gray-300 dark:bg-gray-800 hover:scale-95 group" href={item?.url}>
                     <span class="flex justify-between w-full">
                       <Title as="5" class="flex items-center gap-2">
                         <Show when={item?.icon}>
