@@ -27,26 +27,6 @@ export default function Home() {
             </div>
           </Show> */}
         <Switch>
-          <Match when={data.item?.type == "category"}>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 md:gap-5">
-              <For each={data.item?.items}>
-                {(item) => (
-                  <a class="w-full flex flex-col justify-between items-start gap-1 rounded-xl p-4 bg-gray-300 dark:bg-gray-800 hover:scale-95 group h-32" href={item.url}>
-                    <span class="flex justify-between w-full">
-                      <Title as="5" class="flex items-center gap-2">
-                        <Show when={item.icon}>
-                          <Icon name={item.icon} class={`size-7 group-hover:animate-spin transition-transform duration-300`} />
-                        </Show>
-                        {item.title}
-                      </Title>
-                      <Icon name="RiArrowsArrowRightDoubleLine" class="invisible group-hover:visible size-6"/>
-                    </span>
-                    <Text class="line-clamp-2">{item.description}</Text>
-                  </a>
-                )}
-              </For>
-            </div>
-          </Match>
           <Match when={data.item?.type == "resource"}>
             <div class="w-full md:grid-cols-2 lg:grid-cols-3 grid gap-5 h-max">
               <For each={data.item?.items}>
@@ -76,6 +56,26 @@ export default function Home() {
                       <a class="group md:w-6/12 flex justify-center items-center gap-2 rounded-xl p-2 text-white bg-gray-500 hover:bg-gray-400" target="_blank" href={item.url}>Access <Icon name="OcLinkexternal2" class="group-hover:scale-110 size-4"/></a>
                     </span>
                   </div>
+                )}
+              </For>
+            </div>
+          </Match>
+          <Match when={true}>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 md:gap-5">
+              <For each={data.item?.items || new Array(8)}>
+                {(item) => (
+                  <a class="w-full flex flex-col justify-between items-start gap-1 rounded-xl p-4 bg-gray-300 dark:bg-gray-800 hover:scale-95 group h-32" href={item?.url}>
+                    <span class="flex justify-between w-full">
+                      <Title as="5" class="flex items-center gap-2">
+                        <Show when={item?.icon}>
+                          <Icon name={item?.icon} class={`size-7 group-hover:animate-spin transition-transform duration-300`} />
+                        </Show>
+                        {item?.title}
+                      </Title>
+                      <Icon name="RiArrowsArrowRightDoubleLine" class="invisible group-hover:visible size-6"/>
+                    </span>
+                    <Text class="line-clamp-2">{item?.description}</Text>
+                  </a>
                 )}
               </For>
             </div>

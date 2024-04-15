@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <header class={`${menuIsOpen() ? "min-w-64 py-6 px-4" : "-translate-x-full w-0"} relative h-[5vh] md:h-screen flex justify-between items-center md:items-stretch md:flex-col bg-gray-300 dark:bg-gray-800`}>
-      <button onClick={() => setMenuIsOpen(!menuIsOpen())} class="hidden md:block absolute bottom-2 left-[105%]">
+      <button onClick={() => setMenuIsOpen(!menuIsOpen())} class="hidden md:block absolute bottom-2 left-[105%] z-10">
         <Show when={menuIsOpen()} fallback={<Icon name="RiSystemMenuUnfoldLine" class="size-8"/>}>
           <Icon name="RiSystemMenuFoldLine" class="size-8"/>
         </Show>

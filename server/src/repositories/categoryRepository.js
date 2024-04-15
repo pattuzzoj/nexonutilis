@@ -1,5 +1,14 @@
 import { query } from "../utils/query.js";
 
+export async function getMenu(id) {
+  try {
+    const {rows: categories} = await query(`SELECT * FROM category WHERE parent_category_id = $1`, [id]);
+    return categories;
+  } catch(error) {
+    throw error;
+  }
+}
+
 export async function getCategories() {
   try {
     const {rows: categories} = await query(`SELECT * FROM category ORDER BY parent_category_id, index`);

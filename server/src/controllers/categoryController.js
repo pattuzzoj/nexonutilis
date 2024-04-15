@@ -1,4 +1,14 @@
-import { getCategories, createCategory, updateCategoryById, deleteCategoryById } from "../repositories/categoryRepository.js";
+import { getMenu, getCategories, createCategory, updateCategoryById, deleteCategoryById } from "../repositories/categoryRepository.js";
+
+export async function getData(req, res) {
+  try {
+    const categories = await getMenu(parseInt(req.params.id));
+
+    res.status(200).json({data: categories});
+  } catch(error) {
+    res.status(500).json({message: error});
+  }
+}
 
 export async function getCategory(req, res) {
   try {
