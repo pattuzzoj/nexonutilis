@@ -1,7 +1,7 @@
 import { ResourceReturn, createResource } from 'solid-js';
 
 const baseURL = "https://nexonutilis-server.vercel.app";
-// const baseURL = "http://localhost:3000";
+// const baseURL = "http://localhost:5173";
 
 export default function useFetch<T>(method: string = 'GET', url: string, body?: any): ResourceReturn<T> {
   async function fetchResource() {

@@ -4,7 +4,6 @@ import { getResource, postResource, putResource, deleteResource } from './contro
 
 const router = express.Router();
 
-router.get('/data/:id', getData);
 router.get('/category', getCategory);
 router.get('/resource', getResource);
 

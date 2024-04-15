@@ -28,7 +28,7 @@ interface Category extends Item {
 export const DataContext = createContext();
 
 export default function DataProvider(props: {children: JSXElement}) {
-  const [categories] = useFetch<Array<Category>>('GET', `/categoryData`);
+  const [categories] = useFetch<Array<Category>>('GET', `/category`);
   const [resources] = useFetch<Array<Resource>>('GET', `/resource`);
   const location = useLocation();
   const path = () => location.pathname;
@@ -40,8 +40,6 @@ export default function DataProvider(props: {children: JSXElement}) {
   });
 
   createEffect(on([categories, resources], ([categories, resources]) => {
-    console.log(categories);
-
     if(categories && resources) {
       const categoryList: Array<Category> = categories;
       const resourceList: Array<Resource> = resources;
