@@ -94,14 +94,14 @@ export default function Form() {
         <Show when={path()}>
           <span class="flex justify-between">
             <span class="w-4/5 overflow-hidden overflow-x-scroll text-nowrap flex items-center gap-2 text-sm md:text-base">
-              <button class="flex rounded p-2 hover:text-white hover:bg-gray-400" onClick={() => {setList(database.data); setPath([]); setTypeMenu("create")}}>
+              <button class="flex rounded p-2 hover:text-white hover:bg-gray-400" onClick={() => {setList(database.data); setPath([]);}}>
                 <Icon name="FiHome" class="size-6" />
               </button>
               <For each={path()}>
                 {(item, index) => <><span class="font-bold text-xl">/</span><button class="rounded p1 md:p-2 hover:text-white hover:bg-gray-400" onClick={() => {setList(item.items); setPath(path().slice(0, index() + 1))}}>{item.title}</button></>}
               </For>
             </span>
-            <button class="flex justify-center items-center h-8 w-8 pb-1 rounded-lg text-3xl bg-gray-500" onClick={() => {setType("category"); setMenu(true);}}>+</button>
+            <button class="flex justify-center items-center h-8 w-8 pb-1 rounded-lg text-3xl bg-gray-500" onClick={() => {setType("category"); setTypeMenu("create"); setMenu(true);}}>+</button>
           </span>
         </Show>
         <br />
