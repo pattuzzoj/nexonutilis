@@ -131,7 +131,7 @@ export default function Form() {
                 <Show when={item.hasOwnProperty("type")}>
                   <button class="text-lg" onClick={() => {setType(item.type); setData({...initialValue, parent_category_id: item.id, category_id: item.id}); setTypeMenu("create"); setMenu(true);}}><Icon name="IoAddCircleOutline"/></button>
                 </Show>
-                  <button class="text-lg" onClick={() => {setData(item); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
+                  <button class="text-lg" onClick={() => {setData({...item, url: item.url.substring(item.url.lastIndexOf('/'))}); setTypeMenu("edit"); setMenu(true);}}><Icon name="FiEdit"/></button>
                   <button class="text-lg" onClick={() => del(item.id)}><Icon name="FiTrash"/></button>
                 </span>
               </span>
