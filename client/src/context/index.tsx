@@ -1,6 +1,6 @@
 import { JSXElement, createContext, createEffect, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
-// import { useLocation } from "@solidjs/router";
+import { useLocation } from "@solidjs/router";
 import useFetch from "hooks/useFetch";
 
 interface Item {
@@ -28,11 +28,10 @@ interface Category extends Item {
 export const DataContext = createContext();
 
 export default function DataProvider(props: {children: JSXElement}) {
-  // const [categories] = useFetch<Array<Category>>('GET', `/category`);
-  // const [resources] = useFetch<Array<Resource>>('GET', `/resource`);
-  const [database] = useFetch<Array<Resource>>('GET', `/data/1`);
-  // const location = useLocation();
-  // const path = () => location.pathname;
+  const [categories] = useFetch<Array<Category>>('GET', `/categoryData`);
+  const [resources] = useFetch<Array<Resource>>('GET', `/resource`);
+  const location = useLocation();
+  const path = () => location.pathname;
   const [data, setData] = createStore<{routes: Map<string, object>; path: Array<{title: string, url: string}>; item: Category; data: Array<Category>}>({
     routes: new Map(),
     path: [],
@@ -40,132 +39,90 @@ export default function DataProvider(props: {children: JSXElement}) {
     data: {} as Array<Category>
   });
 
-  createEffect(on(database, (database) => {
-    setData("item", {type: "category", items: database});
+  createEffect(on([categories, resources], ([categories, resources]) => {
+    console.log(categories);
+
+    if(categories && resources) {
+      const categoryList: Array<Category> = categories;
+      const resourceList: Array<Resource> = resources;
+
+      resourceList.forEach(resource => {
+        for(let i = 0; i < categoryList.length; i++) {
+          if(categoryList[i].id == resource.category_id) {
+            if(!categoryList[i].hasOwnProperty("items")) {
+              categoryList[i].items = [resource];
+            } else {
+              categoryList[i].items.push(resource);
+            }
+          }
+        }
+      })
+
+      function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<Category> {
+        const categoryTree: Array<Category> = [];
+
+        categoryList.forEach(category => {
+          if(category.parent_category_id == parentId) {
+            if(parentURL) {
+              category.url = `${parentURL}${category.url}`;
+            }
+            
+            let categoryObject: Category = category;
+            const subcategories = buildCategoryHierarchy(category.id, category.url);
+
+            if(subcategories.length) {
+              categoryObject = {...categoryObject, items: subcategories}
+            }
+
+            categoryTree.push(categoryObject);
+          }
+        })
+
+        return categoryTree;
+      }
+
+      const categoryHierarchy = buildCategoryHierarchy();
+
+      setData("data", categoryHierarchy);
+      data.routes.set("/", {type: "category", items: categoryHierarchy});
+
+      (function setRoutes(categories: Array<Category>) {
+        categories.forEach((category: Category) => {
+          if(category.hasOwnProperty("items")) {
+            if(category.type == "category") {
+              setRoutes(category.items as Array<Category>);
+            }
+
+            data.routes.set(category.url, category);
+          }
+        })
+      })(categoryHierarchy);
+
+      setData("item", data.routes.get(path()) as Item);
+    }
   }));
 
-  const baseURL = "https://nexonutilis-server.vercel.app";
-  // const baseURL = "http://localhost:3000";
-  async function fetchResource(method: string = 'GET', url: string, body?: any) {
-    const options: any = {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*',
-      },
-      mode: 'cors'
-    }
-  
-    if(body) {
-      options.body = JSON.stringify(body);
-    }
-  
-    try {
-      const response = await fetch(baseURL + url, options);
+  createEffect(on(path, (path) => {
+    setData("path", []);
 
-      if(response) {
-        const data = await response.json();
+    if(data.routes.has(path)) {
+      setData("item", data.routes.get(path) as Category);
+    }
 
-        if(data?.message) {
-          alert(data?.message);
+    if(path != '/') {
+      const url = path.substring(1).split("/");
+      let currentPath = '';
+
+      for(let index = 0; index < url.length; index++) {
+        currentPath += "/" + url[index];
+
+        if(data.routes.has(currentPath)) {
+          const item: {title: string, url: string} = data.routes.get(currentPath) as {title: string, url: string};
+          setData("path", (paths) => [...paths, {title: item.title, url: item.url} ]);
         }
-
-        setData("item", {type: "category", items: data.data});
       }
-    } catch(e) {
-      console.log(e);
     }
-  }
-
-  document.body.addEventListener("click", () => fetchResource("GET", "/data/2"))
-  // createEffect(on(databas, (databas) => {
-  //   setData("item", {type: "category", items: databas});
-  // }));
-
-  // createEffect(on([categories, resources], ([categories, resources]) => {
-  //   console.log(categories);
-
-  //   if(categories && resources) {
-  //     const categoryList: Array<Category> = categories;
-  //     const resourceList: Array<Resource> = resources;
-
-  //     resourceList.forEach(resource => {
-  //       for(let i = 0; i < categoryList.length; i++) {
-  //         if(categoryList[i].id == resource.category_id) {
-  //           if(!categoryList[i].hasOwnProperty("items")) {
-  //             categoryList[i].items = [resource];
-  //           } else {
-  //             categoryList[i].items.push(resource);
-  //           }
-  //         }
-  //       }
-  //     })
-
-  //     function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<Category> {
-  //       const categoryTree: Array<Category> = [];
-
-  //       categoryList.forEach(category => {
-  //         if(category.parent_category_id == parentId) {
-  //           if(parentURL) {
-  //             category.url = `${parentURL}${category.url}`;
-  //           }
-            
-  //           let categoryObject: Category = category;
-  //           const subcategories = buildCategoryHierarchy(category.id, category.url);
-
-  //           if(subcategories.length) {
-  //             categoryObject = {...categoryObject, items: subcategories}
-  //           }
-
-  //           categoryTree.push(categoryObject);
-  //         }
-  //       })
-
-  //       return categoryTree;
-  //     }
-
-  //     const categoryHierarchy = buildCategoryHierarchy();
-
-  //     setData("data", categoryHierarchy);
-  //     data.routes.set("/", {type: "category", items: categoryHierarchy});
-
-  //     (function setRoutes(categories: Array<Category>) {
-  //       categories.forEach((category: Category) => {
-  //         if(category.hasOwnProperty("items")) {
-  //           if(category.type == "category") {
-  //             setRoutes(category.items as Array<Category>);
-  //           }
-
-  //           data.routes.set(category.url, category);
-  //         }
-  //       })
-  //     })(categoryHierarchy);
-
-  //     setData("item", data.routes.get(path()) as Item);
-  //   }
-  // }));
-
-  // createEffect(on(path, (path) => {
-  //   setData("path", []);
-
-  //   if(data.routes.has(path)) {
-  //     setData("item", data.routes.get(path) as Category);
-  //   }
-
-  //   if(path != '/') {
-  //     const url = path.substring(1).split("/");
-  //     let currentPath = '';
-
-  //     for(let index = 0; index < url.length; index++) {
-  //       currentPath += "/" + url[index];
-
-  //       if(data.routes.has(currentPath)) {
-  //         const item: {title: string, url: string} = data.routes.get(currentPath) as {title: string, url: string};
-  //         setData("path", (paths) => [...paths, {title: item.title, url: item.url} ]);
-  //       }
-  //     }
-  //   }
-  // }));
+  }));
 
 	return (
 		<DataContext.Provider value={{data, setData}}>
