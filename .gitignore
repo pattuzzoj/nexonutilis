@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 *.txt
-*model.ts
+*model
