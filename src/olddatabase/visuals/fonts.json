@@ -1,0 +1,58 @@
+{
+  "type": "resource",
+  "title": "Fonts",
+  "description": "Dive into a world of typography with our curated selection of fonts. Whether you're looking for classic serifs, sleek sans-serifs, or unique display fonts, find the right typeface to match the tone and style of your project.",
+  "items": [
+    {
+        "title": "Google Fonts",
+        "description": "Google Fonts is a free font library provided by Google. It offers a wide range of high-quality fonts that can be used for web design, graphic design, and other creative projects.",
+        "url": "https://fonts.google.com/"
+    },
+    {
+        "title": "DaFont",
+        "description": "DaFont is a popular site for downloading free fonts. It hosts a vast collection of fonts contributed by designers and font enthusiasts from around the world.",
+        "url": "https://www.dafont.com/"
+    },
+    {
+        "title": "Font Squirrel",
+        "description": "Font Squirrel is a platform that curates a collection of high-quality and free fonts. These fonts are carefully selected and can be used for both personal and commercial projects.",
+        "url": "https://www.fontsquirrel.com/"
+    },
+    {
+        "title": "FontSpace",
+        "description": "FontSpace is a free font community for designers. It provides a platform for font creators to share their work, and users can easily browse and download fonts.",
+        "url": "https://www.fontspace.com/"
+    },
+    {
+        "title": "1001 Fonts",
+        "description": "1001 Fonts offers thousands of free fonts for both personal and commercial use. Whether you need elegant script fonts or bold display fonts, you’ll find a diverse selection here.",
+        "url": "https://www.1001fonts.com/"
+    },
+    {
+        "title": "Fontfabric",
+        "description": "Fontfabric is a design studio with exclusive fonts. Their fonts are meticulously crafted and often have unique styles, making them stand out in various design projects.",
+        "url": "https://www.fontfabric.com/"
+    },
+    {
+        "title": "Fontasy",
+        "description": "Fontasy provides a variety of free fonts for personal and commercial use. It’s a great resource for finding fonts that suit different design aesthetics.",
+        "url": "https://www.fontasy.de/"
+    },
+    {
+        "title": "FontZone",
+        "description": "FontZone is a library of free fonts. You can explore and download fonts for various purposes, from branding to web design.",
+        "url": "https://www.fontzone.net/"
+    },
+    {
+        "title": "Urban Fonts",
+        "description": "Urban Fonts specializes in free fonts with an urban style. If you’re looking for fonts that have a modern, street-inspired vibe, this site is worth checking out.",
+        "url": "https://www.urbanfonts.com/"
+    },
+    {
+        "title": "FontPark",
+        "description": "FontPark is a community of free fonts. It’s a place where font enthusiasts can discover and share fonts they love.",
+        "url": "https://www.fontpark.net/"
+    }
+  ],
+  "url": "/visuals/fonts"
+}

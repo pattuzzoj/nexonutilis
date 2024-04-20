@@ -1,0 +1,47 @@
+[
+  {
+      "title": "Coolors",
+      "description": "Coolors is a super-fast color palette generator. You can create the perfect color palette or get inspired by thousands of beautiful color schemes. It's used by millions of designers and top companies. Explore trending palettes, generate your own, and find beautiful color combinations for your designs¹.",
+      "url": "https://coolors.co/"
+  },
+  {
+      "title": "Canva Color Palette Generator",
+      "description": "Canva's color palette generator allows you to upload an image and extract a harmonious color palette from it. It's a great tool for creating cohesive designs based on existing visuals.",
+      "url": "https://www.canva.com/colors/color-palette-generator/"
+  },
+  {
+      "title": "Paletton",
+      "description": "Paletton helps you create color schemes based on the color wheel. You can choose between monochromatic, complementary, triadic, and other harmonious combinations. It's a powerful tool for understanding color relationships.",
+      "url": "http://paletton.com/"
+  },
+  {
+      "title": "Color Hunt",
+      "description": "Color Hunt provides curated color palettes for designers and artists. Discover the newest hand-picked color schemes for your design and art projects. You can also contribute your own palettes to the community.",
+      "url": "https://colorhunt.co/"
+  },
+  {
+      "title": "Adobe Color",
+      "description": "Adobe Color (formerly known as Adobe Kuler) lets you create, explore, and save color themes. You can use the color wheel, explore trending themes, and even extract colors from images.",
+      "url": "https://color.adobe.com/create/color-wheel"
+  },
+  {
+      "title": "Material Design Palette Generator",
+      "description": "If you're designing for web or mobile, Material Design Palette Generator by Google provides color palettes following Material Design guidelines. It's especially useful for creating consistent UI elements.",
+      "url": "https://material.io/resources/color/#!/"
+  },
+  {
+      "title": "ColorSpace",
+      "description": "ColorSpace offers various tools, including a color palette generator. You can explore different color models (RGB, HSL, CMYK) and create harmonious palettes.",
+      "url": "https://mycolor.space/"
+  },
+  {
+      "title": "ColorHexa",
+      "description": "ColorHexa provides detailed information about colors, including their conversions, harmonies, and shades. You can generate color palettes based on any starting color.",
+      "url": "https://www.colorhexa.com/"
+  },
+  {
+      "title": "LOL Colors",
+      "description": "LOL Colors is a curated collection of color palettes. Each palette includes five colors with playful names. It's a fun way to discover unique combinations.",
+      "url": "https://www.webdesignrankings.com/resources/lolcolors/"
+  }
+]

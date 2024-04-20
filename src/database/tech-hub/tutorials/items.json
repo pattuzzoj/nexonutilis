@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Codecademy",
+    "description": "Learn by doing with Codecademy's interactive coding challenges. Choose from a wide range of programming languages and web development tracks to build practical skills through real-world projects.",
+    "url": "https://www.codecademy.com/"
+  },
+  {
+    "title": "Geeks For Geeks",
+    "description": "A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.",
+    "url": "https://www.geeksforgeeks.org/"
+  },
+  {
+    "title": "Khan Academy Computer Programming",
+    "description": "Master the fundamentals of computer programming with Khan Academy's interactive courses.  Their platform offers a structured learning path, perfect for beginners or those seeking to brush up on core concepts. Explore topics like JavaScript, SQL, and HTML/CSS.",
+    "url": "https://www.khanacademy.org/computer-programming"
+  },
+  {
+    "title": "MDN",
+    "description": "The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps.",
+    "url": "https://developer.mozilla.org/"
+  },
+  {
+    "title": "Programiz",
+    "description": "Learn to code in Python, C/C++, Java, and other popular programming languages with our easy to follow tutorials, examples, online compiler and references.",
+    "url": "https://www.programiz.com/"
+  },
+  {
+    "title": "W3schools",
+    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+    "url": "https://www.w3schools.com/"
+  }
+]

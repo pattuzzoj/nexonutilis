@@ -1,0 +1,22 @@
+[
+  {
+    "title": "beecrowd",
+    "description": "Be the owner of your career by being part of one of the fastest growing tech communities available. beecrowd is among the largest competitive programming and online code judgment platforms in the world.",
+    "url": "https://judge.beecrowd.com/"
+  },
+  {
+    "title": "LeetCode",
+    "description": "Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.",
+    "url": "https://leetcode.com/"
+  },
+  {
+    "title": "HackerRank",
+    "description": "HackerRank is the market-leading coding test and interview solution for hiring developers. Start hiring at the pace of innovation!",
+    "url": "https://www.hackerrank.com/"
+  },
+  {
+    "title": "Coderbyte",
+    "description": "Evaluate candidates quickly, affordably, and accurately for assessments, interviews, and take-home projects. Prepare for interviews on the #1 platform for 1M+ developers that want to level up their careers.",
+    "url": "https://coderbyte.com/"
+  }
+]

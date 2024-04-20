@@ -1,0 +1,22 @@
+{
+  "type": "resource",
+  "mode": "card",
+  "title": "Java",
+  "description": "Java is a versatile, object-oriented programming language known for its portability, performance, and security features. It is widely used for developing enterprise applications, mobile apps (Android), web servers, and more. Java's rich ecosystem, including the Java Virtual Machine (JVM), allows developers to write code once and run it on multiple platforms.",
+  "url": "/languages/java",
+  "logo": "https://static-00.iconduck.com/assets.00/java-original-icon-189x256-mdqugxri.png",
+  "roadmap": "https://roadmap.sh/java",
+  "official": "https://www.java.com/",
+  "items": [
+    {
+      "title": "Java - W3schools",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/java/default.asp"
+    },
+    {
+      "title": "Java - Programiz",
+      "description": "Java is a powerful general-purpose programming language. Our Java tutorial will guide you to learn Java one step at a time with the help of examples.",
+      "url": "https://www.programiz.com/Java-programming"
+    }
+  ]
+}

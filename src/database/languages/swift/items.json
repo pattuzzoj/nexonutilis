@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Swift - GeeksforGeeks",
+    "description": "Swift is a powerful general-purpose programming language developed by Apple to create iOS applications such as for iOS, macOS, watchOS, and so on.",
+    "url": "https://www.geeksforgeeks.org/swift-tutorial/"
+  },
+  {
+    "title": "Swift - Programiz",
+    "description": "Swift is a powerful and intuitive programming language developed by Apple. It is used to create apps for iOS, macOS, watchOS, and so on. Swift code is concise yet expressive (easier to understand and write).",
+    "url": "https://www.programiz.com/swift-programming"
+  }
+]

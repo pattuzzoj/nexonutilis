@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Code Forum",
+    "description": "Code Forum is a community that developers trust to help them exceed expectations. Where developers can learn, share and build their developer toolkit.",
+    "url": "https://codeforum.org/"
+  },
+  {
+    "title": "Coding Forums",
+    "description": "The Coding Forums is the place to find help with your coding and programming queries. We're a friendly community of coders ready to assist.",
+    "url": "https://www.thecodingforums.com/"
+  },
+  {
+    "title": "Stack Overflow",
+    "description": "Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
+    "url": "https://stackoverflow.com/"
+  },
+  {
+    "title": "Reddit - Programming",
+    "description": "A large and active subreddit dedicated to programming discussions, tutorials, and news. Find communities for specific languages and frameworks.",
+    "url": "https://www.reddit.com/r/programming/"
+  },
+  {
+    "title": "Hashnode",
+    "description": "Hashnode is a developer-focused community platform where you can publish technical articles and participate in discussions with other programmers.",
+    "url": "https://hashnode.com/"
+  },
+  {
+    "title": "Dev.to",
+    "description": "Share your programming knowledge and learn from others on Dev.to. Publish articles, tutorials, and participate in discussions on various programming topics.",
+    "url": "https://dev.to/"
+  }
+]

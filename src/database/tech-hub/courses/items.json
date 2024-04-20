@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Alura",
+    "description": "Learn programming, front-end, back-end, data science, UX, DevOps, innovation, and management on Brazil's largest technology platform. (Content primarily in Portuguese)",
+    "url": "https://www.alura.com.br/"
+  },
+  {
+    "title": "Curso em Video",
+    "description": "Enhance your resume with free video courses from Curso em Video.  Learn computer science concepts through courses created by experts. (Content primarily in Portuguese)",
+    "url": "https://www.cursoemvideo.com/"
+  },
+  {
+    "title": "DevMedia",
+    "description": "Learn to code for real with DevMedia.  Their approach focuses on practical application through real projects, encouraging questions and interaction with other programmers. (Content primarily in Portuguese)",
+    "url": "https://www.devmedia.com.br/"
+  },
+  {
+    "title": "DIO",
+    "description": "Build your portfolio with marketplace projects. Develop innovative projects and create solutions together with experts to keep your portfolio up-to-date.",
+    "url": "https://www.dio.me/"
+  },
+  {
+    "title": "EBAC",
+    "description": "EBAC offers a fast and convenient way to learn design and contemporary professions online.  Explore open classes, online intensives, and courses designed for rapid learning. (Content primarily in Portuguese)",
+    "url": "https://ebaconline.com.br/"
+  },
+  {
+    "title": "edX",
+    "description": "Pursue accredited online courses from top universities and institutions on edX. Explore a wide range of subjects, including computer science, data science, and software development, offered at various levels.",
+    "url": "https://www.edx.org/"
+  },
+  {
+    "title": "freeCodeCamp",
+    "description": "freeCodeCamp is a community of people from all around the world who are learning to code together.",
+    "url": "https://www.freecodecamp.org/"
+  },
+  {
+    "title": "Pluralsight",
+    "description": "Expand your knowledge with Pluralsight's library of video tutorials on programming, IT operations, and creative skills.  Choose from subscription plans offering access to a vast collection of courses by industry experts.",
+    "url": "https://www.pluralsight.com/"
+  },
+  {
+    "title": "Rocketseat",
+    "description": "The complete platform to learn programming from scratch at your own pace.  Become a full-stack developer and specialize in various technologies without leaving home. (Content primarily in Portuguese)",
+    "url": "https://www.rocketseat.com.br/"
+  },
+  {
+    "title": "Udacity",
+    "description": "Upskill or reskill with Udacity's nanodegree programs.  These intensive courses focus on specific career paths, combining video lessons, hands-on projects, and mentor support to prepare you for in-demand jobs.",
+    "url": "https://www.udacity.com/"
+  }
+]

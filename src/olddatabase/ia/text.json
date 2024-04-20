@@ -1,0 +1,38 @@
+{
+  "type": "resource",
+  "title": "Text Generators",
+  "description": "Explore AI-powered text generation tools and models.",
+  "url": "/ia/text",
+  "items": [
+    {
+      "title": "ChatGPT",
+      "description": "Explore the capabilities of ChatGPT, an advanced conversational AI model developed by OpenAI.",
+      "url": "https://chat.openai.com/"
+    },
+    {
+      "title": "Copilot",
+      "description": "Microsoft Copilot, powered by GPT-4, assists developers by suggesting code, writing documentation, and providing context-aware recommendations.",
+      "url": "https://copilot.microsoft.com/"
+    },
+    {
+      "title": "Gemini",
+      "description": "Discover Gemini, a powerful AI-based platform for cryptocurrency trading and investment.",
+      "url": "https://gemini.google.com/"
+    },
+    {
+      "title": "Phind",
+      "description": "Get answers to complex questions with Phind's AI answer engine.",
+      "url": "https://www.phind.com/"
+    },
+    {
+      "title": "Perplexity AI",
+      "description": "Perplexity AI unlocks the power of knowledge with information discovery and sharing.",
+      "url": "https://www.perplexity.ai/"
+    },
+    {
+      "title": "YOU",
+      "description": "Use Smart Mode to accomplish tasks quickly, draft unique content, and access real-time web results",
+      "url": "https://you.com/"
+    }
+  ]
+}

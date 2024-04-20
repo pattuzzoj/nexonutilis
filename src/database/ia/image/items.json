@@ -1,0 +1,37 @@
+[
+  {
+      "title": "Pixlr AI Image Generator",
+      "description": "Transform your words into stunning visuals using Pixlr's AI Image Generator. Create eye-catching images for blogs, social media, or personal projects.",
+      "url": "https://pixlr.com/ai/ai-image-generator/"
+  },
+  {
+      "title": "Craiyon",
+      "description": "Explore infinite possibilities for styles, themes, and techniques with Craiyon. Create abstract art, aesthetic wallpapers, and breathtaking AI landscapes.",
+      "url": "https://www.craiyon.com/"
+  },
+  {
+      "title": "DeepAI Text to Image Generator",
+      "description": "This tool uses advanced deep learning algorithms to create unique images from text descriptions. Ideal for AI art or playful experimentation.",
+      "url": "https://deepai.org/machine-learning-model/text2img"
+  },
+  {
+      "title": "Art AI",
+      "description": "Generate AI art with Art AI's image generator. Explore various themes, styles, and techniques to create captivating visuals.",
+      "url": "https://www.canva.com/ai-image-generator/"
+  },
+  {
+      "title": "AI Art by Canva",
+      "description": "Canva's AI art generator lets you choose image variations based on preferred looks and compositions. Get creative with AI-generated visuals.",
+      "url": "https://www.canva.com/ai-image-generator/"
+  },
+  {
+      "title": "Image Creator from Microsoft Designer",
+      "description": "Free AI image generation tool based on DALL-E 3, known for high-quality results.",
+      "url": "https://designer.microsoft.com/image-creator"
+  },
+  {
+      "title": "Dream by WOMBO",
+      "description": "App that lets you create art and images with text prompts. Offers various artistic styles.",
+      "url": "https://www.w.ai/"
+  }
+]

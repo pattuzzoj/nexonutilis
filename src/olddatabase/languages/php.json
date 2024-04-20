@@ -1,0 +1,22 @@
+{
+  "type": "resource",
+  "mode": "card",
+  "title": "PHP",
+  "description": "PHP is a server-side scripting language designed for web development. It is widely used for creating dynamic web pages and web applications. PHP offers powerful features for server-side programming, database integration, and web services. Despite its age, PHP continues to be a popular choice for web development due to its ease of use and extensive community support.",
+  "roadmap": "",
+  "official": "https://www.php.net",
+  "items": [
+    {
+      "title": "PHP Tutorial",
+      "description": "This modern PHP tutorial helps you learn how to develop dynamic websites and web applications using PHP from scratch.",
+      "url": "https://www.phptutorial.net/"
+    },
+    {
+      "title": "PHP - W3schools",
+      "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+      "url": "https://www.w3schools.com/php/"
+    }
+  ],
+  "url": "/languages/php",
+  "logo": "https://static-00.iconduck.com/assets.00/php-icon-256x256-oq5bc0bt.png"
+}

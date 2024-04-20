@@ -1,0 +1,12 @@
+[
+  {
+    "title": "C# Tutorial - Tutorialspoint",
+    "description": "Explore tutorials and detailed references for C#, covering fundamental concepts, object-oriented programming, LINQ, and more.",
+    "url": "https://www.tutorialspoint.com/csharp/"
+  },
+  {
+    "title": "C# - W3schools",
+    "description": "Learn the fundamentals of the C# language with this interactive and easy-to-follow online tutorial.",
+    "url": "https://www.w3schools.com/cs/default.asp"
+  }
+]
