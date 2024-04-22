@@ -72,7 +72,7 @@ export default function Home() {
           </div>
         </Match>
         <Match when={data.item?.type == "category"}>
-          <div ref={card} class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4 transition-all duration-300">
+          <div ref={card} class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 grid-rows-1 gap-4 transition-all duration-300">
             <For each={data.item?.items}>
               {(item) => (
                 <a class="
