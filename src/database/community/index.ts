@@ -1,6 +1,7 @@
 import { Category } from 'database/class';
 import { blogs } from './blogs';
 import { forums } from './forums';
+import { discord } from './discord';
 
 export const community = new Category({
   title: "Community",
@@ -9,6 +10,7 @@ export const community = new Category({
   icon: "OcPerson3",
   items: [
     blogs,
-    forums
+    forums,
+    discord
   ]
 });

@@ -6,14 +6,9 @@ import Title from "components/typography/title";
 
 interface MenuItemProps {
   type: string;
-  mode?: string;
   title: string;
-  description: string;
   url: string;
-  logo?: string;
   icon?: any;
-  roadmap?: string;
-  official?: string;
   items?: Array<MenuItemProps>;
   depth: number;
 }
@@ -27,11 +22,11 @@ export default function MenuItem(props: MenuItemProps) {
   createEffect(() => path() && setIsOpen(initialState()));
   
   return (
-    <nav class="w-full flex flex-col gap-2" aria-label={props.title}>
+    <nav class="w-full flex flex-col gap-2" aria-label={props.title} aria-expanded={isOpen() ? "true" : "false"}>
       <Title as={String(props.depth) as "2" | "3" | "4" | "5" | "6"} class="group">
         <a
         class={`${isOpen() && "bg-gray-100 dark:bg-zinc-700"} flex items-center gap-2 rounded-xl py-1 px-2 text-inherit group-hover:text-lg
-        ]] hover:bg-gray-100 dark:hover:bg-zinc-700`} href={props.url}
+        ]] hover:bg-gray-100 dark:hover:bg-zinc-700`} href={!isOpen() ? props.url : props.url.slice(0, (props.url).lastIndexOf('/'))}
         onClick={(e) => {
           e.preventDefault();
           setIsOpen(!isOpen());
@@ -42,7 +37,7 @@ export default function MenuItem(props: MenuItemProps) {
           {props.title}
         </a>
       </Title>
-      <nav class={`${isOpen() ? "h-full" : "h-0 scale-0"} flex flex-col gap-1.5 overflow-hidden transition-all duration-300`}>
+      <div class={`${isOpen() ? "h-full" : "h-0 scale-0"} flex flex-col gap-1.5 overflow-hidden transition-all duration-300`} >
         <For each={props?.items}>
           {(item) => (
             <Switch>
@@ -55,7 +50,7 @@ export default function MenuItem(props: MenuItemProps) {
             </Switch>
           )}
         </For>
-      </nav>
+      </div>
     </nav>
   );
 }
