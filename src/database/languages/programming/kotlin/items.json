@@ -1,5 +1,10 @@
 [
   {
+    "title": "Kotlin - Official Doc",
+    "description": "Kotlin is a modern but already mature programming language designed to make developers happier.",
+    "url": "https://kotlinlang.org/docs/getting-started.html"
+  },
+  {
     "title": "Kotlin - Programiz",
     "description": "Kotlin is a relatively new programming language developed by JetBrains for modern multiplatform applications. Our Kotlin tutorial will guide you to learn Kotlin one step at a time with the help of examples.",
     "url": "https://www.programiz.com/kotlin-programming"

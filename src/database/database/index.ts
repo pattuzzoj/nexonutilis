@@ -2,6 +2,7 @@ import { Category } from 'database/class';
 import { mysql } from './mysql';
 import { postgres } from './postgres';
 import { mongodb } from './mongodb';
+import { sqlite } from './sqlite';
 
 export const databases = new Category({
   title: "Database",
@@ -10,6 +11,7 @@ export const databases = new Category({
   items: [
     mongodb,
     mysql,
-    postgres
+    postgres,
+    sqlite
   ]
 });

@@ -1,0 +1,22 @@
+[
+  {
+      "title": "SQLite Tutorial - SQLite.org",
+      "description": "Official SQLite tutorial providing detailed documentation, guides, and resources for learning SQLite database development.",
+      "url": "https://www.sqlite.org/docs.html"
+  },
+  {
+      "title": "SQLite Tutorial - Tutorialspoint",
+      "description": "Comprehensive SQLite tutorial covering basic to advanced SQL queries, database management, and SQLite syntax with live examples and exercises.",
+      "url": "https://www.tutorialspoint.com/sqlite/index.htm"
+  },
+  {
+      "title": "SQLite Tutorial - SQLitetutorial.net",
+      "description": "A practical SQLite tutorial offering step-by-step lessons and examples for learning SQLite database development and SQL queries.",
+      "url": "https://www.sqlitetutorial.net/"
+  },
+  {
+    "title": "SQLite Tutorial - W3Schools",
+    "description": "Simple and easy-to-follow SQLite tutorial covering basic concepts and SQL queries.",
+    "url": "https://www.w3schools.com/sql/default.asp"
+  }
+]
