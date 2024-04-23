@@ -2,7 +2,6 @@ import useSwitch from "hooks/useSwitch";
 import { For, Switch, Match, createEffect } from "solid-js";
 import { useLocation, useNavigate } from "@solidjs/router";
 import Icon from "components/icon";
-import Title from "components/typography/title";
 
 interface MenuItemProps {
   type: string;
