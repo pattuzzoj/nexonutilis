@@ -1,0 +1,22 @@
+[
+  {
+      "title": "W3Schools SQL Tutorial",
+      "description": "Comprehensive SQL tutorial covering basic to advanced SQL queries, database management, and SQL syntax with live examples and exercises.",
+      "url": "https://www.w3schools.com/sql/"
+  },
+  {
+      "title": "SQLZoo",
+      "description": "Interactive SQL tutorial with hands-on exercises covering SQL syntax, queries, joins, and database manipulation.",
+      "url": "https://sqlzoo.net/"
+  },
+  {
+      "title": "Mode Analytics SQL Tutorial",
+      "description": "A practical SQL tutorial that teaches SQL concepts using real-world datasets and scenarios, covering analytical SQL techniques.",
+      "url": "https://mode.com/sql-tutorial/"
+  },
+  {
+      "title": "SQL Tutorial - Tutorialspoint",
+      "description": "Comprehensive SQL tutorial covering all aspects of SQL development, from basic queries to advanced database operations.",
+      "url": "https://www.tutorialspoint.com/sql/index.htm"
+  }
+]

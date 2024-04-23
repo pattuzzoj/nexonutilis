@@ -1,4 +1,4 @@
-import { Category, setItems } from "../../class";
+import { Category, setItems } from "database/class";
 import items from "./items.json";
 
 export const web = new Category({

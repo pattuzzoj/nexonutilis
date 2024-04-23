@@ -1,0 +1,17 @@
+[
+  {
+      "title": "W3Schools CSS Tutorial",
+      "description": "Comprehensive CSS tutorial covering basic to advanced CSS styling techniques, CSS selectors, CSS layouts, and CSS frameworks.",
+      "url": "https://www.w3schools.com/css/"
+  },
+  {
+      "title": "MDN Web Docs: CSS",
+      "description": "Official documentation from Mozilla covering CSS properties, values, selectors, and layout techniques with examples and references.",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  },
+  {
+      "title": "CSS Tutorial - Tutorialspoint",
+      "description": "Comprehensive CSS tutorial covering all aspects of CSS development, from basic styling to advanced CSS animations and transitions.",
+      "url": "https://www.tutorialspoint.com/css/index.htm"
+  }
+]

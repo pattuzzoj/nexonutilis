@@ -1,0 +1,12 @@
+[
+  {
+      "title": "Sass Official Documentation",
+      "description": "Official documentation for Sass, the CSS preprocessor. Learn about Sass syntax, features, and usage.",
+      "url": "https://sass-lang.com/documentation"
+  },
+  {
+      "title": "Sass Tutorial - Tutorialspoint",
+      "description": "Comprehensive Sass tutorial covering basic to advanced Sass features, mixins, variables, and usage.",
+      "url": "https://www.tutorialspoint.com/sass/index.htm"
+  }
+]

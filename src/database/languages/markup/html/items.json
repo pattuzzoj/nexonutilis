@@ -1,0 +1,27 @@
+[
+  {
+      "title": "W3Schools HTML Tutorial",
+      "description": "Comprehensive HTML tutorial covering basic to advanced concepts with live examples and exercises.",
+      "url": "https://www.w3schools.com/html/"
+  },
+  {
+      "title": "MDN Web Docs: HTML",
+      "description": "Official documentation from Mozilla covering HTML elements, attributes, and usage with examples and references.",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+  },
+  {
+      "title": "HTML Dog",
+      "description": "A beginner-friendly HTML tutorial offering step-by-step lessons and practical examples for learning HTML coding.",
+      "url": "https://www.htmldog.com/guides/html/"
+  },
+  {
+      "title": "HTML Tutorial - javatpoint",
+      "description": "A simple and easy-to-follow HTML tutorial for beginners, covering basic HTML tags, attributes, and syntax.",
+      "url": "https://www.javatpoint.com/html-tutorial"
+  },
+  {
+      "title": "HTML Tutorial - Tutorialspoint",
+      "description": "Comprehensive HTML tutorial covering all aspects of HTML development, from basic tags to advanced techniques.",
+      "url": "https://www.tutorialspoint.com/html/index.htm"
+  }
+]

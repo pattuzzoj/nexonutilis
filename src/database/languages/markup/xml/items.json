@@ -1,0 +1,17 @@
+[
+  {
+      "title": "W3Schools XML Tutorial",
+      "description": "Comprehensive XML tutorial covering basic to advanced concepts with live examples and exercises.",
+      "url": "https://www.w3schools.com/xml/"
+  },
+  {
+      "title": "XML Tutorial - Tutorialspoint",
+      "description": "A comprehensive XML tutorial covering all aspects of XML development, from basic syntax to advanced XML processing.",
+      "url": "https://www.tutorialspoint.com/xml/index.htm"
+  },
+  {
+      "title": "XML Tutorial - Javatpoint",
+      "description": "A simple and easy-to-follow XML tutorial for beginners, covering basic XML syntax, elements, and attributes.",
+      "url": "https://www.javatpoint.com/xml-tutorial"
+  }
+]

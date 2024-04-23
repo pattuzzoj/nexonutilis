@@ -1,0 +1,12 @@
+[
+  {
+      "title": "Less.js Official Documentation",
+      "description": "Official documentation for Less.js, the JavaScript-based CSS preprocessor. Learn about Less syntax, features, and usage.",
+      "url": "http://lesscss.org/"
+  },
+  {
+      "title": "Less Tutorial - Tutorialspoint",
+      "description": "Comprehensive Less tutorial covering basic to advanced Less features, mixins, variables, and usage.",
+      "url": "https://www.tutorialspoint.com/less/index.htm"
+  }
+]
