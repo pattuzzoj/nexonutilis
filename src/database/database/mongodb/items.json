@@ -1,0 +1,22 @@
+[
+  {
+    "title": "MongoDB Official Documentation",
+    "description": "The official MongoDB documentation provides comprehensive information on MongoDB features, installation, and usage.",
+    "url": "https://docs.mongodb.com/manual/"
+  },
+  {
+    "title": "MongoDB University",
+    "description": "MongoDB University offers free online courses to teach you how to build and deploy apps on MongoDB.",
+    "url": "https://university.mongodb.com/"
+  },
+  {
+    "title": "MongoDB Developer Hub",
+    "description": "The MongoDB Developer Hub provides tutorials, articles, and tools to help you build and optimize your MongoDB applications.",
+    "url": "https://developer.mongodb.com/"
+  },
+  {
+    "title": "MongoDB - W3School",
+    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.",
+    "url": "https://www.w3schools.com/mongodb/index.php"
+  }
+]

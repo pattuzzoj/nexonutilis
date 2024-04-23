@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Unity Learn",
+    "description": "Official learning platform for Unity with tutorials, courses, and projects.",
+    "url": "https://learn.unity.com/"
+  },
+  {
+    "title": "Unity Scripting API Documentation",
+    "description": "Official documentation for scripting in Unity using C# programming language.",
+    "url": "https://docs.unity3d.com/ScriptReference/"
+  },
+  {
+    "title": "Unity Asset Store",
+    "description": "Marketplace to find assets, plugins, and tools for your Unity projects.",
+    "url": "https://assetstore.unity.com/"
+  },
+  {
+    "title": "Unity Forums",
+    "description": "Community forums to discuss development, share resources, and get help from fellow Unity developers.",
+    "url": "https://forum.unity.com/"
+  }
+]

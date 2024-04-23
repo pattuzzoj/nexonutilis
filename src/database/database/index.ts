@@ -1,12 +1,14 @@
 import { Category } from 'database/class';
 import { mysql } from './mysql';
 import { postgres } from './postgres';
+import { mongodb } from './mongodb';
 
 export const databases = new Category({
   title: "Database",
-  description: "Dive deep into the heart of data management with database technologies. Explore relational and non-relational databases, query languages, and data modeling techniques to store, retrieve, and manipulate data effectively in your applications.",
+  description: "Resources for efficient data storage and manipulation, including MySQL and Postgres.",
   icon: "FiDatabase",
   items: [
+    mongodb,
     mysql,
     postgres
   ]

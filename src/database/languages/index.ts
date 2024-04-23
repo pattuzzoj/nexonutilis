@@ -16,7 +16,7 @@ import { swift } from './swift';
 
 export const languages = new Category({
   title: "Languages",
-  description: "Discover a variety of programming languages for software development.",
+  description: "Collection of popular programming languages like C++, Python, Java, etc., for exploration and learning purposes.",
   icon: "BsCode",
   items: [
     c,

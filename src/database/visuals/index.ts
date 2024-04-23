@@ -7,7 +7,7 @@ import { images } from './images';
 
 export const visuals = new Category({
   title: "Visuals",
-  description: "Discover a curated selection of visual resources to enhance your design and development projects.",
+  description: "Enhance projects with visual elements like colors, fonts, icons, and illustrations.",
   icon: "RiDesignPaletteLine",
   items: [
     colors,

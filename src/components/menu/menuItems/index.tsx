@@ -20,10 +20,10 @@ export default function MenuItem(props: MenuItemProps) {
   const [isOpen, setIsOpen] = useSwitch<boolean>(initialState());
 
   createEffect(() => path() && setIsOpen(initialState()));
-  
+
   return (
     <nav class="w-full flex flex-col gap-2" aria-label={props.title} aria-expanded={isOpen() ? "true" : "false"}>
-      <Title as={String(props.depth) as "2" | "3" | "4" | "5" | "6"} class="group">
+      <Title as={String(props.depth) as "2" | "3" | "4" | "5" | "6"} style={`font-size: ${1.6 - (0.2 * props.depth) + "rem"}`} class="group">
         <a
         class={`${isOpen() && "bg-gray-100 dark:bg-zinc-700"} flex items-center gap-2 rounded-xl py-1 px-2 text-inherit group-hover:text-lg
         ]] hover:bg-gray-100 dark:hover:bg-zinc-700`} href={!isOpen() ? props.url : props.url.slice(0, (props.url).lastIndexOf('/'))}

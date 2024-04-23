@@ -84,7 +84,7 @@ export default function Home() {
                     <Title as="3" class="text-xl">{item.title}</Title>
                     <Icon name="RiArrowsArrowRightDoubleLine" class="invisible group-hover:visible size-7"/>
                   </span>
-                  <Text class="text-base font-medium font-sans line-clamp-2 opacity-90">{item.description}</Text>
+                  <Text class="text-base font-medium font-sans line-clamp-3 opacity-90">{item.description}</Text>
                   <Show when={item?.icon}>
                     <span class="w-full flex flex-row-reverse">
                       <Icon name={item.icon} class="size-6 group-hover:animate-spin"/>

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Roblox Developer Hub",
+    "description": "Official hub for Roblox developers with guides, tutorials, and documentation.",
+    "url": "https://developer.roblox.com/"
+  },
+  {
+    "title": "Roblox Scripting Tutorials",
+    "description": "Comprehensive tutorials on scripting in Roblox using Lua programming language.",
+    "url": "https://developer.roblox.com/en-us/resources/scripting-tutorials"
+  },
+  {
+    "title": "Roblox Community Forums",
+    "description": "A place to discuss development, share tips, and ask questions with the Roblox developer community.",
+    "url": "https://devforum.roblox.com/"
+  },
+  {
+    "title": "Roblox Asset Marketplace",
+    "description": "Marketplace to find assets, scripts, and models for your Roblox projects.",
+    "url": "https://www.roblox.com/create"
+  }
+]

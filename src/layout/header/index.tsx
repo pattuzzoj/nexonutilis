@@ -10,7 +10,7 @@ export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(false);
 
   return (
-    <header class="relative h-[5vh] md:h-[95vh] md:min-w-64 flex md:flex-col justify-between items-stretch gap-4 px-4">
+    <header class="relative h-[5vh] md:h-[95vh] md:min-w-72 flex md:flex-col justify-between items-stretch gap-4 px-4">
       <div class="self-center md:hidden">
         <SwitchTheme /> 
       </div>

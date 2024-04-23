@@ -5,7 +5,7 @@ import { training_code } from './training_code';
 
 export const techhub = new Category({
   title: "Tech Hub",
-  description: "Discover a central hub for technology enthusiasts and professionals alike.",
+  description: "Central resource for developers, providing tutorials, courses, and training code across various tech fields.",
   icon: "TbLayoutDashboard",
   items: [
     tutorials,

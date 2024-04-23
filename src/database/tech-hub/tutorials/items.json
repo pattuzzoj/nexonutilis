@@ -28,5 +28,24 @@
     "title": "W3schools",
     "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
     "url": "https://www.w3schools.com/"
+  },
+  {
+    "title": "Code Basics",
+    "description": "Code Basics is an online platform featuring free programming tutorials and an interactive coding environment. Every lesson comes with an exercise to practice. It's the easiest way to experience coding right in your browser.",
+    "url": "https://code-basics.com/"
+  },
+  {
+    "title": "Rip Tutorial",
+    "description": "Rip Tutorial provides over 1000 topics to learn about any programming languages/software such as C#, Dapper, Entity Framework, SQL, and more.",
+    "url": "https://riptutorial.com/"
+  },
+  {
+    "title": "Tutorials Point",
+    "description": "Learn the latest technologies and programming languages SQL, MySQL, Python, C, C++, Java, Python, PHP, Machine Learning, data science, AI, Prompt Engineering and more.",
+    "url": "https://www.tutorialspoint.com/"
   }
 ]
+
+
+
+

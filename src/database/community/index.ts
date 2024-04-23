@@ -5,7 +5,7 @@ import { discord } from './discord';
 
 export const community = new Category({
   title: "Community",
-  description: "Explore vibrant developer communities where you can connect, collaborate, and learn from fellow programmers worldwide.",
+  description: "Platforms like blogs, forums, and Discord servers for collaboration and knowledge sharing among developers.",
   url: "/community",
   icon: "OcPerson3",
   items: [

@@ -1,17 +1,17 @@
 import { JSX } from 'solid-js';
 import { BsGithub, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
-import { FiSun, FiMoon, FiX, FiMap, FiHome, FiActivity, FiDatabase, FiEdit, FiTrash, FiInfo } from 'solid-icons/fi';
-import { RiSystemMenu2Line, RiArrowsArrowDropDownLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowRightSLine, RiSystemMenuUnfoldLine, RiSystemMenuFoldLine, RiDesignPaletteLine } from 'solid-icons/ri';
-import { FaSolidCircleCheck, FaSolidCircleXmark, FaRegularBookmark, FaBrandsConnectdevelop, FaSolidLaptopCode } from 'solid-icons/fa';
-import { AiFillEye, AiFillEyeInvisible, AiOutlineCloudServer } from 'solid-icons/ai';
-import { BiSolidRightArrow, BiSolidCopy, BiRegularBookBookmark } from 'solid-icons/bi'
+import { FiSun, FiMoon, FiX, FiHome, FiActivity, FiDatabase, FiInfo } from 'solid-icons/fi';
+import { RiArrowsArrowDropDownLine, RiArrowsArrowRightSLine, RiDesignPaletteLine, RiArrowsArrowRightDoubleLine } from 'solid-icons/ri';
+import { FaRegularBookmark, FaBrandsConnectdevelop, FaSolidLaptopCode } from 'solid-icons/fa';
+import { AiOutlineCloudServer } from 'solid-icons/ai';
+import { BiSolidCopy } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
-import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceDesktopCog, TbMenu2, TbCircleArrowRight, TbCircleArrowDown } from 'solid-icons/tb';
-import { IoAddCircleOutline } from 'solid-icons/io';
+import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceDesktopCog, TbMenu2 } from 'solid-icons/tb';
 import { CgClose } from 'solid-icons/cg';
 import { AiOutlineBgColors } from 'solid-icons/ai';
 import { BsFonts, BsImage } from 'solid-icons/bs';
 import { FaSolidIcons } from 'solid-icons/fa';
+import { IoGameControllerOutline } from 'solid-icons/io';
 
 interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   name:
@@ -19,29 +19,22 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "FiSun"
   | "FiMoon"
   | "FiX"
-  | "RiSystemMenu2Line"
-  | "FaSolidCircleCheck"
-  | "FaSolidCircleXmark"
-  | "AiFillEye"
-  | "AiFillEyeInvisible"
   | "RiArrowsArrowDropDownLine"
-  | "BiSolidRightArrow"
+  | "RiArrowsArrowRightSLine"
   | "RiArrowsArrowRightDoubleLine"
   | "BsBookmarkPlus"
   | "BsBookmarkDash"
   | "BsBookmarkCheckFill"
   | "BsBookmarkDashFill"
+  | "FaRegularBookmark"
+  | "BsBookmarkPlusFill"
   | "OcCopy2"
   | "OcLinkexternal2"
   | "BiSolidCopy"
-  | "FiMap"
-  | "BiRegularBookBookmark"
   | "FiHome"
-  | "FaRegularBookmark"
-  | "RiArrowsArrowRightSLine"
-  | "BsBookmarkPlusFill"
-  | "RiSystemMenuUnfoldLine"
-  | "RiSystemMenuFoldLine"
+  | "FiInfo"
+  | "TbMenu2"
+  | "CgClose"
   | "BsCode"
   | "RiDesignPaletteLine"
   | "OcPerson3"
@@ -57,13 +50,7 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "AiOutlineCloudServer"
   | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
   | "TbDeviceDesktopCog"
-  | "FiEdit"
-  | "FiTrash"
-  | "FiInfo"
-  | "TbMenu2"
-  | "TbCircleArrowRight" | "TbCircleArrowDown"
-  | "IoAddCircleOutline"
-  | "CgClose";
+  | "IoGameControllerOutline";
   class?: string;
 };
 
@@ -73,35 +60,28 @@ export default function Icon(props: Props) {
     FiSun,
     FiMoon,
     FiX,
-    RiSystemMenu2Line,
-    FaSolidCircleCheck,
-    FaSolidCircleXmark,
-    AiFillEye,
-    AiFillEyeInvisible,
-    RiArrowsArrowDropDownLine,
-    BiSolidRightArrow,
     RiArrowsArrowRightDoubleLine,
+    RiArrowsArrowDropDownLine,
+    RiArrowsArrowRightSLine,
     BsBookmarkPlus,
     BsBookmarkDash,
     BsBookmarkCheckFill,
     BsBookmarkDashFill,
+    FaRegularBookmark,
+    BsBookmarkPlusFill,
     OcCopy2,
     OcLinkexternal2,
     BiSolidCopy,
-    FiMap,
-    BiRegularBookBookmark,
     FiHome,
-    FaRegularBookmark,
-    RiArrowsArrowRightSLine,
-    BsBookmarkPlusFill,
-    RiSystemMenuUnfoldLine,
-    RiSystemMenuFoldLine,
-    TbLayoutDashboard,
+    FiInfo,
+    TbMenu2,
+    CgClose,
     BsCode,
-    FiActivity,
     RiDesignPaletteLine,
     OcPerson3,
     BsRobot,
+    TbLayoutDashboard,
+    FiActivity,
     FaBrandsConnectdevelop,
     FiDatabase,
     FaSolidLaptopCode,
@@ -109,13 +89,12 @@ export default function Icon(props: Props) {
     TbServerCog,
     TbSettingsCode,
     AiOutlineCloudServer,
-    AiOutlineBgColors, BsFonts, BsImage, FaSolidIcons,
+    AiOutlineBgColors,
+    BsFonts,
+    BsImage,
+    FaSolidIcons,
     TbDeviceDesktopCog,
-    FiEdit, FiTrash, FiInfo,
-    TbMenu2,
-    TbCircleArrowRight, TbCircleArrowDown,
-    IoAddCircleOutline,
-    CgClose
+    IoGameControllerOutline
   }[props.name]
 
   return (

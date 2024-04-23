@@ -36,8 +36,8 @@ export default function DataProvider(props: {children: JSXElement}) {
   (function setRoutes(categories: Array<Category>, parentURL: string = '') {
     categories.forEach((category: Category) => {
       if(category.hasOwnProperty("items")) {
-        setRoutes(category.items as Array<Category>, category.url);
         category.url = parentURL + category.url;
+        setRoutes(category.items as Array<Category>, category.url);
 
         data.routes.set(category.url, category);
       }

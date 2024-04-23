@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Unreal Engine Documentation",
+    "description": "Official documentation covering all aspects of Unreal Engine development.",
+    "url": "https://docs.unrealengine.com/en-US/index.html"
+  },
+  {
+    "title": "Unreal Engine Online Learning",
+    "description": "Official platform with courses, tutorials, and resources for learning Unreal Engine.",
+    "url": "https://www.unrealengine.com/en-US/onlinelearning-courses"
+  },
+  {
+    "title": "Unreal Engine Marketplace",
+    "description": "Marketplace to find assets, plugins, and tools for your Unreal Engine projects.",
+    "url": "https://www.unrealengine.com/marketplace"
+  },
+  {
+    "title": "Unreal Engine Forums",
+    "description": "Community forums to discuss Unreal Engine development, share tips, and troubleshoot issues.",
+    "url": "https://forums.unrealengine.com/"
+  }
+]
