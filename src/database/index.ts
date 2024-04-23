@@ -5,6 +5,7 @@ import { ia } from "./ia";
 import { visuals } from "./visuals";
 import { databases } from "./database";
 import { games } from "./games";
+import { hosting } from "./hosting";
 
 export const database = {
   type: "category",
@@ -13,6 +14,7 @@ export const database = {
   languages,
   databases,
   games,
+  hosting,
   ia,
   visuals,
   community
