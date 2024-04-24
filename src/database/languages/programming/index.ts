@@ -1,36 +1,20 @@
 import { Category } from 'database/class';
-import { typescript } from './typescript';
 import { c } from './c';
 import { cpp } from './cpp';
 import { csharp } from './csharp';
-import { go } from './go';
-import { java } from './java';
-import { javascript } from './javascript';
 import { kotlin } from './kotlin';
+import { go } from './go';
 import { lua } from './lua';
+import { java } from './java';
 import { php } from './php';
+import { javascript } from './javascript';
 import { python } from './python';
 import { ruby } from './ruby';
 import { rust } from './rust';
 import { swift } from './swift';
+import { typescript } from './typescript';
 
 export const programming = new Category({
   title: "Programming Languages",
   description: "Collection of popular programming languages like C++, Python, Java, etc., for exploration and learning purposes.",
-  items: [
-    c,
-    cpp,
-    csharp,
-    kotlin,
-    go,
-    lua,
-    java,
-    javascript,
-    php,
-    python,
-    ruby,
-    rust,
-    swift,
-    typescript
-  ]
-});
+}, [c, cpp, csharp, kotlin, go, lua, java, php, javascript, python, ruby, rust, swift, typescript]);

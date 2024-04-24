@@ -6,10 +6,5 @@ import { voice } from './voice';
 export const ia = new Category({
   title: "IA",
   description: "Explore and develop AI solutions with resources such as image, text, and voice generators.",
-  icon: "BsRobot",
-  items: [
-    image,
-    text,
-    voice
-  ]
-});
+  icon: "BsRobot"
+}, [image, text, voice]);

@@ -12,7 +12,6 @@ export default function Search() {
     if(e.target.value != '') {
       setValue(e.target.value);
       data.routes.forEach((item: any) => {
-        console.log(item);
         if("url" in item && item.url.lastIndexOf('/')) {
           if(item?.type == "resource" && item.title.toLowerCase().startsWith(e.target.value.toLowerCase())) {
             setList(items => [...items, {"title": item.title, "url": item.url}]);

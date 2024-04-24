@@ -8,10 +8,4 @@ export const languages = new Category({
   title: "Languages",
   description: "Collection of popular programming languages like C++, Python, Java, etc., for exploration and learning purposes.",
   icon: "BsCode",
-  items: [
-    markup,
-    styling,
-    programming,
-    query
-  ]
-});
+}, [markup, styling, programming, query]);

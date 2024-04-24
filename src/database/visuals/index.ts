@@ -9,11 +9,4 @@ export const visuals = new Category({
   title: "Visuals",
   description: "Enhance projects with visual elements like colors, fonts, icons, and illustrations.",
   icon: "RiDesignPaletteLine",
-  items: [
-    colors,
-    fonts,
-    icons,
-    illustrations,
-    images
-  ]
-});
+}, [colors, fonts, icons, illustrations, images]);

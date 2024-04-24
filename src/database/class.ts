@@ -29,12 +29,20 @@ export class Category {
       icon,
       logo,
       official_url,
-      roadmap_url,
-      items
-    }: Category) {
+      roadmap_url
+    }: {
+      title: string,
+      description: string,
+      url?: string,
+      icon?: string,
+      logo?: string,
+      official_url?: string,
+      roadmap_url?: string
+    },
+    items: Array<Category | Item>) {
     this.title = title;
     this.description = description;
-    this.url = url || '/' + title?.toLowerCase().replaceAll(' ', '-');
+    this.url = url || '/' + title.toLowerCase().replaceAll(' ', '-');
 
     if(items[0] instanceof Category) {
       this.type = "category";
@@ -48,13 +56,5 @@ export class Category {
     if(logo) this.logo = logo;
     if(official_url) this.official_url = official_url;
     if(roadmap_url) this.roadmap_url = roadmap_url;
-
-    console.log(this)
   }
-}
-
-export function setItems(items: Array<{title: string, description: string, url: string}>): Array<Item> {
-  const itemsList: Array<Item> = [];
-  items.forEach((item: any) => itemsList.push(new Item({...item})));
-  return itemsList;
 }

@@ -6,9 +6,4 @@ import { sass } from './sass';
 export const styling = new Category({
   title: "Stylization Languages",
   description: "Styling languages are used to define the visual appearance and layout of documents or elements within documents.",
-  items: [
-    css,
-    less,
-    sass
-  ]
-});
+}, [css, less, sass]);

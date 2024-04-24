@@ -8,10 +8,4 @@ export const databases = new Category({
   title: "Database",
   description: "Resources for efficient data storage and manipulation, including MySQL and Postgres.",
   icon: "FiDatabase",
-  items: [
-    mongodb,
-    mysql,
-    postgres,
-    sqlite
-  ]
-});
+}, [mysql, postgres, mongodb, sqlite]);
