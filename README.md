@@ -14,6 +14,7 @@ Nexon Utilis is a web application that serves as an online repository of links r
 - **Languages**: A collection of popular programming languages, including C, C++, C#, Kotlin, Go, Lua, Java, JavaScript, PHP, Python, Ruby, Rust, Swift, and TypeScript, for exploration and learning.
 - **Database**: Resources related to database management systems, such as MySQL and Postgres, for efficient data storage and manipulation.
 - **Game Development**: Tools and resources for game development, spanning platforms like Roblox, Unity, and Unreal Engine, to create interactive and immersive experiences.
+- **Tools**: Tools include Code Editors for lightweight coding and Integrated Development Environments (IDEs) for comprehensive development, including debugging and project management features.
 - **Hosting**: Platforms and services tailored for deploying and managing various types of applications and projects in the cloud.
 - **AI**: Resources for exploring and developing AI solutions, including image, text, and voice generators, for intelligent and automated applications.
 - **Visuals**: A variety of visual elements such as colors, fonts, icons, illustrations, and images, to enhance the aesthetics and usability of design and development projects.
