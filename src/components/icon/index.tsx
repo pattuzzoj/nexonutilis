@@ -7,7 +7,7 @@ import { BiSolidCopy } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
 import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceDesktopCog, TbMenu2 } from 'solid-icons/tb';
 import { CgClose } from 'solid-icons/cg';
-import { AiOutlineBgColors, AiOutlineCloudServer } from 'solid-icons/ai';
+import { AiOutlineBgColors, AiOutlineCloudServer, AiOutlineCodeSandbox } from 'solid-icons/ai';
 import { BsFonts, BsImage } from 'solid-icons/bs';
 import { FaSolidIcons } from 'solid-icons/fa';
 import { IoGameControllerOutline } from 'solid-icons/io';
@@ -49,7 +49,8 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "AiOutlineCloudServer"
   | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
   | "TbDeviceDesktopCog"
-  | "IoGameControllerOutline";
+  | "IoGameControllerOutline"
+  | "AiOutlineCodeSandbox";
   class?: string;
 };
 
@@ -93,7 +94,8 @@ export default function Icon(props: Props) {
     BsImage,
     FaSolidIcons,
     TbDeviceDesktopCog,
-    IoGameControllerOutline
+    IoGameControllerOutline,
+    AiOutlineCodeSandbox
   }[props.name]
 
   return (

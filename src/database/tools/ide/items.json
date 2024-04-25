@@ -1,0 +1,102 @@
+[
+  {
+    "title": "IntelliJ IDEA",
+    "description": "IntelliJ IDEA is a powerful Java integrated development environment (IDE) for developing computer software for Windows, macOS, and Linux.",
+    "url": "https://www.jetbrains.com/idea/"
+  },
+  {
+    "title": "Eclipse",
+    "description": "Eclipse is an integrated development environment (IDE) used in computer programming. It contains a base workspace and an extensible plug-in system for customizing the environment.",
+    "url": "https://www.eclipse.org/"
+  },
+  {
+    "title": "NetBeans",
+    "description": "NetBeans is an integrated development environment (IDE) for Java. It allows applications to be developed from a set of modular software components called modules.",
+    "url": "https://netbeans.apache.org/"
+  },
+  {
+    "title": "PyCharm",
+    "description": "PyCharm is an integrated development environment (IDE) used in computer programming, specifically for the Python language. It is developed by the Czech company JetBrains.",
+    "url": "https://www.jetbrains.com/pycharm/"
+  },
+  {
+    "title": "Android Studio",
+    "description": "Android Studio is the official integrated development environment (IDE) for Android application development, based on IntelliJ IDEA.",
+    "url": "https://developer.android.com/studio"
+  },
+  {
+    "title": "Xcode",
+    "description": "Xcode is an integrated development environment (IDE) for macOS containing a suite of software development tools developed by Apple for developing software for macOS, iOS, iPadOS, watchOS, and tvOS.",
+    "url": "https://developer.apple.com/xcode/"
+  },
+  {
+    "title": "PhpStorm",
+    "description": "PhpStorm is a commercial, cross-platform IDE for PHP, built on JetBrains' IntelliJ IDEA platform.",
+    "url": "https://www.jetbrains.com/phpstorm/"
+  },
+  {
+    "title": "WebStorm",
+    "description": "WebStorm is a commercial IDE for JavaScript, CSS & HTML built on JetBrains' IntelliJ IDEA platform.",
+    "url": "https://www.jetbrains.com/webstorm/"
+  },
+  {
+    "title": "RubyMine",
+    "description": "RubyMine is a commercial integrated development environment (IDE) for Ruby and Ruby on Rails development, built on JetBrains' IntelliJ IDEA platform.",
+    "url": "https://www.jetbrains.com/ruby/"
+  },
+  {
+    "title": "CLion",
+    "description": "CLion is a cross-platform C and C++ IDE for Linux, macOS, and Windows, built by JetBrains.",
+    "url": "https://www.jetbrains.com/clion/"
+  },
+  {
+    "title": "Aptana Studio",
+    "description": "Aptana Studio is an open-source integrated development environment (IDE) for building web applications. Based on Eclipse, it supports JavaScript, HTML, DOM, and CSS with code-completion, outlining, JavaScript debugging, error and warning notifications, and integrated documentation.",
+    "url": "http://www.aptana.com/"
+  },
+  {
+    "title": "CodeLite",
+    "description": "CodeLite is a free, open-source, cross-platform IDE for the C/C++ programming languages that runs on Windows, macOS, and Linux.",
+    "url": "https://codelite.org/"
+  },
+  {
+    "title": "Qt Creator",
+    "description": "Qt Creator is a cross-platform C++, JavaScript, and QML integrated development environment which is part of the SDK for the Qt Framework.",
+    "url": "https://www.qt.io/qt-features-lifecycle/"
+  },
+  {
+    "title": "Visual Studio",
+    "description": "Visual Studio is an integrated development environment (IDE) from Microsoft. It is used to develop computer programs, as well as websites, web apps, web services, and mobile apps.",
+    "url": "https://visualstudio.microsoft.com/"
+  },
+  {
+    "title": "Dev-C++",
+    "description": "Dev-C++ is a free full-featured integrated development environment (IDE) distributed under the GNU General Public License for programming in C and C++.",
+    "url": "https://sourceforge.net/projects/orwelldevcpp/"
+  },
+  {
+    "title": "Lazarus",
+    "description": "Lazarus is a free cross-platform visual integrated development environment (IDE) for rapid application development (RAD) using the Free Pascal compiler.",
+    "url": "https://www.lazarus-ide.org/"
+  },
+  {
+    "title": "Rider",
+    "description": "Rider is a cross-platform .NET IDE built on JetBrains' IntelliJ IDEA platform. It is designed to provide an efficient, smooth, and unified developer experience for .NET developers.",
+    "url": "https://www.jetbrains.com/rider/"
+  },
+  {
+    "title": "Anjuta",
+    "description": "Anjuta is a versatile Integrated Development Environment (IDE) for the GNOME desktop. It features a number of advanced programming facilities.",
+    "url": "https://wiki.gnome.org/Apps/Anjuta"
+  },
+  {
+    "title": "Code::Blocks",
+    "description": "Code::Blocks is a free, open-source, cross-platform C, C++, and Fortran IDE built to meet the most demanding needs of its users. It is designed to be very extensible and fully configurable.",
+    "url": "http://www.codeblocks.org/"
+  },
+  {
+    "title": "Geany",
+    "description": "Geany is a small and lightweight Integrated Development Environment. It was developed to provide a small and fast IDE, which has only a few dependencies from other packages.",
+    "url": "https://www.geany.org/"
+  }
+]

@@ -6,6 +6,7 @@ import { visuals } from "./visuals";
 import { databases } from "./database";
 import { games } from "./games";
 import { hosting } from "./hosting";
+import { tools } from "./tools";
 
 export const database = {
   type: "category",
@@ -14,6 +15,7 @@ export const database = {
   languages,
   databases,
   games,
+  tools,
   hosting,
   ia,
   visuals,

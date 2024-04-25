@@ -1,0 +1,87 @@
+[
+  {
+    "title": "Visual Studio Code",
+    "description": "Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS, and Linux.",
+    "url": "https://code.visualstudio.com/"
+  },
+  {
+    "title": "Sublime Text",
+    "description": "Sublime Text is a sophisticated text editor for code, markup, and prose. You'll love the slick user interface, extraordinary features, and amazing performance.",
+    "url": "https://www.sublimetext.com/"
+  },
+  {
+    "title": "Atom",
+    "description": "Atom is a hackable text editor for the 21st century, built on Electron, and developed by GitHub.",
+    "url": "https://atom.io/"
+  },
+  {
+    "title": "Notepad++",
+    "description": "Notepad++ is a free source code editor and Notepad replacement that supports several languages.",
+    "url": "https://notepad-plus-plus.org/"
+  },
+  {
+    "title": "Vim",
+    "description": "Vim is a highly configurable text editor for efficiently creating and changing any kind of text. It is included as 'vi' with most UNIX systems and with Apple macOS.",
+    "url": "https://www.vim.org/"
+  },
+  {
+    "title": "Emacs",
+    "description": "GNU Emacs is an extensible, customizable text editor. It is known for its powerful and rich editing features.",
+    "url": "https://www.gnu.org/software/emacs/"
+  },
+  {
+    "title": "Brackets",
+    "description": "Brackets is a lightweight, yet powerful, modern text editor. It blends visual tools into the editor so you get the right amount of help when you want it.",
+    "url": "http://brackets.io/"
+  },
+  {
+    "title": "TextMate",
+    "description": "TextMate brings Apple's approach to operating systems into the world of text editors. By bridging UNIX underpinnings and GUI, TextMate cherry-picks the best of both worlds to the benefit of expert scripters and novice users alike.",
+    "url": "https://macromates.com/"
+  },
+  {
+    "title": "gedit",
+    "description": "gedit is the default text editor of the GNOME desktop environment.",
+    "url": "https://wiki.gnome.org/Apps/Gedit"
+  },
+  {
+    "title": "Komodo Edit",
+    "description": "Komodo Edit is a fast, smart, free, and open-source code editor. Switching your trusty code editor is hard, but give Komodo Edit a try!",
+    "url": "https://www.activestate.com/products/komodo-edit/"
+  },
+  {
+    "title": "UltraEdit",
+    "description": "UltraEdit is a powerful text editor for Windows, Mac, and Linux with advanced editing features.",
+    "url": "https://www.ultraedit.com/"
+  },
+  {
+    "title": "BBEdit",
+    "description": "BBEdit is a high-performance HTML and text editor for the Macintosh. It is designed and crafted for the editing, searching, transformation, and manipulation of text.",
+    "url": "https://www.barebones.com/products/bbedit/"
+  },
+  {
+    "title": "Nano",
+    "description": "GNU nano is a small and friendly text editor. It aims to emulate the Pico text editor, part of the Pine email client.",
+    "url": "https://www.nano-editor.org/"
+  },
+  {
+    "title": "Bluefish",
+    "description": "Bluefish is a powerful editor for experienced web designers and programmers. Bluefish supports many programming and markup languages.",
+    "url": "http://bluefish.openoffice.nl/index.html"
+  },
+  {
+    "title": "PSPad",
+    "description": "PSPad is a freeware code editor for Microsoft Windows operating systems, useful for people who: work with various programming environments, like highlighted syntax in their source code, need a small tool with a simple setup and a clean UI, want to save time - PSPad offers rich text formatting functions.",
+    "url": "https://www.pspad.com/"
+  },
+  {
+    "title": "Coda",
+    "description": "Coda is a fast, clean, and powerful text editor with pixel-perfect preview and a built-in way to open and manage your local and remote files.",
+    "url": "https://panic.com/coda/"
+  },
+  {
+    "title": "Kate",
+    "description": "Kate is a multi-document, multi-view text editor by KDE. It features stuff like codefolding, syntax-highlighting, and many supported filetypes.",
+    "url": "https://kate-editor.org/"
+  }
+]
