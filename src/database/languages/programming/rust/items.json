@@ -1,7 +1,27 @@
 [
   {
-    "title": "Rust - Programiz",
-    "description": "Rust is an open-source systems programming language that is syntactically similar to C++. In this tutorial, you will learn how to get started in Rust programming language.",
-    "url": "https://www.programiz.com/Rust-programming"
+    "title": "Official Rust Documentation",
+    "description": "The official Rust documentation provides comprehensive information about the Rust programming language, including its syntax, standard libraries, and usage.",
+    "url": "https://doc.rust-lang.org/"
+  },
+  {
+    "title": "Rust Tutorial - Programiz",
+    "description": "Programiz offers a beginner-friendly Rust tutorial covering basic to advanced concepts, with examples and exercises.",
+    "url": "https://www.programiz.com/rust"
+  },
+  {
+    "title": "Rust Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a comprehensive Rust tutorial covering language syntax, features, and practical applications.",
+    "url": "https://www.tutorialspoint.com/rust/index.htm"
+  },
+  {
+    "title": "Rust API Documentation - DevDocs.io",
+    "description": "DevDocs.io offers an aggregated, searchable interface to Rust documentation, including language references and standard library APIs.",
+    "url": "https://devdocs.io/rust/"
+  },
+  {
+    "title": "Learn Rust in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick overview of Rust syntax and features, suitable for experienced programmers.",
+    "url": "https://learnxinyminutes.com/docs/rust/"
   }
 ]

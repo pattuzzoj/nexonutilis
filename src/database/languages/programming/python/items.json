@@ -1,22 +1,48 @@
 [
   {
+    "title": "Official Python Documentation",
+    "description": "Comprehensive resource covering Python's built-in functionalities, library modules, and language reference.",
+    "url": "https://docs.python.org/3/"
+  },
+  {
     "title": "Python Tutorial",
     "description": "This Python Tutorial helps you learn Python programming from scratch. If you want to master Python fast, this tutorial is a good start.",
     "url": "https://www.pythontutorial.net/"
   },
   {
-    "title": "Python - TutorialGateway",
-    "description": "Python Tutorial: Learn Python programming language basic, advanced & data science. It helps you to learn about data science, machine learning.",
-    "url": "https://www.tutorialgateway.org/python-tutorial/"
+    "title": "Python Tutorial - W3Schools",
+    "description": "An easy-to-follow Python tutorial for beginners with interactive examples and exercises provided by W3Schools.",
+    "url": "https://www.w3schools.com/python/"
   },
   {
-    "title": "Python - Programiz",
-    "description": "Python is a powerful general-purpose programming language. Our Python tutorial will guide you to learn Python one step at a time with the help of examples.",
+    "title": "Python Tutorial - Programiz",
+    "description": "Learn Python programming basics with Programiz through step-by-step tutorials and example programs.",
     "url": "https://www.programiz.com/python-programming"
   },
   {
-    "title": "Python - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-    "url": "https://www.w3schools.com/python/default.asp"
+    "title": "Python - Tutorialspoint",
+    "description": "This Tutorialspoint site offers comprehensive tutorials on Python, covering everything from basics to advanced topics.",
+    "url": "https://www.tutorialspoint.com/python/index.htm"
+  },
+  {
+    "title": "Python Tutorial - JavaTpoint",
+    "description": "JavaTpoint provides an extensive tutorial on Python that includes all major aspects from fundamentals to database access and frameworks.",
+    "url": "https://www.javatpoint.com/python-tutorial"
+  },
+  {
+    "title": "Python Programming - GeeksforGeeks",
+    "description": "GeeksforGeeks offers a wide range of Python tutorials and exercises that cover basic programming to advanced topics like algorithms and data structures.",
+    "url": "https://www.geeksforgeeks.org/python-programming-language/"
+  },
+  {
+    "title": "Python API Documentation - DevDocs.io",
+    "description": "DevDocs.io provides an aggregated, searchable interface to Python documentation, making it easy to find Python functions and libraries.",
+    "url": "https://devdocs.io/python~3.8/"
+  },
+  {
+    "title": "Learn Python in Y Minutes",
+    "description": "A concise tutorial from Learn X in Y Minutes that covers the basics of Python syntax and programming concepts quickly.",
+    "url": "https://learnxinyminutes.com/docs/python/"
   }
 ]
+  

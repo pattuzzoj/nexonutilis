@@ -1,12 +1,42 @@
 [
   {
+    "title": "Official PHP Documentation",
+    "description": "The official PHP documentation provides comprehensive information about PHP functions, classes, and development tips, suitable for all skill levels.",
+    "url": "https://www.php.net/manual/en/"
+  },
+  {
     "title": "PHP Tutorial",
     "description": "This modern PHP tutorial helps you learn how to develop dynamic websites and web applications using PHP from scratch.",
     "url": "https://www.phptutorial.net/"
   },
   {
-    "title": "PHP - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+    "title": "PHP Tutorial - W3Schools",
+    "description": "This W3Schools tutorial offers a beginner-friendly introduction to PHP, covering basics, methods, and numerous examples with a try-it-yourself editor.",
     "url": "https://www.w3schools.com/php/"
+  },
+  {
+    "title": "PHP Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint presents a series of comprehensive lessons on PHP, ranging from simple to complex topics including database integration.",
+    "url": "https://www.tutorialspoint.com/php/index.htm"
+  },
+  {
+    "title": "PHP Tutorial - GeeksforGeeks",
+    "description": "GeeksforGeeks provides a detailed tutorial on PHP, focusing on fundamentals, data handling, and advanced programming techniques.",
+    "url": "https://www.geeksforgeeks.org/php/"
+  },
+  {
+    "title": "PHP Tutorial - JavaTpoint",
+    "description": "JavaTpoint offers extensive PHP tutorials that include clear explanations and code examples covering the basics to advanced programming concepts.",
+    "url": "https://www.javatpoint.com/php-tutorial"
+  },
+  {
+    "title": "PHP API Documentation - DevDocs.io",
+    "description": "DevDocs offers a fast, searchable interface to PHP documentation, combining all the PHP manual entries with search capabilities.",
+    "url": "https://devdocs.io/php/"
+  },
+  {
+    "title": "Learn PHP in Y Minutes",
+    "description": "This guide from Learn X in Y Minutes provides a quick overview of PHP, suitable for programmers looking for a syntax refresher or a quick start.",
+    "url": "https://learnxinyminutes.com/docs/php/"
   }
 ]

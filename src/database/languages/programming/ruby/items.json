@@ -18,5 +18,20 @@
     "title": "Ruby for Beginners - GoRails",
     "description": "Free online course for beginners in Ruby, offered by the GoRails platform. Learn the basics of the language and fundamental concepts of web development.",
     "url": "https://gorails.com/guides/ruby-for-beginners"
+  },
+  {
+    "title": "Ruby Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a comprehensive Ruby tutorial covering language syntax, features, and practical applications.",
+    "url": "https://www.tutorialspoint.com/ruby/index.htm"
+  },
+  {
+    "title": "Ruby API Documentation - DevDocs.io",
+    "description": "DevDocs.io offers an aggregated, searchable interface to Ruby documentation, including language references and standard library APIs.",
+    "url": "https://devdocs.io/ruby/"
+  },
+  {
+    "title": "Learn Ruby in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick overview of Ruby syntax and features, suitable for experienced programmers.",
+    "url": "https://learnxinyminutes.com/docs/ruby/"
   }
 ]

@@ -10,23 +10,48 @@
     "url": "https://www.javascripttutorial.net/"
   },
   {
-    "title": "JavaScript - Tutorial Gateway",
-    "description": "Tutorialgateway provides JavaScript tutorials with Examples and Screenshots. Please visit us to learn JavaScript Programming and Code easily.",
-    "url": "https://www.tutorialgateway.org/javascript/"
+    "title": "JavaScript MDN Documentation",
+    "description": "MDN Web Docs provides comprehensive, authoritative documentation for JavaScript, including tutorials, reference material, and examples.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   {
-    "title": "JavaScript - MDN",
-    "description": "JavaScript is a powerful programming language that can add interactivity to a website. It was invented by Brendan Eich.",
-    "url": "https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript"
+    "title": "JavaScript Tutorial - W3Schools",
+    "description": "W3Schools offers a complete JavaScript tutorial, from basic to advanced topics, with plenty of examples and an interactive environment.",
+    "url": "https://www.w3schools.com/js/"
   },
   {
-    "title": "JavaScript - Programiz",
-    "description": "JavaScript is a powerful and flexible programming language. It can execute on a web browser that allows us to make interactive webpages such as popup menus, animations, form validation etc.",
+    "title": "JavaScript Tutorial - Programiz",
+    "description": "Learn JavaScript programming with Programiz through easy-to-follow tutorials and examples, suitable for beginners.",
     "url": "https://www.programiz.com/javascript"
   },
   {
-    "title": "JavaScript - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-    "url": "https://www.w3schools.com/js/default.asp"
-  }
+    "title": "JavaScript Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a broad overview of JavaScript, covering both fundamental programming concepts and deeper insights into JavaScript's capabilities.",
+    "url": "https://www.tutorialspoint.com/javascript/index.htm"
+  },
+  {
+    "title": "JavaScript Tutorial - JavaTpoint",
+    "description": "JavaTpoint offers comprehensive JavaScript tutorials that cover core language features, DOM manipulation, AJAX, and more, aimed at beginners and intermediate developers.",
+    "url": "https://www.javatpoint.com/javascript-tutorial"
+  },
+  {
+    "title": "JavaScript Programming - GeeksforGeeks",
+    "description": "GeeksforGeeks provides a series of articles on JavaScript that delve into the basics, algorithms, and data structures implemented in JavaScript.",
+    "url": "https://www.geeksforgeeks.org/javascript/"
+  },
+  {
+    "title": "JavaScript Tutorial - FreeCodeCamp",
+    "description": "FreeCodeCamp offers an extensive free course on JavaScript as part of their full-stack curriculum, including exercises and projects.",
+    "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+  },
+  {
+    "title": "JavaScript API - DevDocs.io",
+    "description": "DevDocs.io combines multiple JavaScript API documentations in a fast, organized, and searchable interface.",
+    "url": "https://devdocs.io/javascript/"
+  },
+  {
+    "title": "Learn JavaScript in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick tutorial that captures the essence of JavaScript, perfect for a quick syntax lookup or introduction.",
+    "url": "https://learnxinyminutes.com/docs/javascript/"
+  }  
 ]

@@ -1,12 +1,32 @@
 [
   {
-    "title": "Go - Programiz",
-    "description": "It is also referred to as the Golang programming language. Our Go tutorials will guide you to learn Go Programming one step at a time.",
-    "url": "https://www.programiz.com/golang"
+    "title": "Official Go Documentation",
+    "description": "The official documentation for the Go programming language, maintained by the Go core team. It includes a Getting Started guide, package documentation, and extensive resources on Go's features and standard library.",
+    "url": "https://golang.org/doc/"
   },
   {
-    "title": "Go - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, Go, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+    "title": "Go Tutorial - W3Schools",
+    "description": "W3Schools offers a Go tutorial covering basic to intermediate topics such as syntax, control structures, functions, and more, tailored for beginners.",
     "url": "https://www.w3schools.com/go/"
+  },
+  {
+    "title": "Go Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a comprehensive tutorial on Go programming, which includes topics from the basics up to advanced concepts like concurrency.",
+    "url": "https://www.tutorialspoint.com/go/index.htm"
+  },
+  {
+    "title": "Go Language - GeeksforGeeks",
+    "description": "GeeksforGeeks hosts several Go programming articles and tutorials, ranging from introductory lessons to more detailed explorations of Go-specific features such as goroutines and channels.",
+    "url": "https://www.geeksforgeeks.org/golang/"
+  },
+  {
+    "title": "Go Documentation - DevDocs.io",
+    "description": "DevDocs.io features an aggregated, searchable interface for Go documentation, providing a handy reference tool for developers.",
+    "url": "https://devdocs.io/go/"
+  },
+  {
+    "title": "Learn Go in Y Minutes",
+    "description": "Learn X in Y Minutes provides a concise, example-driven guide to Go, perfect for those who want a quick overview or a refresher on the language.",
+    "url": "https://learnxinyminutes.com/docs/go/"
   }
 ]

@@ -1,22 +1,47 @@
 [
   {
-    "title": "C++ Tutorial",
-    "description": "Learn C++ comprehensively with this official tutorial from the CPlusPlus.com website, covering basic concepts, object-oriented programming, templates, and standard libraries.",
-    "url": "https://www.cplusplus.com/doc/tutorial/"
+    "title": "Official C++ Documentation",
+    "description": "The official documentation provided by the C++ standards committee. It covers the standard library, language syntax, and features.",
+    "url": "https://en.cppreference.com/"
   },
   {
-    "title": "LearnCpp.com",
-    "description": "A website full of tutorials and references for C++, including code examples, exercises, and interactive quizzes to check learning.",
-    "url": "https://www.learncpp.com/"
+    "title": "C++ Tutorial at W3Schools",
+    "description": "W3Schools provides beginner-friendly tutorials on C++ programming. Topics include basic syntax, data types, control structures, and more.",
+    "url": "https://www.w3schools.com/cpp/"
   },
   {
-    "title": "C++ - Tutorialspoint",
-    "description": "Explore tutorials and fundamental concepts of C++, such as inheritance, polymorphism, templates, and libraries like STL.",
-    "url": "https://www.tutorialspoint.com/cplusplus/"
+    "title": "C++ Tutorial at Programiz",
+    "description": "Programiz offers comprehensive tutorials on C++ programming language. It covers fundamental concepts, advanced topics, and practical examples.",
+    "url": "https://www.programiz.com/cpp-programming"
   },
   {
-    "title": "C++ - Programiz",
-    "description": "Learn C++ with step-by-step tutorials and detailed references on basic concepts, object-oriented programming, memory management, and advanced development techniques.",
-    "url": "https://www.programiz.com/c-programming"
+    "title": "C++ Tutorial at Tutorialspoint",
+    "description": "Tutorialspoint provides a detailed tutorial on C++ programming. It includes theoretical explanations, code examples, and exercises for practice.",
+    "url": "https://www.tutorialspoint.com/cplusplus/index.htm"
+  },
+  {
+    "title": "C++ Tutorial at GeeksforGeeks",
+    "description": "GeeksforGeeks provides tutorials and resources for learning C++. Topics covered include algorithms, data structures, and competitive programming.",
+    "url": "https://www.geeksforgeeks.org/c-plus-plus/"
+  },
+  {
+    "title": "C++ Tutorial at W3Schools (in)",
+    "description": "W3Schools provides tutorials on various programming languages including C++ (in Hindi). It covers basic to advanced concepts with examples.",
+    "url": "https://www.w3schools.in/cplusplus-tutorial/"
+  },
+  {
+    "title": "C++ Tutorial at Learn-X.org",
+    "description": "Learn-X.org offers tutorials on various programming languages, including C++. It provides structured lessons, code examples, and quizzes.",
+    "url": "https://www.learn-cpp.org/"
+  },
+  {
+    "title": "C++ Documentation at DevDocs.io",
+    "description": "DevDocs.io offers documentation for various programming languages and technologies, including C++. It provides a quick reference for language features and libraries.",
+    "url": "https://devdocs.io/cpp/"
+  },
+  {
+    "title": "C++ Tutorial at Learn X in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick tutorial for learning C++. It presents essential syntax and features with concise code examples.",
+    "url": "https://learnxinyminutes.com/docs/c++/"
   }
 ]

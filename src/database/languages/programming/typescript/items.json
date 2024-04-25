@@ -1,12 +1,37 @@
 [
   {
+    "title": "Official TypeScript Documentation",
+    "description": "The official TypeScript documentation provides comprehensive information on TypeScript's features, syntax, and usage, along with guides and tutorials.",
+    "url": "https://www.typescriptlang.org/docs/"
+  },
+  {
     "title": "TypeScript Tutorial",
     "description": "This TypeScript tutorial helps you master TypeScript. You'll learn the ins and outs of TypeScript programming.",
     "url": "https://www.typescripttutorial.net/"
   },
   {
-    "title": "TypeScript - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-    "url": "https://www.w3schools.com/typescript/"
+    "title": "TypeScript Tutorial - W3Schools",
+    "description": "W3Schools offers a beginner-friendly TypeScript tutorial covering basic to advanced concepts, with examples and exercises.",
+    "url": "https://www.w3schools.com/typescript/index.php"
+  },
+  {
+    "title": "TypeScript Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a comprehensive TypeScript tutorial covering language syntax, features, and practical applications.",
+    "url": "https://www.tutorialspoint.com/typescript/index.htm"
+  },
+  {
+    "title": "TypeScript Tutorial - JavaTpoint",
+    "description": "JavaTpoint offers detailed TypeScript tutorials covering fundamentals, advanced concepts, and practical examples.",
+    "url": "https://www.javatpoint.com/typescript-tutorial"
+  },
+  {
+    "title": "TypeScript API Documentation - DevDocs.io",
+    "description": "DevDocs.io offers an aggregated, searchable interface to TypeScript documentation, including language references and library APIs.",
+    "url": "https://devdocs.io/typescript/"
+  },
+  {
+    "title": "Learn TypeScript in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick overview of TypeScript syntax and features, suitable for experienced programmers.",
+    "url": "https://learnxinyminutes.com/docs/typescript/"
   }
 ]

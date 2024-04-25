@@ -1,12 +1,42 @@
 [
   {
-    "title": "C# Tutorial - Tutorialspoint",
-    "description": "Explore tutorials and detailed references for C#, covering fundamental concepts, object-oriented programming, LINQ, and more.",
-    "url": "https://www.tutorialspoint.com/csharp/"
+    "title": "Official C# Documentation",
+    "description": "Microsoft's official documentation for C#, providing comprehensive resources including tutorials, API reference, and best practices.",
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/"
   },
   {
-    "title": "C# - W3schools",
-    "description": "Learn the fundamentals of the C# language with this interactive and easy-to-follow online tutorial.",
-    "url": "https://www.w3schools.com/cs/default.asp"
+    "title": "C# Tutorial - W3Schools",
+    "description": "W3Schools offers an introductory tutorial on C#, covering everything from basic syntax to more advanced topics like LINQ and handling exceptions.",
+    "url": "https://www.w3schools.com/cs/index.php"
+  },
+  {
+    "title": "C# Tutorial - Programiz",
+    "description": "Learn C# from scratch with Programiz through simple and easy-to-understand tutorials, perfect for beginners.",
+    "url": "https://www.programiz.com/csharp-programming"
+  },
+  {
+    "title": "C# Programming - Tutorialspoint",
+    "description": "Tutorialspoint provides a detailed tutorial on C# for beginners and intermediate programmers, including concepts like polymorphism, interfaces, and multithreading.",
+    "url": "https://www.tutorialspoint.com/csharp/index.htm"
+  },
+  {
+    "title": "C# Tutorials - JavaTpoint",
+    "description": "JavaTpoint offers tutorials on C# that include both basic and advanced programming concepts, aimed at providing a thorough understanding of the language.",
+    "url": "https://www.javatpoint.com/c-sharp-tutorial"
+  },
+  {
+    "title": "C# Programming - GeeksforGeeks",
+    "description": "A comprehensive set of C# tutorials from GeeksforGeeks that cover fundamental to advanced programming topics, including data structures and algorithms in C#.",
+    "url": "https://www.geeksforgeeks.org/csharp-programming-language/"
+  },
+  {
+    "title": "C# Tutorial - Tutorial Gateway",
+    "description": "Tutorial Gateway offers a beginner-friendly guide to C#, covering basic syntax, control statements, and error handling.",
+    "url": "https://www.tutorialgateway.org/csharp-tutorial/"
+  },
+  {
+    "title": "C# in 5 minutes - Learn X in Y Minutes",
+    "description": "A quick and concise overview of C# provided by Learn X in Y Minutes, ideal for programmers who need a rapid refresher or introduction to the language.",
+    "url": "https://learnxinyminutes.com/docs/csharp/"
   }
 ]

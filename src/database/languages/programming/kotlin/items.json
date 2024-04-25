@@ -1,17 +1,32 @@
 [
   {
-    "title": "Kotlin - Official Doc",
-    "description": "Kotlin is a modern but already mature programming language designed to make developers happier.",
-    "url": "https://kotlinlang.org/docs/getting-started.html"
+    "title": "Official Kotlin Documentation",
+    "description": "The official Kotlin documentation by JetBrains, covering all aspects from setting up the environment to detailed features of the language.",
+    "url": "https://kotlinlang.org/docs/home.html"
   },
   {
-    "title": "Kotlin - Programiz",
-    "description": "Kotlin is a relatively new programming language developed by JetBrains for modern multiplatform applications. Our Kotlin tutorial will guide you to learn Kotlin one step at a time with the help of examples.",
+    "title": "Kotlin Tutorial - Programiz",
+    "description": "Learn Kotlin from the basics with Programiz's easy-to-understand tutorials, examples, and exercises.",
     "url": "https://www.programiz.com/kotlin-programming"
   },
   {
-    "title": "Kotlin - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-    "url": "https://www.w3schools.com/kotlin/index.php"
+    "title": "Kotlin - Tutorialspoint",
+    "description": "A comprehensive tutorial by Tutorialspoint that introduces Kotlin and covers its syntax, data types, control statements, classes, and more.",
+    "url": "https://www.tutorialspoint.com/kotlin/index.htm"
+  },
+  {
+    "title": "Kotlin Tutorial - GeeksforGeeks",
+    "description": "A series of detailed tutorials and articles on Kotlin provided by GeeksforGeeks, suitable for beginners and advanced programmers alike.",
+    "url": "https://www.geeksforgeeks.org/kotlin-programming-language/"
+  },
+  {
+    "title": "Kotlin Tutorial - JavaTpoint",
+    "description": "JavaTpoint offers a Kotlin tutorial that covers fundamental and advanced topics, including Kotlin environment setup and integration with Android.",
+    "url": "https://www.javatpoint.com/kotlin-tutorial"
+  },
+  {
+    "title": "Learn Kotlin in Y Minutes",
+    "description": "Quickly grasp the syntax and basic constructs of Kotlin with this concise tutorial from Learn X in Y Minutes.",
+    "url": "https://learnxinyminutes.com/docs/kotlin/"
   }
 ]

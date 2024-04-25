@@ -1,12 +1,47 @@
 [
   {
-    "title": "Java - W3schools",
-    "description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
-    "url": "https://www.w3schools.com/java/default.asp"
+    "title": "Official Java Documentation",
+    "description": "Oracle's official Java documentation, providing comprehensive resources on Java programming, including a guide to the Java language and its API.",
+    "url": "https://docs.oracle.com/javase/"
   },
   {
-    "title": "Java - Programiz",
-    "description": "Java is a powerful general-purpose programming language. Our Java tutorial will guide you to learn Java one step at a time with the help of examples.",
-    "url": "https://www.programiz.com/Java-programming"
+    "title": "Java Tutorial - W3Schools",
+    "description": "W3Schools provides a beginner-friendly tutorial on Java, covering basic programming concepts, syntax, and object-oriented programming.",
+    "url": "https://www.w3schools.com/java/"
+  },
+  {
+    "title": "Java Programming Tutorial - Programiz",
+    "description": "Learn Java from scratch with simple and easy explanations of each concept along with examples. This Programiz tutorial is perfect for beginners.",
+    "url": "https://www.programiz.com/java-programming"
+  },
+  {
+    "title": "Java Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint offers an extensive Java programming tutorial, from beginner's basics to advanced concepts, with practical examples for easy learning.",
+    "url": "https://www.tutorialspoint.com/java/index.htm"
+  },
+  {
+    "title": "Java Tutorial - JavaTpoint",
+    "description": "JavaTpoint provides detailed tutorials on Java programming covering numerous topics and includes interview questions to help prepare for job applications.",
+    "url": "https://www.javatpoint.com/java-tutorial"
+  },
+  {
+    "title": "Java Programming - GeeksforGeeks",
+    "description": "A complete series of step-by-step Java articles and tutorials, which are ideal for learning the language from the basics to the complexities of app development.",
+    "url": "https://www.geeksforgeeks.org/java/"
+  },
+  {
+    "title": "Java Tutorial - Tutorial Gateway",
+    "description": "Tutorial Gateway provides a straightforward Java tutorial aimed at beginners, with clear examples and essential programming concepts.",
+    "url": "https://www.tutorialgateway.org/java/"
+  },
+  {
+    "title": "Java API Documentation - DevDocs.io",
+    "description": "DevDocs.io aggregates Java API documentation, providing a fast, searchable interface to the official Java classes and methods.",
+    "url": "https://devdocs.io/openjdk/"
+  },
+  {
+    "title": "Learn Java in Y Minutes",
+    "description": "Learn X in Y Minutes features a concise tutorial on Java, offering a quick way to get familiar with the syntax and basic programming structures.",
+    "url": "https://learnxinyminutes.com/docs/java/"
   }
 ]

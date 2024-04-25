@@ -1,7 +1,38 @@
 [
   {
-    "title": "Lua - tutorialspoint",
-    "description": "Lua Tutorial - Lua is an open source language built on top of C programming language. Lua has its value across multiple platforms ranging from large server systems to small mobile applications. This tutorial covers various topics ranging from the basics of Lua to its scope in various applications.",
+    "title": "Official Lua Documentation",
+    "description": "The official documentation for Lua programming language.",
+    "url": "https://www.lua.org/docs.html"
+  },
+  {
+    "title": "Lua Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a comprehensive Lua tutorial covering language syntax, features, and practical applications.",
     "url": "https://www.tutorialspoint.com/lua/index.htm"
+  },
+  {
+    "title": "Lua Tutorial - Tutorial Gateway",
+    "description": "Tutorial Gateway offers Lua tutorials with clear explanations and examples, suitable for beginners and intermediate learners.",
+    "url": "https://www.tutorialgateway.org/lua-tutorial/"
+  },
+  {
+    "title": "Learn Lua - Codecademy",
+    "description": "Learn the basics of Lua, a general-purpose programming language used for building games, web apps, and developer tools. This course for beginners will teach you the basics of programming with the Lua language while giving you interactive practice building terminal-based programs.",
+    "url": "(https://www.codecademy.com/learn/learn-lua"
+  },
+  {
+    "title": "Lua Tutorial on Edu",
+    "description": "Lua tutorial on Edu platform covering various topics of Lua programming.",
+    "url": "https://tutoriais.edu.lat/pub/lua"
+  },
+  {
+    "title": "Lua API Documentation - DevDocs.io",
+    "description": "DevDocs.io offers an aggregated, searchable interface to Lua documentation, including language references and standard library APIs.",
+    "url": "https://devdocs.io/lua/"
+  },
+  {
+    "title": "Learn Lua in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick overview of Lua syntax and features, suitable for experienced programmers.",
+    "url": "https://learnxinyminutes.com/docs/lua/"
   }
 ]
+

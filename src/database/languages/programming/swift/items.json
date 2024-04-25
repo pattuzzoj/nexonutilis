@@ -1,12 +1,27 @@
 [
   {
-    "title": "Swift - GeeksforGeeks",
-    "description": "Swift is a powerful general-purpose programming language developed by Apple to create iOS applications such as for iOS, macOS, watchOS, and so on.",
-    "url": "https://www.geeksforgeeks.org/swift-tutorial/"
+    "title": "Official Swift Documentation",
+    "description": "The official Swift documentation provides comprehensive information about the Swift programming language, including its syntax, standard libraries, and usage.",
+    "url": "https://docs.swift.org/swift-book/"
   },
   {
-    "title": "Swift - Programiz",
-    "description": "Swift is a powerful and intuitive programming language developed by Apple. It is used to create apps for iOS, macOS, watchOS, and so on. Swift code is concise yet expressive (easier to understand and write).",
+    "title": "Swift Tutorial - Programiz",
+    "description": "Programiz offers a beginner-friendly Swift tutorial with easy-to-understand explanations and examples.",
     "url": "https://www.programiz.com/swift-programming"
+  },
+  {
+    "title": "Swift Tutorial - Tutorialspoint",
+    "description": "Tutorialspoint provides a comprehensive Swift tutorial covering language syntax, features, and practical applications.",
+    "url": "https://www.tutorialspoint.com/swift/index.htm"
+  },
+  {
+    "title": "Swift Tutorial - GeeksforGeeks",
+    "description": "GeeksforGeeks provides Swift tutorials covering language basics, data types, control structures, and advanced topics like iOS app development.",
+    "url": "https://www.geeksforgeeks.org/swift-programming-language/"
+  },
+  {
+    "title": "Learn Swift in Y Minutes",
+    "description": "Learn X in Y Minutes provides a quick overview of Swift syntax and features, suitable for experienced programmers.",
+    "url": "https://learnxinyminutes.com/docs/swift/"
   }
 ]

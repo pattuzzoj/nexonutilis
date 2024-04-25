@@ -1,27 +1,47 @@
 [
   {
-    "title": "C Tutorial",
-    "description": "Learn C the right way with this step-by-step tutorial. It covers the language fundamentals, including variables, functions, loops, and pointers.",
-    "url": "https://www.tutorialspoint.com/cprogramming/"
+    "title": "C Tutorial - W3Schools",
+    "description": "This W3Schools tutorial offers an introduction to the C programming language, covering basic to advanced concepts.",
+    "url": "https://www.w3schools.com/C/"
   },
   {
-    "title": "Learn-C.org",
-    "description": "A comprehensive tutorial for learning C, from compiler setup to advanced topics like data structures and memory allocation.",
-    "url": "https://www.learn-c.org/"
-  },
-  {
-    "title": "C Programming - GeeksforGeeks",
-    "description": "A vast collection of tutorials and concepts to learn C, including code examples and practical exercises.",
-    "url": "https://www.geeksforgeeks.org/c-programming-language/"
-  },
-  {
-    "title": "C - Programiz",
-    "description": "Explore detailed tutorials and references for C, covering fundamental concepts, operators, functions, pointers, and more.",
+    "title": "C Programming Tutorial - Programiz",
+    "description": "Programiz provides a step-by-step tutorial on C programming, ideal for beginners looking to learn the fundamentals and key features of the language.",
     "url": "https://www.programiz.com/c-programming"
   },
   {
-    "title": "C Tutorial - W3schools",
-    "description": "Learn the basics of the C language with this interactive and easy-to-follow online tutorial.",
-    "url": "https://www.w3schools.com/c/index.php"
+    "title": "C Programming - TutorialsPoint",
+    "description": "TutorialsPoint offers extensive tutorials on C programming, covering everything from simple statements to complex functions.",
+    "url": "https://www.tutorialspoint.com/cprogramming/index.htm"
+  },
+  {
+    "title": "C Programming - JavaTpoint",
+    "description": "JavaTpoint provides detailed C programming tutorials and examples, suited for students and professionals alike.",
+    "url": "https://www.javatpoint.com/c-programming-language-tutorial"
+  },
+  {
+    "title": "C Programming - GeeksforGeeks",
+    "description": "GeeksforGeeks features a comprehensive range of articles and tutorials on C programming, from basic syntax to data structures and algorithms.",
+    "url": "https://www.geeksforgeeks.org/c-programming-language/"
+  },
+  {
+    "title": "C Tutorial - TutorialGateway",
+    "description": "TutorialGateway offers tutorials on the C programming language, providing clear examples and explanations of each concept.",
+    "url": "https://www.tutorialgateway.org/c-programming/"
+  },
+  {
+    "title": "C Tutorial - W3Schools.in",
+    "description": "W3Schools.in delivers tutorials on C programming in a structured format, catering to those new to programming.",
+    "url": "https://www.w3schools.in/c-tutorial/"
+  },
+  {
+    "title": "C Documentation - DevDocs.io",
+    "description": "DevDocs.io provides comprehensive documentation on the C programming language, making it a great quick reference for developers.",
+    "url": "https://devdocs.io/c/"
+  },
+  {
+    "title": "C Programming - Learn X in Y Minutes",
+    "description": "Learn X in Y Minutes offers a concise overview of C, perfect for a quick study session or as a refresher.",
+    "url": "https://learnxinyminutes.com/docs/c/"
   }
 ]
