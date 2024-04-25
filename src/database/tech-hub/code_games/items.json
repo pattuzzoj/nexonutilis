@@ -1,0 +1,62 @@
+[
+  {
+    "title": "CodeCombat",
+    "description": "A multiplayer coding game where players write code to control their in-game characters and complete levels.",
+    "url": "https://codecombat.com/"
+  },
+  {
+    "title": "CheckiO",
+    "description": "An online game where players solve coding challenges in Python and JavaScript to advance through levels.",
+    "url": "https://checkio.org/"
+  },
+  {
+    "title": "Codingame",
+    "description": "A platform offering a variety of coding challenges and AI programming games to improve coding skills.",
+    "url": "https://www.codingame.com/"
+  },
+  {
+    "title": "Codewars",
+    "description": "A community-driven platform with coding challenges to improve your skills in various programming languages.",
+    "url": "https://www.codewars.com/"
+  },
+  {
+    "title": "Flexbox Froggy",
+    "description": "A game where players learn CSS Flexbox layout by positioning frogs on lily pads.",
+    "url": "https://flexboxfroggy.com/"
+  },
+  {
+    "title": "Grid Garden",
+    "description": "A game where players learn CSS Grid layout by planting and watering vegetables in a grid garden.",
+    "url": "https://cssgridgarden.com/"
+  },
+  {
+    "title": "Screeps",
+    "description": "An MMO strategy game for programmers, where players write JavaScript code to control their units and conquer territory.",
+    "url": "https://screeps.com/"
+  },
+  {
+    "title": "Untrusted",
+    "description": "A meta-JavaScript adventure game where players modify the game's code to progress through levels and escape the system.",
+    "url": "https://alexnisnevich.github.io/untrusted/"
+  },
+  {
+    "title": "Human Resource Machine",
+    "description": "A puzzle game where players program office workers to solve problems by manipulating inputs using assembly language-like commands.",
+    "url": "http://tomorrowcorporation.com/humanresourcemachine"
+  },
+  {
+    "title": "7 Billion Humans",
+    "description": "A sequel to Human Resource Machine, where players program swarms of office workers to automate tasks in a futuristic setting.",
+    "url": "http://tomorrowcorporation.com/7billionhumans"
+  },
+  {
+    "title": "TIS-100",
+    "description": "A puzzle game where players rewrite corrupted assembly code to solve challenges and repair a mysterious computer system.",
+    "url": "http://www.zachtronics.com/tis-100/"
+  },
+  {
+    "title": "Shenzhen I/O",
+    "description": "A game where players assemble circuits and write low-level code to create electronic devices in a fictional Chinese electronics factory.",
+    "url": "http://www.zachtronics.com/shenzhen-io/"
+  }
+]

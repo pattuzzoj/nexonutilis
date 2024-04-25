@@ -18,5 +18,20 @@
     "title": "Coderbyte",
     "description": "Evaluate candidates quickly, affordably, and accurately for assessments, interviews, and take-home projects. Prepare for interviews on the #1 platform for 1M+ developers that want to level up their careers.",
     "url": "https://coderbyte.com/"
+  },
+  {
+    "title": "Exercism",
+    "description": "A platform for coding exercises in multiple languages, focusing on test-driven development and mentorship.",
+    "url": "https://exercism.io/"
+  },
+  {
+    "title": "Coderbyte",
+    "description": "A website with coding challenges and interview preparation resources for developers of all skill levels.",
+    "url": "https://www.coderbyte.com/"
+  },
+  {
+    "title": "Sphere Online Judge (SPOJ)",
+    "description": "An online judge system providing a collection of coding problems to solve in various programming languages.",
+    "url": "https://www.spoj.com/"
   }
 ]
