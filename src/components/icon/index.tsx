@@ -1,7 +1,7 @@
 import { JSX } from 'solid-js';
 import { BsGithub, BsBookmarkPlus, BsBookmarkDash, BsBookmarkPlusFill, BsBookmarkCheckFill, BsBookmarkDashFill, BsCode, BsRobot } from 'solid-icons/bs';
 import { FiSun, FiMoon, FiX, FiHome, FiActivity, FiDatabase, FiInfo } from 'solid-icons/fi';
-import { RiArrowsArrowDropDownLine, RiArrowsArrowRightSLine, RiDesignPaletteLine, RiArrowsArrowRightDoubleLine } from 'solid-icons/ri';
+import { RiArrowsArrowDropDownLine, RiArrowsArrowRightSLine, RiArrowsArrowLeftSLine, RiDesignPaletteLine, RiArrowsArrowRightDoubleLine, RiArrowsArrowLeftDoubleLine } from 'solid-icons/ri';
 import { FaRegularBookmark, FaBrandsConnectdevelop, FaSolidLaptopCode } from 'solid-icons/fa';
 import { BiSolidCopy } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
@@ -19,8 +19,10 @@ interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
   | "FiMoon"
   | "FiX"
   | "RiArrowsArrowDropDownLine"
+  | "RiArrowsArrowLeftSLine"
   | "RiArrowsArrowRightSLine"
   | "RiArrowsArrowRightDoubleLine"
+  | "RiArrowsArrowLeftDoubleLine"
   | "BsBookmarkPlus"
   | "BsBookmarkDash"
   | "BsBookmarkCheckFill"
@@ -60,8 +62,10 @@ export default function Icon(props: Props) {
     FiSun,
     FiMoon,
     FiX,
+    RiArrowsArrowLeftDoubleLine,
     RiArrowsArrowRightDoubleLine,
     RiArrowsArrowDropDownLine,
+    RiArrowsArrowLeftSLine,
     RiArrowsArrowRightSLine,
     BsBookmarkPlus,
     BsBookmarkDash,
