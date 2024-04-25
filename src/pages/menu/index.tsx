@@ -70,15 +70,15 @@ export default function Home() {
             <Show when={data.item?.items.length > quantity}>
               <br />
               <div class="flex justify-center gap-1">
-                <button onClick={() => setCurrentPage(currentPage() == 1 ? 1 : currentPage() - 1)}>
+                <button class="rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700" onClick={() => setCurrentPage(currentPage() == 1 ? 1 : currentPage() - 1)}>
                   <Icon name="RiArrowsArrowLeftSLine" class="text-xl" />
                 </button>
                 <For each={new Array(Math.ceil(data.item?.items.length / quantity))}>
                   {(_item, index) => (
-                    <button onClick={() => setCurrentPage(index() + 1)} class={`${currentPage() == index() + 1 ? "bg-gray-100 dark:bg-zinc-700" : "bg-gray-200 dark:bg-zinc-800"} h-8 w-8 flex items-center justify-center rounded-xl p-2 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700`}>{index() + 1}</button>
+                    <button onClick={() => setCurrentPage(index() + 1)} class={`${currentPage() == index() + 1 ? "bg-gray-100 dark:bg-zinc-700" : ""} h-8 w-8 flex items-center justify-center rounded-xl p-2 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700`}>{index() + 1}</button>
                   )}
                 </For>
-                <button onClick={() => setCurrentPage(Math.ceil(data.item?.items.length / quantity) == currentPage() ? Math.ceil(data.item?.items.length / quantity) : currentPage() + 1)}>
+                <button class="rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700" onClick={() => setCurrentPage(Math.ceil(data.item?.items.length / quantity) == currentPage() ? Math.ceil(data.item?.items.length / quantity) : currentPage() + 1)}>
                   <Icon name="RiArrowsArrowRightSLine" class="text-xl" />
                 </button>
               </div>
