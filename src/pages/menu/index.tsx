@@ -25,13 +25,12 @@ export default function Home() {
     bg-gray-300 dark:bg-zinc-900">
       <Switch>
         <Match when={data.item?.type == "resource"}>
-          <div class="md:h-full flex flex-col justify-evenly md:justify-between">
+          <div class="md:h-full flex flex-col justify-around gap-4">
             <div>
               <Title as="2" class="text-2xl">{data.item.title}</Title>
               <br />
               <Text>{data.item.description}</Text>
             </div>
-            <br />
             <div class="md:h-full flex flex-col justify-start">
               <div class="w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4 h-max">
                 <For each={data.item?.items.slice(quantity * (currentPage() - 1), quantity * currentPage())}>
@@ -68,8 +67,7 @@ export default function Home() {
               </div>
             </div>
             <Show when={data.item?.items.length > quantity}>
-              <br />
-              <div class="flex justify-center gap-1">
+              <div class="flex justify-center gap-2">
                 <button class="rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700" onClick={() => setCurrentPage(currentPage() == 1 ? 1 : currentPage() - 1)}>
                   <Icon name="RiArrowsArrowLeftSLine" class="text-xl" />
                 </button>
