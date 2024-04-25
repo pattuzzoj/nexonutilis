@@ -45,7 +45,7 @@ export default function Home() {
                     <Title as="4">
                       {item.title}
                     </Title>
-                    <span class="group hover:scale-110 text-white hover:text-gray-400">
+                    <span class="group hover:scale-110 text-black dark:text-white">
                       <Show when={savedItems().find((savedItem: any) => savedItem.url == item.url)} fallback={(
                         <>
                           <button onClick={() => addItem(item)}><Icon name="BsBookmarkPlus" class="size-6 group-hover:hidden"/></button>

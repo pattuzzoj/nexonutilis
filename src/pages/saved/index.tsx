@@ -20,7 +20,7 @@ export default function Saved() {
                   <Title as="4">
                     {item.title}
                   </Title>
-                  <button class="group hover:scale-110 text-white hover:text-gray-400" onClick={() => removeItem(item.url)}>
+                  <button class="group hover:scale-110 text-black dark:text-white" onClick={() => removeItem(item.url)}>
                     <Icon name="BsBookmarkCheckFill" class="size-6 group-hover:hidden"/>
                     <Icon name="BsBookmarkDash" class="size-6 hidden group-hover:block"/>
                   </button>
