@@ -5,6 +5,11 @@
       "url": "https://www.w3schools.com/sql/"
   },
   {
+      "title": "SQLite Tutorial",
+      "description": "SQLite Tutorial provides a comprehensive guide to SQL using SQLite, covering basic SQL commands, queries, and database management.",
+      "url": "https://www.sqlitetutorial.net/"
+  },
+  {
       "title": "SQLZoo",
       "description": "Interactive SQL tutorial with hands-on exercises covering SQL syntax, queries, joins, and database manipulation.",
       "url": "https://sqlzoo.net/"
@@ -18,5 +23,25 @@
       "title": "SQL Tutorial - Tutorialspoint",
       "description": "Comprehensive SQL tutorial covering all aspects of SQL development, from basic queries to advanced database operations.",
       "url": "https://www.tutorialspoint.com/sql/index.htm"
+  },
+  {
+      "title": "Codecademy SQL Course",
+      "description": "Interactive SQL course where learners can practice SQL queries in a real database environment, covering SQL basics and advanced concepts.",
+      "url": "https://www.codecademy.com/learn/learn-sql"
+  },
+  {
+      "title": "GeeksforGeeks SQL Tutorial",
+      "description": "GeeksforGeeks offers SQL tutorials covering SQL basics, data manipulation, and advanced SQL concepts.",
+      "url": "https://www.geeksforgeeks.org/sql-tutorial/"
+  },
+  {
+      "title": "Khan Academy SQL Tutorial",
+      "description": "Khan Academy provides a beginner-friendly SQL tutorial covering basic SQL commands and database concepts.",
+      "url": "https://www.khanacademy.org/computing/computer-programming/sql"
+  },
+  {
+      "title": "SQLBolt",
+      "description": "SQLBolt offers a series of interactive SQL tutorials for beginners, covering SQL syntax and basic database querying.",
+      "url": "https://sqlbolt.com/"
   }
 ]

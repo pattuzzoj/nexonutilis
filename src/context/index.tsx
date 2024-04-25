@@ -33,6 +33,8 @@ export default function DataProvider(props: {children: JSXElement}) {
   data.routes.set("/", database);
   setData("data", database.items as Array<Category>);
 
+  let quantity = 0;
+
   (function setRoutes(categories: Array<Category>, parentURL: string = '') {
     categories.forEach((category: Category) => {
       if(category.hasOwnProperty("items")) {
@@ -40,9 +42,15 @@ export default function DataProvider(props: {children: JSXElement}) {
         setRoutes(category.items as Array<Category>, category.url);
 
         data.routes.set(category.url, category);
+
+      }
+      if(category.type == "resource") {
+        quantity += category.items.length;
       }
     })
   })(database.items as Array<Category>);
+
+  console.log(quantity);
 
   createEffect(on(path, (path) => {
     setData("path", []);

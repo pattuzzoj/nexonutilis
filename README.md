@@ -1,6 +1,6 @@
 ## Nexon Utilis
 
-Nexon Utilis is a web application that serves as an online repository of links related to programming. Its goal is to provide developers with an organized collection of useful resources, such as tutorials, tools, libraries, blogs, and more.
+"Nexon Utilis is an online repository catering to programmers, offering a curated collection of tutorials, tools, libraries, and blogs. Our goal? Empowering developers with easy access to essential resources."
 
 ### Key Features
 
