@@ -2,7 +2,7 @@
 name: "\U0001F41B Bug report"
 about: Please provide a detailed description of the bug you encountered.
 title: "\U0001F41BBUG:"
-labels: bug
+labels: bug, database
 assignees: ''
 
 ---
