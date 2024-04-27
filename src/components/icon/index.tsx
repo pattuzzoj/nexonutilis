@@ -11,7 +11,7 @@ import { AiOutlineBgColors, AiOutlineCloudServer, AiOutlineCodeSandbox } from 's
 import { BsFonts, BsImage } from 'solid-icons/bs';
 import { FaSolidIcons } from 'solid-icons/fa';
 import { IoGameControllerOutline } from 'solid-icons/io';
-
+ 
 export type iconList =
 | "BsGithub"
 | "FiSun"
