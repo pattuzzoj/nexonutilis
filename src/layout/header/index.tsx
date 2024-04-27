@@ -1,14 +1,13 @@
-import { Show } from 'solid-js';
-import useSwitch from 'hooks/useSwitch';
+import { Show, createSignal } from 'solid-js';
+import { A } from '@solidjs/router';
 import Icon from "components/icon";
 import Title from "components/typography/title";
 import Menu from "components/menu";
 import Search from 'components/search';
 import SwitchTheme from 'components/switchTheme';
-import { A } from '@solidjs/router';
 
 export default function Header() {
-  const [menuIsOpen, setMenuIsOpen] = useSwitch<boolean>(false);
+  const [menuIsOpen, setMenuIsOpen] = createSignal<boolean>(false);
 
   return (
     <header class="relative h-[5vh] md:h-[95vh] md:min-w-72 flex md:flex-col justify-between items-stretch gap-4 px-4">

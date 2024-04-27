@@ -1,4 +1,4 @@
-import { Category } from "database/class";
+import { Category } from 'models/category';
 import items from "./items.json";
 
 export const bot = new Category({

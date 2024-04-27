@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { blogs } from './blogs';
 import { forums } from './forums';
 import { discord } from './discord';

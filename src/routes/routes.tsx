@@ -1,7 +1,8 @@
 import { lazy } from 'solid-js';
 
-const Home = lazy(() => import('../pages/menu'));
+const Menu = lazy(() => import('../pages/menu'));
 const Saved = lazy(() => import('../pages/saved'));
+const NotFound = lazy(() => import('../pages/404'));
 
 export const routes = [
   {
@@ -10,6 +11,10 @@ export const routes = [
   },
   {
     path: ["*"],
-    component: Home,
+    component: Menu,
+  },
+  {
+    path: "/404",
+    component: NotFound,
   }
 ];

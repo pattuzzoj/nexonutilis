@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { roblox } from './roblox';
 import { unity } from './unity';
 import { unreal } from './unreal';

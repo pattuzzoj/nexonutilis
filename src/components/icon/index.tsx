@@ -12,51 +12,53 @@ import { BsFonts, BsImage } from 'solid-icons/bs';
 import { FaSolidIcons } from 'solid-icons/fa';
 import { IoGameControllerOutline } from 'solid-icons/io';
 
-interface Props extends JSX.HTMLAttributes<HTMLSpanElement> {
-  name:
-  | "BsGithub"
-  | "FiSun"
-  | "FiMoon"
-  | "FiX"
-  | "RiArrowsArrowDropDownLine"
-  | "RiArrowsArrowLeftSLine"
-  | "RiArrowsArrowRightSLine"
-  | "RiArrowsArrowRightDoubleLine"
-  | "RiArrowsArrowLeftDoubleLine"
-  | "BsBookmarkPlus"
-  | "BsBookmarkDash"
-  | "BsBookmarkCheckFill"
-  | "BsBookmarkDashFill"
-  | "FaRegularBookmark"
-  | "BsBookmarkPlusFill"
-  | "OcCopy2"
-  | "OcLinkexternal2"
-  | "BiSolidCopy"
-  | "FiHome"
-  | "FiInfo"
-  | "TbMenu2"
-  | "CgClose"
-  | "BsCode"
-  | "RiDesignPaletteLine"
-  | "OcPerson3"
-  | "BsRobot"
-  | "TbLayoutDashboard"
-  | "FiActivity"
-  | "FaBrandsConnectdevelop"
-  | "FiDatabase"
-  | "FaSolidLaptopCode"
-  | "TbDeviceMobileCode"
-  | "TbServerCog"
-  | "TbSettingsCode"
-  | "AiOutlineCloudServer"
-  | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
-  | "TbDeviceDesktopCog"
-  | "IoGameControllerOutline"
-  | "AiOutlineCodeSandbox";
+export type iconList =
+| "BsGithub"
+| "FiSun"
+| "FiMoon"
+| "FiX"
+| "RiArrowsArrowDropDownLine"
+| "RiArrowsArrowLeftSLine"
+| "RiArrowsArrowRightSLine"
+| "RiArrowsArrowRightDoubleLine"
+| "RiArrowsArrowLeftDoubleLine"
+| "BsBookmarkPlus"
+| "BsBookmarkDash"
+| "BsBookmarkCheckFill"
+| "BsBookmarkDashFill"
+| "FaRegularBookmark"
+| "BsBookmarkPlusFill"
+| "OcCopy2"
+| "OcLinkexternal2"
+| "BiSolidCopy"
+| "FiHome"
+| "FiInfo"
+| "TbMenu2"
+| "CgClose"
+| "BsCode"
+| "RiDesignPaletteLine"
+| "OcPerson3"
+| "BsRobot"
+| "TbLayoutDashboard"
+| "FiActivity"
+| "FaBrandsConnectdevelop"
+| "FiDatabase"
+| "FaSolidLaptopCode"
+| "TbDeviceMobileCode"
+| "TbServerCog"
+| "TbSettingsCode"
+| "AiOutlineCloudServer"
+| "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
+| "TbDeviceDesktopCog"
+| "IoGameControllerOutline"
+| "AiOutlineCodeSandbox";
+
+interface IconProps extends JSX.HTMLAttributes<HTMLSpanElement> {
+  name: iconList,
   class?: string;
 };
 
-export default function Icon(props: Props) {
+export default function Icon(props: IconProps) {
   const IconComponent = {
     BsGithub,
     FiSun,

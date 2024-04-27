@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { bot } from './bot-hosting';
 import { web } from './web-hosting';
 

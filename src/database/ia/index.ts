@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { image } from './image';
 import { text } from './text';
 import { voice } from './voice';

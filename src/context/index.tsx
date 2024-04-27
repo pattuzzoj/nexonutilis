@@ -1,56 +1,34 @@
 import { JSXElement, createContext, createEffect, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
-import { useLocation } from "@solidjs/router";
+import { useLocation, useNavigate } from "@solidjs/router";
 import { database } from "database";
-
-interface Item {
-  title: string;
-  description: string;
-  url: string; 
-}
-
-interface Category extends Item {
-  type: string;
-  icon: string;
-  logo: string;
-  official_url: string;
-  roadmap_url: string;
-  items: Array<Category | Item>;
-}
+import { Category } from "models/interfaces/category";
 
 export const DataContext = createContext();
 
 export default function DataProvider(props: {children: JSXElement}) {
+  const navigate = useNavigate();
   const location = useLocation();
   const path = () => location.pathname;
-  const [data, setData] = createStore<{routes: Map<string, object>; path: Array<{title: string, url: string}>; item: Category; data: Array<Category>}>({
+  const [data, setData] = createStore<{routes: Map<string, object>; path: Array<{title: string, url: string}>; item: Category; categories: Array<Category>}>({
     routes: new Map(),
     path: [],
     item: {} as Category,
-    data: {} as Array<Category>
+    categories: []
   });
 
   data.routes.set("/", database);
-  setData("data", database.items as Array<Category>);
-
-  let quantity = 0;
+  database.items.forEach(category => setData("categories", (categories) => [...categories, category as Category]));
 
   (function setRoutes(categories: Array<Category>, parentURL: string = '') {
     categories.forEach((category: Category) => {
       if(category.hasOwnProperty("items")) {
         category.url = parentURL + category.url;
         setRoutes(category.items as Array<Category>, category.url);
-
         data.routes.set(category.url, category);
-
-      }
-      if(category.type == "resource") {
-        quantity += category.items.length;
       }
     })
-  })(database.items as Array<Category>);
-
-  console.log(quantity);
+  })(data.categories as Array<Category>);
 
   createEffect(on(path, (path) => {
     setData("path", []);
@@ -69,6 +47,10 @@ export default function DataProvider(props: {children: JSXElement}) {
         if(data.routes.has(currentPath)) {
           const item: {title: string, url: string} = data.routes.get(currentPath) as {title: string, url: string};
           setData("path", (paths) => [...paths, {title: item.title, url: item.url} ]);
+        } else {
+          if(currentPath != '/saved') {
+            navigate("/404");
+          }
         }
       }
     }

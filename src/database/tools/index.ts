@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { code_editors } from './code_editors';
 import { ide } from './ide';
 

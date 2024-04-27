@@ -2,6 +2,7 @@ import Header from 'layout/header';
 import Footer from 'layout/footer';
 import DataProvider from 'context';
 import Aside from 'layout/aside';
+import Main from 'layout/main';
 
 export default function App(props: any) {
   return (
@@ -11,7 +12,9 @@ export default function App(props: any) {
           <Header />
           <div class="w-full flex flex-col">
             <Aside />
-            {props.children}
+            <Main class="rounded-s-2xl text-gray-900 dark:text-white bg-gray-300 dark:bg-zinc-900">
+              {props.children}
+            </Main>
           </div>
         </div>
         <Footer />

@@ -1,17 +1,15 @@
-import { Title, Text } from "components/typography";
 import { For, Show } from "solid-js";
+import { Title, Text } from "components/typography";
 import Icon from "components/icon";
 import useSaved from "hooks/useSaved";
-import Main from "layout/main";
 import {copy, copyNotification} from "utils/clipboard";
 
 export default function Saved() {
   const [savedItems, _addItem, removeItem] = useSaved();
 
   return (
-    <Main class="rounded-s-2xl text-gray-900 dark:text-white
-    bg-gray-300 dark:bg-zinc-900">
-      <Show when={savedItems().length} fallback={<div class="w-full h-full flex justify-center items-center text-xl">Your saved items will appear here.</div>}>
+    <>
+      <Show when={savedItems().length} fallback={<div class="w-full h-full flex justify-center items-center text-2xl">Your saved items will appear here.</div>}>
         <div class="h-max grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <For each={savedItems()}>
             {(item) => (
@@ -37,6 +35,6 @@ export default function Saved() {
           </For>
         </div>
       </Show>
-    </Main>
+    </>
   );
 }

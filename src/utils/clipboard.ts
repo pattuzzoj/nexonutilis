@@ -1,6 +1,6 @@
-import useSwitch from "hooks/useSwitch";
+import { createSignal } from "solid-js";
 
-const [copyNotification, setCopyNotification] = useSwitch("");
+const [copyNotification, setCopyNotification] = createSignal("");
 
 const copy = (url: string) => {
   navigator.clipboard.writeText(url);

@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { markup } from './markup';
 import { styling } from './styling';
 import { programming } from './programming';

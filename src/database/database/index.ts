@@ -1,4 +1,4 @@
-import { Category } from 'database/class';
+import { Category } from 'models/category';
 import { mysql } from './mysql';
 import { postgres } from './postgres';
 import { mongodb } from './mongodb';
