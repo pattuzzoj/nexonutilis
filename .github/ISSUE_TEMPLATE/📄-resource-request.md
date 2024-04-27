@@ -2,7 +2,7 @@
 name: "\U0001F4C4 Resource Request"
 about: Suggest a new resource
 title: ''
-labels: low, resource
+labels: low, new, resource
 assignees: ''
 
 ---
