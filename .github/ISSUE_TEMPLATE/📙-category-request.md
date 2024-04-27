@@ -2,7 +2,7 @@
 name: "\U0001F4D9 Category Request"
 about: Suggest a new category
 title: ''
-labels: category, database
+labels: category, low
 assignees: ''
 
 ---
