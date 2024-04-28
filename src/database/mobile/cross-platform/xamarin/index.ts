@@ -3,5 +3,5 @@ import items from "./items.json";
 
 export const xamarin = new Category({
   title: "Xamarin",
-  description: "Flutter is an open-source UI software development kit created by Google. It allows developers to build natively compiled applications for mobile, web, and desktop from a single codebase. Flutter uses the Dart programming language and provides a rich set of customizable widgets and tools to create beautiful and responsive user interfaces.",
+  description: "Xamarin is a cross-platform mobile app development framework owned by Microsoft. It allows developers to build native mobile apps for Android, iOS, and Windows using C# and .NET. Xamarin enables code sharing across platforms, resulting in faster development cycles and reduced time to market for mobile applications.",
 }, items);

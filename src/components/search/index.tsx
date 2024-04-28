@@ -33,7 +33,7 @@ export default function Search() {
           <For each={list()}>
             {({title, url, category}) => (
             <li>
-              <a class="flex justify-between rounded-lg p-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700" href={url}>{title}<span class="rounded-lg p-1 text-xs bg-gray-100 dark:bg-zinc-700">{category}</span></a>
+              <a class="flex justify-between rounded-lg p-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700" href={url}>{title}<span class="rounded-lg p-0.5 text-xs bg-gray-100 dark:bg-zinc-700">{category}</span></a>
               </li>
             )}
           </For>
