@@ -20,7 +20,7 @@ export default function MenuItem(props: MenuItemProps) {
       <a
       class={`${isOpen() && "bg-gray-100 dark:bg-zinc-700"} group flex items-center gap-2 rounded-xl py-1 px-2 text-inherit
       ]] hover:bg-gray-100 dark:hover:bg-zinc-700`} href={!isOpen() ? props.url : props.url.slice(0, (props.url).lastIndexOf('/'))}
-      style={`font-size: ${1.6 - (0.2 * props.depth) + "rem"}`}
+      style={`font-size: ${1.7 - (0.25 * props.depth) + "rem"}`}
       onClick={(e) => {
         e.preventDefault();
         setIsOpen(!isOpen());
@@ -38,7 +38,7 @@ export default function MenuItem(props: MenuItemProps) {
                 <MenuItem {...item} depth={(props.depth || 2) + 1}/>
               </Match>
               <Match when={item.type == "resource"}>
-                <a class={`${(path() == item.url) && "bg-gray-100 dark:bg-zinc-700 text-sm"} w-full py-1 px-2 text-base rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all`} href={item.url}>{item.title}</a>
+                <a class={`${(path() == item.url) && "bg-gray-100 dark:bg-zinc-700 text-sm"} w-full py-1 px-2 text-sm rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all`} href={item.url}>{item.title}</a>
               </Match>
             </Switch>
           )}
