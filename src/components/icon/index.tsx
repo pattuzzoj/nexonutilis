@@ -7,8 +7,8 @@ import { BiSolidCopy } from 'solid-icons/bi'
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from 'solid-icons/oc';
 import { TbLayoutDashboard, TbDeviceMobileCode, TbServerCog, TbSettingsCode, TbDeviceDesktopCog, TbMenu2 } from 'solid-icons/tb';
 import { CgClose } from 'solid-icons/cg';
-import { AiOutlineBgColors, AiOutlineCloudServer, AiOutlineCodeSandbox } from 'solid-icons/ai';
-import { BsFonts, BsImage } from 'solid-icons/bs';
+import { AiOutlineBgColors, AiOutlineCloudServer, AiOutlineCodeSandbox, AiOutlineMobile, AiFillAndroid, AiFillApple } from 'solid-icons/ai';
+import { BsFonts, BsImage, BsBoxes } from 'solid-icons/bs';
 import { FaSolidIcons } from 'solid-icons/fa';
 import { IoGameControllerOutline } from 'solid-icons/io';
  
@@ -51,7 +51,11 @@ export type iconList =
 | "AiOutlineBgColors" | "BsFonts" | "BsImage" | "FaSolidIcons"
 | "TbDeviceDesktopCog"
 | "IoGameControllerOutline"
-| "AiOutlineCodeSandbox";
+| "AiOutlineCodeSandbox"
+| "AiOutlineMobile"
+| "AiFillAndroid"
+| "AiFillApple"
+| "BsBoxes";
 
 interface IconProps extends JSX.HTMLAttributes<HTMLSpanElement> {
   name: iconList,
@@ -101,7 +105,8 @@ export default function Icon(props: IconProps) {
     FaSolidIcons,
     TbDeviceDesktopCog,
     IoGameControllerOutline,
-    AiOutlineCodeSandbox
+    AiOutlineCodeSandbox,
+    AiOutlineMobile, AiFillAndroid, AiFillApple, BsBoxes
   }[props.name]
 
   return (

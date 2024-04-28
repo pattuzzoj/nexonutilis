@@ -1,0 +1,62 @@
+[
+  {
+      "title": "Getting Started with React Native",
+      "description": "Start your journey into mobile app development with React Native. This tutorial covers setting up your development environment, creating your first project, and building a basic mobile app using React Native components and JSX syntax.",
+      "url": "https://reactnative.dev/docs/getting-started"
+  },
+  {
+      "title": "React Navigation for Navigation in React Native",
+      "description": "Explore different navigation techniques for React Native apps. This tutorial covers stack navigation, tab navigation, drawer navigation, and more, allowing you to navigate between screens and manage app navigation flows effectively.",
+      "url": "https://reactnavigation.org/docs/getting-started"
+  },
+  {
+      "title": "Styling in React Native",
+      "description": "Learn how to style React Native components. This tutorial covers using inline styles, external stylesheets, and styled components to create visually appealing user interfaces for your mobile apps.",
+      "url": "https://reactnative.dev/docs/style"
+  },
+  {
+      "title": "State Management with Redux in React Native",
+      "description": "Integrate Redux into your React Native app to manage complex application states. This tutorial covers setting up Redux, defining actions and reducers, and connecting Redux with React components for state management.",
+      "url": "https://redux.js.org/introduction/getting-started#react-native"
+  },
+  {
+      "title": "Handling Touches in React Native",
+      "description": "Learn how to handle touch events and gestures in React Native apps. This tutorial covers simple taps, swipes, pinches, and more, allowing you to capture and respond to user interactions effectively.",
+      "url": "https://reactnative.dev/docs/handling-touches"
+  },
+  {
+      "title": "Animating Views in React Native",
+      "description": "Add animations to your React Native apps. This tutorial covers using the Animated API, transition effects, and layout animations to create stunning animations and enhance the user experience.",
+      "url": "https://reactnative.dev/docs/animations"
+  },
+  {
+      "title": "Networking in React Native",
+      "description": "Fetch data from remote servers and APIs in React Native apps. This tutorial covers network requests using the Fetch API, Axios, and other third-party libraries, along with best practices for handling responses and errors.",
+      "url": "https://reactnative.dev/docs/network"
+  },
+  {
+      "title": "Using Custom Fonts in React Native",
+      "description": "Include and use custom fonts in your React Native applications. This tutorial covers using the expo-font library and platform-specific configurations to add custom fonts and enhance your app's visual appeal.",
+      "url": "https://docs.expo.dev/guides/using-custom-fonts/"
+  },
+  {
+      "title": "Implementing Push Notifications in React Native",
+      "description": "Add push notification support to your React Native app. This tutorial covers integrating Expo's push notification service and Firebase Cloud Messaging to engage users and drive user retention.",
+      "url": "https://docs.expo.dev/push-notifications/overview/"
+  },
+  {
+      "title": "Using Maps in React Native",
+      "description": "Integrate interactive maps into your React Native app. This tutorial covers displaying maps, adding markers, implementing geolocation services, and customizing map styles using popular libraries like react-native-maps.",
+      "url": "https://aboutreact.com/react-native-map-example/"
+  },
+  {
+      "title": "React Native Performance Optimization Tips",
+      "description": "Optimize the performance of your React Native apps. This tutorial covers identifying performance bottlenecks, improving rendering performance, and reducing memory usage for smoother user experiences.",
+      "url": "https://reactnative.dev/docs/performance"
+  },
+  {
+      "title": "Testing React Native Apps",
+      "description": "Ensure the quality and reliability of your React Native apps with comprehensive testing strategies. This tutorial covers unit testing, integration testing, end-to-end testing, and UI testing using popular testing libraries and frameworks.",
+      "url": "https://www.raywenderlich.com/247-react-native-testing-tutorial-getting-started"
+  }
+]

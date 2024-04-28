@@ -1,0 +1,52 @@
+[
+  {
+      "title": "Getting Started with Xamarin",
+      "description": "Start your journey into Xamarin development with Xamarin.Forms, a UI toolkit for building cross-platform apps with shared UI code.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/get-started/"
+  },
+  {
+      "title": "XAML for Xamarin",
+      "description": "Learn XAML (eXtensible Application Markup Language) for designing user interfaces in Xamarin.Forms applications.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/"
+  },
+  {
+      "title": "Navigation in Xamarin",
+      "description": "Implement navigation between pages and manage navigation stacks in Xamarin.Forms applications.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/navigation/"
+  },
+  {
+      "title": "Data Binding in Xamarin",
+      "description": "Bind data from view models to user interface elements using data binding techniques in Xamarin.Forms.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/data-binding/"
+  },
+  {
+      "title": "Working with Controls in Xamarin",
+      "description": "Explore different UI controls and layouts available in Xamarin.Forms for creating rich user interfaces.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/"
+  },
+  {
+      "title": "Platform-Specific Functionality in Xamarin",
+      "description": "Access platform-specific features and APIs in Xamarin.Forms apps using dependency service and custom renderers.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/platform/"
+  },
+  {
+      "title": "Working with SQLite Database in Xamarin",
+      "description": "Integrate SQLite database into Xamarin.Forms apps for local data storage and retrieval.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/data-cloud/data/databases/"
+  },
+  {
+      "title": "Using Xamarin.Essentials",
+      "description": "Access common device functionality, such as sensors, connectivity, and permissions, across iOS, Android, and UWP platforms.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/essentials/"
+  },
+  {
+      "title": "Xamarin.Forms Animations",
+      "description": "Add animations to your Xamarin.Forms applications to enhance user experience and engagement.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/animation/"
+  },
+  {
+      "title": "Customizing Xamarin.Forms Controls",
+      "description": "Customize the appearance and behavior of Xamarin.Forms controls using styles, templates, and custom renderers.",
+      "url": "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/theming/"
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+      "title": "Kotlin for Android Development",
+      "description": "Discover how Kotlin enhances Android app development. This tutorial covers using Kotlin in Android Studio, converting Java code to Kotlin, leveraging Kotlin Android extensions, and writing concise and expressive Android apps.",
+      "url": "https://developer.android.com/kotlin"
+  },
+  {
+      "title": "Coroutines in Kotlin",
+      "description": "Master asynchronous programming in Kotlin with coroutines. This tutorial introduces you to Kotlin's built-in support for coroutines, covering basics, suspension, cancellation, exception handling, and integration with Android apps.",
+      "url": "https://kotlinlang.org/docs/coroutines-overview.html"
+  },
+  {
+      "title": "Kotlin Multiplatform Mobile (KMM)",
+      "description": "Explore Kotlin Multiplatform Mobile (KMM), JetBrains' cross-platform mobile development solution. This tutorial covers sharing code between iOS and Android apps, setting up KMM projects, and leveraging shared modules and libraries.",
+      "url": "https://kotlinlang.org/lp/mobile/"
+  },
+  {
+      "title": "Dependency Injection with Koin in Kotlin",
+      "description": "Implement dependency injection (DI) in Kotlin projects using Koin, a lightweight DI framework for Kotlin and Android. This tutorial covers setting up Koin, defining modules, and injecting dependencies into your Kotlin classes.",
+      "url": "https://insert-koin.io/"
+  },
+  {
+      "title": "Working with Room Persistence Library in Kotlin",
+      "description": "Integrate Room, Google's SQLite object mapping library, into your Kotlin Android apps. This tutorial covers setting up Room, defining entities, writing queries, and performing database operations in Kotlin with Room.",
+      "url": "https://developer.android.com/topic/libraries/architecture/room"
+  },
+  {
+      "title": "Kotlin Native for Cross-Platform Development",
+      "description": "Explore Kotlin Native, JetBrains' solution for cross-platform development. This tutorial covers targeting iOS, Android, macOS, Windows, and Linux platforms with Kotlin Native, enabling code sharing and reuse across diverse platforms.",
+      "url": "https://kotlinlang.org/docs/reference/native-overview.html"
+  },
+  {
+      "title": "Working with Retrofit for RESTful API Calls in Kotlin",
+      "description": "Integrate Retrofit, a type-safe HTTP client for Android and Java, into your Kotlin projects. This tutorial guides you through making RESTful API calls, handling responses, and parsing JSON data with Retrofit and Kotlin Coroutines.",
+      "url": "https://square.github.io/retrofit/"
+  },
+  {
+      "title": "Kotlin DSL for Gradle Scripts",
+      "description": "Leverage Kotlin DSL (domain-specific language) for writing Gradle build scripts. This tutorial guides you through migrating from Groovy-based Gradle scripts to Kotlin-based scripts, enabling type-safe and concise build configurations.",
+      "url": "https://docs.gradle.org/current/userguide/kotlin_dsl.html"
+  },
+  {
+      "title": "Kotlin Testing with JUnit and Mockito",
+      "description": "Ensure the quality and reliability of your Kotlin code with unit testing. This tutorial covers writing unit tests using JUnit and Mockito frameworks, mocking dependencies, and testing Kotlin classes and functions effectively.",
+      "url": "https://junit.org/junit5/docs/current/user-guide/"
+  },
+  {
+      "title": "Building MVVM Architecture with Kotlin and LiveData",
+      "description": "Learn how to implement the Model-View-ViewModel (MVVM) architecture in your Kotlin Android apps. This tutorial covers creating ViewModel, observing LiveData, handling lifecycle events, and building a robust and maintainable architecture.",
+      "url": "https://developer.android.com/topic/libraries/architecture/viewmodel"
+  },
+  {
+      "title": "Kotlin Serialization for JSON Handling in Android Apps",
+      "description": "Integrate Kotlin Serialization library into your Android apps for efficient JSON handling. This tutorial covers serializing and deserializing JSON data, custom serialization strategies, and optimizing JSON parsing performance.",
+      "url": "https://kotlinlang.org/docs/serialization.html"
+  },
+  {
+      "title": "Working with Firebase SDK in Kotlin",
+      "description": "Leverage Firebase SDK to add powerful features to your Kotlin Android apps. This tutorial covers integrating Firebase Authentication, Firestore, Cloud Messaging, Analytics, and other Firebase services into your Kotlin projects.",
+      "url": "https://firebase.google.com/docs/android/setup"
+  },
+  {
+      "title": "Creating Custom Views and ViewGroups in Kotlin",
+      "description": "Enhance your Kotlin Android apps with custom views and view groups. This tutorial teaches you how to create reusable UI components, extend existing views, handle touch events, and implement custom drawing in Kotlin.",
+      "url": "https://developer.android.com/guide/topics/ui/custom-components"
+  },
+  {
+      "title": "Implementing Navigation Architecture Component in Kotlin",
+      "description": "Simplify navigation in your Kotlin Android apps with Navigation Architecture Component. This tutorial covers setting up navigation graph, navigating between destinations, passing data between fragments, and handling deep links.",
+      "url": "https://developer.android.com/guide/navigation/navigation-getting-started"
+  },
+  {
+      "title": "Using CameraX API for Camera Development in Kotlin",
+      "description": "Integrate CameraX, Google's modern camera API, into your Kotlin Android apps. This tutorial covers capturing photos and videos, implementing camera features, handling permissions, and ensuring compatibility across devices.",
+      "url": "https://developer.android.com/training/camerax"
+  }
+]

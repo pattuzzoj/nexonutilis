@@ -1,0 +1,77 @@
+[
+  {
+      "title": "Getting Started with Android Development",
+      "description": "Learn the fundamentals of Android app development, including setting up Android Studio, creating projects, and running apps on emulators or physical devices.",
+      "url": "https://developer.android.com/training/basics/firstapp"
+  },
+  {
+      "title": "Android Layouts and Views",
+      "description": "Explore different layout types and UI components available in Android for designing user interfaces using XML and Java.",
+      "url": "https://developer.android.com/guide/topics/ui/declaring-layout"
+  },
+  {
+      "title": "Activity Lifecycle in Android",
+      "description": "Understand the lifecycle of Android activities and how to manage activity state transitions and user interactions.",
+      "url": "https://developer.android.com/guide/components/activities/activity-lifecycle"
+  },
+  {
+      "title": "Handling User Input in Android",
+      "description": "Implement various input controls, such as buttons, text fields, and checkboxes, to capture user input in Android apps.",
+      "url": "https://developer.android.com/guide/topics/ui/controls/text"
+  },
+  {
+      "title": "Working with RecyclerView in Android",
+      "description": "Use RecyclerView to display large datasets efficiently in Android apps, with support for dynamic content and smooth scrolling.",
+      "url": "https://developer.android.com/guide/topics/ui/layout/recyclerview"
+  },
+  {
+      "title": "Networking in Android Apps",
+      "description": "Fetch data from remote servers and APIs using HTTP libraries like Retrofit or Volley in Android applications.",
+      "url": "https://developer.android.com/training/basics/network-ops"
+  },
+  {
+      "title": "Local Data Storage in Android",
+      "description": "Store and retrieve structured data locally using SQLite databases, SharedPreferences, or Room Persistence Library in Android.",
+      "url": "https://developer.android.com/guide/topics/data/data-storage"
+  },
+  {
+      "title": "Using Fragments in Android",
+      "description": "Divide the user interface into reusable and modular components using fragments to enhance code reusability and maintainability.",
+      "url": "https://developer.android.com/guide/components/fragments"
+  },
+  {
+      "title": "Android Notifications",
+      "description": "Implement push notifications, alarms, and reminders in Android apps to keep users informed and engaged.",
+      "url": "https://developer.android.com/guide/topics/ui/notifiers/notifications"
+  },
+  {
+      "title": "Location-Based Services in Android",
+      "description": "Integrate location tracking, geocoding, and mapping features into Android apps using Google Maps API and Location APIs.",
+      "url": "https://developer.android.com/training/location"
+  },
+  {
+      "title": "Android App Permissions",
+      "description": "Understand Android app permissions system and how to request, handle, and enforce runtime permissions in Android applications.",
+      "url": "https://developer.android.com/guide/topics/permissions/overview"
+  },
+  {
+      "title": "Working with Sensors in Android",
+      "description": "Access and utilize various sensors, such as accelerometer, gyroscope, and proximity sensor, to add context-awareness to Android apps.",
+      "url": "https://developer.android.com/guide/topics/sensors/sensors_overview"
+  },
+  {
+      "title": "Security Best Practices for Android Apps",
+      "description": "Implement security measures, such as encryption, secure networking, and proper data handling, to protect user data and privacy in Android apps.",
+      "url": "https://developer.android.com/topic/security/best-practices"
+  },
+  {
+      "title": "Testing Android Apps",
+      "description": "Write and execute unit tests, integration tests, and UI tests to ensure the quality, reliability, and performance of Android applications.",
+      "url": "https://developer.android.com/training/testing"
+  },
+  {
+      "title": "Publishing Android Apps on Google Play Store",
+      "description": "Prepare, package, and publish Android apps on Google Play Store, including app signing, release management, and app store optimization (ASO) techniques.",
+      "url": "https://developer.android.com/distribute/play-policies"
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+      "title": "Swift Programming Language Guide",
+      "description": "Explore the official Swift programming language guide provided by Apple. This comprehensive resource covers everything from basic syntax to advanced features, making it perfect for beginners and experienced developers alike.",
+      "url": "https://docs.swift.org/swift-book/"
+  },
+  {
+      "title": "Getting Started with Swift for iOS Development",
+      "description": "Start your iOS development journey with Swift. This tutorial covers setting up Xcode, creating your first iOS project, and writing Swift code to build simple user interfaces and handle user interactions.",
+      "url": "https://developer.apple.com/swift/"
+  },
+  {
+      "title": "Building iOS Apps with SwiftUI",
+      "description": "Discover SwiftUI, Apple's modern declarative framework for building user interfaces across all Apple platforms. This tutorial teaches you how to create beautiful and interactive iOS apps using SwiftUI's intuitive syntax and powerful features.",
+      "url": "https://developer.apple.com/tutorials/swiftui/"
+  },
+  {
+      "title": "Working with Core Data in Swift",
+      "description": "Learn how to integrate Core Data, Apple's powerful object graph and persistence framework, into your Swift applications. This tutorial covers data modeling, fetching, saving, and syncing data with Core Data in a Swift-based iOS app.",
+      "url": "https://developer.apple.com/documentation/coredata"
+  },
+  {
+      "title": "Asynchronous Programming with Swift",
+      "description": "Master asynchronous programming techniques in Swift using async/await, DispatchQueue, and Combine. This tutorial guides you through handling asynchronous tasks, managing concurrency, and writing responsive and efficient Swift code.",
+      "url": "https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html"
+  },
+  {
+      "title": "Unit Testing in Swift",
+      "description": "Ensure the reliability and quality of your Swift code with unit testing. This tutorial covers writing unit tests using XCTest framework, organizing test cases, and integrating testing into your development workflow for iOS and macOS apps.",
+      "url": "https://developer.apple.com/documentation/xctest"
+  },
+  {
+      "title": "Dependency Injection with Swinject in Swift",
+      "description": "Implement dependency injection (DI) in Swift projects using Swinject, a lightweight dependency injection framework for Swift and iOS. This tutorial covers setting up Swinject, defining dependencies, and injecting dependencies into your Swift classes.",
+      "url": "https://github.com/Swinject/Swinject"
+  },
+  {
+      "title": "Implementing MVVM Architecture with Swift and Combine",
+      "description": "Learn how to implement the Model-View-ViewModel (MVVM) architecture in your Swift iOS apps using Combine framework. This tutorial covers creating ViewModel, binding views with Combine publishers, and building a scalable and maintainable architecture.",
+      "url": "https://developer.apple.com/documentation/combine"
+  },
+  {
+      "title": "Working with URLSession for Networking in Swift",
+      "description": "Integrate URLSession, Apple's powerful networking framework, into your Swift iOS apps. This tutorial covers making HTTP requests, handling responses, and parsing JSON data with URLSession and Swift's Codable protocol.",
+      "url": "https://developer.apple.com/documentation/foundation/urlsession"
+  },
+  {
+      "title": "Using Auto Layout in Swift for Responsive UI Design",
+      "description": "Create responsive user interfaces for iOS and macOS apps using Auto Layout in Swift. This tutorial covers working with constraints, defining layout rules, handling device orientation changes, and creating adaptive layouts.",
+      "url": "https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/"
+  },
+  {
+      "title": "Implementing Authentication with Firebase in Swift",
+      "description": "Integrate Firebase Authentication into your Swift iOS apps for secure user authentication. This tutorial covers setting up Firebase Authentication, handling user sign-up and sign-in flows, and implementing passwordless authentication.",
+      "url": "https://firebase.google.com/docs/auth"
+  },
+  {
+      "title": "Using Swift Package Manager for Dependency Management",
+      "description": "Leverage Swift Package Manager (SPM) for managing dependencies in your Swift projects. This tutorial covers creating Swift packages, adding dependencies, and integrating external libraries and frameworks into your projects.",
+      "url": "https://swift.org/package-manager/"
+  },
+  {
+      "title": "Implementing Push Notifications in Swift Apps",
+      "description": "Add push notification support to your Swift iOS apps using Apple Push Notification Service (APNs). This tutorial guides you through registering for push notifications, handling push notification payloads, and implementing custom notification actions.",
+      "url": "https://developer.apple.com/documentation/usernotifications"
+  },
+  {
+      "title": "Building a To-Do App with CoreData and SwiftUI in Swift",
+      "description": "Create a simple to-do list app using CoreData and SwiftUI in Swift. This tutorial covers data modeling with CoreData, building UI with SwiftUI, and integrating CoreData with SwiftUI views for a seamless user experience.",
+      "url": "https://developer.apple.com/tutorials/app-dev-training"
+  },
+  {
+      "title": "Using MapKit for Mapping and Location Services in Swift",
+      "description": "Integrate MapKit, Apple's mapping and location services framework, into your Swift iOS apps. This tutorial covers displaying maps, adding annotations, implementing location services, and customizing map styles in Swift.",
+      "url": "https://developer.apple.com/documentation/mapkit"
+  }
+]

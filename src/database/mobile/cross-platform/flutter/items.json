@@ -1,0 +1,67 @@
+[
+  {
+      "title": "Getting Started with Flutter",
+      "description": "Learn the basics of Flutter development, including installation, project setup, and building your first app.",
+      "url": "https://flutter.dev/docs/get-started/install"
+  },
+  {
+      "title": "Flutter Layouts and Widgets",
+      "description": "Explore different layout patterns and widgets available in Flutter for building responsive UIs.",
+      "url": "https://flutter.dev/docs/development/ui/widgets/layout"
+  },
+  {
+      "title": "State Management in Flutter",
+      "description": "Understand various state management techniques in Flutter, such as setState, Provider, Bloc, and Riverpod.",
+      "url": "https://flutter.dev/docs/development/data-and-backend/state-mgmt"
+  },
+  {
+      "title": "Navigation in Flutter Apps",
+      "description": "Implement navigation between screens and manage routing in Flutter applications using Navigator.",
+      "url": "https://flutter.dev/docs/development/ui/navigation"
+  },
+  {
+      "title": "Flutter Animations",
+      "description": "Add animations to your Flutter apps using built-in animation controllers, tweens, and custom animations.",
+      "url": "https://flutter.dev/docs/development/ui/animations"
+  },
+  {
+      "title": "Networking in Flutter",
+      "description": "Fetch data from REST APIs and handle network requests using HTTP libraries like Dio or http package.",
+      "url": "https://flutter.dev/docs/cookbook/networking"
+  },
+  {
+      "title": "Working with Firebase in Flutter",
+      "description": "Integrate Firebase services, including Authentication, Cloud Firestore, Cloud Messaging, and more, into your Flutter apps.",
+      "url": "https://firebase.flutter.dev/docs/overview"
+  },
+  {
+      "title": "Using Packages and Plugins in Flutter",
+      "description": "Discover and integrate third-party packages and plugins from pub.dev to extend the functionality of your Flutter apps.",
+      "url": "https://flutter.dev/docs/development/packages-and-plugins/using-packages"
+  },
+  {
+      "title": "Flutter Internationalization and Localization",
+      "description": "Localize Flutter apps to support multiple languages and regions using internationalization techniques.",
+      "url": "https://flutter.dev/docs/development/accessibility-and-localization/internationalization"
+  },
+  {
+      "title": "Testing Flutter Apps",
+      "description": "Write unit tests, widget tests, and integration tests to ensure the reliability and quality of your Flutter apps.",
+      "url": "https://flutter.dev/docs/testing"
+  },
+  {
+      "title": "Flutter Theming and Dark Mode",
+      "description": "Implement themes and dark mode support in Flutter apps to provide a personalized and visually pleasing experience to users.",
+      "url": "https://flutter.dev/docs/cookbook/design/themes"
+  },
+  {
+      "title": "Flutter Desktop Development",
+      "description": "Extend your Flutter skills to build cross-platform desktop applications for Windows, macOS, and Linux.",
+      "url": "https://flutter.dev/desktop"
+  },
+  {
+      "title": "Deploying Flutter Apps",
+      "description": "Deploy Flutter apps to Google Play Store, Apple App Store, and other platforms, including release builds and app store optimization.",
+      "url": "https://flutter.dev/docs/deployment"
+  }
+]

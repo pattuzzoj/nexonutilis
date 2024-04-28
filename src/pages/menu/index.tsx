@@ -29,6 +29,11 @@ export default function Home() {
               <Title as="2" class="text-2xl">{data.item.title}</Title>
               <br />
               <Text>{data.item.description}</Text>
+              {/* <Show when={data.item?.tutorials}>
+                <br />
+                <a class="rounded-xl p-2 text-black dark:text-white bg-gray-200 dark:bg-zinc-800 hover:bg-gray-100 dark:hover:bg-zinc-700" href={data.item?.tutorials}>Tutorials</a>
+                <br />
+              </Show> */}
             </div>
             <div class="md:h-full flex flex-col justify-start">
               <div class="w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4 h-max">
