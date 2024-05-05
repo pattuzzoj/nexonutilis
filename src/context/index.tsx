@@ -1,4 +1,4 @@
-import { JSXElement, Show, createContext, createEffect, createSignal, on, useContext } from "solid-js";
+import { JSXElement, createContext, createEffect, createSignal, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 import { useLocation, useNavigate } from "@solidjs/router";
 import { database } from "database";
@@ -54,13 +54,13 @@ export default function DataProvider(props: {children: JSXElement}) {
     }
   }));
 
-  const [test, setTest] = createSignal(false);
+  const [isLoading, setIsLoading] = createSignal(true);
 
-  setTimeout(() => setTest(true), 1000)
+  setTimeout(() => setIsLoading(false), 1000)
 
 	return (
 		<DataContext.Provider value={{data, setData}}>
-      <div class={`${test() && "scale-0"} absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-500`}>
+      <div class={`${!isLoading() && "scale-0"} absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-500`}>
         <Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
       </div>
       {props.children}
