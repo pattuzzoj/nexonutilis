@@ -1,18 +1,18 @@
-import Header from 'layout/header';
-import Footer from 'layout/footer';
-import DataProvider from 'context';
-import Aside from 'layout/aside';
-import Main from 'layout/main';
+import DataProvider from "context";
+import Header from "components/layout/header";
+import Footer from "components/layout/footer";
+import Aside from "components/layout/aside";
+import Main from "components/layout/main";
 
 export default function App(props: any) {
   return (
-    <div class="md:h-screen flex flex-col">
+    <div class="relative flex flex-col md:h-screen">
       <DataProvider>
         <div class="flex flex-col md:flex-row">
           <Header />
-          <div class="w-full flex flex-col">
+          <div class="flex w-full flex-col">
             <Aside />
-            <Main class="rounded-s-2xl text-gray-900 dark:text-white bg-gray-300 dark:bg-zinc-900">
+            <Main class="rounded-s-2xl bg-gray-300 text-gray-900 dark:bg-zinc-900 dark:text-white">
               {props.children}
             </Main>
           </div>

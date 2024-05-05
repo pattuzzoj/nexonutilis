@@ -1,0 +1,37 @@
+[
+  {
+      "title": "React - A JavaScript library for building user interfaces",
+      "description": "React is a JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies.",
+      "url": "https://react.dev/"
+  },
+  {
+      "title": "React Tutorial - W3Schools",
+      "description": "W3Schools' React tutorial is a practical introduction to React, covering basic concepts and simple examples for beginners.",
+      "url": "https://www.w3schools.com/react/"
+  },
+  {
+      "title": "React - Mozilla Developer Network (MDN) ",
+      "description": "MDN offers a React tutorial for web developers, with detailed explanations, practical examples, and best practices.",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started"
+  },
+  {
+      "title": "React Tutorial - React-tutorial.app",
+      "description": "React Tutorial is a platform for learning React, providing tutorials, guides, and resources for React developers.",
+      "url": "https://react-tutorial.app/"
+  },
+  {
+      "title": "React Tutorial - Tutorialspoint",
+      "description": "Tutorialspoint offers a comprehensive React tutorial covering everything from fundamentals to advanced topics, with examples and detailed explanations.",
+      "url": "https://www.tutorialspoint.com/reactjs/index.htm"
+  },
+  {
+      "title": "React Tutorial - GeeksforGeeks",
+      "description": "GeeksforGeeks offers a React tutorial covering basic to advanced concepts, with examples and detailed explanations.",
+      "url": "https://www.geeksforgeeks.org/react-tutorial/"
+  },
+  {
+      "title": "ReactJS Tutorial - JavaTpoint",
+      "description": "JavaTpoint provides a comprehensive ReactJS tutorial with step-by-step explanations and examples for beginners.",
+      "url": "https://www.javatpoint.com/reactjs-tutorial"
+  }
+]

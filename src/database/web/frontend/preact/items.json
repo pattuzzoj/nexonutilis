@@ -1,0 +1,22 @@
+[
+  {
+      "title": "Preact Documentation",
+      "description": "Official documentation for Preact, providing detailed information on getting started, core concepts, APIs, and best practices.",
+      "url": "https://preactjs.com/"
+  },
+  {
+      "title": "Preact GitHub Repository",
+      "description": "The official GitHub repository for Preact, where you can find the latest source code, documentation, and contribute to the project.",
+      "url": "https://github.com/preactjs/preact"
+  },
+  {
+      "title": "Introduction to Preact",
+      "description": "An introductory article on Preact, explaining its core concepts and advantages compared to other UI libraries.",
+      "url": "https://www.smashingmagazine.com/2018/02/preact-react-alternative/"
+  },
+  {
+      "title": "Building a Todo App with Preact",
+      "description": "A tutorial on building a Todo application using Preact, covering basic concepts and practical examples.",
+      "url": "https://medium.com/@sambhavgoyal/building-a-todo-app-in-preact-71567a5cb6b"
+  }
+]

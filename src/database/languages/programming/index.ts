@@ -15,7 +15,7 @@ import { swift } from './swift';
 import { typescript } from './typescript';
 
 export const programming = new Category({
-  title: "Programming Languages",
+  title: "Programming",
   description: "Collection of popular programming languages like C++, Python, Java, etc., for exploration and learning purposes.",
-  url: "/programming"
+  icon: "AiOutlineCode"
 }, [c, cpp, csharp, kotlin, go, lua, java, php, javascript, python, ruby, rust, swift, typescript]);

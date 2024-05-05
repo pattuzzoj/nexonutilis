@@ -6,6 +6,6 @@ const copy = (url: string) => {
   navigator.clipboard.writeText(url);
   setCopyNotification(url);
   setTimeout(() => setCopyNotification(""), 1000);
-}
+};
 
-export {copy, copyNotification};
+export { copy, copyNotification };

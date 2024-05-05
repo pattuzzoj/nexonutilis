@@ -20,17 +20,17 @@ export default function MenuItem(props: MenuItemProps) {
       <a
       class={`${isOpen() && "bg-gray-100 dark:bg-zinc-700"} group flex items-center gap-2 rounded-xl py-1 px-2 text-inherit
       ]] hover:bg-gray-100 dark:hover:bg-zinc-700`} href={!isOpen() ? props.url : props.url.slice(0, (props.url).lastIndexOf('/'))}
-      style={`font-size: ${1.7 - (0.25 * props.depth) + "rem"}`}
+      style={`font-size: ${1.5 - (0.15 * props.depth) + "rem"}`}
       onClick={(e) => {
         e.preventDefault();
         setIsOpen(!isOpen());
         navigate(isOpen() ? props.url : props.url.slice(0, (props.url).lastIndexOf('/')));
       }}
       >
-        <Icon name={props.icon || "RiArrowsArrowRightSLine"} class={`${isOpen() && "animate-spin"} group-hover:animate-spin size-6`}/>
+        <Icon name={props?.icon || "RiArrowsArrowRightSLine"} class={`${isOpen() && "animate-spin"} group-hover:animate-spin size-6`}/>
         {props.title}
       </a>
-      <div class={`${isOpen() ? "h-full" : "h-0 scale-0"} flex flex-col gap-1.5 overflow-hidden transition-all duration-300`} >
+      <div class={`${isOpen() ? "h-full" : "h-0 scale-0"} ml-4 flex flex-col gap-1.5 overflow-hidden transition-all duration-300`} >
         <For each={props.items as Array<Category>}>
           {(item) => (
             <Switch>

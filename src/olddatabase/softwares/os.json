@@ -1,0 +1,122 @@
+{
+  "type": "resource",
+  "title": "Operating Systems",
+  "description": "Operating systems are the foundational software platforms that manage computer hardware and provide a user interface for interacting with applications and data.",
+  "items": [
+    {
+      "title": "Windows 10",
+      "description": "Windows 10 is a widely used operating system developed by Microsoft. While it's not a Linux distribution, it's worth mentioning due to its popularity and widespread adoption.",
+      "url": "https://www.microsoft.com/en-us/windows/get-windows-10"
+    },
+    {
+      "title": "Windows 11",
+      "description": "Windows 11 is the successor to Windows 10, featuring a redesigned interface, improved performance, and new features.",
+      "url": "https://www.microsoft.com/en-us/windows/windows-11"
+    },
+    {
+      "title": "Arch Linux",
+      "description": "Arch Linux is a lightweight and highly customizable distribution favored by advanced users. It follows a rolling release model, allowing users to access the latest software updates.",
+      "url": "https://archlinux.org/"
+    },
+    {
+      "title": "Fedora",
+      "description": "Fedora is a community-driven Linux distribution sponsored by Red Hat. It focuses on cutting-edge technologies and is often used by developers and enthusiasts.",
+      "url": "https://getfedora.org/"
+    },
+    {
+      "title": "Debian",
+      "description": "Debian is a robust and stable Linux distribution known for its reliability. It serves as the foundation for many other Linux distributions.",
+      "url": "https://www.debian.org/"
+    },
+    {
+      "title": "Kali Linux",
+      "description": "Kali Linux is an open-source distribution geared towards penetration testing, security research, computer forensics, and reverse engineering.",
+      "url": "https://www.kali.org/"
+    },
+    {
+      "title": "Ubuntu",
+      "description": "Ubuntu is a popular Linux distribution based on Debian. It's known for its ease of use, stability, and strong community support.",
+      "url": "https://ubuntu.com/"
+    },
+    {
+      "title": "Linux Mint",
+      "description": "Linux Mint is another user-friendly Linux distribution based on Ubuntu. It offers a familiar desktop environment and a variety of software applications.",
+      "url": "https://linuxmint.com/"
+    },
+    {
+      "title": "Zorin OS",
+      "description": "Zorin OS is an alternative to Windows and macOS, designed to make your computer faster, more powerful, secure, and privacy-respecting. It offers a familiar desktop environment that you can customize to feel like Windows, macOS, or Linux.",
+      "url": "https://zorin.com/os/"
+    },
+    {
+      "title": "Chrome OS",
+      "description": "Chrome OS is a fast, secure, and cloud-centric operating system developed by Google. It's primarily used on Chromebooks and emphasizes web-based applications.",
+      "url": "https://chromeenterprise.google/intl/pt_br/os/chromeosflex/"
+    },
+    {
+      "title": "Elementary OS",
+      "description": "Elementary OS is a thoughtful, capable, and ethical replacement for Windows and macOS. It provides a user-friendly experience, curated apps, and privacy-focused features.",
+      "url": "https://elementary.io/"
+    },
+    {
+      "title": "Endless OS",
+      "description": "Endless OS is a completely free operating system packed with educational tools, games, and more. It's designed to be user-friendly and accessible.",
+      "url": "https://www.endlessos.org/"
+    },
+    {
+      "title": "Gentoo",
+      "description": "Gentoo is a highly flexible, source-based Linux distribution. It allows you to customize your system by compiling software locally according to your preferences. It's known for its optimization and versatility.",
+      "url": "https://www.gentoo.org/"
+    },
+    {
+      "title": "Red Hat Enterprise Linux (RHEL)",
+      "description": "Red Hat Enterprise Linux is a commercial Linux distribution developed by Red Hat. It's widely used in enterprise environments, offering stability, security, and long-term support.",
+      "url": "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"
+    },
+    {
+      "title": "Manjaro",
+      "description": "Manjaro is an Arch Linux-based distribution that aims to provide an accessible and user-friendly experience. It offers rolling releases, a variety of desktop environments, and a large software repository.",
+      "url": "https://manjaro.org/"
+    },
+    {
+      "title": "Deepin",
+      "description": "Deepin (formerly known as Linux Deepin) is a beautiful and user-friendly Linux distribution based on Debian. It features a unique desktop environment and a focus on aesthetics.",
+      "url": "https://www.deepin.org/en/"
+    },
+    {
+      "title": "MX Linux",
+      "description": "MX Linux is a cooperative venture between the antiX and MX Linux communities. It combines elegant and efficient desktops with high stability and solid performance. Available in Xfce, KDE, and Fluxbox flavors.",
+      "url": "https://mxlinux.org/"
+    },
+    {
+      "title": "BigLinux",
+      "description": "BigLinux is a Brazilian Linux distribution that has been refined over 19 years. It aims to be easy to use and empowering for users. Available in various editions.",
+      "url": "https://www.biglinux.com.br/"
+    },
+    {
+      "title": "Regata OS",
+      "description": "Regata OS allows you to get to what really matters, offering better performance for your PC. It features an app store, GameMode, FSR (frame rate boosting), Game Access, and hybrid graphics support.",
+      "url": "https://www.regataos.com.br/"
+    },
+    {
+      "title": "Pop!_OS",
+      "description": "Pop!_OS is an operating system by System76, designed for STEM and creative professionals. It offers fast navigation, workflow customization, and auto-tiling features.",
+      "url": "https://pop.system76.com/"
+    },
+    {
+      "title": "Steam OS",
+      "description": "SteamOS is a Linux-based operating system developed by Valve Corporation. It's designed for gaming and runs Steam games natively.",
+      "url": "https://store.steampowered.com/steamos/"
+    },
+    {
+      "title": "openSUSE",
+      "description": "openSUSE is a community-driven Linux distribution known for its stability, flexibility, and powerful tools. It offers both rolling release and regular release versions.",
+      "url": "https://www.opensuse.org/"
+    },
+    {
+      "title": "Mix OS",
+      "description": "Mix OS is not widely recognized, but it may refer to a custom or lesser-known Linux variant."
+    }
+  ],
+  "url": "/softwares/os"
+}

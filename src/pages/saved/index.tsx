@@ -6,7 +6,7 @@ import {copy, copyNotification} from "utils/clipboard";
 
 export default function Saved() {
   const [savedItems, _addItem, removeItem] = useSaved();
-
+  
   return (
     <>
       <Show when={savedItems().length} fallback={<div class="w-full h-full flex justify-center items-center text-2xl">Your saved items will appear here.</div>}>

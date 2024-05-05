@@ -1,0 +1,17 @@
+[
+  {
+      "title": "Angular Documentation",
+      "description": "Official documentation for Angular, providing detailed information on getting started, core concepts, APIs, and best practices.",
+      "url": "https://angular.io/docs"
+  },
+  {
+      "title": "Angular Tutorial - Tutorialspoint",
+      "description": "Tutorialspoint offers a comprehensive Angular tutorial covering everything from fundamentals to advanced topics, with examples and detailed explanations.",
+      "url": "https://www.tutorialspoint.com/angular4/index.htm"
+  },
+  {
+      "title": "Angular Tutorial - W3Schools",
+      "description": "W3Schools' Angular tutorial is a practical introduction to Angular, covering basic concepts and simple examples for beginners.",
+      "url": "https://www.w3schools.com/angular/"
+  }
+]

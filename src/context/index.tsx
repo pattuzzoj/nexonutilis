@@ -1,8 +1,9 @@
-import { JSXElement, createContext, createEffect, on, useContext } from "solid-js";
+import { JSXElement, Show, createContext, createEffect, createSignal, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 import { useLocation, useNavigate } from "@solidjs/router";
 import { database } from "database";
 import { Category } from "models/interfaces/category";
+import Icon from "components/icon";
 
 export const DataContext = createContext();
 
@@ -19,7 +20,7 @@ export default function DataProvider(props: {children: JSXElement}) {
 
   data.routes.set("/", database);
   database.items.forEach(category => setData("categories", (categories) => [...categories, category as Category]));
-
+  
   (function setRoutes(categories: Array<Category>, parentURL: string = '') {
     categories.forEach((category: Category) => {
       if(category.hasOwnProperty("items")) {
@@ -32,33 +33,37 @@ export default function DataProvider(props: {children: JSXElement}) {
 
   createEffect(on(path, (path) => {
     setData("path", []);
-
+    
     if(data.routes.has(path)) {
       setData("item", data.routes.get(path) as Category);
     }
 
     if(path != '/') {
-      const url = path.substring(1).split("/");
       let currentPath = '';
 
-      for(let index = 0; index < url.length; index++) {
-        currentPath += "/" + url[index];
+      path.substring(1).split("/").forEach(url => {
+        currentPath += "/" + url;
 
         if(data.routes.has(currentPath)) {
           const item: {title: string, url: string} = data.routes.get(currentPath) as {title: string, url: string};
           setData("path", (paths) => [...paths, {title: item.title, url: item.url} ]);
-        } else {
-          if(currentPath != '/saved') {
+        } else if(currentPath != '/saved') {
             navigate("/404");
-          }
         }
-      }
+      })
     }
   }));
 
+  const [test, setTest] = createSignal(false);
+
+  setTimeout(() => setTest(true), 1000)
+
 	return (
 		<DataContext.Provider value={{data, setData}}>
-			{props.children}
+      <div class={`${test() && "scale-0"} absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-500`}>
+        <Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
+      </div>
+      {props.children}
 		</DataContext.Provider>
 	);
 }

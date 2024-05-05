@@ -3,7 +3,7 @@ import { html } from './html';
 import { xml } from './xml';
 
 export const markup = new Category({
-  title: "Markup Languages",
+  title: "Markup",
   description: "Markup languages are used to annotate text with additional information to define its structure and presentation.",
-  url: "/markup"
+  icon: "BsCodeSlash"
 }, [html, xml]);

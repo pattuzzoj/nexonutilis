@@ -1,0 +1,17 @@
+{
+  "type": "resource",
+  "mode": "card",
+  "title": "Angular",
+  "description": "Angular lets you start small and supports you as your team and apps grow.",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAA2FBMVEVHcEyqKCyfJCe5Ki0AAAC7Ki6xKS0AAAAAAAAaBAXZLzSoJSncMDWxLC+mKSycJinNLTHeMTYvCgt2Gx0AAADFKi+2LjHcMDXeMTazLTDdMTavLC+yLTC2LjGiKCvMLTGuLC/iMje1LjH///+yLTDeMDWxFxu2LjH78PC1KS3jLjThISfhGCDiKi+vCA6zICTkwcHtsrP0zs/DZWbkTlL9+fntnp/nYmXnbW/RkJHZo6Tzu7y+UFLy1tfhOT3cGB/w3d2/VljfAArIc3S5PkHqf4H54eHFcnO+j3EwAAAAIXRSTlMAVTR2EA1kAwkaeh3FwZZ3meY6UiU/zLLT81q629SotN7lzuF0AAABV0lEQVQokY2S127CQBBFTTDYpoYWIH334nUH0wk9/f//KPYWC4gi5b4eHe3OndG0f+eq/Bcplxr24CFf+E0KpR4hxB5QSm+K5/y2QtL4sxRS54R3ukQmnLyMqEw1x2FFMX8Pd0gzyuG1gsEYeFeqU+OwpMQIwDFT6xwWlbjAHJh60hRvdtR3XCx2mEjVuUqZURYs+gT2U2ArVYubuhS/MDkMj4gZZ32TQ6PBxSWwDFiifnD13hAt9EQBcFer76mLMVfvZEVd3hyyUC8bU7QQbgCXB1izbExNyyciAcZv4YGx4RrzUTampuV4AZj56co8B0jqF2Om+08gsAvFPlmMOVNjappF/OVmvIoE9LZx/OpRU0Izb/tBEKlL8BjznlsKGnpbrs0Wl9CvW7qhrsQwreaTgg6ttXXlSdlqVVLoOI9N6wxJXGyQQTVBxiUTT9dbJ49dxNTP0Q/MCEHVbwerXAAAAABJRU5ErkJggg==",
+  "roadmap": "",
+  "official": "https://angular.io/",
+  "url": "/development/frontend/javascript/frameworks/angular",
+  "items": [
+    {
+      "title": "Angular - W3schools",
+      "description": "This tutorial is specially designed to help you learn AngularJS as quickly and efficiently as possible. First, you will learn the basics of AngularJS: directives, expressions, filters, modules, and controllers. Then you will learn everything else you need to know about AngularJS: Events, DOM, Forms, Input, Validation, Http, and more.",
+      "url": "https://www.w3schools.com/angular/"
+    }
+  ]
+}

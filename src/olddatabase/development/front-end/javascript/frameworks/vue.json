@@ -1,0 +1,22 @@
+{
+  "type": "resource",
+  "mode": "card",
+  "title": "Vue",
+  "description": "The Progressive JavaScript Framework · Approachable. Builds on top of standard HTML, CSS and JavaScript with intuitive API and world-class documentation.",
+  "logo": "https://static-00.iconduck.com/assets.00/vue-vuejs-javascript-js-framework-icon-256x223-r55u9gbz.png",
+  "roadmap": "https://roadmap.sh/vue",
+  "official": "https://vuejs.org/",
+  "url": "/development/frontend/javascript/frameworks/vue",
+  "items": [
+    {
+      "title": "Vue - MDN",
+      "description": "Let's leave this here for now. We've learnt about some of the ideas behind Vue, created some scaffolding for our example app to live inside, inspected it, and made a few preliminary changes.",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_getting_started"
+    },
+    {
+      "title": "Vue - W3schools",
+      "description": "This tutorial is specially designed to help you learn Vue as quickly and efficiently as possible. First, you will learn the basics of Vue: text interpolation, directives, and how to incorporate events and forms into your project.",
+      "url": "https://www.w3schools.com/vue/"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ export default function Search() {
         if(url?.lastIndexOf("/") && title?.split(" ").some((value) => value.toLowerCase().startsWith(input.value.toLowerCase()))) {
           setList(items => [...items, {"title": title, "url": url, "category": data.routes.get(url.slice(0, url.indexOf("/", 1))).title.toLowerCase()}]);
         }
-      })
+      });
     }
   }
 

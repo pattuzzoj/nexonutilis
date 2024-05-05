@@ -29,15 +29,10 @@ export default function Home() {
               <Title as="2" class="text-2xl">{data.item.title}</Title>
               <br />
               <Text>{data.item.description}</Text>
-              {/* <Show when={data.item?.tutorials}>
-                <br />
-                <a class="rounded-xl p-2 text-black dark:text-white bg-gray-200 dark:bg-zinc-800 hover:bg-gray-100 dark:hover:bg-zinc-700" href={data.item?.tutorials}>Tutorials</a>
-                <br />
-              </Show> */}
             </div>
             <div class="md:h-full flex flex-col justify-start">
-              <div class="w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4 h-max">
-                <For each={data.item?.items.slice(quantity * (currentPage() - 1), quantity * currentPage())}>
+              <div class="w-full grid md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4 gap-4 h-max">
+                <For each={data.item?.items.slice(quantity * (currentPage() - 1), quantity * currentPage())} fallback={<div class="w-full h-full flex justify-center items-center text-2xl">The category doesn't have any features yet.</div>}>
                   {({title, description, url}) => (
                     <div class="flex flex-col justify-between gap-5 w-full rounded-xl p-4 bg-gray-200 dark:bg-zinc-800 shadow-sm shadow-gray-300 dark:shadow-zinc-950">
                       <span class="flex justify-between w-full">
@@ -89,7 +84,7 @@ export default function Home() {
         </Match>
         <Match when={data.item?.type == "category"}>
           <div class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 grid-rows-1 gap-4 transition-all duration-300">
-            <For each={data.item?.items as Array<Category>}>
+            <For each={data.item?.items as Array<Category>} fallback={<div class="w-full h-full flex justify-center items-center text-2xl">The category doesn't have any features yet.</div>}>
               {({title, description, url, icon}) => (
                 <a class="
                 group w-full flex flex-col justify-between gap-4 rounded-2xl p-4 

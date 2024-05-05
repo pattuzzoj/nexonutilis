@@ -8,12 +8,14 @@ import { games } from "./games";
 import { hosting } from "./hosting";
 import { tools } from "./tools";
 import { mobile } from "./mobile";
+import { web } from "./web";
 
 export const database = {
   type: "category",
   items: [
   techhub,
   languages,
+  web,
   mobile,
   games,
   databases,
@@ -21,5 +23,5 @@ export const database = {
   visuals,
   tools,
   ia,
-  community
+  community,
 ]}

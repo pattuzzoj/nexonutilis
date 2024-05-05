@@ -1,0 +1,68 @@
+{
+  "type": "resource",
+  "title": "Browsers",
+  "description": "Browsers are software applications designed to access and navigate the World Wide Web. They interpret and display web content, allowing users to view websites, interact with online services, and consume digital media.",
+  "items": [
+    {
+      "title": "Google Chrome",
+      "description": "Google Chrome is a widely used web browser known for its speed, simplicity, and extensive extension support.",
+      "url": "https://www.google.com/chrome/"
+    },
+    {
+      "title": "Mozilla Firefox",
+      "description": "Firefox is an open-source browser that emphasizes privacy, customization, and security. It offers a rich ecosystem of add-ons.",
+      "url": "https://www.mozilla.org/firefox/"
+    },
+    {
+      "title": "Microsoft Edge",
+      "description": "Microsoft Edge is the default browser for Windows 10 and later versions. It focuses on performance, security, and integration with Microsoft services.",
+      "url": "https://www.microsoft.com/edge"
+    },
+    {
+      "title": "Yandex Browser",
+      "description": "The quick and secure browser from Yandex for computers, as well as smartphones and tablets on Android and iOS (iPhone and iPad).",
+      "url": "https://browser.yandex.com/"
+    },
+    {
+      "title": "Opera",
+      "description": "Opera is a feature-rich browser with built-in ad blocking, VPN, and customizable themes. It aims to enhance user experience.",
+      "url": "https://www.opera.com/"
+    },
+    {
+      "title": "Apple Safari",
+      "description": "Safari is the default browser for macOS and iOS devices. It prioritizes speed, energy efficiency, and seamless integration with Apple products.",
+      "url": "https://www.apple.com/safari/"
+    },
+    {
+      "title": "Vivaldi",
+      "description": "Vivaldi is a highly customizable browser that allows users to tailor their experience with various themes, tab management, and privacy features.",
+      "url": "https://vivaldi.com/"
+    },
+    {
+      "title": "Brave",
+      "description": "Brave focuses on privacy and security by blocking ads and trackers. It also rewards users with Basic Attention Tokens (BAT) for viewing ads.",
+      "url": "https://brave.com/"
+    },
+    {
+      "title": "Tor Browser",
+      "description": "Tor Browser prioritizes anonymity and privacy by routing internet traffic through a network of volunteer-operated servers.",
+      "url": "https://www.torproject.org/"
+    },
+    {
+      "title": "Maxthon",
+      "description": "Maxthon is a cloud-based browser that syncs data across devices. It offers features like split-screen browsing and resource sniffer.",
+      "url": "https://www.maxthon.com/"
+    },
+    {
+      "title": "Puffin",
+      "description": "Puffin is a mobile browser that offloads processing to cloud servers, resulting in faster page loading and reduced data usage.",
+      "url": "https://www.puffin.com/"
+    },
+    {
+      "title": "Torch Browser",
+      "description": "Torch Browser integrates social media sharing, torrent downloading, and media grabber features directly into the browser.",
+      "url": "https://www.torchbrowser.com/"
+    }
+  ],
+  "url": "/softwares/browsers"
+}
