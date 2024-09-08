@@ -1,7 +1,7 @@
 import { query } from "../utils/query.js";
 
 async function getCategories() {
-  const {rows: categories} = await query(this.queries.findAll);
+  const {rows: categories} = await query(`SELECT * FROM category ORDER BY parent_category_id, index`);
   return categories;
 }
 
