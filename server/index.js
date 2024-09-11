@@ -17,7 +17,7 @@ const port = 3000;
 // };
 
 // app.use(knownAgents);
-app.use(cors({origin: ['https://nexonutilis.vercel.app', '*']}));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use('/', router);
 
