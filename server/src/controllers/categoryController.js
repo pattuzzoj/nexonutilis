@@ -13,6 +13,8 @@ export async function getData(req, res) {
 export async function getCategory(req, res) {
   const {lastSync} = req.params;
 
+  res.status(200).json({data: lastSync})
+
   try {
     const categories = await getCategories(lastSync);
 
