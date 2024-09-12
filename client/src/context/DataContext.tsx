@@ -15,15 +15,15 @@ export default function DataProvider(props: {children: JSXElement}) {
 	const resourceStore = useStore("resource");
 
 	
-	// createEffect(() => batch(() => {
-	// 	console.log(categoriesResponse()?.data, resourcesResponse()?.data);
-	// }))
+	createEffect(() => batch(() => {
+		console.log(categoriesResponse()?.data, resourcesResponse()?.data);
+	}))
 
-	createEffect(on([categoriesResponse, resourcesResponse], ([categories, resources]) => {
-		if(categories && resources) {
-			console.log(categories, resources);
-		}
-	}));
+	// createEffect(on([categoriesResponse, resourcesResponse], ([categories, resources]) => {
+	// 	if(categories && resources) {
+	// 		console.log(categories, resources);
+	// 	}
+	// }));
 
 	return (
 		<DataContext.Provider value={{data, setData}}>
