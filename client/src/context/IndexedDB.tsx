@@ -1,4 +1,4 @@
-import { JSXElement, createContext, createSignal, onCleanup, useContext } from "solid-js";
+import { Accessor, JSXElement, createContext, createSignal, onCleanup, useContext } from "solid-js";
 
 export const IndexedDBContext = createContext();
 
@@ -28,8 +28,6 @@ interface StoreOperations<T> {
   del: (key: Key) => void;
   count: (key?: Key) => void;
   clear: VoidFunction;
-	item: () => T;
-	listItem: () => Array<T>
 }
 
 interface IndexedDBProps {
@@ -93,9 +91,8 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
     }
   }
 
-	function useStore<T>(name: string): StoreOperations<T> {
-		const [item, setItem] = createSignal<T>({} as T);
-		const [listItem, setListItem] = createSignal<Array<T>>([]);
+	function useStore<T>(name: string): [Accessor<T | Array<T>>, StoreOperations<T>] {
+		const [data, setData] = createSignal<T | Array<T>>({} as T);
 
 		function transaction(name: string, type: "readonly" | "readwrite") {
 			const transaction = database()!.transaction(name, type);
@@ -156,7 +153,7 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         args: [key],
         handleEvents: {
           onSuccess: result => {
-            setItem(result);
+            setData(result);
             console.log("Retrieved:", result);
           },
           onError: error => console.error("Get Error:", error)
@@ -171,7 +168,7 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         args: [key, count],
         handleEvents: {
           onSuccess: result => {
-            setListItem(result);
+            setData(result);
             console.log("Retrieved All:", result);
           },
           onError: error => console.error("GetAll Error:", error)
@@ -215,17 +212,18 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
       });
     }
 
-		return {
-			add,
-			put,
-			get,
-			getAll,
-			count,
-			clear,
-			del,
-			item,
-			listItem
-		}
+		return [
+      data,
+      {
+        add,
+        put,
+        get,
+        getAll,
+        count,
+        clear,
+        del,
+      }
+    ]
 	}
 
 	function deleteDatabase(eventHandler: {onSuccess: () => void, onError: () => void}) {
@@ -253,4 +251,4 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
 	);
 }
 
-export const useIndexedDB = () => useContext(IndexedDBContext);
+export const useIndexedDB = (): any => useContext(IndexedDBContext);

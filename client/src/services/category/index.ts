@@ -4,9 +4,9 @@ import useLocalStorage from "hooks/revision/useLocalStorage";
 import { baseURL } from "utils/constants";
 
 function getCategories() {
-  const [lastSync, setLastSync] = useLocalStorage<{category: string, resource: string}>("lastSync", {});
+  const [lastSync, setLastSync] = useLocalStorage<string>("lastCategoriesSync", ' ');
   const newSync = new Date().toISOString();
-  const [data, setData] = useFetch(baseURL.concat(`/category/${lastSync()?.category}`), {
+  const [data, setData] = useFetch(baseURL.concat(`/category/${lastSync()}`), {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ function getCategories() {
 
   createEffect(() => {
     if(data()) {
-      setLastSync((prev) => ({...prev, category: newSync}));
+      setLastSync(newSync);
     }
   });
 

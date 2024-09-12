@@ -10,8 +10,8 @@ async function createCategory(category) {
   const {rows: created} = await query(
     `
     INSERT INTO category
-    (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+    (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id, updated_at)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
     `,
     [type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id]
   );

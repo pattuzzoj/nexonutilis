@@ -4,9 +4,9 @@ import useLocalStorage from "hooks/revision/useLocalStorage";
 import { baseURL } from "utils/constants";
 
 function getResources() {
-  const [lastSync, setLastSync] = useLocalStorage<{category: string, resource: string}>("lastSync", {});
+  const [lastSync, setLastSync] = useLocalStorage<string>("lastResourcesSync", ' ');
   const newSync = new Date().toISOString();
-  const [data, setData] = useFetch(baseURL.concat(`/resource/${lastSync()?.resource}`), {
+  const [data, setData] = useFetch(baseURL.concat(`/resource/${lastSync()}`), {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ function getResources() {
     if(data()) {
       createEffect(() => {
         if(data()) {
-          setLastSync((prev) => ({...prev, resource: newSync}));
+          setLastSync(newSync);
         }
       });
     }

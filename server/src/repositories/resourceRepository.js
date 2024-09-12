@@ -16,8 +16,8 @@ export async function createResource(body) {
     const {rows: created} = await query(
       `
       INSERT INTO resource
-      (title, description, url, index, category_id)
-      VALUES ($1, $2, $3, $4, $5)
+      (title, description, url, index, category_id, updated_at)
+      VALUES ($1, $2, $3, $4, $5, NOW())
       `,
       [title, description, url, index, category_id]);
 
