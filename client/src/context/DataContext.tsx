@@ -3,7 +3,6 @@ import { createStore } from "solid-js/store";
 import { getCategories } from "services/category";
 import { getResources } from "services/resource";
 import { useIndexedDB } from "./IndexedDB";
-import useLocalStorage from "hooks/revision/useLocalStorage";
 
 export const DataContext = createContext();
 

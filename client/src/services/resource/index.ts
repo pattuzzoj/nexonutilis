@@ -3,10 +3,10 @@ import useFetch from "hooks/revision/useFetch";
 import useLocalStorage from "hooks/revision/useLocalStorage";
 import { baseURL } from "utils/constants";
 
-function getCategories() {
-  const [lastSync, setLastSync] = useLocalStorage("lastSync", '2001-01-01T01:01:01.259Z');
+function getResources() {
+  const [lastSync, setLastSync] = useLocalStorage("lastSync", {category: '2001-01-01T01:01:01.259Z', resource: '2001-01-01T01:01:01.259Z'});
   const newSync = new Date().toISOString();
-  const [data, setData] = useFetch(baseURL.concat(`/category/${lastSync()}`), {
+  const [data, setData] = useFetch(baseURL.concat(`/resource/${lastSync().resource}`), {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
@@ -17,15 +17,19 @@ function getCategories() {
 
   createEffect(() => {
     if(data()) {
-      setLastSync(newSync);
+      createEffect(() => {
+        if(data()) {
+          setLastSync((prev) => ({...prev, resource: newSync}));
+        }
+      });
     }
   });
 
   return [data, setData];
 }
 
-function createCategory() {
-  const [data, setData] = useFetch(baseURL.concat("/category"), {
+function createResource() {
+  const [data, setData] = useFetch(baseURL.concat("/resource"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,8 +41,8 @@ function createCategory() {
   return [data, setData];
 }
 
-function updateCategory(id: number) {
-  const [data, setData] = useFetch(baseURL.concat(`/category/${id}`), {
+function updateResource(id: number) {
+  const [data, setData] = useFetch(baseURL.concat(`/resource/${id}`), {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -50,8 +54,8 @@ function updateCategory(id: number) {
   return [data, setData];
 }
 
-function deleteCategory(id: number) {
-  const [data, setData] = useFetch(baseURL.concat(`/category/${id}`), {
+function deleteResource(id: number) {
+  const [data, setData] = useFetch(baseURL.concat(`/resource/${id}`), {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -63,4 +67,4 @@ function deleteCategory(id: number) {
   return [data, setData];
 }
 
-export {getCategories, createCategory, updateCategory, deleteCategory};
+export {getResources, createResource, updateResource, deleteResource};

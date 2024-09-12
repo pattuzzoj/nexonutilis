@@ -1,7 +1,7 @@
 import { query } from "../utils/query.js";
 
 async function getCategories(lastSync) {
-  const {rows: categories} = await query(`SELECT * FROM category ORDER BY parent_category_id, index WHERE updated_at > $1`, [lastSync]);
+  const {rows: categories} = await query(`SELECT * FROM category WHERE updated_at > '$1' ORDER BY parent_category_id, index`, [lastSync]);
   return categories;
 }
 

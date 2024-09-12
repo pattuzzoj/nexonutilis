@@ -1,0 +1,27 @@
+Counter
+initialCount: define o valor inicial do contador
+
+defaultStep: define o valor padrão de passos
+minCount: define o valor mínimo de contagem
+maxCount: define o valor máximo de contagem
+onIn: callback ao atualizar
+onMaxLimit: callback ao iniciar
+onMinLimit: callback ao finalziar
+onReset: callback ao resetar
+log: log de todos eventos
+
+count: exibe o valor atual
+setCount: define um novo valor
+isValid: verifica se o valor informado está entre a faixa permitida de contagem
+hasNext: verifica se há próxima contagem
+hasPrevious: verifica se há contagem anterior
+setStep: define um novo valor de passos
+increment: incrementa o contador
+decrement: decrementa o contador
+reset: reseta o contador
+
+
+Index
+length: define o comprimento da lista
+
+initialIndex: 

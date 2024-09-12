@@ -3,10 +3,10 @@ import useFetch from "hooks/revision/useFetch";
 import useLocalStorage from "hooks/revision/useLocalStorage";
 import { baseURL } from "utils/constants";
 
-function getResources() {
-  const [lastSync, setLastSync] = useLocalStorage("lastSync", '2001-01-01T01:01:01.259Z');
+function getCategories() {
+  const [lastSync, setLastSync] = useLocalStorage("lastSync", {category: '2001-01-01T01:01:01.259Z', resource: '2001-01-01T01:01:01.259Z'});
   const newSync = new Date().toISOString();
-  const [data, setData] = useFetch(baseURL.concat(`/resource/${lastSync()}`), {
+  const [data, setData] = useFetch(baseURL.concat(`/category/${lastSync().category}`), {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
@@ -17,15 +17,15 @@ function getResources() {
 
   createEffect(() => {
     if(data()) {
-      setLastSync(newSync);
+      setLastSync((prev) => ({...prev, category: newSync}));
     }
   });
 
   return [data, setData];
 }
 
-function createResource() {
-  const [data, setData] = useFetch(baseURL.concat("/resource"), {
+function createCategory() {
+  const [data, setData] = useFetch(baseURL.concat("/category"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,8 +37,8 @@ function createResource() {
   return [data, setData];
 }
 
-function updateResource(id: number) {
-  const [data, setData] = useFetch(baseURL.concat(`/resource/${id}`), {
+function updateCategory(id: number) {
+  const [data, setData] = useFetch(baseURL.concat(`/category/${id}`), {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -50,8 +50,8 @@ function updateResource(id: number) {
   return [data, setData];
 }
 
-function deleteResource(id: number) {
-  const [data, setData] = useFetch(baseURL.concat(`/resource/${id}`), {
+function deleteCategory(id: number) {
+  const [data, setData] = useFetch(baseURL.concat(`/category/${id}`), {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -63,4 +63,4 @@ function deleteResource(id: number) {
   return [data, setData];
 }
 
-export {getResources, createResource, updateResource, deleteResource};
+export {getCategories, createCategory, updateCategory, deleteCategory};

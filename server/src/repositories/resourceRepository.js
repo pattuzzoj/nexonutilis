@@ -2,7 +2,7 @@ import { query } from "../utils/query.js";
 
 export async function getResources(lastSync) {
   try {
-    const {rows: resources} = await query(`SELECT * FROM resource ORDER BY id, index WHERE updated_at > $1`, [lastSync]);
+    const {rows: resources} = await query(`SELECT * FROM resource WHERE updated_at > '$1' ORDER BY id, index`, [lastSync]);
     return resources;
   } catch(error) {
     throw error;
