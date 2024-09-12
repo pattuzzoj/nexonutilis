@@ -4,8 +4,8 @@ import { getResource, postResource, putResource, deleteResource } from './contro
 
 const router = express.Router();
 
-router.get('/category/:lastSync', getCategory);
-router.get('/resource/:lastSync', getResource);
+router.get('/category/:lastSync?', getCategory);
+router.get('/resource/:lastSync?', getResource);
 
 router.post('/category', postCategory);
 router.post('/resource', postResource);
