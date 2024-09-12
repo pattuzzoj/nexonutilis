@@ -1,8 +1,10 @@
 import { getResources, createResource, updateResourceById, deleteResourceById } from "../repositories/resourceRepository.js";
 
 export async function getResource(req, res) {
+  const {lastSync} = req.params;
+
   try {
-    const resource = await getResources();
+    const resource = await getResources(lastSync);
     res.status(200).json({data: resource});
   } catch (error) {
     res.status(500).json({message: error});

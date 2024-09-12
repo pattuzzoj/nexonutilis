@@ -1,7 +1,7 @@
 import { query } from "../utils/query.js";
 
-async function getCategories() {
-  const {rows: categories} = await query(`SELECT * FROM category ORDER BY parent_category_id, index`);
+async function getCategories(lastSync) {
+  const {rows: categories} = await query(`SELECT * FROM category ORDER BY parent_category_id, index WHERE updated_at > $1`, [lastSync]);
   return categories;
 }
 
@@ -34,7 +34,8 @@ async function updateCategoryById(category) {
       logo = COALESCE($8, logo),
       official_url = COALESCE($9, official_url),
       roadmap_url = COALESCE($10, roadmap_url),
-      parent_category_id = COALESCE($11, parent_category_id)
+      parent_category_id = COALESCE($11, parent_category_id),
+      updated_at = NOW()
     WHERE id = $1
   `
   const values = [id, type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id]

@@ -17,7 +17,7 @@
     text-gray-900 dark:text-white
     bg-gray-200 dark:bg-zinc-800
     selection:text-white selection:bg-zinc-700 selection:dark:text-black selection:dark:bg-white
-    transition-colors duration-100 ease-out
+    transition-colors duration-150 ease-out
   }
 
   h1 {

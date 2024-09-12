@@ -11,8 +11,10 @@ export async function getData(req, res) {
 }
 
 export async function getCategory(req, res) {
+  const {lastSync} = req.params;
+
   try {
-    const categories = await getCategories();
+    const categories = await getCategories(lastSync);
 
     res.status(200).json({data: categories});
   } catch(error) {

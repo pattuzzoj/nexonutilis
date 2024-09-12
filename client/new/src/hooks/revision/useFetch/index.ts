@@ -43,18 +43,18 @@ function useFetch<T = string>(url: RequestInfo | URL, options?: RequestInit): Fe
     let formatedResponse;
 
     if (contentType?.includes("application/json")) {
-      formatedResponse = response.json();
+      formatedResponse = await response.json();
     } else if (contentType?.includes("multipart/form-data")) {
-      formatedResponse = response.formData();
+      formatedResponse = await response.formData();
     } else if (contentType?.includes("text")) {
-      formatedResponse = response.text();
+      formatedResponse = await response.text();
     } else if (contentType?.includes("application/octet-stream")) {
       const contentDisposition = response.headers.get("content-disposition");
 
       if (contentDisposition?.includes("attachment") || contentDisposition?.includes("filename")) {
-        formatedResponse = response.blob();
+        formatedResponse = await response.blob();
       } else {
-        formatedResponse = response.arrayBuffer();
+        formatedResponse = await response.arrayBuffer();
       }
     } else {
       return response as Response;
@@ -83,6 +83,8 @@ function useFetch<T = string>(url: RequestInfo | URL, options?: RequestInit): Fe
       setFetchStatus("error");
     }
   }
+
+  fetchResource();
 
   onCleanup(abortFetch);
 

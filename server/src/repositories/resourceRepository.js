@@ -1,8 +1,8 @@
 import { query } from "../utils/query.js";
 
-export async function getResources() {
+export async function getResources(lastSync) {
   try {
-    const {rows: resources} = await query(`SELECT * FROM resource ORDER BY id, index`);
+    const {rows: resources} = await query(`SELECT * FROM resource ORDER BY id, index WHERE updated_at > $1`, [lastSync]);
     return resources;
   } catch(error) {
     throw error;
@@ -39,7 +39,8 @@ export async function updateResourceById(id, body) {
       description = COALESCE($3, description),
       url = COALESCE($4, url),
       index = COALESCE($5, index),
-      category_id = COALESCE($6, category_id)
+      category_id = COALESCE($6, category_id),
+      updated_at = NOW()
       WHERE id = $1
       `,
       [id, title, description, url, index, category_id]);

@@ -8,16 +8,14 @@ interface StoreSchema {
     keyPath?: string,
     autoIncrement?: boolean
   },
-  index?: [
-    {
-      name: string,
-      keyPath: string,
-      options?: {
-        unique?: boolean,
-        multiEntry?: boolean
-      },
-    }
-  ]
+  index?: {
+    name: string,
+    keyPath: string,
+    options?: {
+      unique?: boolean,
+      multiEntry?: boolean
+    },
+  }[]
 }
 
 type Key = IDBValidKey | IDBKeyRange
