@@ -11,7 +11,7 @@ export async function getData(req, res) {
 }
 
 export async function getCategory(req, res) {
-  const {lastSync} = req.params;
+  const {lastSync = '2001-01-01T01:01:01.259Z'} = req.params;
 
   try {
     const categories = await getCategories(lastSync);

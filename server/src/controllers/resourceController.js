@@ -1,7 +1,7 @@
 import { getResources, createResource, updateResourceById, deleteResourceById } from "../repositories/resourceRepository.js";
 
 export async function getResource(req, res) {
-  const {lastSync} = req.params;
+  const {lastSync = '2001-01-01T01:01:01.259Z'} = req.params;
 
   try {
     const resource = await getResources(lastSync);
