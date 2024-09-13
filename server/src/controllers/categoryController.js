@@ -17,7 +17,7 @@ async function getCategory(req, res) {
     const categories = await getCategories(lastSync);
     const deletedCategories = await getDeletedCategories(lastSync);
 
-    res.status(200).json({data: categories, deletedData: deletedCategories});
+    res.status(200).json({data: categories, deletedIds: [...deletedCategories]});
   } catch(error) {
     res.status(500).json({message: error});
   }
@@ -69,4 +69,4 @@ async function deleteCategory(req, res) {
   }
 }
 
-export {getCategory, postCategory, putCategory, deleteCategory}
+export {getCategory, postCategory, putCategory, deleteCategory};

@@ -5,13 +5,14 @@ import Aside from "./aside";
 import Main from "./main";
 import Footer from "./footer";
 import Icon from "components/ui/icon";
-import DataProvider from "context/DataContext";
+import DataProvider, { useData } from "context/DataContext";
 
 interface LayoutProps extends RouteSectionProps {}
 
 function Layout(props: LayoutProps) {
   const [isOpen, setIsOpen] = createSignal(true);
   const [isLoading, setIsLoading] = createSignal(true);
+
   setTimeout(() => setIsLoading(false), 1000);
 
   createEffect(() => {

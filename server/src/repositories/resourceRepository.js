@@ -25,7 +25,10 @@ async function getDeletedResources(lastSync) {
       `,
       [lastSync]
     );
-    return resources;
+
+    const deletedIds = resources.map(resource => resource.id);
+
+    return deletedIds;
   } catch(error) {
     throw error;
   }
@@ -82,4 +85,4 @@ async function deleteResourceById(id) {
   }
 }
 
-export {getResources, getDeletedResources, createResource, updateResourceById, deleteResourceById}
+export {getResources, getDeletedResources, createResource, updateResourceById, deleteResourceById};

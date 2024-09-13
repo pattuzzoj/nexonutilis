@@ -38,8 +38,8 @@ function DataProvider(props: {children: JSXElement}) {
 	const [useStore] = useIndexedDB();
 	const [categoryData, categoryStore] = useStore("category");
 	const [resourceData, resourceStore] = useStore("resource");
-	const [categoriesResponse] = getCategories() as [Accessor<{data: any}>, Setter<any>];
-	const [resourcesResponse] = getResources() as [Accessor<{data: any}>, Setter<any>];
+	const [categoriesResponse] = getCategories() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
+	const [resourcesResponse] = getResources() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
   const navigate = useNavigate();
   const location = useLocation();
   const path = () => location.pathname;
@@ -109,7 +109,11 @@ function DataProvider(props: {children: JSXElement}) {
 	createEffect(on(categoriesResponse, (categories) => {
 		categories.data.forEach((category: any) => {
 			categoryStore.put(category);
-		})
+		});
+
+		categories.deletedIds.forEach(id => {
+			categoryStore.del(id);
+		});
 
 		categoryStore.getAll();
 	}, {defer: true}));
@@ -117,6 +121,10 @@ function DataProvider(props: {children: JSXElement}) {
 	createEffect(on(resourcesResponse, (resources) => {
 		resources.data.forEach((resource: any) => {
 			resourceStore.put(resource);
+		});
+
+		resources.deletedIds.forEach(id => {
+			categoryStore.del(id);
 		});
 
 		resourceStore.getAll();

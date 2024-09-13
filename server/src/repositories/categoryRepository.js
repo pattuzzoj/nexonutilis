@@ -21,7 +21,10 @@ async function getDeletedCategories(lastSync) {
       `,
       [lastSync]
     );
-    return categories;
+
+    const deletedIds = categories.map(category => category.id);
+
+    return deletedIds;
   } catch(error) {
     throw error;
   }

@@ -7,7 +7,7 @@ async function getResource(req, res) {
     const resource = await getResources(lastSync);
     const deletedResources = await getDeletedResources(lastSync);
 
-    res.status(200).json({data: resource, deletedData: deletedResources});
+    res.status(200).json({data: resource, deletedIds: [...deletedResources]});
   } catch (error) {
     res.status(500).json({message: error});
   }
@@ -59,4 +59,4 @@ async function deleteResource(req, res) {
   }
 }
 
-export {getResource, postResource, putResource, deleteResource}
+export {getResource, postResource, putResource, deleteResource};
