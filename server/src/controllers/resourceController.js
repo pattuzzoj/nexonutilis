@@ -1,17 +1,19 @@
-import { getResources, createResource, updateResourceById, deleteResourceById } from "../repositories/resourceRepository.js";
+import { getResources, createResource, updateResourceById, deleteResourceById, getDeletedResources } from "../repositories/resourceRepository.js";
 
-export async function getResource(req, res) {
+async function getResource(req, res) {
   const {lastSync = '2001-01-01T01:01:01.259Z'} = req.params;
 
   try {
     const resource = await getResources(lastSync);
-    res.status(200).json({data: resource});
+    const deletedResources = await getDeletedResources(lastSync);
+
+    res.status(200).json({data: resource, deletedData: deletedResources});
   } catch (error) {
     res.status(500).json({message: error});
   }
 }
 
-export async function postResource(req, res) {
+async function postResource(req, res) {
   try {
     const created = await createResource(req.body);
 
@@ -25,7 +27,7 @@ export async function postResource(req, res) {
   }
 }
 
-export async function putResource(req, res) {
+async function putResource(req, res) {
   const { id } = req.params;
 
   try {
@@ -41,7 +43,7 @@ export async function putResource(req, res) {
   }
 }
 
-export async function deleteResource(req, res) {
+async function deleteResource(req, res) {
   const { id } = req.params;
 
   try {
@@ -56,3 +58,5 @@ export async function deleteResource(req, res) {
     res.status(500).json({message: error});
   }
 }
+
+export {getResource, postResource, putResource, deleteResource}

@@ -1,9 +1,10 @@
-import { Accessor, JSXElement, Setter, batch, createContext, createEffect, on, useContext } from "solid-js";
+import { Accessor, JSXElement, Setter, createContext, createEffect, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
+import { iconList } from "components/ui/icon";
+import { useNavigate, useLocation } from "@solidjs/router";
 import { getCategories } from "services/category";
 import { getResources } from "services/resource";
 import { useIndexedDB } from "./IndexedDB";
-import { iconList } from "components/ui/icon";
 
 export const DataContext = createContext();
 
@@ -21,7 +22,7 @@ interface Category extends Item {
   items: Array<Category | Item>;
 }
 
-export default function DataProvider(props: {children: JSXElement}) {
+function DataProvider(props: {children: JSXElement}) {
   const [data, setData] = createStore<{
 		routes: Map<string, object>;
 		path: Array<{title: string, url: string}>; 
@@ -33,82 +34,126 @@ export default function DataProvider(props: {children: JSXElement}) {
     item: {} as Category,
     categories: []
 	});
-	const [categoriesResponse, setCategoriesResponse] = getCategories() as [Accessor<{data: any}>, Setter<any>];
-	const [resourcesResponse, setResourcesResponse] = getResources() as [Accessor<{data: any}>, Setter<any>];
+
 	const [useStore] = useIndexedDB();
 	const [categoryData, categoryStore] = useStore("category");
 	const [resourceData, resourceStore] = useStore("resource");
-	const navigate = useNavigate();
+	const [categoriesResponse] = getCategories() as [Accessor<{data: any}>, Setter<any>];
+	const [resourcesResponse] = getResources() as [Accessor<{data: any}>, Setter<any>];
+  const navigate = useNavigate();
   const location = useLocation();
   const path = () => location.pathname;
 
-	function updateDatabase(data: any, store: any) {
-		const dataLength = data.length;
-
-		if(dataLength) {
-			for(let i = 0; i < dataLength; i++) {
-				store.put(data[i]);
-			}
-		}
-	}
-
-	createEffect(on([categoriesResponse, resourcesResponse], ([categories, resources]) => {
+	createEffect(on([categoryData, resourceData], ([categories, resources]) => {
 		if(categories && resources) {
-			if(categories?.data) {
-				updateDatabase(categories?.data, categoryStore);
-				categoryStore.getAll();
-			}
+			const categoriesList = categories;
+			const resourcesList = resources;
+	
+			let database: any = [];
 
-			if(resources?.data) {
-				updateDatabase(resources?.data, resourceStore);
-				resourceStore.getAll();
-			}
-		}
-	}));
-
-	createEffect(on([categoryData], ([categories]) => {
-		function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<Category> {
-			const categoryTree: Array<Category> = [];
-
-			(categories as Array<Category>).forEach((category) => {
-				if(category.parent_category_id == parentId) {
-					if(parentURL) {
-						category.url = `${parentURL}${category.url}`;
+      if((categoriesList as Array<Category>).length && (resourcesList as Array<any>).length) {
+        (categoriesList as Array<Category>)?.forEach((category) => {
+          category.items = [];
+    
+          (resourcesList as Array<any>)?.forEach((resource) => {
+            if(category.id == resource.category_id) {
+              category.items = [...category.items, resource];
+            }
+          })
+    
+          database.push(category);
+        });
+      }
+	
+			function buildCategoryHierarchy(parentId: number | null = null, parentURL?: string): Array<Category> {
+				const categoryTree: Array<Category> = [];
+	
+				(database as Array<Category>).forEach((category) => {
+					if(category.parent_category_id == parentId) {
+						if(parentURL) {
+							category.url = `${parentURL}${category.url}`;
+						}
+	
+						const subcategories = buildCategoryHierarchy(category.id, category.url);
+	
+						if(subcategories.length) {
+							category = {...category, items: subcategories}
+						}
+	
+						categoryTree.push(category);
 					}
-					
-					let categoryObject: Category = category;
-					const subcategories = buildCategoryHierarchy(category.id, category.url);
+				})
+	
+				return categoryTree;
+			}
+	
+			let db = buildCategoryHierarchy();
+      setData("categories", {...db});
+      
+      data.routes.set("/", {items: [...db]});
+      setData("item", data.routes.get('/') as Category);
 
-					if(subcategories.length) {
-						categoryObject = {...categoryObject, items: subcategories}
-					}
+      (function setRoutes(categories: Array<Category>) {
+        categories.forEach((category: Category) => {
+          if(category.hasOwnProperty("items")) {
+            setRoutes(category.items as Array<Category>);
+            data.routes.set(category.url, {...category});
+          }
+        })
+      })(db as Array<Category>);
 
-					categoryTree.push(categoryObject);
-				}
-			})
-
-			return categoryTree;
+			setData("item", data.routes.get(path()) as Category);
 		}
+	}, {defer: true}));
 
-		if((categories as Array<Category>)?.length) {
-			const database = buildCategoryHierarchy();
-			
-			console.log("Dados", categories)
-			console.log("banco de dados", database);
-		}
-	}));
+	createEffect(on(categoriesResponse, (categories) => {
+		categories.data.forEach((category: any) => {
+			categoryStore.put(category);
+		})
 
+		categoryStore.getAll();
+	}, {defer: true}));
+
+	createEffect(on(resourcesResponse, (resources) => {
+		resources.data.forEach((resource: any) => {
+			resourceStore.put(resource);
+		});
+
+		resourceStore.getAll();
+	}, {defer: true}));
 
 	createEffect(on(path, (path) => {
+    setData("path", []);
 
-	}))
+    if(data.routes.has(path)) {
+      setData("item", data.routes.get(path) as Category);
+      console.log("path:", path, "item:", data.item);
+    }
 
+    if(path != '/') {
+      let currentPath = '';
 
+      path.substring(1).split("/").forEach(url => {
+        currentPath += "/" + url;
+
+        if(data.routes.has(currentPath)) {
+          const item: {title: string, url: string} = data.routes.get(currentPath) as {title: string, url: string};
+          setData("path", (paths: any) => [...paths, {title: item.title, url: item.url} ]);
+        } else if(currentPath != '/saved') {
+            navigate("/404");
+        }
+      })
+    }
+  }, {defer: true}));
+	
 	return (
-		<DataContext.Provider value={{data, setData}}>
+		<DataContext.Provider value={[data, setData]}>
       {props.children}
 		</DataContext.Provider>
 	);
 }
 
-export const useData = () => useContext<any>(DataContext);
+const useData = () => useContext<any>(DataContext);
+
+export default DataProvider;
+export {useData};

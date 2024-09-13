@@ -1,6 +1,6 @@
-import { getMenu, getCategories, createCategory, updateCategoryById, deleteCategoryById } from "../repositories/categoryRepository.js";
+import { getMenu, getCategories, getDeletedCategories, createCategory, updateCategoryById, deleteCategoryById } from "../repositories/categoryRepository.js";
 
-export async function getData(req, res) {
+async function getData(req, res) {
   try {
     const categories = await getMenu(parseInt(req.params.id));
 
@@ -10,19 +10,20 @@ export async function getData(req, res) {
   }
 }
 
-export async function getCategory(req, res) {
+async function getCategory(req, res) {
   const {lastSync = '2001-01-01T01:01:01.259Z'} = req.params;
 
   try {
     const categories = await getCategories(lastSync);
+    const deletedCategories = await getDeletedCategories(lastSync);
 
-    res.status(200).json({data: categories});
+    res.status(200).json({data: categories, deletedData: deletedCategories});
   } catch(error) {
     res.status(500).json({message: error});
   }
 }
 
-export async function postCategory(req, res) {
+async function postCategory(req, res) {
   try {
     const created = await createCategory(req.body);
     
@@ -36,7 +37,7 @@ export async function postCategory(req, res) {
   }
 }
 
-export async function putCategory(req, res) {
+async function putCategory(req, res) {
   const { id } = req.params;
 
   try {
@@ -52,7 +53,7 @@ export async function putCategory(req, res) {
   }
 }
 
-export async function deleteCategory(req, res) {
+async function deleteCategory(req, res) {
   const { id } = req.params;
 
   try {
@@ -67,3 +68,5 @@ export async function deleteCategory(req, res) {
     res.status(500).json({message: error});
   }
 }
+
+export {getCategory, postCategory, putCategory, deleteCategory}

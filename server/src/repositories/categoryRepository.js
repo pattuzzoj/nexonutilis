@@ -1,8 +1,30 @@
 import { query } from "../utils/query.js";
 
 async function getCategories(lastSync) {
-  const {rows: categories} = await query(`SELECT * FROM category WHERE updated_at > $1 ORDER BY parent_category_id, index`, [lastSync]);
+  const {rows: categories} = await query(
+    `
+    SELECT * FROM category
+    WHERE updated_at > $1 AND deleted_at IS NULL
+    ORDER BY parent_category_id, index
+    `,
+    [lastSync]
+  );
   return categories;
+}
+
+async function getDeletedCategories(lastSync) {
+  try {
+    const {rows: categories} = await query(
+      `
+      SELECT id FROM category
+      WHERE deleted_at > $1
+      `,
+      [lastSync]
+    );
+    return categories;
+  } catch(error) {
+    throw error;
+  }
 }
 
 async function createCategory(category) {
@@ -54,4 +76,4 @@ async function getMenu(id) {
   return categories;
 }
 
-export {getCategories, createCategory, updateCategoryById, deleteCategoryById, getMenu};
+export {getCategories, getDeletedCategories, createCategory, updateCategoryById, deleteCategoryById, getMenu};

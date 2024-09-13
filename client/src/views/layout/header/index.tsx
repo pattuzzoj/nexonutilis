@@ -1,6 +1,7 @@
 import { createSignal } from "solid-js";
 import SwitchTheme from "components/widgets/switchTheme";
 import Icon from "components/ui/icon";
+import NavigationMenu from "components/navigation/navigationMenu";
 
 function Header() {
   const [menuIsOpen, setMenuIsOpen] = createSignal<boolean>(false);
@@ -10,12 +11,12 @@ function Header() {
       <span class="md:hidden">
         <SwitchTheme />
       </span>
-      <a class="flex items-center gap-2" href="">
+      <a class="flex items-center gap-2" href="/">
         <Icon name="FaBrandsConnectdevelop" class="size-7"/>
         Nexon Utilis
       </a>
       <div>
-        
+        <NavigationMenu />
       </div>
       <a class="w-full flex justify-center md:justify-start items-center gap-2 p-2 rounded-lg" href="/saved">
         <Icon name="FaRegularBookmark"/>

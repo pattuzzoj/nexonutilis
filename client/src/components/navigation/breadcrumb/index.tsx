@@ -1,4 +1,4 @@
-import { For, Show } from "solid-js";
+import { createEffect, For, Show } from "solid-js";
 import { useData } from "context/DataContext";
 import Icon from "components/ui/icon";
 
@@ -7,7 +7,7 @@ function Breadcrumb() {
   
   return (
     <span>
-      <Show when={true}>
+      <Show when={data?.path.length}>
         <a href="/">
           <Icon name="FiHome" class="size-6" />
         </a>

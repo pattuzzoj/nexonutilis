@@ -1,15 +1,37 @@
 import { query } from "../utils/query.js";
 
-export async function getResources(lastSync) {
+async function getResources(lastSync) {
   try {
-    const {rows: resources} = await query(`SELECT * FROM resource WHERE updated_at > $1 ORDER BY id, index`, [lastSync]);
+    const {rows: resources} = await query(
+      `
+      SELECT * FROM resource
+      WHERE updated_at > $1 AND deleted_at IS NULL
+      ORDER BY id, index
+      `,
+      [lastSync]
+    );
     return resources;
   } catch(error) {
     throw error;
   }
 }
 
-export async function createResource(body) {
+async function getDeletedResources(lastSync) {
+  try {
+    const {rows: resources} = await query(
+      `
+      SELECT id FROM resource
+      WHERE deleted_at > $1
+      `,
+      [lastSync]
+    );
+    return resources;
+  } catch(error) {
+    throw error;
+  }
+}
+
+async function createResource(body) {
   const {title, description, url, index = 0, category_id} = body;
 
   try {
@@ -27,7 +49,7 @@ export async function createResource(body) {
   }
 }
 
-export async function updateResourceById(id, body) {
+async function updateResourceById(id, body) {
   const {title, description, url, index, category_id} = body;
 
   try {
@@ -51,7 +73,7 @@ export async function updateResourceById(id, body) {
   }
 }
 
-export async function deleteResourceById(id) {
+async function deleteResourceById(id) {
   try {
     const {rowCount: deleted} = await query(`DELETE FROM resource WHERE id = $1`, [id]);
     return deleted;
@@ -59,3 +81,5 @@ export async function deleteResourceById(id) {
     throw error;
   }
 }
+
+export {getResources, getDeletedResources, createResource, updateResourceById, deleteResourceById}

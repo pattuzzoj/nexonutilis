@@ -28,8 +28,6 @@ export default function DataProvider(props: {children: JSXElement}) {
         setRoutes(category.items as Array<Category>, category.url);
         data.routes.set(category.url, category);
       }
-
-      console.log(category);
     })
   })(data.categories as Array<Category>);
 
