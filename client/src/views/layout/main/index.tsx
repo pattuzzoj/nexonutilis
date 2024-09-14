@@ -6,7 +6,7 @@ interface MainProps extends JSX.HTMLAttributes<HTMLElement> {
 
 function Main(props: MainProps) {
   return (
-    <main class="min-h-[90vh] flex justify-center items-center bg-gray-300 dark:bg-zinc-900 rounded-s-2xl">
+    <main class="h-[90vh] overflow-y-scroll flex justify-center items-start p-4 bg-gray-300 dark:bg-zinc-900 rounded-2xl">
       {props.children}
     </main>
   )

@@ -27,6 +27,18 @@ async function postResource(req, res) {
   }
 }
 
+async function populateResource(req, res) {
+  try {
+    req.body.forEach(resource => {
+      createResource(resource);
+    });
+    
+    res.status(201).json({message: "Categories created"});
+  } catch(error) {
+    res.status(500).json({message: error});
+  }
+}
+
 async function putResource(req, res) {
   const { id } = req.params;
 
@@ -59,4 +71,4 @@ async function deleteResource(req, res) {
   }
 }
 
-export {getResource, postResource, putResource, deleteResource};
+export {getResource, postResource, populateResource, putResource, deleteResource};

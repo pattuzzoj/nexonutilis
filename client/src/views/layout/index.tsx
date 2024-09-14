@@ -21,22 +21,22 @@ function Layout(props: LayoutProps) {
 
   return (
     <DataProvider>
-      <div class="h-screen flex flex-col">
-        <div class="flex">
-          <Show when={isOpen()}>
-            <div class={`${!isLoading() && "scale-0"} absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-700`}>
-              <Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
-            </div>
-          </Show>
+      <Show when={isOpen()}>
+        <div class={`${!isLoading() && "scale-0"} absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-700`}>
+          <Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
+        </div>
+      </Show>
+      <div class="flex flex-col md:h-screen">
+        <div class="flex flex-col md:flex-row">
           <Header />
-          <div class="w-full">
+          <div class="w-full flex flex-col">
             <Aside />
             <Main>
               {props.children}
             </Main>
+            <Footer />
           </div>
         </div>
-        <Footer />
       </div>
     </DataProvider>
   )

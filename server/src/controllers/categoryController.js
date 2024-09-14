@@ -37,6 +37,18 @@ async function postCategory(req, res) {
   }
 }
 
+async function populateCategory(req, res) {
+  try {
+    req.body.forEach(category => {
+      createCategory(category);
+    });
+    
+    res.status(201).json({message: "Categories created"});
+  } catch(error) {
+    res.status(500).json({message: error});
+  }
+}
+
 async function putCategory(req, res) {
   const { id } = req.params;
 
@@ -69,4 +81,4 @@ async function deleteCategory(req, res) {
   }
 }
 
-export {getCategory, postCategory, putCategory, deleteCategory};
+export {getCategory, postCategory, populateCategory, putCategory, deleteCategory};

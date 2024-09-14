@@ -26,6 +26,7 @@ import {
   RiDesignPaletteLine,
   RiArrowsArrowRightDoubleLine,
   RiArrowsArrowLeftDoubleLine,
+  RiSystemMenu2Line
 } from "solid-icons/ri";
 import {
   FaRegularBookmark,
@@ -101,6 +102,7 @@ export type iconList =
   | "RiArrowsArrowRightDoubleLine"
   | "RiArrowsArrowRightSLine"
   | "RiDesignPaletteLine"
+  | "RiSystemMenu2Line"
   | "TbDatabaseSearch"
   | "TbDeviceDesktopCog"
   | "TbDeviceMobileCode"
@@ -153,6 +155,7 @@ const iconComponent = {
   RiArrowsArrowRightDoubleLine,
   RiArrowsArrowRightSLine,
   RiDesignPaletteLine,
+  RiSystemMenu2Line,
   TbDatabaseSearch,
   TbDeviceDesktopCog,
   TbDeviceMobileCode,
@@ -171,5 +174,5 @@ export default function Icon(props: IconProps) {
   const [icon, attrs] = splitProps(props, ["name"])
   const IconComponent = iconComponent[icon.name];
 
-  return <span {...attrs}><IconComponent class="h-full w-full"/></span>;
+  return <span {...attrs}><IconComponent class="h-full w-fit"/></span>;
 }

@@ -44,7 +44,7 @@ function NavigationMenuItem(props: NavigationMenuItemProps) {
         <Icon name={props?.icon || "RiArrowsArrowRightSLine"} class={`${isOpen() && "animate-spin"} group-hover:animate-spin size-6`}/>
         {props.title}
       </a>
-      <div class={`${isOpen() ? "h-full" : "h-0 scale-0"} ml-4 flex flex-col gap-1.5 overflow-hidden transition-all duration-300`} >
+      <div class={`${isOpen() ? "h-full" : "h-0 scale-0"} ml-2 flex flex-col gap-1.5 overflow-hidden transition-all duration-300`} >
         <For each={props.items as Array<Category>}>
           {(item) => (
             <Switch>
@@ -66,9 +66,11 @@ function NavigationMenu() {
   const [data] = useData();
 
   return (
-    <For each={data.categories}>
-      {(item) => <NavigationMenuItem {...item} depth={2}/>}
-    </For>
+    <div class="bg-gray-300 dark:bg-zinc-900 p-2 rounded-2xl">
+      <For each={data.categories}>
+        {(item) => <NavigationMenuItem {...item} depth={2}/>}
+      </For>
+    </div>
   )
 }
 

@@ -7,12 +7,12 @@ function SwitchTheme() {
   
   return (
     <Show when={theme() == "light"} fallback={
-      <button title="Dark Mode" class="inline-block rounded-full dark:text-black" onClick={() => setTheme("light")}>
-        <Icon name="FiMoon" class="inline-block size-6 text-white"/>
+      <button title="Dark Mode" class="inline-block rounded-lg size-6" onClick={() => setTheme("light")}>
+        <Icon name="FiMoon" class="text-white"/>
       </button>
     }>
-      <button title="Light Mode" class="inline-block rounded-full dark:text-black" onClick={() => setTheme("dark")}>
-        <Icon name="FiSun" class="inline-block size-6"/>
+      <button title="Light Mode" class="inline-block rounded-lg size-6" onClick={() => setTheme("dark")}>
+        <Icon name="FiSun" class="text-black"/>
       </button>
     </Show>
   );

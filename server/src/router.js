@@ -1,6 +1,6 @@
 import express from 'express';
-import { getCategory, postCategory, putCategory, deleteCategory } from './controllers/categoryController.js';
-import { getResource, postResource, putResource, deleteResource } from './controllers/resourceController.js';
+import { getCategory, postCategory, putCategory, deleteCategory, populateCategory } from './controllers/categoryController.js';
+import { getResource, postResource, putResource, deleteResource, populateResource } from './controllers/resourceController.js';
 
 const router = express.Router();
 
@@ -9,6 +9,9 @@ router.get('/resource/:lastSync?', getResource);
 
 router.post('/category', postCategory);
 router.post('/resource', postResource);
+
+router.post('/category/populate', populateCategory);
+router.post('/resource/populate', populateResource);
 
 router.put('/category/:id', putCategory);
 router.put('/resource/:id', putResource);

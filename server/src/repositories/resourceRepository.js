@@ -4,7 +4,7 @@ async function getResources(lastSync) {
   try {
     const {rows: resources} = await query(
       `
-      SELECT * FROM resource
+      SELECT id, category_id, title, description, url FROM resource
       WHERE updated_at > $1 AND deleted_at IS NULL
       ORDER BY id, index
       `,

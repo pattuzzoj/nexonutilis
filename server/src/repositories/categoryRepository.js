@@ -3,7 +3,7 @@ import { query } from "../utils/query.js";
 async function getCategories(lastSync) {
   const {rows: categories} = await query(
     `
-    SELECT * FROM category
+    SELECT id, parent_category_id, type, title, description, url, icon FROM category
     WHERE updated_at > $1 AND deleted_at IS NULL
     ORDER BY parent_category_id, index
     `,
@@ -31,14 +31,14 @@ async function getDeletedCategories(lastSync) {
 }
 
 async function createCategory(category) {
-  const {type = 'category', title, description, url, index = 0, icon = null, logo = null, official_url = null, roadmap_url = null, parent_category_id = null} = category;
+  const {id, type = 'category', title, description, url, index = 0, icon = null, parent_category_id = null} = category;
   const {rows: created} = await query(
     `
     INSERT INTO category
-    (type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id, updated_at)
+    (id, type, title, description, url, index, icon, parent_category_id, updated_at)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
     `,
-    [type, title, description, url, index, icon, logo, official_url, roadmap_url, parent_category_id]
+    [id, type, title, description, url, index, icon, parent_category_id]
   );
 
   return created;

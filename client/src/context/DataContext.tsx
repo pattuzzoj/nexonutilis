@@ -90,7 +90,7 @@ function DataProvider(props: {children: JSXElement}) {
 			let db = buildCategoryHierarchy();
       setData("categories", {...db});
       
-      data.routes.set("/", {items: [...db]});
+      data.routes.set("/", {type: "category", items: [...db]});
       setData("item", data.routes.get('/') as Category);
 
       (function setRoutes(categories: Array<Category>) {
@@ -135,7 +135,7 @@ function DataProvider(props: {children: JSXElement}) {
 
     if(data.routes.has(path)) {
       setData("item", data.routes.get(path) as Category);
-      console.log("path:", path, "item:", data.item);
+			console.log("item:", data.item)
     }
 
     if(path != '/') {
@@ -161,7 +161,20 @@ function DataProvider(props: {children: JSXElement}) {
 	);
 }
 
-const useData = () => useContext<any>(DataContext);
+const useData = (): [
+	{
+		routes: Map<string, object>;
+		path: Array<{title: string, url: string}>; 
+		item: Category;
+		categories: Array<Category>
+	},
+	{
+		routes: Map<string, object>;
+		path: Array<{title: string, url: string}>; 
+		item: Category;
+		categories: Array<Category>
+	}
+] => useContext<any>(DataContext);
 
 export default DataProvider;
 export {useData};
