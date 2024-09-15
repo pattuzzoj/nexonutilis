@@ -25,10 +25,9 @@ async function getCategory(req, res) {
 
 async function postCategory(req, res) {
   try {
-    console.log(req.body);
-    createCategory(req.body);
+    const created = await createCategory(req.body);
     
-    if(true) {
+    if(created) {
       res.status(201).json({message: "Category created"});
     } else {
       res.status(409).json({message: "Category already exists"});
