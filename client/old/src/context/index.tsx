@@ -76,6 +76,7 @@ import { useLocation, useNavigate } from "@solidjs/router";
 import { database } from "database";
 import { Category } from "models/interfaces/category";
 import Icon from "components/icon";
+import useFetch from "hooks/useFetch";
 
 export const DataContext = createContext();
 
@@ -109,18 +110,7 @@ export default function DataProvider(props: {children: JSXElement}) {
         
         categoriesList.push(catego);
 
-        fetch(
-          "https://nexonutilis-server.vercel.app/category",
-          {
-            method: 'POST',
-            headers: {
-              "Content-Type": "application/json",
-              'Access-Control-Allow-Origin': '*',
-            },
-            mode: 'cors',
-            body: JSON.stringify(catego)
-          }
-        )
+        useFetch('POST', `/category`, catego);
       } else {
         let catego = {...category}
         catego.index = index;
