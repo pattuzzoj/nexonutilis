@@ -98,7 +98,7 @@ export default function DataProvider(props: {children: JSXElement}) {
 
   let idCategory = 1;
   
-  (function setRoutes(categories: Array<Category>, parentURL: string = '', id: number | null = null) {
+  (function setRoutes(categories: Array<Category>, _parentURL: string = '', id: number | null = null) {
     categories.forEach((category: any, index) => {
       if("type" in category) {
         let catego: any = {...category}
