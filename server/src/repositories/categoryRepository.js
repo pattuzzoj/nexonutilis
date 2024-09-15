@@ -32,6 +32,7 @@ async function getDeletedCategories(lastSync) {
 
 async function createCategory(category) {
   const {id, type = 'category', title, description, url, index = 0, icon = null, parent_category_id = null} = category;
+  console.log("chegou");
   const {rows: created} = await query(
     `
     INSERT INTO category
@@ -40,8 +41,7 @@ async function createCategory(category) {
     `,
     [id, type, title, description, url, index, icon, parent_category_id]
   );
-
-  return created;
+  console.log("executou");
 }
 
 async function updateCategoryById(category) {

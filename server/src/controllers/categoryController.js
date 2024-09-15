@@ -25,6 +25,7 @@ async function getCategory(req, res) {
 
 async function postCategory(req, res) {
   try {
+    console.log(req.body);
     createCategory(req.body);
     
     if(true) {
