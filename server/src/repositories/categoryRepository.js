@@ -36,7 +36,7 @@ async function createCategory(category) {
     `
     INSERT INTO category
     (id, type, title, description, url, index, icon, parent_category_id, updated_at)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())
     `,
     [id, type, title, description, url, index, icon, parent_category_id]
   );
