@@ -25,6 +25,7 @@ async function getCategory(req, res) {
 
 async function postCategory(req, res) {
   try {
+    console.log(req.body);
     const created = await createCategory(req.body);
     
     if(created) {
