@@ -108,11 +108,37 @@ export default function DataProvider(props: {children: JSXElement}) {
         delete catego.items;
         
         categoriesList.push(catego);
+
+        fetch(
+          "https://nexonutilis-server.vercel.app/category",
+          {
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+              'Access-Control-Allow-Origin': '*',
+            },
+            mode: 'cors',
+            body: JSON.stringify(catego)
+          }
+        )
       } else {
         let catego = {...category}
         catego.index = index;
         catego.category_id = id;
         resourcesList.push(catego);
+
+        // fetch(
+        //   "https://nexonutilis-server.vercel.app/resource",
+        //   {
+        //     method: 'POST',
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       'Access-Control-Allow-Origin': '*',
+        //     },
+        //     mode: 'cors',
+        //     body: JSON.stringify(catego)
+        //   }
+        // )
       }
       
       if(category.hasOwnProperty("items")) {
@@ -125,32 +151,6 @@ export default function DataProvider(props: {children: JSXElement}) {
 
   console.log(categoriesList);
   console.log(resourcesList);
-
-  fetch(
-    "https://nexonutilis-server.vercel.app/category/populate",
-    {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*',
-      },
-      mode: 'cors',
-      body: JSON.stringify(categoriesList)
-    }
-  )
-
-  fetch(
-    "https://nexonutilis-server.vercel.app/resource/populate",
-    {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*',
-      },
-      mode: 'cors',
-      body: JSON.stringify(resourcesList)
-    }
-  )
 
   createEffect(on(path, (path) => {
     setData("path", []);
