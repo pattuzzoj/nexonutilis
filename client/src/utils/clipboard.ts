@@ -5,7 +5,7 @@ const [copyNotification, setCopyNotification] = createSignal("");
 const copy = (url: string) => {
   navigator.clipboard.writeText(url);
   setCopyNotification(url);
-  setTimeout(() => setCopyNotification(""), 1000);
+  setTimeout(() => setCopyNotification(""), 500);
 };
 
 export { copy, copyNotification };

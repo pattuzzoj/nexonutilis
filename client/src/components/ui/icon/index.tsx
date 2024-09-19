@@ -1,4 +1,4 @@
-import { JSX, splitProps } from "solid-js";
+import { JSX, Show, splitProps } from "solid-js";
 import {
   BsGithub,
   BsBookmarkPlus,
@@ -26,7 +26,9 @@ import {
   RiDesignPaletteLine,
   RiArrowsArrowRightDoubleLine,
   RiArrowsArrowLeftDoubleLine,
-  RiSystemMenu2Line
+  RiSystemMenu2Line,
+  RiSystemMenuFoldLine,
+  RiSystemMenuUnfoldLine
 } from "solid-icons/ri";
 import {
   FaRegularBookmark,
@@ -103,6 +105,8 @@ export type iconList =
   | "RiArrowsArrowRightSLine"
   | "RiDesignPaletteLine"
   | "RiSystemMenu2Line"
+  | "RiSystemMenuFoldLine"
+  | "RiSystemMenuUnfoldLine"
   | "TbDatabaseSearch"
   | "TbDeviceDesktopCog"
   | "TbDeviceMobileCode"
@@ -156,6 +160,8 @@ const iconComponent = {
   RiArrowsArrowRightSLine,
   RiDesignPaletteLine,
   RiSystemMenu2Line,
+  RiSystemMenuFoldLine,
+  RiSystemMenuUnfoldLine,
   TbDatabaseSearch,
   TbDeviceDesktopCog,
   TbDeviceMobileCode,
@@ -166,13 +172,18 @@ const iconComponent = {
   TbWorldCode
 }
 
-interface IconProps extends JSX.HTMLAttributes<HTMLSpanElement> {
+interface IconProps extends JSX.SvgSVGAttributes<SVGSVGElement> {
   name: iconList;
+  style?: JSX.CSSProperties;
 }
 
 export default function Icon(props: IconProps) {
   const [icon, attrs] = splitProps(props, ["name"])
   const IconComponent = iconComponent[icon.name];
 
-  return <span {...attrs}><IconComponent class="h-full w-fit"/></span>;
+  return (
+    <Show when={IconComponent} fallback={<span>"Icon not found"</span>}>
+      <IconComponent {...attrs}/>
+    </Show>
+  );
 }

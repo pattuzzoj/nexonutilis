@@ -8,16 +8,16 @@
   }
 
   html {
-    font-size: clamp(13px, 2vw, 16px);
+    font-size: clamp(12px, 2vw, 16px);
   }
 
   #root {
     @apply
     flex flex-col justify-between min-h-screen
     text-gray-900 dark:text-white
-    bg-gray-200 dark:bg-zinc-800
+    bg-slate-200 dark:bg-zinc-900
     selection:text-white selection:bg-zinc-700 selection:dark:text-black selection:dark:bg-white
-    transition-colors duration-75 ease-out
+    transition-all duration-300 ease-in-out
   }
 
   h1 {

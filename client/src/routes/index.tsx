@@ -2,8 +2,8 @@ import { lazy } from "solid-js";
 
 const routes = [
   {
-    path: "/saved",
-    component: lazy(() => import('views/pages/saved')),
+    path: "/favorites",
+    component: lazy(() => import('views/pages/favorites')),
   },
   {
     path: "/404",

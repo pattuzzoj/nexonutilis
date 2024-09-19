@@ -5,7 +5,7 @@ import Aside from "./aside";
 import Main from "./main";
 import Footer from "./footer";
 import Icon from "components/ui/icon";
-import DataProvider, { useData } from "context/DataContext";
+import DataProvider from "context/DataContext";
 
 interface LayoutProps extends RouteSectionProps {}
 
@@ -26,16 +26,14 @@ function Layout(props: LayoutProps) {
           <Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
         </div>
       </Show>
-      <div class="flex flex-col md:h-screen">
-        <div class="flex flex-col md:flex-row">
-          <Header />
-          <div class="w-full flex flex-col">
-            <Aside />
-            <Main>
-              {props.children}
-            </Main>
-            <Footer />
-          </div>
+      <div class="h-screen w-full flex flex-col md:flex-row">
+        <Header />
+        <div class="w-full">
+          <Aside />
+          <Main>
+            {props.children}
+          </Main>
+          <Footer />
         </div>
       </div>
     </DataProvider>

@@ -1,4 +1,4 @@
-import { Accessor, JSXElement, createContext, createSignal, onCleanup, useContext } from "solid-js";
+import { Accessor, JSXElement, createContext, createEffect, createSignal, onCleanup, useContext } from "solid-js";
 
 export const IndexedDBContext = createContext();
 
@@ -92,16 +92,24 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
   }
 
 	function useStore<T>(name: string): [Accessor<T | Array<T>>, StoreOperations<T>] {
-		const [data, setData] = createSignal<T | Array<T>>({} as T);
+		const [dataDB, setDataDB] = createSignal<Array<T>>([] as Array<T>);
+
+    createEffect(() => {
+      if(database()) {
+        getAll();
+      }
+    }, {defer: true});
 
 		function transaction(name: string, type: "readonly" | "readwrite") {
-			const transaction = database()!.transaction(name, type);
+			const transaction = database()?.transaction(name, type);
+
+      if(transaction) {
+        transaction.onerror = () => {
+          transaction.abort();
+        }
+      }
 	
-			transaction.onerror = () => {
-				transaction.abort();
-			}
-	
-			return transaction.objectStore(name);
+			return transaction?.objectStore(name);
 		}
 
     function runCommand({
@@ -116,10 +124,13 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
       handleEvents: { onSuccess: (result?: any) => void, onError: (error?: any) => void }
     }) {
 			const store = transaction(name, type);
-      const request = (store[action] as (...args: any[]) => IDBRequest<any>)(...args);
 
-			request.onsuccess = () => handleEvents.onSuccess(request.result);
-			request.onerror = () => handleEvents.onError(request.error);
+      if(store) {
+        const request = (store[action] as (...args: any[]) => IDBRequest<any>)(...args);
+  
+        request.onsuccess = () => handleEvents.onSuccess(request.result);
+        request.onerror = () => handleEvents.onError(request.error);
+      }
     }
 
     function add<T>(data: T, key?: Exclude<Key, IDBKeyRange>) {
@@ -128,7 +139,10 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         action: "add",
         args: [data, key],
         handleEvents: {
-          onSuccess: result => console.log("Added:", result),
+          onSuccess: result => {
+            setDataDB([...dataDB(), result]);
+            console.log("Added:", result);
+          },
           onError: error => console.error("Add Error:", error)
         }
       });
@@ -140,7 +154,9 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         action: "put",
         args: [data, key],
         handleEvents: {
-          onSuccess: result => console.log("Updated:", result),
+          onSuccess: result => {
+            console.log("Updated:", result);
+          },
           onError: error => console.error("Update Error:", error)
         }
       });
@@ -153,7 +169,7 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         args: [key],
         handleEvents: {
           onSuccess: result => {
-            setData(result);
+            setDataDB(result);
             console.log("Retrieved:", result);
           },
           onError: error => console.error("Get Error:", error)
@@ -168,7 +184,7 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         args: [key, count],
         handleEvents: {
           onSuccess: result => {
-            setData(result);
+            setDataDB(result);
             console.log("Retrieved All:", result);
           },
           onError: error => console.error("GetAll Error:", error)
@@ -206,14 +222,16 @@ export default function IndexedDBProvider(props: IndexedDBProps) {
         action: "delete",
         args: [key],
         handleEvents: {
-          onSuccess: result => console.log("Deleted:", result),
+          onSuccess: result => {
+            console.log("Deleted:", result);
+          },
           onError: error => console.error("Delete Error:", error)
         }
       });
     }
 
 		return [
-      data,
+      dataDB,
       {
         add,
         put,

@@ -110,7 +110,7 @@ export default function DataProvider(props: {children: JSXElement}) {
         
         categoriesList.push(catego);
 
-        useFetch('POST', `/category`, catego);
+        // useFetch('POST', `/category`, catego);
       } else {
         let catego = {...category}
         catego.index = index;
@@ -141,6 +141,30 @@ export default function DataProvider(props: {children: JSXElement}) {
 
   console.log(categoriesList);
   console.log(resourcesList);
+
+  // function sleep(ms: number) {
+  //   return new Promise(resolve => setTimeout(resolve, ms));
+  // }
+  
+  // async function createCategories(categoriesList: any) {
+  //   for (const category of categoriesList) {
+  //     await fetch(
+  //       "https://nexonutilis-server.vercel.app/resource",
+  //       {
+  //         method: 'POST',
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           'Access-Control-Allow-Origin': '*',
+  //         },
+  //         mode: 'cors',
+  //         body: JSON.stringify(category)
+  //       }
+  //     )
+  //     await sleep(1000); // Delay of 100 milliseconds between requests
+  //   }
+  // }
+  
+  // createCategories(resourcesList);
 
   createEffect(on(path, (path) => {
     setData("path", []);

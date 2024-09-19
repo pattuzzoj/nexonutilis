@@ -1,80 +1,61 @@
-import { Switch, Match, For, Show, } from "solid-js";
+import { Switch, Match, For, Show, createEffect, createSignal, } from "solid-js";
 import Icon from "components/ui/icon";
 import { useData } from "context/DataContext";
-import useSaved from "hooks/useSaved";
+import CategoryCard from "components/ui/cards/categoryCard";
+import ResourceCard from "components/ui/cards/resourceCard";
+import Breadcrumb from "components/navigation/breadcrumb";
+import { Item } from "types/interfaces";
 
 function Menu() {
   const [data] = useData();
-  const [savedItems, addItem, {removeItem}] = useSaved();
+  const [title, setTitle] = createSignal(data.item.title);
+  const [currentPage, setCurrentPage] = createSignal(1);
+  const quantity = document.documentElement.clientWidth > 1200 ? 12 : 4;
+
+  createEffect(() => {
+    if(data.item.title != title()) {
+      setCurrentPage(1);
+      setTimeout(() => setTitle(data.item.title), 50);
+    }
+  })
 
   return (
-    <Switch>
-      <Match when={data.item?.type == "category"}>
-        <div class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4 transition-all duration-300">
-          <For each={data.item?.items}>
-            {(item) => (
-              <a
-              class="
-              group w-full flex flex-col justify-between gap-4 rounded-2xl p-4 
-              bg-gray-200 dark:bg-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-700
-              shadow-sm hover:shadow-lg shadow-gray-300 dark:shadow-zinc-950
-              hover:scale-95 transition-all duration-300
-              "
-              href={item.url}
-              >
-                <span class="flex justify-between">
-                  <h3 class="text-xl">{item.title}</h3>
-                  <Icon name="RiArrowsArrowRightDoubleLine" class="opacity-0 group-hover:opacity-100 transition-all size-7"/>
-                </span>
-                <p class="text-base font-medium font-sans line-clamp-3 opacity-90">{item.description}</p>
-                <Show when={item?.icon}>
-                  <Icon name={item?.icon} class="w-full flex flex-row-reverse size-6"/>
-                </Show>
-              </a>
+    <div class="h-full flex flex-col justify-between gap-5">
+      <span class="w-fit">
+        <Breadcrumb />
+      </span>
+      <Switch>
+        <Match when={data.item.type == "category"}>
+          <div class="h-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-stretch content-start place-content-center place-items-stretch gap-4">
+            <For each={data.item.items}>
+              {(item) => <CategoryCard title={item.title} description={item.description} url={item.url} icon={(item as any)?.icon} />}
+            </For>
+          </div>
+        </Match>
+        <Match when={data.item.type == "resource"}>
+          <div class="h-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-stretch content-start place-content-center place-items-stretch gap-4">
+            <For each={(data.item.items as Array<Item>)?.slice(quantity * (currentPage() - 1), quantity * currentPage())}>
+              {(item) => <ResourceCard {...item} category={data.item.type} />}
+            </For>  
+          </div>
+        </Match>
+      </Switch>
+      <Show when={data.item.type == "resource" && data.item.items.length > quantity}>
+        <div class="flex justify-center gap-2">
+          <button class="rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700" onClick={() => setCurrentPage(currentPage() == 1 ? 1 : currentPage() - 1)}>
+            <Icon name="RiArrowsArrowLeftSLine" class="text-xl" />
+          </button>
+          <For each={new Array(Math.ceil(data.item.items.length / quantity))}>
+            {(_item, index) => (
+              <button onClick={() => setCurrentPage(index() + 1)} class={`${currentPage() == index() + 1 ? "bg-gray-100 dark:bg-zinc-700" : ""} h-8 w-8 flex items-center justify-center rounded-xl p-2 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700`}>{index() + 1}</button>
             )}
           </For>
+          <button class="rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-700" onClick={() => setCurrentPage(Math.ceil(data.item.items.length / quantity) == currentPage() ? Math.ceil(data.item.items.length / quantity) : currentPage() + 1)}>
+            <Icon name="RiArrowsArrowRightSLine" class="text-xl" />
+          </button>
         </div>
-      </Match>
-      <Match when={data.item?.type == "resource"}>
-        <div class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4 transition-all duration-300">
-          <For each={data.item?.items}>
-            {(item) => (
-              <div
-              class="
-              group w-full flex flex-col justify-between gap-5 rounded-2xl p-4 
-              bg-gray-200 dark:bg-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-700
-              shadow-sm hover:shadow-lg shadow-gray-300 dark:shadow-zinc-950
-              hover:scale-95 transition-all duration-300
-              "
-              >
-                <span class="flex justify-between">
-                  <h3 class="text-xl">{item.title}</h3>
-                  <span class="group hover:scale-110 text-black dark:text-white">
-                    <Show when={savedItems().find((savedItem: any) => savedItem.url == item.url)} fallback={(
-                      <>
-                        <button onClick={() => addItem({title: item.title, description: item.description, url: item.url})}><Icon name="BsBookmarkPlus" class="size-6 group-hover:hidden"/></button>
-                        <button onClick={() => addItem({title: item.title, description: item.description, url: item.url})}><Icon name="BsBookmarkPlusFill" class="size-6 hidden group-hover:block"/></button>
-                      </>
-                    )}>
-                      <button onClick={() => removeItem(item.url)}>
-                        <Icon name="BsBookmarkCheckFill" class="size-6 group-hover:hidden"/>
-                        <Icon name="BsBookmarkDash" class="size-6 hidden group-hover:block"/>
-                      </button>
-                    </Show>
-                  </span>
-                </span>
-                <p class="text-base font-medium font-sans line-clamp-3 opacity-90">{item.description}</p>
-                <span class="flex flex-row-reverse gap-2 md:gap-4 w-full">
-                  <button class="group flex justify-center items-center gap-2 rounded-xl p-2 text-black dark:text-white">
-                    <Icon name="OcCopy2" class="size-4"/>
-                  </button>
-                </span>
-              </div>
-            )}
-          </For>  
-        </div>
-      </Match>
-    </Switch>
+      </Show>
+    </div>
   );
 }
 

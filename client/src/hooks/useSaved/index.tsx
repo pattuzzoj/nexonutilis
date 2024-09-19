@@ -15,17 +15,14 @@ function useSaved<T>(): useSavedReturn<T> {
 
   const removeItem = (url: string) => {
     const list: Array<T> = savedList();
-    let indexItem = null;
 
     for (let index = 0; index < list.length; index++) {
       if((list[index] as T & {url: string}).url == url) {
-        indexItem = index;
+        list.splice(index, 1);
 
         break;
       }
     }
-
-    list.splice(indexItem, 1);
     setSavedList(list);
   }
 
