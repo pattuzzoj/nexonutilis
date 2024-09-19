@@ -1,6 +1,6 @@
 import { createEffect } from "solid-js";
-import useFetch from "hooks/revision/useFetch";
-import useLocalStorage from "hooks/revision/useLocalStorage";
+import useFetch from "hooks/useFetch";
+import useLocalStorage from "hooks/useLocalStorage";
 import { baseURL } from "utils/constants";
 
 function getCategories() {

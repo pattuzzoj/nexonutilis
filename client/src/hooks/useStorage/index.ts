@@ -1,4 +1,4 @@
-import useEventListener from "hooks/revision/useEventListener";
+import useEventListener from "hooks/useEventListener";
 import { Accessor, Setter, createSignal, createEffect } from "solid-js";
 import { isServer } from "solid-js/web";
 

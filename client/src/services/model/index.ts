@@ -1,4 +1,4 @@
-import useFetch from "hooks/revision/useFetch";
+import useFetch from "hooks/useFetch";
 
 const baseURL = "";
 

@@ -1,5 +1,5 @@
 import { Accessor, Setter } from "solid-js";
-import useStorage from "hooks/revision/useStorage";
+import useStorage from "hooks/useStorage";
 
 interface LocalStorageOptions<T> {
   serializer?: (value: T) => string;

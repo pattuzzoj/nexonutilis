@@ -1,5 +1,5 @@
 import { Accessor, Setter, createEffect } from "solid-js";
-import useLocalStorage from "hooks/revision/useLocalStorage";
+import useLocalStorage from "hooks/useLocalStorage";
 
 type Theme = "light" | "dark";
 

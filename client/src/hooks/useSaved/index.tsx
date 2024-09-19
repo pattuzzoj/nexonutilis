@@ -1,5 +1,5 @@
 import { Accessor } from "solid-js";
-import useLocalStorage from "hooks/revision/useLocalStorage";
+import useLocalStorage from "hooks/useLocalStorage";
 
 type useSavedReturn<T> = [
   Accessor<Array<T>>,
