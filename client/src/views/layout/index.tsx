@@ -22,7 +22,7 @@ function Layout(props: LayoutProps) {
   return (
     <DataProvider>
       <Show when={isOpen()}>
-        <div class={`${!isLoading() && "scale-0"} absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-700`}>
+        <div class={`${!isLoading() && "scale-0"} absolute top-0 left-0 z-50 h-full w-full flex justify-center items-center text-white bg-zinc-800 transition-all duration-700`}>
           <Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
         </div>
       </Show>
