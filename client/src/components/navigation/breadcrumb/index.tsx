@@ -6,15 +6,15 @@ function Breadcrumb() {
   const [data] = useData();
 
   return (
-    <span class="max-md:hidden flex justify-between items-center gap-2">
+    <span class="max-md:hidden flex items-center gap-2">
       <a href="/">
-        <Icon name="FiHome" class="w-full flex items-center size-10 p-2 rounded-xl dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 hover:scale-95" />
+        <Icon name="FiHome" class="w-full flex items-center size-10 p-2 rounded-xl hover:text-hover bg-primary hover:bg-hover active:bg-active hover:scale-95" />
       </a>
       <For each={data.path}>
-        {(path) => (
+        {(path, index) => (
           <>
             <span class="font-bold text-xl">/</span>
-            <a class="p-2 rounded-lg dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 hover:shadow-lg shadow-gray-300 dark:shadow-zinc-900 hover:scale-95" href={path.url}>{path.title}</a>
+            <a class={`${(index() == data.path.length) && "text-accent bg-accent"} p-2 rounded-lg hover:text-hover bg-primary hover:bg-hover active:bg-active hover:scale-95`} href={path.url}>{path.title}</a>
           </>
         )}
       </For>

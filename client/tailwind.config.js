@@ -1062,14 +1062,32 @@ export default {
       50: '50',
     },
     extend: {
-      colors: {
-        dark: '#1B152B',
-        'purple': {
-          DEFAULT: '#7F56D9',
-          light: '#C7A0F9'
-        },
-        white: '#F9FAFB'
-      },
+      textColor: ({theme}) => ({
+        primary: 'var(--primary-color)',
+        secondary: 'var(--secondary-color)',
+        focus: 'var(--focus-color)',
+        hover: 'var(--hover-color)',
+        accent: 'var(--accent-color)',
+        active: 'var(--active-color)',
+        inactive: 'var(--inactive-color)',
+        disabled: 'var(--disabled-color)',
+        ...theme('colors')
+      }),
+      backgroundColor: ({ theme }) => ({
+        primary: 'var(--primary-bg-color)',
+        secondary: 'var(--secondary-bg-color)',
+        focus: 'var(--focus-bg-color)',
+        hover: 'var(--hover-bg-color)',
+        accent: 'var(--accent-bg-color)',
+        active: 'var(--active-bg-color)',
+        inactive: 'var(--inactive-bg-color)',
+        disabled: 'var(--disabled-bg-color)',
+        ...theme('colors')
+      }),
+      boxShadowColor: ({ theme }) => ({
+        primary: 'var(--shadow-color)',
+        ...theme('colors')
+      }),
     },
   },
   plugins: [],

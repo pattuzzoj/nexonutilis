@@ -32,22 +32,31 @@ function SearchBar() {
         }
       });
     }
+
+    setValue(input.value);
+  }
+
+  function handleClick(e: any) {
+    if(e?.target?.tagName == 'A') {
+      setValue('');
+      setList([]);
+    }
   }
 
   return (
     <div class="relative">
       <input
-      class="peer w-full text-center bg-gray-300 focus:bg-gray-100 dark:bg-zinc-800 p-2 rounded-xl "
+      class="peer w-full text-center p-2 rounded-xl bg-primary focus:focus-color dark:focus:outline-blue-200 outline-2"
       type="text" onInput={filterList} value={value()} placeholder="Search Resources" />
       <Show when={list().length}>
         <ul
-        class="w-full flex flex-col gap-1 absolute top-[110%] left-0 z-10 rounded-xl p-2 bg-gray-300 dark:bg-zinc-800 shadow-md shadow-black"
-        onClick={(e) => {if(e.target.tagName == 'A') setValue(''); setList([]);}}
+        class="w-full flex flex-col gap-1 absolute top-[110%] left-0 z-10 rounded-xl p-2 bg-primary shadow-md shadow-black"
+        onClick={handleClick}
         >
           <For each={list()}>
             {({title, url, category}) => (
             <li>
-              <a class="flex justify-between items-center rounded-xl p-1 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700" href={url}>{title}<span class="rounded-xl p-2 text-sm bg-gray-100 dark:bg-zinc-900">{category}</span></a>
+              <a class="flex justify-between items-center rounded-xl p-1 text-sm hover:text-hover hover:bg-secondary" href={url}>{title}<span class="rounded-xl p-2 text-sm bg-accent">{category}</span></a>
               </li>
             )}
           </For>

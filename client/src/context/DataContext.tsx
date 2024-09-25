@@ -1,10 +1,11 @@
-import { Accessor, JSXElement, Setter, createContext, createEffect, on, useContext } from "solid-js";
+import { Accessor, JSXElement, Setter, createContext, createEffect, createSignal, on, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 import { useNavigate, useLocation } from "@solidjs/router";
 import { getCategories } from "services/category";
 import { getResources } from "services/resource";
 import { useIndexedDB } from "./IndexedDB";
 import { Category, Item } from "types/interfaces";
+import Icon from "components/ui/icon";
 
 export const DataContext = createContext();
 
@@ -24,39 +25,40 @@ function DataProvider(props: {children: JSXElement}) {
 	const [useStore] = useIndexedDB();
 	const [resourceData, resourceStore] = useStore("resource");
 	const [categoryData, categoryStore] = useStore("category");
-	const [categoriesResponse] = getCategories() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
-	const [resourcesResponse] = getResources() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
+	// const [categoriesResponse] = getCategories() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
+	// const [resourcesResponse] = getResources() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
 	const navigate = useNavigate();
   const location = useLocation();
   const path = () => location.pathname;
+  const [isLoading, setIsLoading] = createSignal(true);
 
-	createEffect(on(categoriesResponse, (categories) => {
-		categories.data.forEach((category: any) => {
-			categoryStore.put(category);
-		});
+	// createEffect(on(categoriesResponse, (categories) => {
+	// 	categories.data.forEach((category: any) => {
+	// 		categoryStore.put(category);
+	// 	});
 
-		categories.deletedIds.forEach(id => {
-			categoryStore.del(id);
-		});
+	// 	categories.deletedIds.forEach(id => {
+	// 		categoryStore.del(id);
+	// 	});
 
-		if(categories.data.length || categories.deletedIds.length) {
-			categoryStore.getAll();
-		}
-	}, {defer: true}));
+	// 	if(categories.data.length || categories.deletedIds.length) {
+	// 		categoryStore.getAll();
+	// 	}
+	// }, {defer: true}));
 
-	createEffect(on(resourcesResponse, (resources) => {
-		resources.data.forEach((resource: any) => {
-			resourceStore.put(resource);
-		});
+	// createEffect(on(resourcesResponse, (resources) => {
+	// 	resources.data.forEach((resource: any) => {
+	// 		resourceStore.put(resource);
+	// 	});
 
-		resources.deletedIds.forEach(id => {
-			categoryStore.del(id);
-		});
+	// 	resources.deletedIds.forEach(id => {
+	// 		categoryStore.del(id);
+	// 	});
 
-		if(resources.data.length || resources.deletedIds.length) {
-			resourceStore.getAll();
-		}
-	}, {defer: true}));
+	// 	if(resources.data.length || resources.deletedIds.length) {
+	// 		resourceStore.getAll();
+	// 	}
+	// }, {defer: true}));
 
 	createEffect(on(categoryData, (categories: Array<Category>) => {
 		if(categories) {
@@ -96,6 +98,7 @@ function DataProvider(props: {children: JSXElement}) {
 			data.routes.set("/", {id: null, type: "category", items: startedMenu} as unknown as Category);
 
 			setRoute(path());
+			setTimeout(() => setIsLoading(false), 200)
 		}
 	}, {defer: true}));
 
@@ -145,6 +148,9 @@ function DataProvider(props: {children: JSXElement}) {
 	
 	return (
 		<DataContext.Provider value={[data, setData]}>
+			<div class={`${!isLoading() && "invisible opacity-0 scale-0"} absolute top-0 left-0 z-50 h-full w-full flex justify-center items-center text-primary bg-primary delay-100 transition-["height"] duration-1000`}>
+				<Icon name="FaBrandsConnectdevelop" class="size-12 animate-spin duration-300"/>
+			</div>
       {props.children}
 		</DataContext.Provider>
 	);

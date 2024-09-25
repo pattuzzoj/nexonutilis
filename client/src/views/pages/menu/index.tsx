@@ -21,19 +21,17 @@ function Menu() {
 
   return (
     <div class="h-full flex flex-col justify-between gap-5">
-      <span class="w-fit">
-        <Breadcrumb />
-      </span>
+      <Breadcrumb />
       <Switch>
         <Match when={data.item.type == "category"}>
-          <div class="h-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-stretch content-start place-content-center place-items-stretch gap-4">
+          <div class="h-full overflow-y-scroll grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-stretch content-start place-content-center place-items-stretch gap-4">
             <For each={data.item.items}>
               {(item) => <CategoryCard title={item.title} description={item.description} url={item.url} icon={(item as any)?.icon} />}
             </For>
           </div>
         </Match>
         <Match when={data.item.type == "resource"}>
-          <div class="h-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-stretch content-start place-content-center place-items-stretch gap-4">
+          <div class="h-full overflow-y-scroll grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-stretch content-start place-content-center gap-4">
             <For each={(data.item.items as Array<Item>)?.slice(quantity * (currentPage() - 1), quantity * currentPage())}>
               {(item) => <ResourceCard {...item} category={data.item.type} />}
             </For>  

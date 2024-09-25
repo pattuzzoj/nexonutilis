@@ -34,6 +34,7 @@ import {
   FaRegularBookmark,
   FaBrandsConnectdevelop,
   FaSolidLaptopCode,
+  FaSolidMagnifyingGlass
 } from "solid-icons/fa";
 import { BiSolidCopy } from "solid-icons/bi";
 import { OcCopy2, OcLinkexternal2, OcPerson3 } from "solid-icons/oc";
@@ -87,6 +88,7 @@ export type iconList =
   | "FaRegularBookmark"
   | "FaSolidIcons"
   | "FaSolidLaptopCode"
+  | "FaSolidMagnifyingGlass"
   | "FiActivity"
   | "FiDatabase"
   | "FiHome"
@@ -142,6 +144,7 @@ const iconComponent = {
   FaRegularBookmark,
   FaSolidIcons,
   FaSolidLaptopCode,
+  FaSolidMagnifyingGlass,
   FiActivity,
   FiDatabase,
   FiHome,
@@ -182,7 +185,7 @@ export default function Icon(props: IconProps) {
   const IconComponent = iconComponent[icon.name];
 
   return (
-    <Show when={IconComponent} fallback={<span>"Icon not found"</span>}>
+    <Show when={IconComponent} fallback={<span>Icon: "{props.name}" not found</span>}>
       <IconComponent {...attrs}/>
     </Show>
   );
