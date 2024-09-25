@@ -25,40 +25,40 @@ function DataProvider(props: {children: JSXElement}) {
 	const [useStore] = useIndexedDB();
 	const [resourceData, resourceStore] = useStore("resource");
 	const [categoryData, categoryStore] = useStore("category");
-	// const [categoriesResponse] = getCategories() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
-	// const [resourcesResponse] = getResources() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
+	const [categoriesResponse] = getCategories() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
+	const [resourcesResponse] = getResources() as [Accessor<{data: any, deletedIds: Array<number>}>, Setter<any>];
 	const navigate = useNavigate();
   const location = useLocation();
   const path = () => location.pathname;
   const [isLoading, setIsLoading] = createSignal(true);
 
-	// createEffect(on(categoriesResponse, (categories) => {
-	// 	categories.data.forEach((category: any) => {
-	// 		categoryStore.put(category);
-	// 	});
+	createEffect(on(categoriesResponse, (categories) => {
+		categories.data.forEach((category: any) => {
+			categoryStore.put(category);
+		});
 
-	// 	categories.deletedIds.forEach(id => {
-	// 		categoryStore.del(id);
-	// 	});
+		categories.deletedIds.forEach(id => {
+			categoryStore.del(id);
+		});
 
-	// 	if(categories.data.length || categories.deletedIds.length) {
-	// 		categoryStore.getAll();
-	// 	}
-	// }, {defer: true}));
+		if(categories.data.length || categories.deletedIds.length) {
+			categoryStore.getAll();
+		}
+	}, {defer: true}));
 
-	// createEffect(on(resourcesResponse, (resources) => {
-	// 	resources.data.forEach((resource: any) => {
-	// 		resourceStore.put(resource);
-	// 	});
+	createEffect(on(resourcesResponse, (resources) => {
+		resources.data.forEach((resource: any) => {
+			resourceStore.put(resource);
+		});
 
-	// 	resources.deletedIds.forEach(id => {
-	// 		categoryStore.del(id);
-	// 	});
+		resources.deletedIds.forEach(id => {
+			categoryStore.del(id);
+		});
 
-	// 	if(resources.data.length || resources.deletedIds.length) {
-	// 		resourceStore.getAll();
-	// 	}
-	// }, {defer: true}));
+		if(resources.data.length || resources.deletedIds.length) {
+			resourceStore.getAll();
+		}
+	}, {defer: true}));
 
 	createEffect(on(categoryData, (categories: Array<Category>) => {
 		if(categories) {
