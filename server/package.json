@@ -1,5 +1,6 @@
 {
   "type": "module",
+  "main": "./index.js",
   "dependencies": {
     "@vercel/postgres": "^0.8.0",
     "cors": "^2.8.5",
